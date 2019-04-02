@@ -46,12 +46,15 @@ echo "$0 -m ${COMMIT}"
 # Build website
 R -e "Sys.setenv(RSTUDIO_PANDOC='/Applications/RStudio.app/Contents/MacOS/pandoc'); blogdown::build_site()"
 
-# Sync Github
+# Sync Github repo of public/ (the static website)
 cd public/
-#git init
-#echo "node_modules/" > .gitignore
 git add .
 git commit -m ${COMMIT}
-#git remote add origin https://github.com/js2264/js2264.github.io.git
 git push
 cd ..
+
+# Sync Github repo of the Hugo content (this root)
+echo "public/" > .gitignore
+git add .
+git commit -m ${COMMIT}
+git push
