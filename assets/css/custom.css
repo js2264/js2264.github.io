@@ -1,0 +1,51 @@
+/*************************************************
+ *  Navigation Bar
+ **************************************************/
+.navbar {
+  background: #CBCBCB !important;
+  background-image: url('http://js2264.github.io/img/backgrounds/background_3.jpg') !important;
+}
+
+.navbar-brand {
+  padding-right: 170px;
+}
+
+/*************************************************
+ *  CV button
+ **************************************************/
+.btn.btn-outline-primary.dark h3 {
+  font-size: 1rem;
+  font-weight: 300;
+  padding: 5px;
+  margin: 0px;
+  text-decoration: none;
+  color: #455d75;
+}
+
+.btn.btn-outline-primary.dark:hover h3 {
+  color: #fff;
+}
+
+.cv {
+  margin-top: 30px;
+}
+
+/*************************************************
+ *  Map
+ **************************************************/
+#map {
+  margin-top: 50px;
+}
+
+/*************************************************
+ *  Footer
+ **************************************************/
+footer.site-footer {
+    padding: 0px;
+}
+footer.site-footer p {
+    font-size: 0.6em;
+}
+footer .fas {
+    font-size: 1em
+}
