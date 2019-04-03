@@ -1,9 +1,9 @@
 ---
-title: How to use RMarkdown?
+title: RMarkdown 101
 subtitle: RMarkdown is amazing. But how to use it? 
 author: Jacques Serizay
 date: 2018-11-23
-slug: how-to-Rmarkdown
+slug: Rmarkdown_101
 categories:
     - R
     - markdown
@@ -39,7 +39,7 @@ breaks &lt;- seq(-1, 2, length.out = length(cols) + 1)
 clamped.developmental.expression &lt;- clamp(developmental.expression, c(-2, 2))
 pheatmap(clamped.developmental.expression, cluster_cols = F, main = &quot;Expression of germline genes during development&quot;, 
     show_rownames = F, breaks = breaks, color = cols, scale = &quot;none&quot;)</code></pre>
-<p><img src="/post/Rmd_trial_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p><img src="/post/Rmarkdown_101_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 <p>Looks ok, but can we do better? For example, the rows are automatically reorganized by hierarchical clustering. But we can see that there seem to be 3 major groups of germline genes. Let’s see if we can cluster using a k-means approach and see whether this improves the resulting heatmap.</p>
 <pre class="r"><code># We can identify the clusters in our data with k-means
 clusters &lt;- kmeans(developmental.expression, centers = 3)$cluster
@@ -52,7 +52,7 @@ clamped.developmental.expression &lt;- clamp(ranked.developmental.expression, c(
 pheatmap(clamped.developmental.expression, cluster_cols = F, cluster_rows = F, 
     main = &quot;Expression of germline genes during development&quot;, show_rownames = F, 
     breaks = breaks, color = cols, scale = &quot;none&quot;)</code></pre>
-<p><img src="/post/Rmd_trial_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p><img src="/post/Rmarkdown_101_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 <p>This looks <strong>MUCH</strong> better now! It clearly appears that there are three major subsets of genes within the germline specific genes:<br />
 - The genes almost exclusively expressed at the YA (yound adult) stage;<br />
 - The genes expressed at the YA stage, with an expression already detected in L4 stage;<br />
@@ -72,7 +72,7 @@ sort.per.clusters</code></pre>
 ##         colnames(df2) &lt;- colnames(df)
 ##         return(df2)
 ##     }
-## &lt;bytecode: 0x7fe1fadd5c30&gt;</code></pre>
+## &lt;bytecode: 0x7fc09ae90808&gt;</code></pre>
 <pre class="r"><code>clamp</code></pre>
 <pre><code>## function(df, lims = c(-99999, 99999)) {
 ##         df2 &lt;- as.data.frame(df)
@@ -80,7 +80,7 @@ sort.per.clusters</code></pre>
 ##         df2[df2 &gt; lims[2]] &lt;- lims[2]
 ##         return(df2)
 ##     }
-## &lt;bytecode: 0x7fe1f7c69188&gt;</code></pre>
+## &lt;bytecode: 0x7fc096fe9408&gt;</code></pre>
 <pre class="r"><code># Session info
 sessionInfo()</code></pre>
 <pre><code>## R version 3.4.4 (2018-03-15)

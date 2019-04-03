@@ -1,9 +1,9 @@
 ---
-title: How to use RMarkdown?
+title: RMarkdown 101
 subtitle: RMarkdown is amazing. But how to use it? 
 author: Jacques Serizay
 date: 2018-11-23
-slug: how-to-Rmarkdown
+slug: Rmarkdown_101
 categories:
     - R
     - markdown

@@ -44,7 +44,7 @@ set -- "${POSITIONAL[@]}" # restore positional parameters
 echo "$0 -m ${COMMIT}"
 
 # Build website
-R -e "Sys.setenv(RSTUDIO_PANDOC='/Applications/RStudio.app/Contents/MacOS/pandoc'); blogdown::build_site()"
+Rscript bin/build_website.R
 
 # Sync Github repo of public/ (the static website)
 cd public/
