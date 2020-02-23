@@ -1,5 +1,5 @@
 ---
-title: New preprint out describing the different 
+title: Tissue-specific profiling reveals distinctive regulatory architectures for ubiquitous, germline and somatic genes
 author: Jacques Serizay
 date: 2020-02-21
 lastmod: 2020-02-21
