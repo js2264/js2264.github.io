@@ -1,0 +1,112 @@
+```{r}
+
+
+## Require
+library(boxoffice)
+source('shared/bin/R/custom_R_functions.R')
+library(tidyverse)
+library(lubridate)
+
+
+
+## Workflow 
+movie <- 
+date.of.release <- "2017-12-20"
+metrics.greatestshowman <- movie.metrics('The Greatest Showman', date.of.release, top.n = 50)
+metrics.thepost <- movie.metrics('The Post', date.of.release, top.n = 50)
+metrics.starwars <- movie.metrics('Star Wars Ep. VIII', date.of.release, top.n = 50)
+p1 <- plot.metric(metrics.greatestshowman, "total_gross", plotly = T)
+p2 <- plot.metric(metrics.thepost, "total_gross", plotly = T)
+
+
+
+
+
+
+## metrics.R
+movie.metrics <- function(movie, date.of.release, top.n = 5, verbose = F) {
+    
+    print.infos(movie, date.of.release, top.n)
+    
+    date.of.release <- correct.release.date(movie, as.Date(date.of.release))
+    dor <- date.of.release
+    i <- 1
+    bo.dor <- boxoffice::boxoffice(date = as.Date(date.of.release))
+    is.in.bo <- movie %in% bo.dor$movie
+    res <- bo.dor[bo.dor$movie == movie,]
+    
+    while (is.in.bo == T) {
+        i <- i + 1
+        date.of.release <- as.Date(date.of.release) + 1
+        if (i %% 15 == 0 & verbose) 
+            message("[INFO] Scanning ", date.of.release, "...")
+        bo.dor <- boxoffice::boxoffice(date = as.Date(date.of.release), top_n = top.n)
+        is.in.bo <- movie %in% bo.dor$movie
+        if (is.in.bo) 
+            res[i, ] <- bo.dor[bo.dor$movie == movie,]
+    }
+    
+    results <- as_tibble(res)
+    results$date <- as.Date(dor + results$days)
+    results <- results[, c("gross", "percent_change", "theaters", "per_theater", "total_gross", "date")]
+    results[1, 'percent_change'] <- 0
+    
+    attr(results, 'movie') <- movie
+    attr(results, 'date.of.release') <- dor
+    attr(results, 'distributor') <- res$distributor %>% unique
+    attr(results, 'days.in.boxoffice') <- nrow(res)
+    attr(results, 'boxoffice.threshold') <- top.n
+    attr(results, 'total.gross') <- sum(res$gross)
+    class(results) <- c("movieMetrics", class(results))
+    
+    return(results)
+    
+}
+
+## plots.R
+plot.metric <- function(metrics, metric = "gross", plotly = T) {
+    metrics$day <- wday(metrics$date, label = T, week_start = 1)
+    p <- ggplot(metrics, aes_string(x = "date", y = metric)) + 
+        geom_point(aes(col = day)) + 
+        geom_smooth() +
+        theme_classic() +
+        labs(title = attr(metrics, 'movie'))
+    if (plotly)
+        p <- ggplotly(p)
+    return(p)
+}
+
+## utils.R 
+correct.release.date <- function(movie, date.of.release, top.n = 100) {
+    bo.dor <- boxoffice::boxoffice(date = as.Date(date.of.release), top_n = top.n)
+    
+    if (movie %notin% bo.dor$movie) {
+        stop(paste0("[ERROR] The movie '", movie, "' not found in the top ", top.n, " box-office the ", date.of.release, ". Please check movie name and date of release."))
+    } else {
+        date <- as.Date(date.of.release - bo.dor[bo.dor$movie == movie,]$days + 1)
+        message("[INFO] The movie '", movie, "' was in the top ", top.n, " box-office for the first time the ", date, ".")
+        return(date)
+    }
+}
+correct.movie.name <- function(movie, bo) {
+    
+}
+print.infos <- function(movie, date.of.release, top.n) {
+    message("[INFO] Fetching data for the movie: ", movie, ".")
+    message("[INFO] Input date of release: ", date.of.release, ".")
+    message("[INFO] Box-office limit: ", top.n, ".")
+}
+print.movieMetrics <- function(x) {
+   NextMethod(x)
+   message("Movie: ", attr(x,"movie"))
+   message("Date of release: ", attr(x,"date.of.release"))
+   message("Distributor: ", attr(x,"distributor"))
+   message("Days in boc-office: ", attr(x,"days.in.boxoffice"))
+   message("Box-office threshold: ", attr(x,"boxoffice.threshold"))
+   message("Total gross: ", attr(x,"total.gross"))
+   invisible(x)
+}
+is.weekend <- function(x) {
+    
+}
+```

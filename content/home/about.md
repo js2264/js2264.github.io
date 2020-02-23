@@ -20,7 +20,7 @@ author = "admin"
   #gradient_end = "pink"
   
   # Background image.
-  image = "backgrounds/background_3.jpg"  # Name of image in `static/img/`.
+  # image = "backgrounds/background_3.jpg"  # Name of image in `static/img/`.
 
   # Text color (true=light or false=dark).
   text_color_light = false
