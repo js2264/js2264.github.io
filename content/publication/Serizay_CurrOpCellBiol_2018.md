@@ -37,7 +37,7 @@ projects = []
 tags = []
 
 # Links (optional).
-url_pdf = "./files/Serizay_CurrOpCellBiol_2018.pdf"
+url_pdf = "https://www.sciencedirect.com/science/article/pii/S0955067417301722"
 url_custom = [{name = "Curr. Op. Cell Biol.", url = "https://www.sciencedirect.com/science/article/pii/S0955067417301722"}]
 
 # Does this page contain LaTeX math? (true/false)

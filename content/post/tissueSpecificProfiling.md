@@ -20,4 +20,4 @@ header:
 summary: "The preprint of my work on tissue-specific features of the chromatin is out!!"
 ---
 
-I'll describe in greater details the findings of this project, but for now, here is the link to the preprint, currently on bioRxiv: [click here](https://www.biorxiv.org/content/10.1101/2020.02.20.958579v1)
+I'll describe in greater details the findings of this project, but for now, here is the link to the preprint, currently on bioRxiv: [click here](https://www.biorxiv.org/content/10.1101/2020.02.20.958579v1) or [here](https://doi.org/10.1101/2020.02.20.958579).
