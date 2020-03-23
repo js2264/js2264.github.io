@@ -92,6 +92,8 @@ email = ""
 
 +++
 
-I am currently doing a PhD at the University of Cambridge, in Julie Ahringer lab.
+I am currently doing a PhD at the University of Cambridge, in Julie Ahringer lab.  
 
-My main project aims to shed some light on possible mechanisms of genome-wide gene regulation. I rely on various genome-wide sequencing techniques as much as a solid understanding of downstream bioinformatic analysis processes. Even though I initially started as a wet biologist, my project has taken a larger bioinformatic dimension and i am now following a much more computational-oriented approach. To answer fundamental biological questions, I use R as a way to dig into the data I generated to highlight biological mechanisms in development.
+My main project aims to shed some light on the tissue-specific mechanisms of gene regulation used during embryonic and post-embryonic development. I come from an experimental biology background, but I quickly moved toward a "wet/dry" PhD (*i.e.* generating high-throughput sequencing libraries during the day, and analysing the resulting datasets at night). To answer fundamental biological questions, I use R to dig into the data I generated to highlight biological mechanisms in development.  
+
+On my spare time, I am an ardent moviegoer. I wrote an R package to analyse movie box-office results ([link here](https://github.com/js2264/moviestats)), and I am now moving to Python to build an interactive dashboard to visually investigate the trends in movie industry by year, genre and actor. But I can still enjoy a movie without thinking about numbers: [check out my Letterboxd](https://letterboxd.com/jserizay/).
