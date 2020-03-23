@@ -3,7 +3,7 @@ title = "Tissue-specific profiling reveals distinctive regulatory architectures 
 date = 2020-02-20
 draft = false
 
-authors = ["**Jacques Serizay**", "Yan Dong", "Jürgen Jänes", "Michael Chesney", "Chiara Cerrato", "Julie Ahringer"]
+authors = ["**Jacques Serizay***", "Yan Dong", "Jürgen Jänes", "Michael Chesney", "Chiara Cerrato", "Julie Ahringer"]
 
 # Publication type.
 # Legend:

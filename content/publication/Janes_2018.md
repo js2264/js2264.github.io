@@ -4,7 +4,7 @@ date = 2018-06-10T00:00:00
 draft = false
 
 # Authors. Comma separated list, e.g. `["Bob Smith", "David Jones"]`.
-authors = ["Jurgen Janes ✝", "Yan Dong ✝", "Michael Schoof ‡", "**Jacques Serizay ‡**", "Alex Appert", "Chiara Cerrato", "Carson Woodbury", "Ron Chen", "Carolina Gemma", "Ni Huang", "Djem Kissiov", "Przemyslaw Stempor", "Annette Steward", "Eva Zeiser", "Sascha Sauer", "Julie Ahringer"]
+authors = ["Jurgen Janes ✝", "Yan Dong ✝", "Michael Schoof ‡", "**Jacques Serizay* ‡**", "Alex Appert", "Chiara Cerrato", "Carson Woodbury", "Ron Chen", "Carolina Gemma", "Ni Huang", "Djem Kissiov", "Przemyslaw Stempor", "Annette Steward", "Eva Zeiser", "Sascha Sauer", "Julie Ahringer"]
 
 # Publication type.
 # Legend:
