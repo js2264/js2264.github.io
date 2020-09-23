@@ -18,6 +18,7 @@ header:
     image: 'posts/HUGO.jpg' # relative to `static/img/` folder
     focal_point: '' # Options: Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight
 summary: "Here is how I set up a Hugo website in less than 15 minutes!"
+draft: true 
 ---
 
 One thing that nobody doesn't *really* need in academia is a nice, shiny personal website. Most people are content with their University website, which usually only has a single page to introduce the lab research, members, publications, etc. The only really *personal* page that most people will have is their directory page. Needless to say, being only able to see someone's (usually poor quality) photo and their email address is sometimes not enough, especially when you're on the hunt for jobs, or trying to know your collaborators a bit better, or have a peek at what your competitors are working on...  

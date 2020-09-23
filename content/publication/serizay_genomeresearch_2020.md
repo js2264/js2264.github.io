@@ -14,11 +14,11 @@ authors = ["**Jacques Serizay***", "Yan Dong", "Jürgen Jänes", "Michael Chesne
 # 4 = Report
 # 5 = Book
 # 6 = Book section
-publication_types = ["3"]
+publication_types = ["2"]
 
 # Publication name and optional abbreviated version.
-publication = "In *bioRxiv*"
-publication_short = "In *bioRxiv*"
+publication = "In *Genome Research*"
+publication_short = "In *Genome Research*"
 
 # Abstract and optional shortened version.
 abstract = "Despite increasingly detailed knowledge of gene expression patterns, the regulatory architectures that drive them are not well understood. To address this, we compared transcriptional and regulatory element activities across five adult tissues of C. elegans, covering ∼90% of cells, and defined regulatory grammars associated with ubiquitous, germline and somatic tissue-specific gene expression patterns. We find architectural features that distinguish two major promoter types. Germline-specific and ubiquitously-active promoters have well positioned +1 and −1 nucleosomes associated with a periodic 10-bp WW signal. Somatic tissue-specific promoters lack these features, have wider nucleosome depleted regions, and are more enriched for core promoter elements, which surprisingly differ between tissues. A 10-bp periodic WW signal is also associated with +1 nucleosomes of ubiquitous promoters in fly and zebrafish but is not detected in mouse and human. Our results demonstrate fundamental differences in regulatory architectures of germline-active and somatic tissue-specific genes and provide a key resource for future studies."

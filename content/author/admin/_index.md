@@ -9,14 +9,14 @@ authors = ["admin"]
 superuser = true
 
 # Role/position
-role = "PhD student in Genomics"
+role = "Post-doc in Genomics"
 
 # Organizations/Affiliations
 #   Separate multiple entries with a comma, using the form: `[ {name="Org1", url=""}, {name="Org2", url=""} ]`.
-organizations = [ { name = "Cambridge University, UK", url = "https://www.cam.ac.uk/" } ]
+organizations = [ { name = "Spacial regulation of Genomes, Institut Pasteur", url = "https://research.pasteur.fr/en/team/spatial-regulation-of-genomes/" } ]
 
 # Short bio (displayed in user profile at end of posts)
-bio = "My scientific interests include chromatin organization, mechanisms of transcription regulation and genomic data visualization."
+bio = "My scientific interests include local and spatial chromatin organization, mechanisms of transcription regulation and genomic data visualization."
 
 # Enter email to display Gravatar (if Gravatar enabled in Config)
 email = ""
@@ -34,11 +34,21 @@ email = ""
   topic = "Genomic data visualization"
   logo = "binoculars"
 
+[[interests.topics]]
+  topic = "Reproducible computational research"
+  logo = "desktop"
+
 # Organizational groups that you belong to (for People widget)
 #   Set this to `[]` or comment out if you are not using People widget.
 # user_groups = ["Researchers", "Visitors"]
 
 # List qualifications (such as academic degrees)
+[[education.courses]]
+  course = "PhD in Genomics"
+  institution = "Cambrige University, UK"
+  years = 2020
+  logo = "/img/logo/cambridge.png"
+
 [[education.courses]]
   course = "MSc in Genetics"
   institution = "Ecole Normale Supérieure"
@@ -92,8 +102,8 @@ email = ""
 
 +++
 
-I am currently doing a PhD at the University of Cambridge, in Julie Ahringer lab.  
+I am currently doing a post-doc at the Institut Pasteur in France, in Romain Koszul lab. 
 
-My main project aims to shed some light on the tissue-specific mechanisms of gene regulation used during embryonic and post-embryonic development. I come from an experimental biology background, but I quickly moved toward a "wet/dry" PhD (*i.e.* generating high-throughput sequencing libraries during the day, and analysing the resulting datasets at night). To answer fundamental biological questions, I use R to dig into the data I generated to highlight biological mechanisms in development.  
+I come from an experimental biology background, but I quickly moved toward a "wet/dry" PhD (*i.e.* generating high-throughput sequencing libraries during the day, and analysing the resulting datasets at night). During my post-doc, I am now entirely focusing on data analysis. To answer fundamental biological questions, I routinely use R to dig into the data I generated to highlight mechanisms of gene regulation.  
 
-On my spare time, I am an ardent moviegoer. I wrote an R package to analyse movie box-office results ([link here](https://github.com/js2264/moviestats)), and I am now moving to Python to build an interactive dashboard to visually investigate the trends in movie industry by year, genre and actor. But I can still enjoy a movie without thinking about numbers: [check out my Letterboxd](https://letterboxd.com/jserizay/).
+On my spare time, I am an ardent moviegoer. I wrote an R package to analyse movie box-office results ([link here](https://github.com/js2264/moviestats)). I am now moving to Python to build an interactive dashboard to visually investigate the trends in movie industry by year, genre and actor. But I can still enjoy a movie without thinking about crushing numbers: [check out my Letterboxd](https://letterboxd.com/jserizay/).

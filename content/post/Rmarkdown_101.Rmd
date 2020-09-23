@@ -14,6 +14,7 @@ header:
     caption: ''
     image: ''
 summary: "Rmarkdown is amazing for reproducible research."
+draft: true
 ---
 
 Let's got back to the time when I discovered the power of using Markdown. I immediatly started writing everything in Markdown. EVERYTHING. And that was great! How easy it was to produce a high-quality, well-formatted report! Those were good, early times.  
