@@ -1,0 +1,421 @@
+---
+title: Why is Bioconductor awesome
+author: Jacques Serizay
+date: 2020-04-08
+slug: awesome_bioconductor
+comments: false
+showpagemeta: true
+showcomments: false
+categories:
+    - R
+    - Bioconductor
+    - Resources
+tags:
+    - R
+    - Bioconductor
+    - Resources
+output:
+    blogdown::html_page:
+        highlight: "tango" 
+        toc: true
+        toc_depth: 1
+        number_sections: false
+        fig_width: 12
+---
+
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  background-color: #f8f8f8; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<div id="i-love-bioconductor" class="section level2">
+<h2>I love Bioconductor</h2>
+<p>Since its early ages, Bioconductor has gone very far. I’ve been on board for the past 7-ish years (I think), I use it every day, and every day, I think about how much I love it.</p>
+</div>
+<div id="some-reasons" class="section level2">
+<h2>Some reasons…</h2>
+<p>I love Bioconductor for many reasons, some of them being <code>GenomicRanges</code>, <code>SummarizedExperiment</code>, <code>DESeq2</code>, and of course <a href="https://www.bioconductor.org/about/core-team/">the amazing team</a>.</p>
+<p>But today, one reason which I want to discuss in more depth is the <code>Annotation Hub</code>. This hub provides access to tons of resources, particularly if you work in human genomics. One reason why it’s so useful in human is because major consortia like Encode and Roadmap Epigenomics Project put their data there. So you end up with tons of stuff available, if you know what you are looking for!</p>
+</div>
+<div id="an-example-finding-genes-undergoing-chromatin-state-transition-during-cell-differentiation" class="section level2">
+<h2>An example: finding genes undergoing chromatin state transition during cell differentiation</h2>
+<p>The Roadmap Epigenomics Project (REP) has characterized chromatin states in tens of epigenomes (that’s literally the title of their paper: <a href="https://www.nature.com/articles/nature14248">Integrative analysis of 111 reference human epigenomes</a>!).</p>
+<p>And guess what, all the results are available in the <code>AnnotationHub</code>! Here is a glimpse at some of the data hosted there:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="kw">library</span>(tidyverse)</span></code></pre></div>
+<pre><code>## ── Attaching packages ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.3.0 ──</code></pre>
+<pre><code>## ✔ ggplot2 3.3.3     ✔ purrr   0.3.4
+## ✔ tibble  3.0.5     ✔ dplyr   1.0.3
+## ✔ tidyr   1.1.2     ✔ stringr 1.4.0
+## ✔ readr   1.4.0     ✔ forcats 0.5.0</code></pre>
+<pre><code>## ── Conflicts ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+## ✖ dplyr::filter() masks stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a><span class="kw">library</span>(AnnotationHub)</span></code></pre></div>
+<pre><code>## Loading required package: BiocGenerics</code></pre>
+<pre><code>## Loading required package: parallel</code></pre>
+<pre><code>## 
+## Attaching package: &#39;BiocGenerics&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:parallel&#39;:
+## 
+##     clusterApply, clusterApplyLB, clusterCall, clusterEvalQ,
+##     clusterExport, clusterMap, parApply, parCapply, parLapply,
+##     parLapplyLB, parRapply, parSapply, parSapplyLB</code></pre>
+<pre><code>## The following objects are masked from &#39;package:dplyr&#39;:
+## 
+##     combine, intersect, setdiff, union</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     IQR, mad, sd, var, xtabs</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     anyDuplicated, append, as.data.frame, basename, cbind, colnames,
+##     dirname, do.call, duplicated, eval, evalq, Filter, Find, get, grep,
+##     grepl, intersect, is.unsorted, lapply, Map, mapply, match, mget,
+##     order, paste, pmax, pmax.int, pmin, pmin.int, Position, rank,
+##     rbind, Reduce, rownames, sapply, setdiff, sort, table, tapply,
+##     union, unique, unsplit, which.max, which.min</code></pre>
+<pre><code>## Loading required package: BiocFileCache</code></pre>
+<pre><code>## Loading required package: dbplyr</code></pre>
+<pre><code>## 
+## Attaching package: &#39;dbplyr&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:dplyr&#39;:
+## 
+##     ident, sql</code></pre>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true"></a>ah &lt;-<span class="st"> </span><span class="kw">AnnotationHub</span>()</span></code></pre></div>
+<pre><code>## snapshotDate(): 2020-10-27</code></pre>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true"></a>ah_human_epigenome &lt;-<span class="st"> </span><span class="kw">query</span>(ah, <span class="kw">c</span>(<span class="st">&quot;Homo sapiens&quot;</span>, <span class="st">&quot;EpigenomeRoadMap&quot;</span>))</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true"></a><span class="kw">table</span>(ah_human_epigenome<span class="op">$</span>rdataclass)</span></code></pre></div>
+<pre><code>## 
+## BigWigFile data.frame    GRanges 
+##       9932         15       8301</code></pre>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true"></a><span class="kw">head</span>(<span class="kw">query</span>(ah_human_epigenome, <span class="st">&#39;BigWigFile&#39;</span>)<span class="op">$</span>title, <span class="dv">50</span>)</span></code></pre></div>
+<pre><code>##  [1] &quot;E001-H3K4me1.fc.signal.bigwig&quot;   &quot;E001-H3K4me3.fc.signal.bigwig&quot;  
+##  [3] &quot;E001-H3K9ac.fc.signal.bigwig&quot;    &quot;E001-H3K9me3.fc.signal.bigwig&quot;  
+##  [5] &quot;E001-H3K27me3.fc.signal.bigwig&quot;  &quot;E001-H3K36me3.fc.signal.bigwig&quot; 
+##  [7] &quot;E002-H3K4me1.fc.signal.bigwig&quot;   &quot;E002-H3K4me3.fc.signal.bigwig&quot;  
+##  [9] &quot;E002-H3K9ac.fc.signal.bigwig&quot;    &quot;E002-H3K9me3.fc.signal.bigwig&quot;  
+## [11] &quot;E002-H3K27me3.fc.signal.bigwig&quot;  &quot;E002-H3K36me3.fc.signal.bigwig&quot; 
+## [13] &quot;E003-DNase.fc.signal.bigwig&quot;     &quot;E003-H2A.Z.fc.signal.bigwig&quot;    
+## [15] &quot;E003-H2AK5ac.fc.signal.bigwig&quot;   &quot;E003-H2BK5ac.fc.signal.bigwig&quot;  
+## [17] &quot;E003-H2BK12ac.fc.signal.bigwig&quot;  &quot;E003-H2BK15ac.fc.signal.bigwig&quot; 
+## [19] &quot;E003-H2BK20ac.fc.signal.bigwig&quot;  &quot;E003-H2BK120ac.fc.signal.bigwig&quot;
+## [21] &quot;E003-H3K4ac.fc.signal.bigwig&quot;    &quot;E003-H3K4me1.fc.signal.bigwig&quot;  
+## [23] &quot;E003-H3K4me2.fc.signal.bigwig&quot;   &quot;E003-H3K4me3.fc.signal.bigwig&quot;  
+## [25] &quot;E003-H3K9ac.fc.signal.bigwig&quot;    &quot;E003-H3K9me3.fc.signal.bigwig&quot;  
+## [27] &quot;E003-H3K14ac.fc.signal.bigwig&quot;   &quot;E003-H3K18ac.fc.signal.bigwig&quot;  
+## [29] &quot;E003-H3K23ac.fc.signal.bigwig&quot;   &quot;E003-H3K23me2.fc.signal.bigwig&quot; 
+## [31] &quot;E003-H3K27ac.fc.signal.bigwig&quot;   &quot;E003-H3K27me3.fc.signal.bigwig&quot; 
+## [33] &quot;E003-H3K36me3.fc.signal.bigwig&quot;  &quot;E003-H3K56ac.fc.signal.bigwig&quot;  
+## [35] &quot;E003-H3K79me1.fc.signal.bigwig&quot;  &quot;E003-H3K79me2.fc.signal.bigwig&quot; 
+## [37] &quot;E003-H4K5ac.fc.signal.bigwig&quot;    &quot;E003-H4K8ac.fc.signal.bigwig&quot;   
+## [39] &quot;E003-H4K20me1.fc.signal.bigwig&quot;  &quot;E003-H4K91ac.fc.signal.bigwig&quot;  
+## [41] &quot;E004-DNase.fc.signal.bigwig&quot;     &quot;E004-H2AK5ac.fc.signal.bigwig&quot;  
+## [43] &quot;E004-H2BK5ac.fc.signal.bigwig&quot;   &quot;E004-H2BK15ac.fc.signal.bigwig&quot; 
+## [45] &quot;E004-H2BK120ac.fc.signal.bigwig&quot; &quot;E004-H3K4ac.fc.signal.bigwig&quot;   
+## [47] &quot;E004-H3K4me1.fc.signal.bigwig&quot;   &quot;E004-H3K4me2.fc.signal.bigwig&quot;  
+## [49] &quot;E004-H3K4me3.fc.signal.bigwig&quot;   &quot;E004-H3K9ac.fc.signal.bigwig&quot;</code></pre>
+<p>Wow, almost 10K of bigwig files. Neat!</p>
+<p>What about metadata? It is available in the accession <code>AH41830</code>.</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true"></a>epigenome_metadata &lt;-<span class="st"> </span>ah_human_epigenome[[<span class="st">&#39;AH41830&#39;</span>]]</span></code></pre></div>
+<pre><code>## loading from cache</code></pre>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true"></a>epigenome_metadata[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>]</span></code></pre></div>
+<pre><code>##     EID    GROUP   COLOR          MNEMONIC
+## 1  E001      ESC #924965            ESC.I3
+## 2  E002      ESC #924965           ESC.WA7
+## 3  E003      ESC #924965            ESC.H1
+## 4  E004 ES-deriv #4178AE ESDR.H1.BMP4.MESO
+## 5  E005 ES-deriv #4178AE ESDR.H1.BMP4.TROP
+## 6  E006 ES-deriv #4178AE       ESDR.H1.MSC
+## 7  E007 ES-deriv #4178AE ESDR.H1.NEUR.PROG
+## 8  E008      ESC #924965            ESC.H9
+## 9  E009 ES-deriv #4178AE ESDR.H9.NEUR.PROG
+## 10 E010 ES-deriv #4178AE      ESDR.H9.NEUR
+##                                         STD_NAME
+## 1                                    ES-I3 Cells
+## 2                                   ES-WA7 Cells
+## 3                                       H1 Cells
+## 4     H1 BMP4 Derived Mesendoderm Cultured Cells
+## 5     H1 BMP4 Derived Trophoblast Cultured Cells
+## 6              H1 Derived Mesenchymal Stem Cells
+## 7  H1 Derived Neuronal Progenitor Cultured Cells
+## 8                                       H9 Cells
+## 9  H9 Derived Neuronal Progenitor Cultured Cells
+## 10              H9 Derived Neuron Cultured Cells
+##                                       EDACC_NAME     ANATOMY           TYPE AGE
+## 1                                ES-I3_Cell_Line         ESC PrimaryCulture  CL
+## 2                               ES-WA7_Cell_Line         ESC PrimaryCulture  CL
+## 3                                   H1_Cell_Line         ESC PrimaryCulture  CL
+## 4     H1_BMP4_Derived_Mesendoderm_Cultured_Cells ESC_DERIVED     ESCDerived  CL
+## 5     H1_BMP4_Derived_Trophoblast_Cultured_Cells ESC_DERIVED     ESCDerived  CL
+## 6              H1_Derived_Mesenchymal_Stem_Cells ESC_DERIVED     ESCDerived  CL
+## 7  H1_Derived_Neuronal_Progenitor_Cultured_Cells ESC_DERIVED     ESCDerived  CL
+## 8                                   H9_Cell_Line         ESC PrimaryCulture  CL
+## 9  H9_Derived_Neuronal_Progenitor_Cultured_Cells ESC_DERIVED     ESCDerived  CL
+## 10              H9_Derived_Neuron_Cultured_Cells ESC_DERIVED     ESCDerived  CL
+##       SEX
+## 1  Female
+## 2  Female
+## 3    Male
+## 4    Male
+## 5    Male
+## 6    Male
+## 7    Male
+## 8  Female
+## 9  Female
+## 10 Female</code></pre>
+<p>Cool. Next, we are going to focus on chromatin state segmentation. What’s available there?</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true"></a><span class="kw">query</span>(ah_human_epigenome, <span class="kw">c</span>(<span class="st">&quot;chromhmmSegmentations&quot;</span>, <span class="st">&quot;cell line&quot;</span>))</span></code></pre></div>
+<pre><code>## AnnotationHub with 5 records
+## # snapshotDate(): 2020-10-27
+## # $dataprovider: BroadInstitute
+## # $species: Homo sapiens
+## # $rdataclass: GRanges
+## # additional mcols(): taxonomyid, genome, description,
+## #   coordinate_1_based, maintainer, rdatadateadded, preparerclass, tags,
+## #   rdatapath, sourceurl, sourcetype 
+## # retrieve records with, e.g., &#39;object[[&quot;AH46872&quot;]]&#39; 
+## 
+##             title                             
+##   AH46872 | E017_15_coreMarks_mnemonics.bed.gz
+##   AH46967 | E114_15_coreMarks_mnemonics.bed.gz
+##   AH46968 | E115_15_coreMarks_mnemonics.bed.gz
+##   AH46970 | E117_15_coreMarks_mnemonics.bed.gz
+##   AH46971 | E118_15_coreMarks_mnemonics.bed.gz</code></pre>
+<p>Looks like 5 different epigenomes were segmented into chromatin states. The ones that we are interested in are those from H1 embryonic stem cells (H1) or from Neural Progenitor Cells (NPCs) derived from these H1 cells.</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true"></a>H1_states &lt;-<span class="st"> </span><span class="kw">query</span>(ah_human_epigenome, <span class="kw">c</span>(<span class="st">&quot;chromhmmSegmentations&quot;</span>, <span class="st">&quot;ESC.H1&quot;</span>))[[<span class="dv">1</span>]]</span></code></pre></div>
+<pre><code>## loading from cache</code></pre>
+<pre><code>## require(&quot;rtracklayer&quot;)</code></pre>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true"></a>NPC_states &lt;-<span class="st"> </span><span class="kw">query</span>(ah_human_epigenome, <span class="kw">c</span>(<span class="st">&quot;chromhmmSegmentations&quot;</span>, <span class="st">&quot;ESDR.H1.NEUR.PROG&quot;</span>))[[<span class="dv">1</span>]]</span></code></pre></div>
+<pre><code>## loading from cache</code></pre>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true"></a>H1_states &lt;-<span class="st"> </span><span class="kw">resize</span>(H1_states, <span class="dv">1</span>, <span class="dt">fix =</span> <span class="st">&#39;center&#39;</span>) <span class="co"># Resizing to make it easier to find overlaps</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true"></a>NPC_states &lt;-<span class="st"> </span><span class="kw">resize</span>(NPC_states, <span class="dv">1</span>, <span class="dt">fix =</span> <span class="st">&#39;center&#39;</span>) <span class="co"># Resizing to make it easier to find overlaps</span></span></code></pre></div>
+<p>Let’s find out how loci are changing between H1 and NPC cultures:</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true"></a>states &lt;-<span class="st"> </span><span class="kw">c</span>(</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true"></a>    <span class="st">&quot;Active TSS&quot;</span>, </span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true"></a>    <span class="st">&quot;Flanking Active TSS&quot;</span>, </span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true"></a>    <span class="st">&quot;Bivalent/Poised TSS&quot;</span>, </span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true"></a>    <span class="st">&quot;Enhancers&quot;</span>,</span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true"></a>    <span class="st">&quot;Flanking Bivalent TSS/Enh&quot;</span>, </span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true"></a>    <span class="st">&quot;Strong transcription&quot;</span>,</span>
+<span id="cb35-8"><a href="#cb35-8" aria-hidden="true"></a>    <span class="st">&quot;Transcr. at gene 5&#39; and 3&#39;&quot;</span>, </span>
+<span id="cb35-9"><a href="#cb35-9" aria-hidden="true"></a>    <span class="st">&quot;Weak transcription&quot;</span>,</span>
+<span id="cb35-10"><a href="#cb35-10" aria-hidden="true"></a>    <span class="st">&quot;Bivalent Enhancer&quot;</span>, </span>
+<span id="cb35-11"><a href="#cb35-11" aria-hidden="true"></a>    <span class="st">&quot;Genic enhancers&quot;</span>,</span>
+<span id="cb35-12"><a href="#cb35-12" aria-hidden="true"></a>    <span class="st">&quot;Quiescent/Low&quot;</span>, </span>
+<span id="cb35-13"><a href="#cb35-13" aria-hidden="true"></a>    <span class="st">&quot;Heterochromatin&quot;</span>, </span>
+<span id="cb35-14"><a href="#cb35-14" aria-hidden="true"></a>    <span class="st">&quot;Weak Repressed PolyComb&quot;</span>, </span>
+<span id="cb35-15"><a href="#cb35-15" aria-hidden="true"></a>    <span class="st">&quot;Repressed PolyComb&quot;</span>, </span>
+<span id="cb35-16"><a href="#cb35-16" aria-hidden="true"></a>    <span class="st">&quot;ZNF genes &amp; repeats&quot;</span></span>
+<span id="cb35-17"><a href="#cb35-17" aria-hidden="true"></a>)</span>
+<span id="cb35-18"><a href="#cb35-18" aria-hidden="true"></a>df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(</span>
+<span id="cb35-19"><a href="#cb35-19" aria-hidden="true"></a>    <span class="dt">stateInH1 =</span> <span class="kw">factor</span>(H1_states<span class="op">$</span>name, <span class="dt">levels =</span> states),</span>
+<span id="cb35-20"><a href="#cb35-20" aria-hidden="true"></a>    <span class="dt">stateInNPCs =</span> <span class="kw">factor</span>(NPC_states[<span class="kw">nearest</span>(H1_states, NPC_states)]<span class="op">$</span>name, <span class="dt">levels =</span> states)</span>
+<span id="cb35-21"><a href="#cb35-21" aria-hidden="true"></a>)</span>
+<span id="cb35-22"><a href="#cb35-22" aria-hidden="true"></a>df <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb35-23"><a href="#cb35-23" aria-hidden="true"></a><span class="st">    </span><span class="kw">group_by</span>(stateInH1, stateInNPCs) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb35-24"><a href="#cb35-24" aria-hidden="true"></a><span class="st">    </span><span class="kw">summarize</span>(<span class="dt">count =</span> <span class="kw">n</span>()) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb35-25"><a href="#cb35-25" aria-hidden="true"></a><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">label =</span> <span class="kw">ifelse</span>(count <span class="op">&gt;</span><span class="st"> </span><span class="dv">1000</span>, count, <span class="st">&#39;&#39;</span>)) <span class="op">%&gt;%</span></span>
+<span id="cb35-26"><a href="#cb35-26" aria-hidden="true"></a><span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> stateInH1, <span class="dt">y =</span> stateInNPCs, <span class="dt">fill =</span> count, <span class="dt">label =</span> label)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb35-27"><a href="#cb35-27" aria-hidden="true"></a><span class="st">    </span><span class="kw">geom_tile</span>(<span class="dt">col =</span> <span class="st">&quot;black&quot;</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb35-28"><a href="#cb35-28" aria-hidden="true"></a><span class="st">    </span><span class="kw">geom_text</span>(<span class="dt">size =</span> <span class="fl">1.5</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb35-29"><a href="#cb35-29" aria-hidden="true"></a><span class="st">    </span><span class="kw">theme_bw</span>() <span class="op">+</span><span class="st"> </span></span>
+<span id="cb35-30"><a href="#cb35-30" aria-hidden="true"></a><span class="st">    </span><span class="kw">scale_fill_gradientn</span>(<span class="dt">colours =</span> <span class="kw">c</span>(<span class="st">&#39;white&#39;</span>, <span class="st">&#39;orange&#39;</span>, <span class="st">&#39;darkred&#39;</span>)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb35-31"><a href="#cb35-31" aria-hidden="true"></a><span class="st">    </span><span class="kw">theme</span>(</span>
+<span id="cb35-32"><a href="#cb35-32" aria-hidden="true"></a>        <span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">angle =</span> <span class="dv">90</span>, <span class="dt">hjust =</span> <span class="dv">1</span>, <span class="dt">vjust =</span> <span class="fl">0.5</span>), </span>
+<span id="cb35-33"><a href="#cb35-33" aria-hidden="true"></a>        <span class="dt">panel.border =</span> <span class="kw">element_blank</span>(),</span>
+<span id="cb35-34"><a href="#cb35-34" aria-hidden="true"></a>        <span class="dt">panel.grid.major =</span> <span class="kw">element_blank</span>(), </span>
+<span id="cb35-35"><a href="#cb35-35" aria-hidden="true"></a>        <span class="dt">panel.grid.minor =</span> <span class="kw">element_blank</span>(), </span>
+<span id="cb35-36"><a href="#cb35-36" aria-hidden="true"></a>        <span class="dt">axis.ticks =</span> <span class="kw">element_blank</span>()</span>
+<span id="cb35-37"><a href="#cb35-37" aria-hidden="true"></a>    ) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb35-38"><a href="#cb35-38" aria-hidden="true"></a><span class="st">    </span><span class="kw">labs</span>(</span>
+<span id="cb35-39"><a href="#cb35-39" aria-hidden="true"></a>        <span class="dt">x =</span> <span class="st">&quot;Chromatin states in H1 cells&quot;</span>, </span>
+<span id="cb35-40"><a href="#cb35-40" aria-hidden="true"></a>        <span class="dt">y =</span> <span class="st">&quot;Chromatin states in H1-derived</span><span class="ch">\n</span><span class="st">neural progenitor cells&quot;</span>, </span>
+<span id="cb35-41"><a href="#cb35-41" aria-hidden="true"></a>        <span class="dt">fill =</span> <span class="st">&#39;#&#39;</span></span>
+<span id="cb35-42"><a href="#cb35-42" aria-hidden="true"></a>    ) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb35-43"><a href="#cb35-43" aria-hidden="true"></a><span class="st">    </span><span class="kw">coord_fixed</span>()</span></code></pre></div>
+<pre><code>## `summarise()` has grouped output by &#39;stateInH1&#39;. You can override using the `.groups` argument.</code></pre>
+<p><img src="/blog/awesome_bioconductor_files/figure-html/unnamed-chunk-5-1.png" width="1152" /></p>
+<p>Using the <code>tidyverse</code> to plot the transitions, it’s clear that while most of the segmented genomic loci keep their functional annotation from ESCs to NPCs, there are other loci which change from inactive to activate chromatin states, and vice versa.</p>
+<p>For instance, let’s focus on the loci undergoing changes from a <code>Repressed PolyComb</code> state to a <code>Enhancers</code> state:</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true"></a>transitioning_loci &lt;-<span class="st"> </span>H1_states[df<span class="op">$</span>stateInH1 <span class="op">==</span><span class="st"> &#39;Repressed PolyComb&#39;</span> <span class="op">&amp;</span><span class="st"> </span>df<span class="op">$</span>stateInNPCs <span class="op">==</span><span class="st"> &#39;Enhancers&#39;</span>]</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true"></a>transitioning_loci</span></code></pre></div>
+<pre><code>## GRanges object with 4632 ranges and 4 metadata columns:
+##          seqnames    ranges strand |        abbr               name  color_name
+##             &lt;Rle&gt; &lt;IRanges&gt;  &lt;Rle&gt; | &lt;character&gt;        &lt;character&gt; &lt;character&gt;
+##      [1]    chr10    552700      * |   13_ReprPC Repressed PolyComb      Silver
+##      [2]    chr10    654300      * |   13_ReprPC Repressed PolyComb      Silver
+##      [3]    chr10   1782600      * |   13_ReprPC Repressed PolyComb      Silver
+##      [4]    chr10   5725500      * |   13_ReprPC Repressed PolyComb      Silver
+##      [5]    chr10   6185700      * |   13_ReprPC Repressed PolyComb      Silver
+##      ...      ...       ...    ... .         ...                ...         ...
+##   [4628]     chrX 154027500      * |   13_ReprPC Repressed PolyComb      Silver
+##   [4629]     chrX 154029600      * |   13_ReprPC Repressed PolyComb      Silver
+##   [4630]     chrY   6758600      * |   13_ReprPC Repressed PolyComb      Silver
+##   [4631]     chrY   6761100      * |   13_ReprPC Repressed PolyComb      Silver
+##   [4632]     chrY   6765700      * |   13_ReprPC Repressed PolyComb      Silver
+##           color_code
+##          &lt;character&gt;
+##      [1]     #808080
+##      [2]     #808080
+##      [3]     #808080
+##      [4]     #808080
+##      [5]     #808080
+##      ...         ...
+##   [4628]     #808080
+##   [4629]     #808080
+##   [4630]     #808080
+##   [4631]     #808080
+##   [4632]     #808080
+##   -------
+##   seqinfo: 298 sequences (2 circular) from hg19 genome</code></pre>
+<p>Now, let’s fetch the genes associated to these loci. This is easily done, again, by retrieving informatin from <code>AnnotationHub</code>!</p>
+<p>I will retrieve the human gene model from <code>AnnotationHub</code>:</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true"></a>human_gtf &lt;-<span class="st"> </span><span class="kw">query</span>(ah, <span class="kw">c</span>(<span class="st">&quot;Homo sapiens&quot;</span>, <span class="st">&quot;release-75&quot;</span>))[[<span class="dv">1</span>]]</span></code></pre></div>
+<pre><code>## loading from cache</code></pre>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true"></a><span class="kw">seqlevelsStyle</span>(human_gtf) &lt;-<span class="st"> &quot;UCSC&quot;</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true"></a>human_gtf &lt;-<span class="st"> </span><span class="kw">keepStandardChromosomes</span>(human_gtf, <span class="dt">pruning.mode =</span> <span class="st">&#39;coarse&#39;</span>)</span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true"></a>human_genes &lt;-<span class="st"> </span>human_gtf[human_gtf<span class="op">$</span>type <span class="op">==</span><span class="st"> &#39;gene&#39;</span> <span class="op">&amp;</span><span class="st"> </span>human_gtf<span class="op">$</span>gene_biotype <span class="op">==</span><span class="st"> &#39;protein_coding&#39;</span>]</span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true"></a>human_TSSs &lt;-<span class="st"> </span><span class="kw">resize</span>(human_genes, <span class="dv">1</span>, <span class="st">&#39;start&#39;</span>)</span></code></pre></div>
+<p>I can then retrieve the closest gene for each of the transitioning loci, and filter the genes that are close to these transitioning loci.</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true"></a>transitioning_loci<span class="op">$</span>nearest_gene &lt;-<span class="st"> </span>human_TSSs[<span class="kw">nearest</span>(transitioning_loci, human_TSSs)]<span class="op">$</span>gene_id</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true"></a>transitioning_loci<span class="op">$</span>distance_to_nearest_gene &lt;-<span class="st"> </span><span class="kw">mcols</span>(<span class="kw">distanceToNearest</span>(transitioning_loci, human_TSSs))<span class="op">$</span>distance</span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true"></a>genes &lt;-<span class="st"> </span><span class="kw">unique</span>(transitioning_loci<span class="op">$</span>nearest_gene[transitioning_loci<span class="op">$</span>distance_to_nearest_gene <span class="op">&lt;=</span><span class="st"> </span><span class="dv">1000</span>]) </span></code></pre></div>
+<p>Finally, a quick GO over-representation analysis will reveal whether these few genes are indeed involved in any neural process. Once again, I can retrieve ontology from human <code>OrgDb</code> using <code>AnnotationHub</code>:</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true"></a>org &lt;-<span class="st"> </span><span class="kw">query</span>(ah, <span class="kw">c</span>(<span class="st">&#39;homo sapiens&#39;</span>, <span class="st">&#39;orgdb&#39;</span>))[[<span class="dv">1</span>]]</span></code></pre></div>
+<pre><code>## loading from cache</code></pre>
+<pre><code>## Loading required package: AnnotationDbi</code></pre>
+<pre><code>## Loading required package: Biobase</code></pre>
+<pre><code>## Welcome to Bioconductor
+## 
+##     Vignettes contain introductory material; view with
+##     &#39;browseVignettes()&#39;. To cite Bioconductor, see
+##     &#39;citation(&quot;Biobase&quot;)&#39;, and for packages &#39;citation(&quot;pkgname&quot;)&#39;.</code></pre>
+<pre><code>## 
+## Attaching package: &#39;Biobase&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:AnnotationHub&#39;:
+## 
+##     cache</code></pre>
+<pre><code>## 
+## Attaching package: &#39;AnnotationDbi&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:dplyr&#39;:
+## 
+##     select</code></pre>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true"></a>res &lt;-<span class="st"> </span>clusterProfiler<span class="op">::</span><span class="kw">enrichGO</span>(</span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true"></a>    genes, </span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true"></a>    <span class="dt">OrgDb =</span> org,</span>
+<span id="cb52-4"><a href="#cb52-4" aria-hidden="true"></a>    <span class="dt">ont =</span> <span class="st">&#39;CC&#39;</span>,</span>
+<span id="cb52-5"><a href="#cb52-5" aria-hidden="true"></a>    <span class="dt">keyType =</span> <span class="st">&#39;ENSEMBL&#39;</span>, </span>
+<span id="cb52-6"><a href="#cb52-6" aria-hidden="true"></a>    <span class="dt">pvalueCutoff =</span> <span class="fl">0.05</span>, </span>
+<span id="cb52-7"><a href="#cb52-7" aria-hidden="true"></a>    <span class="dt">qvalueCutoff =</span> <span class="fl">0.05</span></span>
+<span id="cb52-8"><a href="#cb52-8" aria-hidden="true"></a>)</span></code></pre></div>
+<pre><code>## </code></pre>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true"></a>res<span class="op">@</span>result <span class="op">%&gt;%</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">select</span>(Description, pvalue, p.adjust, Count) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">arrange</span>(p.adjust) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(p.adjust <span class="op">&lt;</span><span class="st"> </span><span class="fl">0.05</span>)</span></code></pre></div>
+<pre><code>##                                             Description       pvalue   p.adjust
+## GO:0031256                        leading edge membrane 5.725696e-05 0.01691181
+## GO:0032590                            dendrite membrane 1.218905e-04 0.01691181
+## GO:0098978                        glutamatergic synapse 1.666276e-04 0.01691181
+## GO:0045211                        postsynaptic membrane 2.081453e-04 0.01691181
+## GO:0097060                            synaptic membrane 3.054852e-04 0.01792994
+## GO:0150034                                  distal axon 3.310143e-04 0.01792994
+## GO:0044306                   neuron projection terminus 4.010680e-04 0.01862101
+## GO:0043195                              terminal bouton 5.914433e-04 0.02143279
+## GO:0099699      integral component of synaptic membrane 6.319324e-04 0.02143279
+## GO:0099055  integral component of postsynaptic membrane 6.846992e-04 0.02143279
+## GO:0043204                                   perikaryon 7.386127e-04 0.02143279
+## GO:0032589                   neuron projection membrane 7.959278e-04 0.02143279
+## GO:0098936 intrinsic component of postsynaptic membrane 8.573117e-04 0.02143279
+## GO:0043679                                axon terminus 9.352729e-04 0.02156744
+## GO:0099240     intrinsic component of synaptic membrane 9.954205e-04 0.02156744
+## GO:1902711                      GABA-A receptor complex 1.220128e-03 0.02434913
+## GO:0034702                          ion channel complex 1.275144e-03 0.02434913
+## GO:0031253                     cell projection membrane 1.404759e-03 0.02434913
+## GO:1902710                        GABA receptor complex 1.423488e-03 0.02434913
+## GO:0031252                            cell leading edge 1.948625e-03 0.03166515
+## GO:1902495            transmembrane transporter complex 2.231752e-03 0.03453901
+## GO:1990351                          transporter complex 2.656914e-03 0.03924987
+##            Count
+## GO:0031256    10
+## GO:0032590     5
+## GO:0098978    14
+## GO:0045211    12
+## GO:0097060    14
+## GO:0150034    12
+## GO:0044306     8
+## GO:0043195     5
+## GO:0099699     8
+## GO:0099055     7
+## GO:0043204     8
+## GO:0032589     5
+## GO:0098936     7
+## GO:0043679     7
+## GO:0099240     8
+## GO:1902711     3
+## GO:0034702    11
+## GO:0031253    12
+## GO:1902710     3
+## GO:0031252    13
+## GO:1902495    11
+## GO:1990351    11</code></pre>
+<p>Clearly, some of the genes undergoing chromatin state transition are involved in neurone cell structures!</p>
+</div>
