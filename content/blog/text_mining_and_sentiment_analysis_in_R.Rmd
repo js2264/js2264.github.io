@@ -1,0 +1,326 @@
+---
+title: Text mining and sentiment analysis in R
+author: Jacques Serizay
+date: 2020-01-29
+slug: text_mining_and_sentiment_analysis_in_R
+comments: false
+showpagemeta: true
+showcomments: false
+categories:
+    - R
+    - Text mining
+    - NLP
+tags:
+    - R
+    - Text mining
+    - NLP
+output:
+    blogdown::html_page:
+        highlight: "tango" 
+        toc: true
+        toc_depth: 1
+        number_sections: false
+        fig_width: 12
+---
+
+## Pre-processing LOTR text in R
+
+Complete LOTR text can be downloaded from Kaggle: [https://www.kaggle.com/ashishsinhaiitr/lord-of-the-rings-text](https://www.kaggle.com/ashishsinhaiitr/lord-of-the-rings-text). I edited the text very quickly, by simply removing the foreword and name of each of the 3 tomes. I also added the "book" II to VI (there was only an entry for "Book I", the others were missing). Finally, I collated the three tomes together.
+
+```{r}
+library(tidyverse)
+library(magrittr)
+
+# -- FUNCTIONS ----------------------
+fillUpLines <- function(lines) {
+    res <- lapply(1:sum(lines), function(K) {
+        value <- which(lines)[K]
+        n_reps <- ifelse(
+            K < sum(lines),
+            which(lines)[K+1] - which(lines)[K],
+            length(lines) - which(lines)[K] + 1
+        )
+        res <- rep(value, n_reps)
+        return(res)
+    })
+    res <- do.call(c, res)
+    res <- c(rep(NA, length(lines) - length(res)), res)
+    return(res)
+}
+parseBook <- function(txt_path) {
+    txt <- readLines(txt_path) %>%
+        tibble(
+            line = 1:length(.),
+            text = .
+        ) %>%
+        filter(text != "") %>%
+        mutate(line = 1:nrow(.))
+    line_tomes <- txt$text %>% str_detect("0. - The ")
+    line_books <- txt$text %>% str_detect("BOOK")
+    line_chapters <- txt$text %>% str_detect("_Chapter")
+    line_chapter_titles <- 1:nrow(txt) %in% {which(line_chapters) + 1}
+    txt %<>%
+        mutate(text = gsub('_', '', text)) %>%
+        mutate(tome = fillUpLines(line_tomes) %>% txt$text[.] %>% gsub('^\\s+|_', '', .)) %>%
+        mutate(book = fillUpLines(line_books) %>% txt$text[.] %>% gsub('^\\s+|_', '', .)) %>%
+        mutate(chapter = fillUpLines(line_chapters) %>% txt$text[.] %>% gsub('^\\s+|_', '', .)) %>%
+        mutate(chapter_title = fillUpLines(line_chapter_titles) %>% txt$text[.] %>% gsub('^\\s+|_', '', .)) %>%
+        mutate(raw_text = text) %>%
+        mutate(text = gsub('^\\s+', '', raw_text)) %>%
+        mutate(nchar = nchar(text))
+    txt$entry <- "corpus"
+    txt$entry[line_tomes] <- "tome"
+    txt$entry[line_books] <- "book"
+    txt$entry[line_chapters] <- "chapter"
+    txt$entry[line_chapter_titles] <- "chapter_title"
+    txt[txt$entry != 'corpus', ] %<>% mutate(book = NA, chapter = NA, chapter_title = NA)
+    return(txt)
+}
+# // FUNCTIONS ----------------------
+
+txt_path <- 'txt/collated_books.txt'
+LOTR <- parseBook(txt_path)
+```
+
+Let's have a look at how the different books are structued. This is a nice little tidyverse-assisted data wrangling exercise. First, let's see how many characters each chapter contains.
+
+```{r}
+LOTR %>%
+    group_by(tome, book, chapter, chapter_title) %>%
+    tally(nchar) %>%
+    filter(!is.na(chapter) & !is.na(book)) %>%
+    ggplot(aes(x = chapter, y = n, fill = chapter)) +
+    geom_col() +
+    theme_light() +
+    facet_wrap(~book, scales = "free") +
+    theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1)) +
+    labs(x = 'Chapter', y = '# of character / chapter', title = "Number of character per chapter")
+```
+
+There are some pretty big discrepancies between the length of each chapter in LOTR books. Now, let's see whether Tolkien was more consistent in the length of paragraphs in each book.
+
+```{r}
+LOTR %>%
+    filter(!is.na(chapter) & !is.na(book)) %>%
+    ggplot(aes(x = chapter, y = nchar, fill = chapter)) +
+    geom_violin() +
+    ggbeeswarm::geom_beeswarm(alpha = 0.2, size = 0.4, fill = NA, col = 'black') +
+    geom_boxplot(fill = 'white', width = 0.2, outlier.shape = NA) +
+    theme_light() +
+    facet_wrap(~book, scales = "free") +
+    scale_y_log10() +
+    annotation_logticks(sides = 'l') +
+    theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1)) +
+    labs(x = 'Chapter', y = '# of character / paragraph', title = "Number of character per paragraph")
+```
+
+Quite interesting: some chapters (especially in Book I) have a stricking bi-modal distribution. Some "paragraphs" look like they are under 100 character each. If you dig into it, you'll realize that these paragraphs are actually the songs/poems that are mostly found in the first tome of LOTR, notably when the hobbits encounter Tom Bombabil (one of my favorite chapters in the entire saga!).
+
+Let's confirm this quickly. After visual inspection of the text file, the songs mostly start with a repetition of 10 to 12 spaces (` `).
+
+```{r}
+bool <- grepl("^          [a-zA-Z]|^           [a-zA-Z]|^            [a-zA-Z]", LOTR$raw_text)
+LOTR[bool & LOTR$entry == "corpus", "entry"] <- "song"
+LOTR %>%
+    filter(!is.na(chapter) & !is.na(book)) %>%
+    ggplot(aes(x = chapter, y = nchar, fill = chapter)) +
+    ggbeeswarm::geom_beeswarm(
+        alpha = 0.4,
+        size = 0.6,
+        fill = NA,
+        aes(col = entry)
+    ) +
+    theme_light() +
+    facet_wrap(~book, scales = "free") +
+    scale_y_log10() +
+    annotation_logticks(sides = 'l') +
+    theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1)) +
+    labs(x = 'Chapter', y = '# of character / paragraph', title = "Number of character per paragraph")
+```
+
+## Converting the tibble into an even tidier format with `tidytext`
+
+The `tidytext` package is very useful to transform a tibble containing strings into a tidier tibble, with only 1 word per row. This is done with the `unnest_tokens()` function:
+
+```{r}
+library(tidytext)
+LOTR
+LOTR %>%
+    unnest_tokens(word, text)
+```
+
+To illustrate the use of `tidytext` and how well it can be used with `tidyverse`-related tools, we can count how many times each character is named in each chapter:
+
+```{r}
+characters <- c('frodo', 'sam', 'gandalf', 'aragorn', 'pippin', 'merry', 'gimli', 'legolas', 'gollum', 'bilbo')
+LOTR %>%
+    unnest_tokens(word, text) %>%
+    filter(!is.na(chapter) & !is.na(book)) %>%
+    filter(word %in% characters) %>%
+    mutate(word = factor(word, characters)) %>%
+    count(tome, book, chapter, chapter_title, word) %>%
+    ggplot(aes(x = chapter, y = n, fill = chapter)) +
+    geom_col() +
+    theme_light() +
+    facet_grid(word~book, scales = "free") +
+    theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1)) +
+    labs(x = 'Chapter', y = '# of character citations', title = "Number of times each protagonist is named")
+```
+
+I love this figure. In just a few lines of code, the number of times each protagonist is named, in each chapter of each book, is computed and beautifully plotted. Just looking at this figure, I could tell what happens in each chapter:
+
+- Book III, chapters 2 and 3 are most likely about Merry and Pippins when they are captured by the Orcs;
+- In Book V, Chapter 4, Pippin and Gandalf are together, defending Minas Tirith;
+- The return of Gollum in the third chapter of Book 6 signs the achievement of the quest with Gollum falling into the Cracks of Doom.
+
+And here is another type of representation of the # of occurence of each protagonist. The input data.frame stays the same, I've just changed a tiny bit the ggplot2 geometries, et voila!
+
+```{r}
+characters <- c('frodo', 'sam', 'gandalf', 'aragorn', 'pippin', 'merry', 'gimli', 'legolas', 'gollum', 'bilbo')
+LOTR %>%
+    unnest_tokens(word, text) %>%
+    filter(!is.na(chapter) & !is.na(book)) %>%
+    filter(word %in% characters) %>%
+    mutate(word = factor(word, characters)) %>%
+    count(tome, book, chapter, chapter_title, word) %>%
+    ggplot(aes(x = chapter, y = n, fill = word)) +
+    geom_col(position = 'fill') +
+    facet_grid(~book, scales = "free") +
+    theme_light() +
+    theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1)) +
+    labs(x = 'Chapter', y = '# of character citations', title = "Number of times each protagonist is named")
+```
+
+## Character networks
+
+TBD
+
+## A bit of sentiment analysis
+
+To find the most used non-stop words, one can (1) remove the "stop" words (as defined in the `stop_words` object), then (2) count the occurence of the remaining words. `tidytext` and `tidyverse` are, again, very useful to perform this:
+
+```{r}
+data(stop_words)
+top_words <- LOTR %>%
+    unnest_tokens(word, text) %>%
+    anti_join(stop_words) %>%
+    count(book, word, sort = TRUE) %>%
+    filter(book %in% "BOOK VI") %>%
+    top_n(100) %>%
+    pull(word)
+top_words
+```
+
+I really like this list of top words. It clearly shows already that there are conflicting feelings in LOTR: we have `fear` opposing `hope`, `light` versus `dark`, and even temporal contrasts with `day` and `night`...
+
+```{r}
+LOTR %>%
+    filter(!is.na(chapter) & !is.na(book)) %>%
+    unnest_tokens(word, text) %>%
+    filter(word %in% top_words) %>%
+    mutate(chapter_title = factor(chapter_title, unique(chapter_title))) %>%
+    mutate(word = factor(word, top_words)) %>%
+    filter(book %in% "BOOK VI") %>%
+    count(chapter_title, word) %>%
+    ggplot(aes(x = word, y = n)) +
+    geom_col() +
+    facet_grid(~chapter_title, scales = "free") +
+    coord_flip() +
+    theme_light() +
+    theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1)) +
+    labs(x = 'Top words', y = '# of occurences', title = "Number of times each word is mentionned") +
+    theme(text = element_text(size = 6))
+```
+
+Ideally, one would want to re-organize terms based on how they occur.
+
+```{r}
+words_order <- LOTR %>%
+    filter(!is.na(chapter) & !is.na(book)) %>%
+    unnest_tokens(word, text) %>%
+    filter(word %in% top_words) %>%
+    mutate(word = factor(word, top_words)) %>%
+    filter(book %in% "BOOK VI") %>%
+    count(chapter_title, word) %>%
+    spread(word, n) %>%
+    column_to_rownames('chapter_title') %>%
+    t() %>%
+    replace_na(0) %>%
+    dist() %>%
+    hclust() %$%
+    order %>%
+    top_words[.]
+```
+
+```{r}
+LOTR %>%
+    filter(!is.na(chapter) & !is.na(book)) %>%
+    unnest_tokens(word, text) %>%
+    filter(word %in% top_words) %>%
+    mutate(word = factor(word, words_order)) %>%
+    filter(book %in% "BOOK VI") %>%
+    count(chapter_title, word) %>%
+    ggplot(aes(x = word, y = n)) +
+    geom_col() +
+    facet_grid(~chapter_title, scales = "free") +
+    coord_flip() +
+    theme_light() +
+    theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1)) +
+    labs(x = 'Top words', y = '# of occurences', title = "Number of times each word is mentionned") +
+    theme(text = element_text(size = 6))
+```
+
+By re-ordering the words, we can clearly see that words describing the hobbits heading back the the Shire are grouped together, while humans returning to the Gondor form another cluster, and orcs and the Mordor in a last separate clique.
+
+Let's now focus on sentiment analysis. We can get the `NRC` sentiment lexicon published by Mohammad, Saif M. and Turney, Peter D. in 2013.
+
+```{r}
+sentiment_words <- get_sentiments("nrc")
+sentiments <- LOTR %>%
+    filter(!is.na(chapter) & !is.na(book)) %>%
+    unnest_tokens(word, text) %>%
+    group_by(book) %>%
+    mutate(progression = as.integer(cut(1:n(), 100))) %>%
+    group_by(book, progression) %>%
+    inner_join(sentiment_words) %>%
+    count(book, sentiment)
+sentiments %>%
+    filter(sentiment %in% c('positive', 'negative')) %>%
+    ggplot(aes(x = progression, y = n, fill = sentiment)) +
+    geom_col() +
+    facet_grid(book~sentiment, scales = "free") +
+    theme_light() +
+    theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1)) +
+    labs(x = 'Chapter', y = 'Number of occurences', title = 'Number of times a word occurs')
+```
+
+We can focus on Book VI for a bit, with more of the sentiments described by the `NCR` lexicon:
+
+```{r}
+sentiments_bookVI <- LOTR %>%
+    filter(!is.na(chapter) & !is.na(book)) %>%
+    unnest_tokens(word, text) %>%
+    filter(book == 'BOOK VI') %>%
+    mutate(progression = as.integer(cut(1:n(), 100))) %>%
+    group_by(progression) %>%
+    inner_join(sentiment_words) %>%
+    count(sentiment)
+sentiments_bookVI %>%
+    ggplot(aes(x = progression, y = n, fill = sentiment), col = NA) +
+    geom_col() +
+    geom_vline(aes(xintercept = 37), col = 'black', linetype = 'dashed', size = 0.5) +
+    geom_vline(aes(xintercept = 75), col = 'black', linetype = 'dashed', size = 0.5) +
+    facet_grid(sentiment~., scales = "free") +
+    theme_light() +
+    theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1)) +
+    labs(x = 'Progression through book VI', y = 'Sentiment score', title = 'Sentiment analysis of Book VI')
+```
+
+The different sentiments highlight the different key events occuring in the Book VI. For instance:
+
+- At the first third of Book VI: Frodo and Sam reach the Cracks of Doom. It is a pretty dark moment of despair, exhaustion and depression. Yet, it signs the end of all these feelings and the return of hope and joy.
+- At the three quarters of Book VI, the Company arrives in Bree and Frodo recalls his long adventures. It is a happy moment with friends gathering in a safe and known place.
+
+## Conclusion
+
+This post shows how the `tidyverse` can be extended to text mining, thanks to the `tidytext` package. By keeping things tidy, neat analyses and powerful visualization can be obtained very easily, in few lines of code.

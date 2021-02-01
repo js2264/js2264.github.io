@@ -1,0 +1,36 @@
+{{ partial "header.html" . }}
+<div class="pub" itemscope itemtype="http://schema.org/CreativeWork">
+
+  {{ partial "page_header.html" . }}
+
+  <div class="article-container">
+
+    {{ if .Params.abstract }}
+    <h3>{{ i18n "abstract" }}</h3>
+    <p class="pub-abstract" itemprop="text">{{ .Params.abstract | markdownify }}</p>
+    {{ end }}
+
+    {{ if .Params.publication }}
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-10">
+        <div class="row">
+          <div class="col-12 col-md-3 pub-row-heading">{{ i18n "publication" }}</div>
+          <div class="col-12 col-md-9">{{ .Params.publication | markdownify }}</div>
+        </div>
+      </div>
+      <div class="col-md-1"></div>
+    </div>
+    <div class="d-md-none space-below"></div>
+    {{ end }}
+
+    <div class="space-below"></div>
+
+    <div class="article-style">{{ .Content }}</div>
+
+  </div>
+</div>
+
+{{ partial "menu.html" . }}
+
+{{ partial "footer.html" . }}
