@@ -1,3 +1,7 @@
 [submodule "themes/hugo-goa"]
 	path = themes/hugo-goa
 	url = https://github.com/shenoybr/hugo-goa
+[submodule "public"]
+	path = public
+	url = https://github.com/js2264/js2264.github.io.git
+	branch = master
