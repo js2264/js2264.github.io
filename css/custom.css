@@ -10,8 +10,8 @@
     content:"";
     position:absolute;
     z-index:-1;
-    -webkit-box-shadow:0 0 40px rgba(0,0,0,0.8);
-    box-shadow:0 0 40px rgba(0,0,0,0.8);
+    -webkit-box-shadow:0 0 20px rgba(0,0,0,0.8);
+    box-shadow:0 0 20px rgba(0,0,0,0.8);
     bottom:0px;
     left:10%;
     right:10%;
