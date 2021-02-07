@@ -1,6 +1,6 @@
 ---
 title: "Analysis of copy number alterations reveals the lncRNA ALAL-1 as a regulator of lung cancer immune evasion"
-date: 2020-02-19
+date: 2020-09-07
 draft: false
 
 # Authors. 

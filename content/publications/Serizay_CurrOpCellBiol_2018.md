@@ -1,6 +1,6 @@
 ---
 title: "Genome organization at different scales: nature, formation and function"
-date: 2018-04-06T00:00:00
+date: 2018-06-01T00:00:00
 draft: false
 
 # Authors. Comma separated list, e.g. `["Bob Smith", "David Jones"]`.

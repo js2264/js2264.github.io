@@ -1,6 +1,6 @@
 ---
 title: "Chromatin accessibility dynamics across C. elegans development and ageing"
-date: 2018-06-10T00:00:00
+date: 2018-10-26T00:00:00
 draft: false
 
 # Authors. Comma separated list, e.g. `["Bob Smith", "David Jones"]`.

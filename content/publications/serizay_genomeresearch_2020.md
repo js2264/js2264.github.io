@@ -1,6 +1,6 @@
 ---
 title: "Tissue-specific profiling reveals distinctive regulatory architectures for ubiquitous, germline and somatic genes"
-date: 2020-02-20
+date: 2020-10-22
 draft: false
 
 authors: ["**Jacques Serizay***", "Yan Dong", "Jürgen Jänes", "Michael Chesney", "Chiara Cerrato", "Julie Ahringer"]

@@ -1,6 +1,6 @@
 ---
 title: "periodicDNA: an R/Bioconductor package to investigate k-mer periodicity in DNA"
-date: 2020-02-23
+date: 2021-02-03
 draft: false
 
 # Authors. 

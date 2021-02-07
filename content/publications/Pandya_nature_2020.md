@@ -1,6 +1,6 @@
 ---
 title: "An Xist-dependent protein assembly mediates Xist localization and gene silencing"
-date: 2020-04-21
+date: 2020-09-09
 draft: false
 
 authors: ["Amy Pandya-Jones", "Yolanda Markaki", "**Jacques Serizay***", "Tsotne Chitiashvilli", "Walter Mancia", "Andrey Damianov", "Costantinos Chronis", "Bernadett Papp", "Chun-Kan Chen", "Robin McKee", "Xiao-Jun Wang", "Anthony Chau", "Heinrich Leonhardt", "Sika Zheng", "Mitchell Guttman", "Douglas L. Black", "Kathrin Plath"]
