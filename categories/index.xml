@@ -2,107 +2,107 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Jacques Serizay</title>
-    <link>js2264.github.io/categories/</link>
+    <link>/categories/</link>
     <description>Recent content in Categories on Jacques Serizay</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Thu, 03 Sep 2020 00:00:00 +0000</lastBuildDate><atom:link href="js2264.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 03 Sep 2020 00:00:00 +0000</lastBuildDate><atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Bioconductor</title>
-      <link>js2264.github.io/categories/bioconductor/</link>
+      <link>/categories/bioconductor/</link>
       <pubDate>Thu, 03 Sep 2020 00:00:00 +0000</pubDate>
       
-      <guid>js2264.github.io/categories/bioconductor/</guid>
+      <guid>/categories/bioconductor/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Data Viz</title>
-      <link>js2264.github.io/categories/data-viz/</link>
+      <link>/categories/data-viz/</link>
       <pubDate>Thu, 03 Sep 2020 00:00:00 +0000</pubDate>
       
-      <guid>js2264.github.io/categories/data-viz/</guid>
+      <guid>/categories/data-viz/</guid>
       <description></description>
     </item>
     
     <item>
       <title>R</title>
-      <link>js2264.github.io/categories/r/</link>
+      <link>/categories/r/</link>
       <pubDate>Thu, 03 Sep 2020 00:00:00 +0000</pubDate>
       
-      <guid>js2264.github.io/categories/r/</guid>
+      <guid>/categories/r/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Single cell</title>
-      <link>js2264.github.io/categories/single-cell/</link>
+      <link>/categories/single-cell/</link>
       <pubDate>Thu, 03 Sep 2020 00:00:00 +0000</pubDate>
       
-      <guid>js2264.github.io/categories/single-cell/</guid>
+      <guid>/categories/single-cell/</guid>
       <description></description>
     </item>
     
     <item>
       <title>NLP</title>
-      <link>js2264.github.io/categories/nlp/</link>
+      <link>/categories/nlp/</link>
       <pubDate>Sat, 13 Jun 2020 00:00:00 +0000</pubDate>
       
-      <guid>js2264.github.io/categories/nlp/</guid>
+      <guid>/categories/nlp/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Text mining</title>
-      <link>js2264.github.io/categories/text-mining/</link>
+      <link>/categories/text-mining/</link>
       <pubDate>Sat, 13 Jun 2020 00:00:00 +0000</pubDate>
       
-      <guid>js2264.github.io/categories/text-mining/</guid>
+      <guid>/categories/text-mining/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Resources</title>
-      <link>js2264.github.io/categories/resources/</link>
+      <link>/categories/resources/</link>
       <pubDate>Wed, 08 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>js2264.github.io/categories/resources/</guid>
+      <guid>/categories/resources/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Chromatin</title>
-      <link>js2264.github.io/categories/chromatin/</link>
+      <link>/categories/chromatin/</link>
       <pubDate>Mon, 10 Feb 2020 15:59:13 -0400</pubDate>
       
-      <guid>js2264.github.io/categories/chromatin/</guid>
+      <guid>/categories/chromatin/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Publications</title>
-      <link>js2264.github.io/categories/publications/</link>
+      <link>/categories/publications/</link>
       <pubDate>Mon, 10 Feb 2020 15:59:13 -0400</pubDate>
       
-      <guid>js2264.github.io/categories/publications/</guid>
+      <guid>/categories/publications/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Science</title>
-      <link>js2264.github.io/categories/science/</link>
+      <link>/categories/science/</link>
       <pubDate>Mon, 10 Feb 2020 15:59:13 -0400</pubDate>
       
-      <guid>js2264.github.io/categories/science/</guid>
+      <guid>/categories/science/</guid>
       <description></description>
     </item>
     
     <item>
       <title>about</title>
-      <link>js2264.github.io/categories/about/</link>
+      <link>/categories/about/</link>
       <pubDate>Sun, 02 Oct 2016 22:55:05 -0400</pubDate>
       
-      <guid>js2264.github.io/categories/about/</guid>
+      <guid>/categories/about/</guid>
       <description></description>
     </item>
     
