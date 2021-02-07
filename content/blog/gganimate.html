@@ -1,0 +1,394 @@
+---
+title: Animated plots and single-cell RNA-seq analysis
+author: Jacques Serizay
+date: 2020-09-03
+slug: gganimate
+comments: false
+showpagemeta: true
+showcomments: false
+categories:
+    - R
+    - Bioconductor
+    - 'Data Viz'
+    - 'Single cell'
+tags:
+    - R
+    - Bioconductor
+    - 'Data Viz'
+    - 'Single cell'
+output:
+    blogdown::html_page:
+        highlight: "tango" 
+        toc: true
+        toc_depth: 1
+        number_sections: false
+        fig_width: 12
+---
+
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  background-color: #f8f8f8; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<p>I know I am probably being over-enthousiastic about it, but I keep learning about <code>ggplot2</code> features and I can’t get enough of it. Lately, I have discovered the possibilities of animating ggplots based on aesthetics of interest, and as usual, this is as simple as a single line of code…</p>
+<p>In this post, I will rely on some single-cell RNA-seq data (from a 10X Genomics sequencing run) containing gene expression for ~500 mouse cycling Radial Glial Progenitors (RGPs).</p>
+<div id="loading-the-single-cell-dataset-as-a-singlecellexperiment-object" class="section level2">
+<h2>Loading the single-cell dataset as a SingleCellExperiment object</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="kw">library</span>(SingleCellExperiment)</span></code></pre></div>
+<pre><code>## Loading required package: SummarizedExperiment</code></pre>
+<pre><code>## Loading required package: MatrixGenerics</code></pre>
+<pre><code>## Loading required package: matrixStats</code></pre>
+<pre><code>## 
+## Attaching package: &#39;MatrixGenerics&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:matrixStats&#39;:
+## 
+##     colAlls, colAnyNAs, colAnys, colAvgsPerRowSet, colCollapse,
+##     colCounts, colCummaxs, colCummins, colCumprods, colCumsums,
+##     colDiffs, colIQRDiffs, colIQRs, colLogSumExps, colMadDiffs,
+##     colMads, colMaxs, colMeans2, colMedians, colMins, colOrderStats,
+##     colProds, colQuantiles, colRanges, colRanks, colSdDiffs, colSds,
+##     colSums2, colTabulates, colVarDiffs, colVars, colWeightedMads,
+##     colWeightedMeans, colWeightedMedians, colWeightedSds,
+##     colWeightedVars, rowAlls, rowAnyNAs, rowAnys, rowAvgsPerColSet,
+##     rowCollapse, rowCounts, rowCummaxs, rowCummins, rowCumprods,
+##     rowCumsums, rowDiffs, rowIQRDiffs, rowIQRs, rowLogSumExps,
+##     rowMadDiffs, rowMads, rowMaxs, rowMeans2, rowMedians, rowMins,
+##     rowOrderStats, rowProds, rowQuantiles, rowRanges, rowRanks,
+##     rowSdDiffs, rowSds, rowSums2, rowTabulates, rowVarDiffs, rowVars,
+##     rowWeightedMads, rowWeightedMeans, rowWeightedMedians,
+##     rowWeightedSds, rowWeightedVars</code></pre>
+<pre><code>## Loading required package: GenomicRanges</code></pre>
+<pre><code>## Loading required package: stats4</code></pre>
+<pre><code>## Loading required package: BiocGenerics</code></pre>
+<pre><code>## Loading required package: parallel</code></pre>
+<pre><code>## 
+## Attaching package: &#39;BiocGenerics&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:parallel&#39;:
+## 
+##     clusterApply, clusterApplyLB, clusterCall, clusterEvalQ,
+##     clusterExport, clusterMap, parApply, parCapply, parLapply,
+##     parLapplyLB, parRapply, parSapply, parSapplyLB</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     IQR, mad, sd, var, xtabs</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     anyDuplicated, append, as.data.frame, basename, cbind, colnames,
+##     dirname, do.call, duplicated, eval, evalq, Filter, Find, get, grep,
+##     grepl, intersect, is.unsorted, lapply, Map, mapply, match, mget,
+##     order, paste, pmax, pmax.int, pmin, pmin.int, Position, rank,
+##     rbind, Reduce, rownames, sapply, setdiff, sort, table, tapply,
+##     union, unique, unsplit, which.max, which.min</code></pre>
+<pre><code>## Loading required package: S4Vectors</code></pre>
+<pre><code>## 
+## Attaching package: &#39;S4Vectors&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:base&#39;:
+## 
+##     expand.grid</code></pre>
+<pre><code>## Loading required package: IRanges</code></pre>
+<pre><code>## Loading required package: GenomeInfoDb</code></pre>
+<pre><code>## Loading required package: Biobase</code></pre>
+<pre><code>## Welcome to Bioconductor
+## 
+##     Vignettes contain introductory material; view with
+##     &#39;browseVignettes()&#39;. To cite Bioconductor, see
+##     &#39;citation(&quot;Biobase&quot;)&#39;, and for packages &#39;citation(&quot;pkgname&quot;)&#39;.</code></pre>
+<pre><code>## 
+## Attaching package: &#39;Biobase&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:MatrixGenerics&#39;:
+## 
+##     rowMedians</code></pre>
+<pre><code>## The following objects are masked from &#39;package:matrixStats&#39;:
+## 
+##     anyMissing, rowMedians</code></pre>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true"></a>cyclingCells &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">&#39;data/cyclingCells.rds&#39;</span>)</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true"></a>cyclingCells</span></code></pre></div>
+<pre><code>## class: SingleCellExperiment 
+## dim: 31053 472 
+## metadata(1): Samples
+## assays(2): counts logcounts
+## rownames(31053): Xkr4 Gm1992 ... Vmn2r122 CAAA01147332.1
+## rowData names(4): ID Symbol mean detected
+## colnames: NULL
+## colData names(6): Barcode sum ... CellCyclePhase
+##   pseudotime_velociraptor
+## reducedDimNames(0):
+## altExpNames(0):</code></pre>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true"></a><span class="kw">head</span>(<span class="kw">rowData</span>(cyclingCells))</span></code></pre></div>
+<pre><code>## DataFrame with 6 rows and 4 columns
+##                         ID      Symbol        mean  detected
+##                &lt;character&gt; &lt;character&gt;   &lt;numeric&gt; &lt;numeric&gt;
+## Xkr4    ENSMUSG00000051951        Xkr4 0.006024096 0.5733778
+## Gm1992  ENSMUSG00000089699      Gm1992 0.000725795 0.0725795
+## Gm37381 ENSMUSG00000102343     Gm37381 0.000435477 0.0435477
+## Rp1     ENSMUSG00000025900         Rp1 0.029249528 2.4023806
+## Sox17   ENSMUSG00000025902       Sox17 0.000000000 0.0000000
+## Gm37323 ENSMUSG00000104328     Gm37323 0.001959646 0.1959646</code></pre>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true"></a><span class="kw">head</span>(<span class="kw">colData</span>(cyclingCells))</span></code></pre></div>
+<pre><code>## DataFrame with 6 rows and 6 columns
+##              Barcode       sum  detected     label CellCyclePhase
+##          &lt;character&gt; &lt;numeric&gt; &lt;integer&gt; &lt;numeric&gt;       &lt;factor&gt;
+## 1 AAACGAATCCACTGAA-1     18016      5140        15            S  
+## 2 AAAGAACCATGAAGCG-1     29381      5750        15            G2M
+## 3 AAAGAACTCTCGGTCT-1     10394      3484        15            G2M
+## 4 AAAGGATCAACCAACT-1     35803      6602        15            G1 
+## 5 AAAGGATCAATTGCCA-1     27355      5939        15            G2M
+## 6 AAAGTGACACTGGATT-1     12503      3739        15            G1 
+##   pseudotime_velociraptor
+##                 &lt;numeric&gt;
+## 1                0.131315
+## 2                0.155367
+## 3                0.168767
+## 4                0.396839
+## 5                0.199662
+## 6                0.260526</code></pre>
+</div>
+<div id="embedding-cells-in-lower-dimensional-space" class="section level2">
+<h2>Embedding cells in lower dimensional space</h2>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true"></a><span class="kw">library</span>(scran)</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true"></a><span class="kw">library</span>(scater)</span></code></pre></div>
+<pre><code>## Loading required package: ggplot2</code></pre>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true"></a><span class="kw">set.seed</span>(<span class="dv">100</span>)</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true"></a>cycling_genes &lt;-<span class="st"> </span><span class="kw">c</span>(</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true"></a>    <span class="st">&quot;Aurkb&quot;</span>, <span class="st">&quot;Ccnb1&quot;</span>, <span class="st">&quot;Ccnb2&quot;</span>, <span class="st">&quot;Ccnd1&quot;</span>, <span class="st">&quot;Ccnd2&quot;</span>, <span class="st">&quot;Cdc20&quot;</span>, <span class="st">&quot;Cdca3&quot;</span>,</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true"></a>    <span class="st">&quot;Cdk1&quot;</span>, <span class="st">&quot;Cdkn3&quot;</span>, <span class="st">&quot;Cenpa&quot;</span>, <span class="st">&quot;Cenpe&quot;</span>, <span class="st">&quot;Cenpf&quot;</span>, <span class="st">&quot;Cenpq&quot;</span>, <span class="st">&quot;Cks2&quot;</span>,</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true"></a>    <span class="st">&quot;Gmnn&quot;</span>, <span class="st">&quot;H2afx&quot;</span>, <span class="st">&quot;H2afz&quot;</span>, <span class="st">&quot;Hist1h1b&quot;</span>, <span class="st">&quot;Hist1h1c&quot;</span>, <span class="st">&quot;Hist1h1e&quot;</span>,</span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true"></a>    <span class="st">&quot;Hist1h2ae&quot;</span>, <span class="st">&quot;Hist1h2bc&quot;</span>, <span class="st">&quot;Mcm3&quot;</span>, <span class="st">&quot;Mcm4&quot;</span>, <span class="st">&quot;Mcm6&quot;</span>, <span class="st">&quot;Mki67&quot;</span>, <span class="st">&quot;Prc1&quot;</span>,</span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true"></a>    <span class="st">&quot;Serpine2&quot;</span>, <span class="st">&quot;Top2a&quot;</span>, <span class="st">&quot;Ube2c&quot;</span>, <span class="st">&quot;Ube2s&quot;</span></span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true"></a>)</span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true"></a>deconv_var &lt;-<span class="st"> </span><span class="kw">modelGeneVarByPoisson</span>(cyclingCells)</span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true"></a>cyclingCells &lt;-<span class="st"> </span><span class="kw">denoisePCA</span>(</span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true"></a>    cyclingCells, </span>
+<span id="cb33-12"><a href="#cb33-12" aria-hidden="true"></a>    <span class="dt">subset.row =</span> cycling_genes, </span>
+<span id="cb33-13"><a href="#cb33-13" aria-hidden="true"></a>    <span class="dt">technical =</span> deconv_var, </span>
+<span id="cb33-14"><a href="#cb33-14" aria-hidden="true"></a>    <span class="dt">min.rank =</span> <span class="dv">50</span></span>
+<span id="cb33-15"><a href="#cb33-15" aria-hidden="true"></a>)</span></code></pre></div>
+<pre><code>## Warning in check_numbers(k = k, nu = nu, nv = nv, limit = min(dim(x)) - : more
+## singular values/vectors requested than available</code></pre>
+<pre><code>## Warning in (function (A, nv = 5, nu = nv, maxit = 1000, work = nv + 7, reorth =
+## TRUE, : You&#39;re computing too large a percentage of total singular values, use a
+## standard svd instead.</code></pre>
+<pre><code>## Warning in (function (A, nv = 5, nu = nv, maxit = 1000, work = nv + 7, reorth
+## = TRUE, : did not converge--results might be invalid!; try increasing work or
+## maxit</code></pre>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true"></a><span class="kw">reducedDim</span>(cyclingCells, <span class="st">&quot;force&quot;</span>) &lt;-<span class="st"> </span>igraph<span class="op">::</span><span class="kw">layout_with_fr</span>(</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true"></a>    <span class="kw">buildSNNGraph</span>(</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true"></a>        cyclingCells, </span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true"></a>        <span class="dt">use.dimred =</span> <span class="st">&quot;PCA&quot;</span>, </span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true"></a>        <span class="dt">subset.row =</span> cycling_genes</span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true"></a>    )</span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true"></a>)</span></code></pre></div>
+<p>We can plot the cells embedded in a lower dimensional space with a function from my package of single-cell utilities:</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true"></a><span class="kw">library</span>(SCTools)</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true"></a><span class="co"># ----- Plotting embedding in a lower dim. space ----- #</span></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true"></a>SCTools<span class="op">::</span><span class="kw">plotEmbedding</span>(</span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true"></a>    cyclingCells, </span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true"></a>    <span class="st">&quot;detected&quot;</span>, </span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true"></a>    <span class="st">&quot;force&quot;</span></span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true"></a>)</span></code></pre></div>
+<p><img src="/blog/gganimate_files/figure-html/unnamed-chunk-3-1.png" width="1152" /></p>
+<p>We can also color by levels of gene expression:</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true"></a>SCTools<span class="op">::</span><span class="kw">plotEmbedding</span>(</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true"></a>    cyclingCells, </span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true"></a>    <span class="st">&quot;Ccne2&quot;</span>, </span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true"></a>    <span class="st">&quot;force&quot;</span></span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true"></a>)</span></code></pre></div>
+<p><img src="/blog/gganimate_files/figure-html/unnamed-chunk-4-1.png" width="1152" /></p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true"></a>SCTools<span class="op">::</span><span class="kw">plotEmbedding</span>(</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true"></a>    cyclingCells, </span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true"></a>    <span class="st">&quot;Ccnb2&quot;</span>, </span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true"></a>    <span class="st">&quot;force&quot;</span></span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true"></a>)</span></code></pre></div>
+<p><img src="/blog/gganimate_files/figure-html/unnamed-chunk-4-2.png" width="1152" /></p>
+<p>Finally, we can plot several genes at once:</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true"></a>genes &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;Ccnd1&#39;</span>, <span class="st">&#39;Ccne2&#39;</span>, <span class="st">&#39;Ccne1&#39;</span>, <span class="st">&#39;Ccna2&#39;</span>, <span class="st">&#39;Ccnb1&#39;</span>, <span class="st">&#39;Ccnb2&#39;</span>, <span class="st">&#39;Ccna1&#39;</span>)</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true"></a>SCTools<span class="op">::</span><span class="kw">plotEmbedding</span>(</span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true"></a>    cyclingCells, </span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true"></a>    <span class="kw">c</span>(<span class="st">&#39;Ccnd1&#39;</span>, <span class="st">&#39;Ccne2&#39;</span>, <span class="st">&#39;Ccne1&#39;</span>, <span class="st">&#39;Ccna2&#39;</span>, <span class="st">&#39;Ccnb1&#39;</span>, <span class="st">&#39;Ccnb2&#39;</span>, <span class="st">&#39;Ccna1&#39;</span>), </span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true"></a>    <span class="st">&quot;force&quot;</span>, </span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true"></a>    <span class="dt">theme.args =</span> <span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&#39;none&#39;</span>)</span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true"></a>)</span></code></pre></div>
+<p><img src="/blog/gganimate_files/figure-html/unnamed-chunk-5-1.png" width="1152" /></p>
+</div>
+<div id="putting-all-these-plots-in-1-gif" class="section level2">
+<h2>Putting all these plots in 1 GIF</h2>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true"></a><span class="kw">library</span>(tidyverse)</span></code></pre></div>
+<pre><code>## ── Attaching packages ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.3.0 ──</code></pre>
+<pre><code>## ✔ tibble  3.0.5     ✔ dplyr   1.0.3
+## ✔ tidyr   1.1.2     ✔ stringr 1.4.0
+## ✔ readr   1.4.0     ✔ forcats 0.5.0
+## ✔ purrr   0.3.4</code></pre>
+<pre><code>## ── Conflicts ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+## ✖ dplyr::collapse()   masks IRanges::collapse()
+## ✖ dplyr::combine()    masks Biobase::combine(), BiocGenerics::combine()
+## ✖ dplyr::count()      masks matrixStats::count()
+## ✖ dplyr::desc()       masks IRanges::desc()
+## ✖ tidyr::expand()     masks S4Vectors::expand()
+## ✖ dplyr::filter()     masks stats::filter()
+## ✖ dplyr::first()      masks S4Vectors::first()
+## ✖ dplyr::lag()        masks stats::lag()
+## ✖ ggplot2::Position() masks BiocGenerics::Position(), base::Position()
+## ✖ purrr::reduce()     masks GenomicRanges::reduce(), IRanges::reduce()
+## ✖ dplyr::rename()     masks S4Vectors::rename()
+## ✖ dplyr::slice()      masks IRanges::slice()</code></pre>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true"></a><span class="kw">library</span>(magrittr)</span></code></pre></div>
+<pre><code>## 
+## Attaching package: &#39;magrittr&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:purrr&#39;:
+## 
+##     set_names</code></pre>
+<pre><code>## The following object is masked from &#39;package:tidyr&#39;:
+## 
+##     extract</code></pre>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true"></a>df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">cell =</span> cyclingCells<span class="op">$</span>Barcode)</span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true"></a><span class="cf">for</span> (gene <span class="cf">in</span> genes) {</span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true"></a>    expr &lt;-<span class="st"> </span><span class="kw">logcounts</span>(cyclingCells)[gene, ] <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">bindByQuantiles</span>(<span class="dt">q_low =</span> <span class="fl">0.05</span>, <span class="dt">q_high =</span> <span class="fl">0.95</span>)</span>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true"></a>    df[, <span class="kw">paste0</span>(gene, <span class="st">&quot;_expr&quot;</span>)] &lt;-<span class="st"> </span>expr</span>
+<span id="cb50-5"><a href="#cb50-5" aria-hidden="true"></a>}</span>
+<span id="cb50-6"><a href="#cb50-6" aria-hidden="true"></a>df <span class="op">%&lt;&gt;%</span><span class="st"> </span></span>
+<span id="cb50-7"><a href="#cb50-7" aria-hidden="true"></a><span class="st">    </span><span class="kw">mutate</span>(</span>
+<span id="cb50-8"><a href="#cb50-8" aria-hidden="true"></a>        <span class="dt">X =</span> <span class="kw">reducedDim</span>(cyclingCells, <span class="st">&#39;force&#39;</span>)[, <span class="dv">1</span>],</span>
+<span id="cb50-9"><a href="#cb50-9" aria-hidden="true"></a>        <span class="dt">Y =</span> <span class="kw">reducedDim</span>(cyclingCells, <span class="st">&#39;force&#39;</span>)[, <span class="dv">2</span>]</span>
+<span id="cb50-10"><a href="#cb50-10" aria-hidden="true"></a>    ) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb50-11"><a href="#cb50-11" aria-hidden="true"></a><span class="st">    </span><span class="kw">gather</span>(<span class="st">&quot;gene&quot;</span>, <span class="st">&quot;expr&quot;</span>, <span class="op">-</span>cell, <span class="op">-</span>X, <span class="op">-</span>Y) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb50-12"><a href="#cb50-12" aria-hidden="true"></a><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">gene =</span> <span class="kw">factor</span>(gene, <span class="dt">levels =</span> <span class="kw">paste0</span>(genes, <span class="st">&quot;_expr&quot;</span>))) <span class="op">%&gt;%</span></span>
+<span id="cb50-13"><a href="#cb50-13" aria-hidden="true"></a><span class="st">    </span><span class="kw">select</span>(X, Y, gene, expr)</span>
+<span id="cb50-14"><a href="#cb50-14" aria-hidden="true"></a><span class="kw">head</span>(df)</span></code></pre></div>
+<pre><code>##            X          Y       gene     expr
+## 1 -1.4996544 -1.3584288 Ccnd1_expr 0.000000
+## 2  1.0808325  1.3022992 Ccnd1_expr 0.000000
+## 3  0.6696466  1.6447031 Ccnd1_expr 0.000000
+## 4 -1.3375422 -2.5331948 Ccnd1_expr 0.000000
+## 5  4.3305936 -0.4361058 Ccnd1_expr 2.847585
+## 6 -1.9770603 -4.0901018 Ccnd1_expr 0.000000</code></pre>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true"></a>p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(df, <span class="kw">aes_string</span>(<span class="dt">x =</span> <span class="st">&quot;X&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Y&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;expr&quot;</span>)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true"></a><span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">pch =</span> <span class="dv">21</span>, <span class="dt">alpha =</span> <span class="fl">0.5</span>, <span class="dt">col =</span> <span class="st">&#39;#bcbcbc&#39;</span>, <span class="dt">stroke =</span> <span class="fl">0.2</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true"></a><span class="st">    </span><span class="kw">theme_void</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&#39;none&#39;</span>) <span class="op">+</span></span>
+<span id="cb52-4"><a href="#cb52-4" aria-hidden="true"></a><span class="st">    </span><span class="kw">scale_fill_distiller</span>(<span class="dt">palette =</span> <span class="st">&#39;YlOrBr&#39;</span>, <span class="dt">direction =</span> <span class="dv">1</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb52-5"><a href="#cb52-5" aria-hidden="true"></a><span class="st">    </span><span class="kw">coord_fixed</span>((<span class="kw">max</span>(df[, <span class="st">&quot;X&quot;</span>])<span class="op">-</span><span class="kw">min</span>(df[, <span class="st">&quot;X&quot;</span>]))<span class="op">/</span>(<span class="kw">max</span>(df[, <span class="st">&quot;Y&quot;</span>])<span class="op">-</span><span class="kw">min</span>(df[, <span class="st">&quot;Y&quot;</span>]))) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb52-6"><a href="#cb52-6" aria-hidden="true"></a><span class="st">    </span><span class="kw">labs</span>(<span class="dt">y =</span> <span class="st">&quot;force 2&quot;</span>, <span class="dt">x =</span> <span class="st">&quot;force 1&quot;</span>, <span class="dt">fill =</span> <span class="st">&#39;&#39;</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb52-7"><a href="#cb52-7" aria-hidden="true"></a><span class="st">    </span><span class="kw">theme</span>(</span>
+<span id="cb52-8"><a href="#cb52-8" aria-hidden="true"></a>        <span class="dt">panel.grid.major =</span> <span class="kw">element_blank</span>(),</span>
+<span id="cb52-9"><a href="#cb52-9" aria-hidden="true"></a>        <span class="dt">panel.grid.minor =</span> <span class="kw">element_blank</span>(), </span>
+<span id="cb52-10"><a href="#cb52-10" aria-hidden="true"></a>        <span class="dt">axis.ticks =</span> <span class="kw">element_blank</span>()</span>
+<span id="cb52-11"><a href="#cb52-11" aria-hidden="true"></a>    ) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb52-12"><a href="#cb52-12" aria-hidden="true"></a><span class="st">    </span>gganimate<span class="op">::</span><span class="kw">transition_states</span>(</span>
+<span id="cb52-13"><a href="#cb52-13" aria-hidden="true"></a>        gene,</span>
+<span id="cb52-14"><a href="#cb52-14" aria-hidden="true"></a>        <span class="dt">transition_length =</span> <span class="dv">1</span>,</span>
+<span id="cb52-15"><a href="#cb52-15" aria-hidden="true"></a>        <span class="dt">state_length =</span> <span class="dv">1</span></span>
+<span id="cb52-16"><a href="#cb52-16" aria-hidden="true"></a>    )</span></code></pre></div>
+<p>All of this is actually wrapped into a single function in <code>SCTools</code>:</p>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true"></a><span class="kw">library</span>(SCTools)</span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true"></a>genes &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;Ccnd1&#39;</span>, <span class="st">&#39;Ccne2&#39;</span>, <span class="st">&#39;Ccne1&#39;</span>, <span class="st">&#39;Ccna2&#39;</span>, <span class="st">&#39;Ccnb1&#39;</span>, <span class="st">&#39;Ccnb2&#39;</span>, <span class="st">&#39;Ccna1&#39;</span>)</span>
+<span id="cb53-3"><a href="#cb53-3" aria-hidden="true"></a><span class="kw">colData</span>(cyclingCells)<span class="op">$</span>force_X &lt;-<span class="st"> </span><span class="kw">reducedDim</span>(cyclingCells, <span class="st">&#39;force&#39;</span>)[, <span class="dv">1</span>]</span>
+<span id="cb53-4"><a href="#cb53-4" aria-hidden="true"></a><span class="kw">colData</span>(cyclingCells)<span class="op">$</span>force_Y &lt;-<span class="st"> </span><span class="kw">reducedDim</span>(cyclingCells, <span class="st">&#39;force&#39;</span>)[, <span class="dv">2</span>]</span>
+<span id="cb53-5"><a href="#cb53-5" aria-hidden="true"></a>gif &lt;-<span class="st"> </span><span class="kw">plotAnimatedEmbedding</span>(</span>
+<span id="cb53-6"><a href="#cb53-6" aria-hidden="true"></a>    cyclingCells, </span>
+<span id="cb53-7"><a href="#cb53-7" aria-hidden="true"></a>    <span class="dt">dim =</span> <span class="st">&quot;force&quot;</span>, </span>
+<span id="cb53-8"><a href="#cb53-8" aria-hidden="true"></a>    <span class="dt">genes =</span> genes, </span>
+<span id="cb53-9"><a href="#cb53-9" aria-hidden="true"></a>    <span class="dt">theme.args =</span> <span class="kw">theme_void</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&#39;none&#39;</span>)</span>
+<span id="cb53-10"><a href="#cb53-10" aria-hidden="true"></a>) <span class="op">%&gt;%</span><span class="st"> </span>gganimate<span class="op">::</span><span class="kw">animate</span>(</span>
+<span id="cb53-11"><a href="#cb53-11" aria-hidden="true"></a>    <span class="dt">duration =</span> <span class="dv">2</span>, <span class="dt">fps =</span> <span class="dv">20</span>, </span>
+<span id="cb53-12"><a href="#cb53-12" aria-hidden="true"></a>    <span class="dt">width =</span> <span class="dv">400</span>, <span class="dt">height =</span> <span class="dv">400</span>, <span class="dt">res =</span> <span class="dv">150</span>, </span>
+<span id="cb53-13"><a href="#cb53-13" aria-hidden="true"></a>    <span class="dt">renderer =</span> gganimate<span class="op">::</span><span class="kw">gifski_renderer</span>()</span>
+<span id="cb53-14"><a href="#cb53-14" aria-hidden="true"></a>)</span></code></pre></div>
+<pre><code>## Rendering [=====&gt;---------------------------------------] at 20 fps ~ eta: 2s
+## Rendering [======&gt;--------------------------------------] at 20 fps ~ eta: 2s
+## Rendering [=======&gt;-------------------------------------] at 20 fps ~ eta: 2s
+## Rendering [========&gt;------------------------------------] at 20 fps ~ eta: 2s
+## Rendering [=========&gt;-----------------------------------] at 20 fps ~ eta: 2s
+## Rendering [==========&gt;----------------------------------] at 20 fps ~ eta: 2s
+## Rendering [===========&gt;---------------------------------] at 20 fps ~ eta: 1s
+## Rendering [=============&gt;-------------------------------] at 20 fps ~ eta: 1s
+## Rendering [==============&gt;------------------------------] at 20 fps ~ eta: 1s
+## Rendering [===============&gt;-----------------------------] at 20 fps ~ eta: 1s
+## Rendering [================&gt;----------------------------] at 20 fps ~ eta: 1s
+## Rendering [=================&gt;---------------------------] at 20 fps ~ eta: 1s
+## Rendering [==================&gt;--------------------------] at 20 fps ~ eta: 1s
+## Rendering [===================&gt;-------------------------] at 20 fps ~ eta: 1s
+## Rendering [====================&gt;------------------------] at 20 fps ~ eta: 1s
+## Rendering [=====================&gt;-----------------------] at 20 fps ~ eta: 1s
+## Rendering [=======================&gt;---------------------] at 20 fps ~ eta: 1s
+## Rendering [========================&gt;--------------------] at 20 fps ~ eta: 1s
+## Rendering [=========================&gt;-------------------] at 20 fps ~ eta: 1s
+## Rendering [==========================&gt;------------------] at 20 fps ~ eta: 1s
+## Rendering [===========================&gt;-----------------] at 20 fps ~ eta: 1s
+## Rendering [============================&gt;----------------] at 20 fps ~ eta: 1s
+## Rendering [=============================&gt;---------------] at 20 fps ~ eta: 1s
+## Rendering [==============================&gt;--------------] at 20 fps ~ eta: 1s
+## Rendering [================================&gt;------------] at 19 fps ~ eta: 1s
+## Rendering [=================================&gt;-----------] at 19 fps ~ eta: 1s
+## Rendering [==================================&gt;----------] at 19 fps ~ eta: 0s
+## Rendering [===================================&gt;---------] at 19 fps ~ eta: 0s
+## Rendering [====================================&gt;--------] at 20 fps ~ eta: 0s
+## Rendering [=====================================&gt;-------] at 20 fps ~ eta: 0s
+## Rendering [======================================&gt;------] at 20 fps ~ eta: 0s
+## Rendering [=======================================&gt;-----] at 20 fps ~ eta: 0s
+## Rendering [=========================================&gt;---] at 20 fps ~ eta: 0s
+## Rendering [==========================================&gt;--] at 20 fps ~ eta: 0s
+## Rendering [===========================================&gt;-] at 20 fps ~ eta: 0s
+## Rendering [=============================================] at 20 fps ~ eta: 0s</code></pre>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true"></a>gif</span></code></pre></div>
+<p><img src="/blog/gganimate_files/figure-html/unnamed-chunk-7-1.gif" /><!-- --></p>
+</div>

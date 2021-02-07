@@ -23,7 +23,7 @@ output:
         fig_width: 12
 ---
 
-<script src="/hugo-goa-demo/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
@@ -170,7 +170,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb10-8"><a href="#cb10-8" aria-hidden="true"></a><span class="st">    </span><span class="kw">facet_wrap</span>(<span class="op">~</span>book, <span class="dt">scales =</span> <span class="st">&quot;free&quot;</span>) <span class="op">+</span></span>
 <span id="cb10-9"><a href="#cb10-9" aria-hidden="true"></a><span class="st">    </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">angle =</span> <span class="dv">45</span>, <span class="dt">hjust =</span> <span class="dv">1</span>, <span class="dt">vjust =</span> <span class="dv">1</span>)) <span class="op">+</span></span>
 <span id="cb10-10"><a href="#cb10-10" aria-hidden="true"></a><span class="st">    </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&#39;Chapter&#39;</span>, <span class="dt">y =</span> <span class="st">&#39;# of character / chapter&#39;</span>, <span class="dt">title =</span> <span class="st">&quot;Number of character per chapter&quot;</span>)</span></code></pre></div>
-<p><img src="/hugo-goa-demo/blog/text_mining_and_sentiment_analysis_in_R_files/figure-html/unnamed-chunk-2-1.png" width="1152" /></p>
+<p><img src="/blog/text_mining_and_sentiment_analysis_in_R_files/figure-html/unnamed-chunk-2-1.png" width="1152" /></p>
 <p>There are some pretty big discrepancies between the length of each chapter in LOTR books. Now, let’s see whether Tolkien was more consistent in the length of paragraphs in each book.</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true"></a>LOTR <span class="op">%&gt;%</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true"></a><span class="st">    </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(chapter) <span class="op">&amp;</span><span class="st"> </span><span class="op">!</span><span class="kw">is.na</span>(book)) <span class="op">%&gt;%</span></span>
@@ -184,7 +184,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb11-10"><a href="#cb11-10" aria-hidden="true"></a><span class="st">    </span><span class="kw">annotation_logticks</span>(<span class="dt">sides =</span> <span class="st">&#39;l&#39;</span>) <span class="op">+</span></span>
 <span id="cb11-11"><a href="#cb11-11" aria-hidden="true"></a><span class="st">    </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">angle =</span> <span class="dv">45</span>, <span class="dt">hjust =</span> <span class="dv">1</span>, <span class="dt">vjust =</span> <span class="dv">1</span>)) <span class="op">+</span></span>
 <span id="cb11-12"><a href="#cb11-12" aria-hidden="true"></a><span class="st">    </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&#39;Chapter&#39;</span>, <span class="dt">y =</span> <span class="st">&#39;# of character / paragraph&#39;</span>, <span class="dt">title =</span> <span class="st">&quot;Number of character per paragraph&quot;</span>)</span></code></pre></div>
-<p><img src="/hugo-goa-demo/blog/text_mining_and_sentiment_analysis_in_R_files/figure-html/unnamed-chunk-3-1.png" width="1152" /></p>
+<p><img src="/blog/text_mining_and_sentiment_analysis_in_R_files/figure-html/unnamed-chunk-3-1.png" width="1152" /></p>
 <p>Quite interesting: some chapters (especially in Book I) have a stricking bi-modal distribution. Some “paragraphs” look like they are under 100 character each. If you dig into it, you’ll realize that these paragraphs are actually the songs/poems that are mostly found in the first tome of LOTR, notably when the hobbits encounter Tom Bombabil (one of my favorite chapters in the entire saga!).</p>
 <p>Let’s confirm this quickly. After visual inspection of the text file, the songs mostly start with a repetition of 10 to 12 spaces (<code></code>).</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true"></a>bool &lt;-<span class="st"> </span><span class="kw">grepl</span>(<span class="st">&quot;^          [a-zA-Z]|^           [a-zA-Z]|^            [a-zA-Z]&quot;</span>, LOTR<span class="op">$</span>raw_text)</span>
@@ -204,7 +204,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb12-15"><a href="#cb12-15" aria-hidden="true"></a><span class="st">    </span><span class="kw">annotation_logticks</span>(<span class="dt">sides =</span> <span class="st">&#39;l&#39;</span>) <span class="op">+</span></span>
 <span id="cb12-16"><a href="#cb12-16" aria-hidden="true"></a><span class="st">    </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">angle =</span> <span class="dv">45</span>, <span class="dt">hjust =</span> <span class="dv">1</span>, <span class="dt">vjust =</span> <span class="dv">1</span>)) <span class="op">+</span></span>
 <span id="cb12-17"><a href="#cb12-17" aria-hidden="true"></a><span class="st">    </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&#39;Chapter&#39;</span>, <span class="dt">y =</span> <span class="st">&#39;# of character / paragraph&#39;</span>, <span class="dt">title =</span> <span class="st">&quot;Number of character per paragraph&quot;</span>)</span></code></pre></div>
-<p><img src="/hugo-goa-demo/blog/text_mining_and_sentiment_analysis_in_R_files/figure-html/unnamed-chunk-4-1.png" width="1152" /></p>
+<p><img src="/blog/text_mining_and_sentiment_analysis_in_R_files/figure-html/unnamed-chunk-4-1.png" width="1152" /></p>
 </div>
 <div id="converting-the-tibble-into-an-even-tidier-format-with-tidytext" class="section level2">
 <h2>Converting the tibble into an even tidier format with <code>tidytext</code></h2>
@@ -255,7 +255,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb17-11"><a href="#cb17-11" aria-hidden="true"></a><span class="st">    </span><span class="kw">facet_grid</span>(word<span class="op">~</span>book, <span class="dt">scales =</span> <span class="st">&quot;free&quot;</span>) <span class="op">+</span></span>
 <span id="cb17-12"><a href="#cb17-12" aria-hidden="true"></a><span class="st">    </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">angle =</span> <span class="dv">45</span>, <span class="dt">hjust =</span> <span class="dv">1</span>, <span class="dt">vjust =</span> <span class="dv">1</span>)) <span class="op">+</span></span>
 <span id="cb17-13"><a href="#cb17-13" aria-hidden="true"></a><span class="st">    </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&#39;Chapter&#39;</span>, <span class="dt">y =</span> <span class="st">&#39;# of character citations&#39;</span>, <span class="dt">title =</span> <span class="st">&quot;Number of times each protagonist is named&quot;</span>)</span></code></pre></div>
-<p><img src="/hugo-goa-demo/blog/text_mining_and_sentiment_analysis_in_R_files/figure-html/unnamed-chunk-6-1.png" width="1152" /></p>
+<p><img src="/blog/text_mining_and_sentiment_analysis_in_R_files/figure-html/unnamed-chunk-6-1.png" width="1152" /></p>
 <p>I love this figure. In just a few lines of code, the number of times each protagonist is named, in each chapter of each book, is computed and beautifully plotted. Just looking at this figure, I could tell what happens in each chapter:</p>
 <ul>
 <li>Book III, chapters 2 and 3 are most likely about Merry and Pippins when they are captured by the Orcs;</li>
@@ -276,7 +276,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb18-11"><a href="#cb18-11" aria-hidden="true"></a><span class="st">    </span><span class="kw">theme_light</span>() <span class="op">+</span></span>
 <span id="cb18-12"><a href="#cb18-12" aria-hidden="true"></a><span class="st">    </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">angle =</span> <span class="dv">45</span>, <span class="dt">hjust =</span> <span class="dv">1</span>, <span class="dt">vjust =</span> <span class="dv">1</span>)) <span class="op">+</span></span>
 <span id="cb18-13"><a href="#cb18-13" aria-hidden="true"></a><span class="st">    </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&#39;Chapter&#39;</span>, <span class="dt">y =</span> <span class="st">&#39;# of character citations&#39;</span>, <span class="dt">title =</span> <span class="st">&quot;Number of times each protagonist is named&quot;</span>)</span></code></pre></div>
-<p><img src="/hugo-goa-demo/blog/text_mining_and_sentiment_analysis_in_R_files/figure-html/unnamed-chunk-7-1.png" width="1152" /></p>
+<p><img src="/blog/text_mining_and_sentiment_analysis_in_R_files/figure-html/unnamed-chunk-7-1.png" width="1152" /></p>
 </div>
 <div id="character-networks" class="section level2">
 <h2>Character networks</h2>
@@ -331,7 +331,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb24-14"><a href="#cb24-14" aria-hidden="true"></a><span class="st">    </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">angle =</span> <span class="dv">45</span>, <span class="dt">hjust =</span> <span class="dv">1</span>, <span class="dt">vjust =</span> <span class="dv">1</span>)) <span class="op">+</span></span>
 <span id="cb24-15"><a href="#cb24-15" aria-hidden="true"></a><span class="st">    </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&#39;Top words&#39;</span>, <span class="dt">y =</span> <span class="st">&#39;# of occurences&#39;</span>, <span class="dt">title =</span> <span class="st">&quot;Number of times each word is mentionned&quot;</span>) <span class="op">+</span></span>
 <span id="cb24-16"><a href="#cb24-16" aria-hidden="true"></a><span class="st">    </span><span class="kw">theme</span>(<span class="dt">text =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">6</span>))</span></code></pre></div>
-<p><img src="/hugo-goa-demo/blog/text_mining_and_sentiment_analysis_in_R_files/figure-html/unnamed-chunk-9-1.png" width="1152" /></p>
+<p><img src="/blog/text_mining_and_sentiment_analysis_in_R_files/figure-html/unnamed-chunk-9-1.png" width="1152" /></p>
 <p>Ideally, one would want to re-organize terms based on how they occur.</p>
 <div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true"></a>words_order &lt;-<span class="st"> </span>LOTR <span class="op">%&gt;%</span></span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true"></a><span class="st">    </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(chapter) <span class="op">&amp;</span><span class="st"> </span><span class="op">!</span><span class="kw">is.na</span>(book)) <span class="op">%&gt;%</span></span>
@@ -363,7 +363,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb26-13"><a href="#cb26-13" aria-hidden="true"></a><span class="st">    </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">angle =</span> <span class="dv">45</span>, <span class="dt">hjust =</span> <span class="dv">1</span>, <span class="dt">vjust =</span> <span class="dv">1</span>)) <span class="op">+</span></span>
 <span id="cb26-14"><a href="#cb26-14" aria-hidden="true"></a><span class="st">    </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&#39;Top words&#39;</span>, <span class="dt">y =</span> <span class="st">&#39;# of occurences&#39;</span>, <span class="dt">title =</span> <span class="st">&quot;Number of times each word is mentionned&quot;</span>) <span class="op">+</span></span>
 <span id="cb26-15"><a href="#cb26-15" aria-hidden="true"></a><span class="st">    </span><span class="kw">theme</span>(<span class="dt">text =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">6</span>))</span></code></pre></div>
-<p><img src="/hugo-goa-demo/blog/text_mining_and_sentiment_analysis_in_R_files/figure-html/unnamed-chunk-11-1.png" width="1152" /></p>
+<p><img src="/blog/text_mining_and_sentiment_analysis_in_R_files/figure-html/unnamed-chunk-11-1.png" width="1152" /></p>
 <p>By re-ordering the words, we can clearly see that words describing the hobbits heading back the the Shire are grouped together, while humans returning to the Gondor form another cluster, and orcs and the Mordor in a last separate clique.</p>
 <p>Let’s now focus on sentiment analysis. We can get the <code>NRC</code> sentiment lexicon published by Mohammad, Saif M. and Turney, Peter D. in 2013.</p>
 <div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true"></a>sentiment_words &lt;-<span class="st"> </span><span class="kw">get_sentiments</span>(<span class="st">&quot;nrc&quot;</span>)</span>
@@ -384,7 +384,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb29-6"><a href="#cb29-6" aria-hidden="true"></a><span class="st">    </span><span class="kw">theme_light</span>() <span class="op">+</span></span>
 <span id="cb29-7"><a href="#cb29-7" aria-hidden="true"></a><span class="st">    </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">angle =</span> <span class="dv">45</span>, <span class="dt">hjust =</span> <span class="dv">1</span>, <span class="dt">vjust =</span> <span class="dv">1</span>)) <span class="op">+</span></span>
 <span id="cb29-8"><a href="#cb29-8" aria-hidden="true"></a><span class="st">    </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&#39;Chapter&#39;</span>, <span class="dt">y =</span> <span class="st">&#39;Number of occurences&#39;</span>, <span class="dt">title =</span> <span class="st">&#39;Number of times a word occurs&#39;</span>)</span></code></pre></div>
-<p><img src="/hugo-goa-demo/blog/text_mining_and_sentiment_analysis_in_R_files/figure-html/unnamed-chunk-12-1.png" width="1152" /></p>
+<p><img src="/blog/text_mining_and_sentiment_analysis_in_R_files/figure-html/unnamed-chunk-12-1.png" width="1152" /></p>
 <p>We can focus on Book VI for a bit, with more of the sentiments described by the <code>NCR</code> lexicon:</p>
 <div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true"></a>sentiments_bookVI &lt;-<span class="st"> </span>LOTR <span class="op">%&gt;%</span></span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true"></a><span class="st">    </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(chapter) <span class="op">&amp;</span><span class="st"> </span><span class="op">!</span><span class="kw">is.na</span>(book)) <span class="op">%&gt;%</span></span>
@@ -404,7 +404,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb32-7"><a href="#cb32-7" aria-hidden="true"></a><span class="st">    </span><span class="kw">theme_light</span>() <span class="op">+</span></span>
 <span id="cb32-8"><a href="#cb32-8" aria-hidden="true"></a><span class="st">    </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">angle =</span> <span class="dv">45</span>, <span class="dt">hjust =</span> <span class="dv">1</span>, <span class="dt">vjust =</span> <span class="dv">1</span>)) <span class="op">+</span></span>
 <span id="cb32-9"><a href="#cb32-9" aria-hidden="true"></a><span class="st">    </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&#39;Progression through book VI&#39;</span>, <span class="dt">y =</span> <span class="st">&#39;Sentiment score&#39;</span>, <span class="dt">title =</span> <span class="st">&#39;Sentiment analysis of Book VI&#39;</span>)</span></code></pre></div>
-<p><img src="/hugo-goa-demo/blog/text_mining_and_sentiment_analysis_in_R_files/figure-html/unnamed-chunk-13-1.png" width="1152" /></p>
+<p><img src="/blog/text_mining_and_sentiment_analysis_in_R_files/figure-html/unnamed-chunk-13-1.png" width="1152" /></p>
 <p>The different sentiments highlight the different key events occuring in the Book VI. For instance:</p>
 <ul>
 <li>At the first third of Book VI: Frodo and Sam reach the Cracks of Doom. It is a pretty dark moment of despair, exhaustion and depression. Yet, it signs the end of all these feelings and the return of hope and joy.</li>
