@@ -1,0 +1,38 @@
+.css3-shadow{
+    position:relative;
+    -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3);
+    box-shadow:0 1px 4px rgba(0, 0, 0, 0.3);
+}
+/*==================================================
+ * Drop shadow effect with box-shadow
+ * ===============================================*/
+.css3-shadow:after{
+    content:"";
+    position:absolute;
+    z-index:-1;
+    -webkit-box-shadow:0 0 40px rgba(0,0,0,0.8);
+    box-shadow:0 0 40px rgba(0,0,0,0.8);
+    bottom:0px;
+    left:10%;
+    right:10%;
+    width:80%;
+    height:50%;
+    -moz-border-radius:100%;
+    border-radius:100%;
+}
+
+.box {
+    width:70%;
+    padding:20px;
+    background:#fff;
+    margin:20px auto 60px;
+    border-radius:2px;
+}
+.box h4{
+    background:#eee;
+    margin:0;
+    padding:60px 20px;
+    text-align:center;
+    -webkit-box-shadow:0 0px 4px rgba(0, 0, 0, 0.2);
+            box-shadow:0 0px 4px rgba(0, 0, 0, 0.2);
+}
