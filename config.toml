@@ -1,6 +1,6 @@
 ## Basic Configuration
 
-baseurl = "/js2264.github.io/" 
+baseurl = "/" 
 builddrafts = false
 canonifyurls = false
 languageCode = "en-US"
