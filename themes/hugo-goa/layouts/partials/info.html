@@ -3,6 +3,6 @@
   <h3 class="intro">{{ . | markdownify }}</h3>
   {{ end }}
   {{ with .Site.Params.description }}
-  <h4 class="description">{{ . | markdownify }}</h4>
+  <h4 class="description">{{ . | safeHTML | emojify }}</h4>
   {{ end }}
 </section>

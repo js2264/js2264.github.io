@@ -1,7 +1,7 @@
 <section id="list-pane" class="row list">
   <ul >
     {{ range .Data.Pages.ByPublishDate }}
-    <li class="list-entry">
+    <li class="list-entry box css3-shadow">
       <a class="list-entry-link" href="{{ .Permalink }}">{{ .Title }}</a>
       <p class="meta">
         {{ .Date.Format .Site.Params.dateformat | upper }}
@@ -19,8 +19,11 @@
         </span>
       </p>
       <p class="excerpt">
-      {{ .Description }}
-      </p>
+      {{ .Description | safeHTML}}
+      {{ if isset .Params "publication_short" }}
+      </br></br><b>{{ .Params.publication_short | markdownify }}</b>
+      {{ end }}
+    </p>
     </li>
     {{ end }}
   </ul>

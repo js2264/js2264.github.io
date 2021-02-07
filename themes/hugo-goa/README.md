@@ -126,13 +126,13 @@ These settings for the main menu that is displayed on the home page.
 Example:
 ```
 [[menu.main]]
-    name = "blog"
-    weight = 100
-    url = "/blog/"
-[[menu.main]]
     name = "about"
-    weight = 200
+    weight = 100
     url = "/about/"
+[[menu.main]]
+    name = "blog"
+    weight = 200
+    url = "/blog/"
 [[menu.main]]
     name = "coderag"
     weight = 300
