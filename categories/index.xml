@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on Jacques Serizay</title>
+    <link>js2264.github.io/categories/</link>
+    <description>Recent content in Categories on Jacques Serizay</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Thu, 03 Sep 2020 00:00:00 +0000</lastBuildDate><atom:link href="js2264.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bioconductor</title>
+      <link>js2264.github.io/categories/bioconductor/</link>
+      <pubDate>Thu, 03 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>js2264.github.io/categories/bioconductor/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Data Viz</title>
+      <link>js2264.github.io/categories/data-viz/</link>
+      <pubDate>Thu, 03 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>js2264.github.io/categories/data-viz/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>R</title>
+      <link>js2264.github.io/categories/r/</link>
+      <pubDate>Thu, 03 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>js2264.github.io/categories/r/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Single cell</title>
+      <link>js2264.github.io/categories/single-cell/</link>
+      <pubDate>Thu, 03 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>js2264.github.io/categories/single-cell/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>NLP</title>
+      <link>js2264.github.io/categories/nlp/</link>
+      <pubDate>Sat, 13 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>js2264.github.io/categories/nlp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Text mining</title>
+      <link>js2264.github.io/categories/text-mining/</link>
+      <pubDate>Sat, 13 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>js2264.github.io/categories/text-mining/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Resources</title>
+      <link>js2264.github.io/categories/resources/</link>
+      <pubDate>Wed, 08 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>js2264.github.io/categories/resources/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Chromatin</title>
+      <link>js2264.github.io/categories/chromatin/</link>
+      <pubDate>Mon, 10 Feb 2020 15:59:13 -0400</pubDate>
+      
+      <guid>js2264.github.io/categories/chromatin/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Publications</title>
+      <link>js2264.github.io/categories/publications/</link>
+      <pubDate>Mon, 10 Feb 2020 15:59:13 -0400</pubDate>
+      
+      <guid>js2264.github.io/categories/publications/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Science</title>
+      <link>js2264.github.io/categories/science/</link>
+      <pubDate>Mon, 10 Feb 2020 15:59:13 -0400</pubDate>
+      
+      <guid>js2264.github.io/categories/science/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>about</title>
+      <link>js2264.github.io/categories/about/</link>
+      <pubDate>Sun, 02 Oct 2016 22:55:05 -0400</pubDate>
+      
+      <guid>js2264.github.io/categories/about/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

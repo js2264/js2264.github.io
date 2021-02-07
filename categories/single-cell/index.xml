@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Single cell on Jacques Serizay</title>
+    <link>js2264.github.io/categories/single-cell/</link>
+    <description>Recent content in Single cell on Jacques Serizay</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Thu, 03 Sep 2020 00:00:00 +0000</lastBuildDate><atom:link href="js2264.github.io/categories/single-cell/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Animated plots and single-cell RNA-seq analysis</title>
+      <link>js2264.github.io/blog/gganimate/</link>
+      <pubDate>Thu, 03 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>js2264.github.io/blog/gganimate/</guid>
+      <description>pre  code.sourceCode { white-space: pre; position: relative; } pre  code.sourceCode  span { display: inline-block; line-height: 1.25; } pre  code.sourceCode  span:empty { height: 1.2em; } code.sourceCode  span { color: inherit; text-decoration: inherit; } div.sourceCode { margin: 1em 0; } pre.sourceCode { margin: 0; } @media screen { div.sourceCode { overflow: auto; } } @media print { pre  code.sourceCode { white-space: pre-wrap; } pre  code.</description>
+    </item>
+    
+  </channel>
+</rss>
