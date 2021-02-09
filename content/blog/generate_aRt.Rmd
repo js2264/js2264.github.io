@@ -1,0 +1,248 @@
+---
+title: "generate_aRt"
+author: "Jacques Serizay"
+date: 2020-11-26T00:00:00
+slug: "" 
+tags: 
+    - R
+    - 'Data Viz'
+categories: 
+    - R
+    - 'Data Viz'
+showpagemeta: false
+showcomments: false
+draft: false 
+comments: false
+output: 
+    blogdown::html_page:
+        highlight: "tango" 
+        toc: true
+        toc_depth: 1
+        number_sections: false
+        fig_width: 12
+---
+
+## Setting the scene 
+
+Here is an attempt to do some generative art. I got a lot of inspiration from the following sources:
+ 
+- https://medium.com/@vitgabrhel/getting-started-with-generative-art-in-r-3bc50067d34b
+- https://github.com/djnavarro/jasmines
+- https://github.com/cutterkom/generativeart
+- http://www.citizen-statistician.org/2020/05/dipping-my-toes-in-generative-art-with-my-sister/
+- https://www.r-bloggers.com/2020/05/generative-art-let-your-computer-design-you-a-painting/
+- https://flowingdata.com/2019/09/27/detailed-generative-art-in-r/
+- https://www.data-imaginist.com/art
+
+Some `R` packages for this project: 
+
+```{r, eval = FALSE}
+remotes::install_github("thomasp85/ambient")
+remotes::install_github("cutterkom/generativeart")
+remotes::install_github("djnavarro/jasmines")
+```
+
+Loading libraries... 
+
+```{r}
+require(tidyverse)
+require(jasmines)
+```
+
+---
+
+## Trying `jasmines` package out
+
+```{r}
+use_seed(1) %>%
+    scene_discs(
+        rings = 3, points = 5000, size = 5
+    ) %>%
+    mutate(ind = 1:n()) %>%
+    unfold_warp(
+        iterations = 1,
+        scale = .5, 
+        output = "layer" 
+    ) %>%
+    unfold_tempest(
+        iterations = 20,
+        scale = .01
+    ) %>%
+    style_walk(
+        palette = palette_named("vik"),
+        colour = "ind",
+        alpha = c(.1,.1),
+        background = "oldlace"
+    )
+```
+
+```{r}
+d <- use_seed(1) %>%
+    entity_droplet(grain = 10000) %>% 
+    unfold_warp(
+        iterations = 1,
+        scale = .1
+    ) %>%
+    unfold_tempest(iterations = 30)
+style_ribbon(data = d)
+```
+
+---
+
+## A more personnal project: a piece of art for everybody 
+
+The aim here is to create a piece of art corresponding to a specific individual, 
+based on three different "unique" values: 
+
+- Given name 
+- D.O.B
+- Eye color
+
+`name` will be used to pick a random seed. `dob` will be used to pick a spot in a genome. `eye` is going to be the main color of the art piece. 
+
+Let's start with mine: 
+
+```{r}
+name='jacques'
+dob=19920620
+eye='brown'
+```
+
+### Picking a spot in the human genome based on `dob`
+
+#### Human genome sequence can be retrieved from Bioconductor...
+
+```{r}
+library(rtracklayer)
+library(tidyverse)
+ah <- AnnotationHub::AnnotationHub()
+seq <- AnnotationHub::query(ah, 'Homo_sapiens.GRCh38.dna.primary_assembly.2bit')[[1]]
+seq <- import(seq)
+seq <- seq[width(seq) > 50000000]
+```
+
+#### Random `chr` and `loc` is picked using seed from `dob`, and a sequence is extracted, with its length based on the age:
+
+```{r}
+set.seed(dob)
+age <- Sys.Date() - as.Date(as.character(dob), "%Y%m%d")
+age <- as.integer(age)
+chr <- sample(names(seq), 1)
+loc <- sample(1:{width(seq[chr]) - 2000000}, 1)
+gr <- GRanges(seqnames = chr, ranges = IRanges(loc)) %>% 
+    resize(fix = 'start', width = age) %>% 
+    slidingWindows(step = 3, width = 100) %>% 
+    '[['(1)
+seqs <- seq[gr]
+```
+
+Get pairwise alignment scores from Biostrings...
+
+```{r}
+library(Biostrings)
+substitution_matrix <- nucleotideSubstitutionMatrix(match = 1, mismatch = 0, baseOnly = FALSE, type = "DNA")[c('A', 'T', 'C', 'G', 'N'), c('A', 'T', 'C', 'G', 'N')]
+#
+mat <- parallel::mclapply(mc.cores = 6, seq_along(seqs), function(K) {
+    aln <- Biostrings::pairwiseAlignment(seqs, seqs[K], substitutionMatrix = substitution_matrix)
+    score(aln)
+}) %>% do.call(rbind, .)
+rownames(mat) <- paste0('idx_', seq_along(seqs))
+colnames(mat) <- paste0('idx_', seq_along(seqs))
+mat[lower.tri(mat)] <- NA
+```
+
+#### Convert to tidygraph...
+
+```{r}
+library(tidygraph)
+library(ggraph)
+nodes <- data.frame(
+    idx = paste0('idx_', 1:nrow(mat))
+)
+edges <- mat %>% 
+    as.data.frame() %>%
+    rownames_to_column('from') %>% 
+    gather('to', 'weight', -from) %>% 
+    filter(!is.na(weight)) %>% 
+    filter(from != to) %>% 
+    filter(weight > 20) %>%
+    filter(weight < 50)
+graph <- tbl_graph(
+    nodes = nodes, 
+    edges = edges, 
+    directed = TRUE
+)
+```
+
+#### Plot graph 
+
+```{r}
+ggraph(graph, 'focus', focus = node_is_center()) + 
+  ggforce::geom_circle(aes(x0 = 0, y0 = 0, r = r), data.frame(r = 1:2), colour = 'grey') + 
+  geom_edge_link() + 
+  geom_node_point() + 
+  coord_fixed()
+
+ggraph(graph, layout = 'centrality', centrality_eigen()) +
+  geom_node_voronoi(aes(fill = idx, colour = idx), alpha = 0.3, max.radius = 1) +
+#   geom_edge_link(alpha = 0.3) +
+  geom_node_point()
+```
+
+#### Add some features... 
+
+```{r}
+nodes <- data.frame(
+    idx = paste0('idx_', 1:nrow(mat)),
+    year = cut(1:nrow(mat), ceiling(nrow(mat)/365))
+)
+edges <- mat %>% 
+    as.data.frame() %>%
+    rownames_to_column('from') %>% 
+    gather('to', 'weight', -from) %>% 
+    filter(!is.na(weight)) %>% 
+    filter(from != to) %>% 
+    filter(weight < 20 | weight > 20) %>%
+    filter(weight < 50)
+graph <- tbl_graph(
+    nodes = nodes, 
+    edges = edges, 
+    directed = FALSE
+) %>%   
+    activate(nodes) %>%
+    mutate(degree = local_transitivity())
+graph %>% as_tibble()
+#
+ggraph(graph, layout = 'stress', weights = weight) + 
+#   geom_edge_link(colour = 'black', alpha = 0.02) + 
+  geom_node_voronoi(fill = 'black', colour = 'black', alpha = 0.1, max.radius = 0.002, expand = -0.005) + 
+  geom_node_point(size = 0.5, fill = NA, colour = 'black', alpha = 0.6)
+```
+
+#### Add noise from `name`
+
+```{r}
+library(ambient)
+set.seed(digest::digest2int(name))
+lay <- create_layout(graph, 'auto') %>% 
+    select(x, y) %>%
+    mutate(
+        pertube = gen_simplex(x, y, frequency = 5) / 10,
+        noise = gen_worley(x + pertube, y + pertube, value = 'distance', frequency = 5), 
+        x = x - pertube, 
+        y = y - noise
+    )
+ggraph(graph, layout = 'manual', x = lay$x, y = lay$y) + 
+#   geom_edge_link(colour = 'black', alpha = 0.02) + 
+  geom_node_voronoi(fill = 'black', colour = '#00000021', alpha = 0.01, max.radius = 0.02) + 
+  geom_node_voronoi(fill = '#555555', alpha = 0.2, expand = unit(-.5, 'mm'), radius = unit(2, 'mm'), max.radius = 0.02) + 
+  geom_node_circle(aes(r = 0.005), fill = NA, colour = 'black', alpha = 0.6)
+```
+
+---
+
+## Session info 
+
+```{r}
+devtools::session_info()
+```
