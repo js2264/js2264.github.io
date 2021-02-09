@@ -31,6 +31,7 @@ tags: []
 # Links (optional).
 url_pdf: "https://rupress.org/jcb/article/219/9/e201908078/152052/Analysis-of-copy-number-alterations-reveals-the"
 url_custom: "https://rupress.org/jcb/article/219/9/e201908078/152052/Analysis-of-copy-number-alterations-reveals-the"
+url_publisher: https://rupress.org/jcb/article/219/9/e201908078/152052/Analysis-of-copy-number-alterations-reveals-the
 
 # Does this page contain LaTeX math? (true/false)
 math: false

@@ -4,6 +4,7 @@
     <li class="list-entry box css3-shadow">
       <a class="list-entry-link" href="{{ .Permalink }}">{{ .Title }}</a>
       <p class="meta">
+        </br>
         {{ .Date.Format .Site.Params.dateformat | upper }}
         <span class="category">
         {{ if isset .Params "categories" }}

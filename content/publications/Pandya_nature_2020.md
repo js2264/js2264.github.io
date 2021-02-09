@@ -27,6 +27,7 @@ tags: []
 # Links (optional).
 url_pdf: "https://www.nature.com/articles/s41586-020-2703-0"
 url_custom: [{name = "Nature", url = "https://www.nature.com/articles/s41586-020-2703-0"}]
+url_publisher: https://www.nature.com/articles/s41586-020-2703-0
 
 # Does this page contain LaTeX math? (true/false)
 math: false

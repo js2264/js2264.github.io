@@ -31,6 +31,7 @@ tags: []
 # Links (optional).
 url_pdf: "https://elifesciences.org/articles/37344"
 url_custom: [{name = "eLife", url = "https://elifesciences.org/articles/37344"}]
+url_publisher: https://elifesciences.org/articles/37344
 
 # Does this page contain LaTeX math? (true/false)
 math: false

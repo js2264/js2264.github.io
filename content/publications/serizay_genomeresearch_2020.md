@@ -31,6 +31,7 @@ tags: []
 # Links (optional).
 url_pdf: "https://www.biorxiv.org/content/10.1101/2020.02.20.958579v1.full.pdf+html"
 url_custom: [{name = "bioRxiv", url = "https://www.biorxiv.org/content/10.1101/2020.02.20.958579v1.full.pdf+html"}]
+url_publisher: https://genome.cshlp.org/content/early/2020/10/21/gr.265934.120.abstract
 
 # Does this page contain LaTeX math? (true/false)
 math: false
