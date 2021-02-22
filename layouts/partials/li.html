@@ -1,0 +1,32 @@
+<section id="list-pane" class="row list">
+  <ul >
+    {{ range .Data.Pages.ByPublishDate.Reverse }}
+    <li class="list-entry box">
+      <a class="list-entry-link" href="{{ .Permalink }}">{{ .Title }}</a>
+      <p class="meta">
+        </br>
+        {{ .Date.Format .Site.Params.dateformat | upper }}
+        <span class="category">
+        {{ if isset .Params "categories" }}
+        {{ $total := len .Params.categories }}
+        {{ if gt $total 0 }}
+        —
+        {{ $total := sub $total 1 }}
+        {{ range $i, $cat := sort .Params.categories }}
+        <a class="category" href="{{ "/categories/" | relURL }}{{ $cat | humanize | urlize }}">{{ $cat | upper }}</a>{{ if lt $i $total }}, {{ end }}
+        {{ end }}
+        {{ end }}
+        {{ end }}
+        </span>
+      </p>
+      <p class="excerpt">
+      {{ .Description | safeHTML}}
+      {{ if isset .Params "publication_short" }}
+      </br></br><b>{{ .Params.publication_short | markdownify }}</b>
+      {{ end }}
+    </p>
+    <hr style="border-color:rgba(190, 190, 190, 0.185); border-width: 1px; border-style:solid">
+  </li>
+  {{ end }}
+</ul>
+</section>
