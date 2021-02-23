@@ -16,6 +16,7 @@ tags:
     - Bioconductor
     - 'Data Viz'
     - 'Single cell'
+featured_image: blog/cycling_cells.png
 output:
     blogdown::html_page:
         highlight: "tango" 
@@ -274,12 +275,12 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="putting-all-these-plots-in-1-gif" class="section level2">
 <h2>Putting all these plots in 1 GIF</h2>
 <div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true"></a><span class="kw">library</span>(tidyverse)</span></code></pre></div>
-<pre><code>## ── Attaching packages ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.3.0 ──</code></pre>
+<pre><code>## ── Attaching packages ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.3.0 ──</code></pre>
 <pre><code>## ✔ tibble  3.0.5     ✔ dplyr   1.0.3
 ## ✔ tidyr   1.1.2     ✔ stringr 1.4.0
 ## ✔ readr   1.4.0     ✔ forcats 0.5.0
 ## ✔ purrr   0.3.4</code></pre>
-<pre><code>## ── Conflicts ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+<pre><code>## ── Conflicts ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
 ## ✖ dplyr::collapse()   masks IRanges::collapse()
 ## ✖ dplyr::combine()    masks Biobase::combine(), BiocGenerics::combine()
 ## ✖ dplyr::count()      masks matrixStats::count()
@@ -339,56 +340,55 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb52-15"><a href="#cb52-15" aria-hidden="true"></a>        <span class="dt">state_length =</span> <span class="dv">1</span></span>
 <span id="cb52-16"><a href="#cb52-16" aria-hidden="true"></a>    )</span></code></pre></div>
 <p>All of this is actually wrapped into a single function in <code>SCTools</code>:</p>
-<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true"></a><span class="kw">library</span>(SCTools)</span>
-<span id="cb53-2"><a href="#cb53-2" aria-hidden="true"></a>genes &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;Ccnd1&#39;</span>, <span class="st">&#39;Ccne2&#39;</span>, <span class="st">&#39;Ccne1&#39;</span>, <span class="st">&#39;Ccna2&#39;</span>, <span class="st">&#39;Ccnb1&#39;</span>, <span class="st">&#39;Ccnb2&#39;</span>, <span class="st">&#39;Ccna1&#39;</span>)</span>
-<span id="cb53-3"><a href="#cb53-3" aria-hidden="true"></a><span class="kw">colData</span>(cyclingCells)<span class="op">$</span>force_X &lt;-<span class="st"> </span><span class="kw">reducedDim</span>(cyclingCells, <span class="st">&#39;force&#39;</span>)[, <span class="dv">1</span>]</span>
-<span id="cb53-4"><a href="#cb53-4" aria-hidden="true"></a><span class="kw">colData</span>(cyclingCells)<span class="op">$</span>force_Y &lt;-<span class="st"> </span><span class="kw">reducedDim</span>(cyclingCells, <span class="st">&#39;force&#39;</span>)[, <span class="dv">2</span>]</span>
-<span id="cb53-5"><a href="#cb53-5" aria-hidden="true"></a>gif &lt;-<span class="st"> </span><span class="kw">plotAnimatedEmbedding</span>(</span>
-<span id="cb53-6"><a href="#cb53-6" aria-hidden="true"></a>    cyclingCells, </span>
-<span id="cb53-7"><a href="#cb53-7" aria-hidden="true"></a>    <span class="dt">dim =</span> <span class="st">&quot;force&quot;</span>, </span>
-<span id="cb53-8"><a href="#cb53-8" aria-hidden="true"></a>    <span class="dt">genes =</span> genes, </span>
-<span id="cb53-9"><a href="#cb53-9" aria-hidden="true"></a>    <span class="dt">theme.args =</span> <span class="kw">theme_void</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&#39;none&#39;</span>)</span>
-<span id="cb53-10"><a href="#cb53-10" aria-hidden="true"></a>) <span class="op">%&gt;%</span><span class="st"> </span>gganimate<span class="op">::</span><span class="kw">animate</span>(</span>
-<span id="cb53-11"><a href="#cb53-11" aria-hidden="true"></a>    <span class="dt">duration =</span> <span class="dv">2</span>, <span class="dt">fps =</span> <span class="dv">20</span>, </span>
-<span id="cb53-12"><a href="#cb53-12" aria-hidden="true"></a>    <span class="dt">width =</span> <span class="dv">400</span>, <span class="dt">height =</span> <span class="dv">400</span>, <span class="dt">res =</span> <span class="dv">150</span>, </span>
-<span id="cb53-13"><a href="#cb53-13" aria-hidden="true"></a>    <span class="dt">renderer =</span> gganimate<span class="op">::</span><span class="kw">gifski_renderer</span>()</span>
-<span id="cb53-14"><a href="#cb53-14" aria-hidden="true"></a>)</span></code></pre></div>
-<pre><code>## Rendering [=====&gt;---------------------------------------] at 20 fps ~ eta: 2s
-## Rendering [======&gt;--------------------------------------] at 20 fps ~ eta: 2s
-## Rendering [=======&gt;-------------------------------------] at 20 fps ~ eta: 2s
-## Rendering [========&gt;------------------------------------] at 20 fps ~ eta: 2s
-## Rendering [=========&gt;-----------------------------------] at 20 fps ~ eta: 2s
-## Rendering [==========&gt;----------------------------------] at 20 fps ~ eta: 2s
-## Rendering [===========&gt;---------------------------------] at 20 fps ~ eta: 1s
-## Rendering [=============&gt;-------------------------------] at 20 fps ~ eta: 1s
-## Rendering [==============&gt;------------------------------] at 20 fps ~ eta: 1s
-## Rendering [===============&gt;-----------------------------] at 20 fps ~ eta: 1s
-## Rendering [================&gt;----------------------------] at 20 fps ~ eta: 1s
-## Rendering [=================&gt;---------------------------] at 20 fps ~ eta: 1s
-## Rendering [==================&gt;--------------------------] at 20 fps ~ eta: 1s
-## Rendering [===================&gt;-------------------------] at 20 fps ~ eta: 1s
-## Rendering [====================&gt;------------------------] at 20 fps ~ eta: 1s
-## Rendering [=====================&gt;-----------------------] at 20 fps ~ eta: 1s
-## Rendering [=======================&gt;---------------------] at 20 fps ~ eta: 1s
-## Rendering [========================&gt;--------------------] at 20 fps ~ eta: 1s
-## Rendering [=========================&gt;-------------------] at 20 fps ~ eta: 1s
-## Rendering [==========================&gt;------------------] at 20 fps ~ eta: 1s
-## Rendering [===========================&gt;-----------------] at 20 fps ~ eta: 1s
-## Rendering [============================&gt;----------------] at 20 fps ~ eta: 1s
-## Rendering [=============================&gt;---------------] at 20 fps ~ eta: 1s
-## Rendering [==============================&gt;--------------] at 20 fps ~ eta: 1s
-## Rendering [================================&gt;------------] at 19 fps ~ eta: 1s
-## Rendering [=================================&gt;-----------] at 19 fps ~ eta: 1s
-## Rendering [==================================&gt;----------] at 19 fps ~ eta: 0s
-## Rendering [===================================&gt;---------] at 19 fps ~ eta: 0s
-## Rendering [====================================&gt;--------] at 20 fps ~ eta: 0s
-## Rendering [=====================================&gt;-------] at 20 fps ~ eta: 0s
-## Rendering [======================================&gt;------] at 20 fps ~ eta: 0s
-## Rendering [=======================================&gt;-----] at 20 fps ~ eta: 0s
-## Rendering [=========================================&gt;---] at 20 fps ~ eta: 0s
-## Rendering [==========================================&gt;--] at 20 fps ~ eta: 0s
-## Rendering [===========================================&gt;-] at 20 fps ~ eta: 0s
-## Rendering [=============================================] at 20 fps ~ eta: 0s</code></pre>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true"></a>genes &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;Ccnd1&#39;</span>, <span class="st">&#39;Ccne2&#39;</span>, <span class="st">&#39;Ccne1&#39;</span>, <span class="st">&#39;Ccna2&#39;</span>, <span class="st">&#39;Ccnb1&#39;</span>, <span class="st">&#39;Ccnb2&#39;</span>, <span class="st">&#39;Ccna1&#39;</span>)</span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true"></a><span class="kw">colData</span>(cyclingCells)<span class="op">$</span>force_X &lt;-<span class="st"> </span><span class="kw">reducedDim</span>(cyclingCells, <span class="st">&#39;force&#39;</span>)[, <span class="dv">1</span>]</span>
+<span id="cb53-3"><a href="#cb53-3" aria-hidden="true"></a><span class="kw">colData</span>(cyclingCells)<span class="op">$</span>force_Y &lt;-<span class="st"> </span><span class="kw">reducedDim</span>(cyclingCells, <span class="st">&#39;force&#39;</span>)[, <span class="dv">2</span>]</span>
+<span id="cb53-4"><a href="#cb53-4" aria-hidden="true"></a>gif &lt;-<span class="st"> </span><span class="kw">plotAnimatedEmbedding</span>(</span>
+<span id="cb53-5"><a href="#cb53-5" aria-hidden="true"></a>    cyclingCells, </span>
+<span id="cb53-6"><a href="#cb53-6" aria-hidden="true"></a>    <span class="dt">dim =</span> <span class="st">&quot;force&quot;</span>, </span>
+<span id="cb53-7"><a href="#cb53-7" aria-hidden="true"></a>    <span class="dt">genes =</span> genes, </span>
+<span id="cb53-8"><a href="#cb53-8" aria-hidden="true"></a>    <span class="dt">theme.args =</span> <span class="kw">theme_void</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&#39;none&#39;</span>)</span>
+<span id="cb53-9"><a href="#cb53-9" aria-hidden="true"></a>) <span class="op">%&gt;%</span><span class="st"> </span>gganimate<span class="op">::</span><span class="kw">animate</span>(</span>
+<span id="cb53-10"><a href="#cb53-10" aria-hidden="true"></a>    <span class="dt">duration =</span> <span class="dv">2</span>, <span class="dt">fps =</span> <span class="dv">20</span>, </span>
+<span id="cb53-11"><a href="#cb53-11" aria-hidden="true"></a>    <span class="dt">width =</span> <span class="dv">400</span>, <span class="dt">height =</span> <span class="dv">400</span>, <span class="dt">res =</span> <span class="dv">150</span>, </span>
+<span id="cb53-12"><a href="#cb53-12" aria-hidden="true"></a>    <span class="dt">renderer =</span> gganimate<span class="op">::</span><span class="kw">gifski_renderer</span>()</span>
+<span id="cb53-13"><a href="#cb53-13" aria-hidden="true"></a>)</span></code></pre></div>
+<pre><code>## Rendering [=====&gt;---------------------------------------] at 23 fps ~ eta: 2s
+## Rendering [======&gt;--------------------------------------] at 23 fps ~ eta: 2s
+## Rendering [=======&gt;-------------------------------------] at 23 fps ~ eta: 1s
+## Rendering [========&gt;------------------------------------] at 23 fps ~ eta: 1s
+## Rendering [=========&gt;-----------------------------------] at 23 fps ~ eta: 1s
+## Rendering [==========&gt;----------------------------------] at 23 fps ~ eta: 1s
+## Rendering [===========&gt;---------------------------------] at 22 fps ~ eta: 1s
+## Rendering [=============&gt;-------------------------------] at 22 fps ~ eta: 1s
+## Rendering [==============&gt;------------------------------] at 22 fps ~ eta: 1s
+## Rendering [===============&gt;-----------------------------] at 22 fps ~ eta: 1s
+## Rendering [================&gt;----------------------------] at 22 fps ~ eta: 1s
+## Rendering [=================&gt;---------------------------] at 21 fps ~ eta: 1s
+## Rendering [==================&gt;--------------------------] at 22 fps ~ eta: 1s
+## Rendering [===================&gt;-------------------------] at 22 fps ~ eta: 1s
+## Rendering [====================&gt;------------------------] at 21 fps ~ eta: 1s
+## Rendering [=====================&gt;-----------------------] at 21 fps ~ eta: 1s
+## Rendering [=======================&gt;---------------------] at 22 fps ~ eta: 1s
+## Rendering [========================&gt;--------------------] at 21 fps ~ eta: 1s
+## Rendering [=========================&gt;-------------------] at 21 fps ~ eta: 1s
+## Rendering [==========================&gt;------------------] at 22 fps ~ eta: 1s
+## Rendering [===========================&gt;-----------------] at 22 fps ~ eta: 1s
+## Rendering [============================&gt;----------------] at 22 fps ~ eta: 1s
+## Rendering [=============================&gt;---------------] at 21 fps ~ eta: 1s
+## Rendering [==============================&gt;--------------] at 21 fps ~ eta: 1s
+## Rendering [================================&gt;------------] at 21 fps ~ eta: 1s
+## Rendering [=================================&gt;-----------] at 21 fps ~ eta: 0s
+## Rendering [==================================&gt;----------] at 21 fps ~ eta: 0s
+## Rendering [===================================&gt;---------] at 21 fps ~ eta: 0s
+## Rendering [====================================&gt;--------] at 21 fps ~ eta: 0s
+## Rendering [=====================================&gt;-------] at 21 fps ~ eta: 0s
+## Rendering [======================================&gt;------] at 21 fps ~ eta: 0s
+## Rendering [=======================================&gt;-----] at 21 fps ~ eta: 0s
+## Rendering [=========================================&gt;---] at 21 fps ~ eta: 0s
+## Rendering [==========================================&gt;--] at 21 fps ~ eta: 0s
+## Rendering [===========================================&gt;-] at 21 fps ~ eta: 0s
+## Rendering [=============================================] at 21 fps ~ eta: 0s</code></pre>
 <div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true"></a>gif</span></code></pre></div>
 <p><img src="/blog/gganimate_files/figure-html/unnamed-chunk-7-1.gif" /><!-- --></p>
 </div>

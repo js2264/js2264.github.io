@@ -7,6 +7,7 @@ draft: false
 authors: ["**Jacques Serizay***", "Julie Ahringer"]
 
 # Publication name and optional abbreviated version.
+publication: "In Bioconductor"
 publication_short: "In Bioconductor"
 
 # Abstract and optional shortened version.

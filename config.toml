@@ -22,7 +22,7 @@ enableRobotsTXT = true
 [params]
 author = "Jacques Serizay"
 intro = ""
-description = "Now Post-doc at the Institut Pasteur X ENS in Paris, looking at my computer 🖥️🇫🇷</br></br>Previously looking at worms dancing on plates in University of Cambridge, UK 🐛🇬🇧</br></br>Previously looking at non-coding RNA through the microscope in the USA. 🔬🇺🇸"
+description = "Now Post-doc at the Institut Pasteur X ENS in Paris, looking at my computer. 🖥️🇫🇷</br></br>Previously looking at worms dancing on plates in University of Cambridge, UK. 🐛🇬🇧</br></br>Previously looking at non-coding RNA through the microscope in the USA. 🔬🇺🇸"
 authorimage = "avatar.jpg"
 dateformat = "Jan 2, 2006"
 
@@ -56,7 +56,12 @@ hightlightjs = true
     weight = 200
     url = "/publications/"
 [[menu.main]]
-    name = "blog"
+    name = "coding"
     weight = 300
+    identifier = "coding"
+    url = "/coding/"
+[[menu.main]]
+    name = "blog"
+    weight = 400
     identifier = "blog"
     url = "/blog/"

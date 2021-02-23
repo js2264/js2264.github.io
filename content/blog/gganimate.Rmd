@@ -16,6 +16,7 @@ tags:
     - Bioconductor
     - 'Data Viz'
     - 'Single cell'
+featured_image: blog/cycling_cells.png
 output:
     blogdown::html_page:
         highlight: "tango" 

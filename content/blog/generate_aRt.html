@@ -13,6 +13,7 @@ showpagemeta: false
 showcomments: false
 draft: false 
 comments: false
+featured_image: blog/graph.png
 output: 
     blogdown::html_page:
         highlight: "tango" 
@@ -148,10 +149,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true"></a>dob=<span class="st">&quot;20/06/1992&quot;</span></span></code></pre></div>
 <p>Then I create a “dnart” project as follows:</p>
 <pre><code>## Loading dnaRt</code></pre>
-<pre><code>##   ✔  [20:32]: Project initiated</code></pre>
-<pre><code>##   ◉  [20:32]: Folder: data</code></pre>
-<pre><code>##   ◉  [20:32]: D.O.B.: 1992-06-20</code></pre>
-<pre><code>##   ◉  [20:32]: Given name: jacques</code></pre>
+<pre><code>##   ✔  [01:16]: Project initiated</code></pre>
+<pre><code>##   ◉  [01:16]: Folder: data</code></pre>
+<pre><code>##   ◉  [01:16]: D.O.B.: 1992-06-20</code></pre>
+<pre><code>##   ◉  [01:16]: Given name: jacques</code></pre>
 <div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true"></a>dnart_project &lt;-<span class="st"> </span><span class="kw">dnart</span>(</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true"></a>    <span class="dt">folder =</span> <span class="st">&#39;data&#39;</span>,</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true"></a>    <span class="dt">given =</span> name, </span>
@@ -165,7 +166,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb18-5"><a href="#cb18-5" aria-hidden="true"></a>        <span class="dt">orientation =</span> <span class="st">&#39;landscape&#39;</span>, </span>
 <span id="cb18-6"><a href="#cb18-6" aria-hidden="true"></a>        <span class="dt">file =</span> <span class="st">&#39;graph.pdf&#39;</span></span>
 <span id="cb18-7"><a href="#cb18-7" aria-hidden="true"></a>    )</span></code></pre></div>
-<pre><code>##   ✔  [20:33]: Plot saved in graph.pdf</code></pre>
+<pre><code>##   ✔  [01:16]: Plot saved in graph.pdf</code></pre>
 <div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true"></a>dnart_project<span class="op">$</span>plot</span></code></pre></div>
 <p><img src="/blog/generate_aRt_files/figure-html/unnamed-chunk-8-1.png" width="1152" /></p>
 <hr />
@@ -183,7 +184,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ##  collate  en_GB.UTF-8                 
 ##  ctype    en_GB.UTF-8                 
 ##  tz       Europe/Paris                
-##  date     2021-02-22                  
+##  date     2021-02-23                  
 ## 
 ## ─ Packages ───────────────────────────────────────────────────────────────────
 ##  ! package     * version    date       lib source                             

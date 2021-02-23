@@ -13,6 +13,7 @@ showpagemeta: false
 showcomments: false
 draft: false 
 comments: false
+featured_image: blog/graph.png
 output: 
     blogdown::html_page:
         highlight: "tango" 
