@@ -1,0 +1,132 @@
+---
+title: "generate_aRt"
+author: "Jacques Serizay"
+date: 2020-11-26T00:00:00
+slug: "" 
+tags: 
+    - R
+    - 'Data Viz'
+categories: 
+    - R
+    - 'Data Viz'
+showpagemeta: false
+showcomments: false
+draft: false 
+comments: false
+featured_image: blog/graph.png
+output: 
+    blogdown::html_page:
+        highlight: "tango" 
+        toc: true
+        toc_depth: 1
+        number_sections: false
+        fig_width: 12
+---
+
+## Setting the scene 
+
+Here is an attempt to do some generative art. I got a lot of inspiration from the following sources:
+ 
+- https://medium.com/@vitgabrhel/getting-started-with-generative-art-in-r-3bc50067d34b
+- https://github.com/djnavarro/jasmines
+- https://github.com/cutterkom/generativeart
+- http://www.citizen-statistician.org/2020/05/dipping-my-toes-in-generative-art-with-my-sister/
+- https://www.r-bloggers.com/2020/05/generative-art-let-your-computer-design-you-a-painting/
+- https://flowingdata.com/2019/09/27/detailed-generative-art-in-r/
+- https://www.data-imaginist.com/art
+
+Some `R` packages for this project: 
+
+```{r, eval = FALSE}
+remotes::install_github("thomasp85/ambient")
+remotes::install_github("cutterkom/generativeart")
+remotes::install_github("djnavarro/jasmines")
+```
+
+Loading libraries... 
+
+```{r}
+require(tidyverse)
+require(jasmines)
+```
+
+---
+
+## Trying `jasmines` package out
+
+```{r}
+d <- use_seed(1) %>%
+    entity_droplet(grain = 1000) %>% 
+    unfold_warp(
+        iterations = 1,
+        scale = .1
+    ) %>%
+    unfold_tempest(iterations = 30)
+style_ribbon(data = d)
+```
+
+---
+
+## A more personnal project: a piece of art for everybody 
+
+The generative art packages that are out there are a tiny bit too obscure for me. This most likely comes from the fact that I have little knowledge in the maths behind the noise generative functions from `ambient`. So I decided to write my own package to create generative art. 
+
+The aim here is to create a piece of art corresponding to a specific individual, based on two different specific values: 
+
+- Given name 
+- D.O.B
+
+`name` will be used to pick a random seed. `dob` will be used to pick a spot in a genome. 
+
+The package I wrote to generate this artistic "view" of someone's genome is called `dnaRt`.
+
+```{r, eval = FALSE}
+remotes::install_github('js2264/dnaRt')
+library(dnaRt)
+```
+
+```{r}
+name='jacques'
+dob="20/06/1992"
+```
+
+Then I create a "dnart" project as follows:
+
+```{r echo = FALSE}
+devtools::load_all('~/Documents/Projects/dnaRt/')
+dnart_project <- dnart(
+	folder = 'data',
+	given = name, 
+	dob = dob, 
+    data = sample_data
+)
+```
+
+```{r eval = FALSE}
+dnart_project <- dnart(
+	folder = 'data',
+	given = name, 
+	dob = dob
+)
+```
+
+I can then plot an artistic plot of the sequences randomly picked by my package and displayed as a network: 
+
+```{r}
+dnart_project <- dnart_project %>% 
+	plotArt(
+		ratio = 1.66, 
+		zoom = 3, 
+		orientation = 'landscape', 
+		file = 'graph.pdf'
+	)
+dnart_project$plot
+```
+
+---
+
+## Session info 
+
+```{r}
+devtools::session_info()
+```

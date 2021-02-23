@@ -14,6 +14,7 @@ tags:
     - R
     - Bioconductor
     - Resources
+featured_image: blog/rbioc.png 
 output:
     blogdown::html_page:
         highlight: "tango" 

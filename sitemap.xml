@@ -1,200 +1,125 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
     <loc>/</loc>
     <lastmod>2021-02-03T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/publications/serizay_periodicdna_2020/</loc>
     <lastmod>2021-02-03T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/publications/</loc>
     <lastmod>2021-02-03T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>/blog/</loc>
+    <lastmod>2020-11-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/categories/</loc>
+    <lastmod>2020-11-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/data-viz/</loc>
+    <lastmod>2020-11-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/categories/data-viz/</loc>
+    <lastmod>2020-11-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/blog/generate_art/</loc>
+    <lastmod>2020-11-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/r/</loc>
+    <lastmod>2020-11-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/categories/r/</loc>
+    <lastmod>2020-11-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/</loc>
+    <lastmod>2020-11-26T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>/publications/serizay_genomeresearch_2020/</loc>
     <lastmod>2020-10-22T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/publications/pandya_nature_2020/</loc>
     <lastmod>2020-09-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/publications/serizay_athie_2020/</loc>
     <lastmod>2020-09-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/blog/gganimate/</loc>
     <lastmod>2020-09-03T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/bioconductor/</loc>
     <lastmod>2020-09-03T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/categories/bioconductor/</loc>
     <lastmod>2020-09-03T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/blog/</loc>
-    <lastmod>2020-09-03T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/</loc>
-    <lastmod>2020-09-03T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/data-viz/</loc>
-    <lastmod>2020-09-03T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/data-viz/</loc>
-    <lastmod>2020-09-03T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/r/</loc>
-    <lastmod>2020-09-03T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/r/</loc>
-    <lastmod>2020-09-03T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/single-cell/</loc>
     <lastmod>2020-09-03T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/categories/single-cell/</loc>
     <lastmod>2020-09-03T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
-    <lastmod>2020-09-03T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/blog/ml_nlp/</loc>
     <lastmod>2020-06-13T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/nlp/</loc>
     <lastmod>2020-06-13T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/categories/nlp/</loc>
     <lastmod>2020-06-13T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/text-mining/</loc>
     <lastmod>2020-06-13T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/categories/text-mining/</loc>
     <lastmod>2020-06-13T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/resources/</loc>
     <lastmod>2020-04-08T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/categories/resources/</loc>
     <lastmod>2020-04-08T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/blog/awesome_bioconductor/</loc>
     <lastmod>2020-04-08T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/chromatin/</loc>
     <lastmod>2020-02-10T15:59:13-04:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/categories/chromatin/</loc>
     <lastmod>2020-02-10T15:59:13-04:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/publications/</loc>
     <lastmod>2020-02-10T15:59:13-04:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/categories/publications/</loc>
     <lastmod>2020-02-10T15:59:13-04:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/science/</loc>
     <lastmod>2020-02-10T15:59:13-04:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/categories/science/</loc>
     <lastmod>2020-02-10T15:59:13-04:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/blog/preprint-tissue-spe-orga/</loc>
     <lastmod>2020-02-10T15:59:13-04:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/blog/text_mining_and_sentiment_analysis_in_r/</loc>
     <lastmod>2020-01-29T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/publications/janes_2018/</loc>
     <lastmod>2018-10-26T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/publications/serizay_curropcellbiol_2018/</loc>
     <lastmod>2018-06-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/about/</loc>
     <lastmod>2016-10-02T22:55:05-04:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/about/</loc>
     <lastmod>2016-10-02T22:55:05-04:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/categories/about/</loc>
     <lastmod>2016-10-02T22:55:05-04:00</lastmod>
   </url>
-  
 </urlset>

@@ -17,6 +17,15 @@
     </item>
     
     <item>
+      <title>generate_aRt</title>
+      <link>/blog/generate_art/</link>
+      <pubDate>Thu, 26 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/generate_art/</guid>
+      <description>pre  code.sourceCode { white-space: pre; position: relative; } pre  code.sourceCode  span { display: inline-block; line-height: 1.25; } pre  code.sourceCode  span:empty { height: 1.2em; } code.sourceCode  span { color: inherit; text-decoration: inherit; } div.sourceCode { margin: 1em 0; } pre.sourceCode { margin: 0; } @media screen { div.sourceCode { overflow: auto; } } @media print { pre  code.sourceCode { white-space: pre-wrap; } pre  code.</description>
+    </item>
+    
+    <item>
       <title>Tissue-specific profiling reveals distinctive regulatory architectures for ubiquitous, germline and somatic genes</title>
       <link>/publications/serizay_genomeresearch_2020/</link>
       <pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate>

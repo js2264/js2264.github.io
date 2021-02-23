@@ -14,6 +14,7 @@ tags:
     - R
     - Text mining
     - NLP
+featured_image: blog/lotr.png 
 output:
     blogdown::html_page:
         highlight: "tango" 

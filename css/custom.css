@@ -26,7 +26,6 @@
 .box {
     width:70%;
     padding:20px;
-    background:#fff;
     margin:20px auto 10px;
     border-radius:2px;
 }
@@ -74,5 +73,30 @@
 }
 
 /*==================================================
- * Space before header
+ * Cards 
  * ===============================================*/
+
+.pack {
+    display:-webkit-inline-flex;
+    display:-ms-inline-flexbox;
+    display:inline-flex;
+    flex-wrap:wrap;
+    -webkit-flex-wrap:wrap
+}
+.card {
+    transition: box-shadow .3s;
+    float:none;
+  }
+.card:hover {
+    box-shadow: 0 5px 11px rgba(33, 33, 33, 0.445); 
+}
+  
+.index-anchor{text-decoration:none;color:#111}
+.index-anchor:hover{text-decoration:none;color:#111}
+.panel{margin-bottom:22px;background-color:#ffffff;border:1px solid transparent;border-radius:4px}
+.panel-default{border-color:#dddddd}
+.panel-body{padding:5px 15px}
+.panel-title{margin-top:10px;margin-bottom:0;font-size:18px;color:inherit}
+.pull-left{float:left !important; color:#828282}
+.post-meta{color:#828282; margin-top:5px; margin-bottom:5px;}
+.pull-right{padding-right:15px;padding-left:0;border-right:5px solid #4582ec;border-left:0;text-align:right}

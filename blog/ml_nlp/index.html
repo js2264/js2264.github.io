@@ -14,13 +14,15 @@
 
 <title>Jacques Serizay</title>
 
-<meta name="generator" content="Hugo 0.80.0" />
+<meta name="generator" content="Hugo 0.81.0" />
 
 
 
 
 
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400|Roboto+Slab:400,700|Roboto:300,300i,400,400i,500,500i,700,700i">
+
+
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
 <link rel="stylesheet" href="/css/main.css">
@@ -70,10 +72,12 @@
 <section id="content-pane" class="row">
   <div class="col-md-12 text-justify content">
     
+     <img src="img/blog/there_once_was_a_hobbit.png" alt="Post Image" style="max-width:100%;max-height:100%;"> 
+    
 </div>
   <div class="col-md-12 text-justify content">
     
-<script src="/hugo-goa-demo/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
@@ -219,22 +223,23 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb5-19"><a href="#cb5-19" aria-hidden="true"></a><span class="co"># define model</span></span>
 <span id="cb5-20"><a href="#cb5-20" aria-hidden="true"></a>model <span class="op">=</span> Sequential()</span>
 <span id="cb5-21"><a href="#cb5-21" aria-hidden="true"></a>model.add(Embedding(vocab_size, seq_length, input_length <span class="op">=</span> seq_length))</span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true"></a>model.add(LSTM(<span class="dv">100</span>))</span>
-<span id="cb5-23"><a href="#cb5-23" aria-hidden="true"></a>model.add(Dropout(<span class="fl">0.1</span>))</span>
-<span id="cb5-24"><a href="#cb5-24" aria-hidden="true"></a>model.add(Dense(vocab_size, activation<span class="op">=</span><span class="st">&#39;softmax&#39;</span>))</span>
-<span id="cb5-25"><a href="#cb5-25" aria-hidden="true"></a><span class="bu">print</span>(model.summary())</span>
-<span id="cb5-26"><a href="#cb5-26" aria-hidden="true"></a></span>
-<span id="cb5-27"><a href="#cb5-27" aria-hidden="true"></a><span class="co"># compile model</span></span>
-<span id="cb5-28"><a href="#cb5-28" aria-hidden="true"></a>model.<span class="bu">compile</span>(loss<span class="op">=</span><span class="st">&#39;categorical_crossentropy&#39;</span>, optimizer<span class="op">=</span><span class="st">&#39;adam&#39;</span>, metrics<span class="op">=</span>[<span class="st">&#39;accuracy&#39;</span>])</span>
-<span id="cb5-29"><a href="#cb5-29" aria-hidden="true"></a></span>
-<span id="cb5-30"><a href="#cb5-30" aria-hidden="true"></a><span class="co"># fit model</span></span>
-<span id="cb5-31"><a href="#cb5-31" aria-hidden="true"></a>history <span class="op">=</span> model.fit(X, y, batch_size <span class="op">=</span> <span class="dv">256</span>, epochs <span class="op">=</span> <span class="dv">200</span>)</span>
-<span id="cb5-32"><a href="#cb5-32" aria-hidden="true"></a></span>
-<span id="cb5-33"><a href="#cb5-33" aria-hidden="true"></a><span class="co"># save the model to file</span></span>
-<span id="cb5-34"><a href="#cb5-34" aria-hidden="true"></a>model.save(<span class="st">&#39;model.h5&#39;</span>)</span>
-<span id="cb5-35"><a href="#cb5-35" aria-hidden="true"></a></span>
-<span id="cb5-36"><a href="#cb5-36" aria-hidden="true"></a><span class="co"># save the tokenizer</span></span>
-<span id="cb5-37"><a href="#cb5-37" aria-hidden="true"></a>dump(tokenizer, <span class="bu">open</span>(<span class="st">&#39;tokenizer.pkl&#39;</span>, <span class="st">&#39;wb&#39;</span>))</span></code></pre></div>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true"></a>model.add(LSTM(<span class="dv">30</span>))</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true"></a>model.add(Embedding(<span class="dv">30</span>, <span class="dv">100</span>))</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true"></a>model.add(Dropout(<span class="fl">0.15</span>))</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true"></a>model.add(Dense(vocab_size, activation<span class="op">=</span><span class="st">&#39;softmax&#39;</span>))</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true"></a><span class="bu">print</span>(model.summary())</span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true"></a></span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true"></a><span class="co"># compile model</span></span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true"></a>model.<span class="bu">compile</span>(loss<span class="op">=</span><span class="st">&#39;categorical_crossentropy&#39;</span>, optimizer<span class="op">=</span><span class="st">&#39;adam&#39;</span>, metrics<span class="op">=</span>[<span class="st">&#39;accuracy&#39;</span>])</span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true"></a></span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true"></a><span class="co"># fit model</span></span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true"></a>history <span class="op">=</span> model.fit(X, y, batch_size <span class="op">=</span> <span class="dv">256</span>, epochs <span class="op">=</span> <span class="dv">10</span>)</span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true"></a></span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true"></a><span class="co"># save the model to file</span></span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true"></a>model.save(<span class="st">&#39;model.h5&#39;</span>)</span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true"></a></span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true"></a><span class="co"># save the tokenizer</span></span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true"></a>dump(tokenizer, <span class="bu">open</span>(<span class="st">&#39;tokenizer.pkl&#39;</span>, <span class="st">&#39;wb&#39;</span>))</span></code></pre></div>
 </div>
 <div id="predict-text" class="section level2">
 <h2>Predict text</h2>
@@ -272,8 +277,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb6-32"><a href="#cb6-32" aria-hidden="true"></a>tokenizer <span class="op">=</span> load(<span class="bu">open</span>(<span class="st">&#39;tokenizer.pkl&#39;</span>, <span class="st">&#39;rb&#39;</span>))</span>
 <span id="cb6-33"><a href="#cb6-33" aria-hidden="true"></a></span>
 <span id="cb6-34"><a href="#cb6-34" aria-hidden="true"></a><span class="co"># generate new text</span></span>
-<span id="cb6-35"><a href="#cb6-35" aria-hidden="true"></a>seed_text <span class="op">=</span> <span class="st">&#39;ever since his return, frodo did not know this and when gandalf arrived&#39;</span></span>
-<span id="cb6-36"><a href="#cb6-36" aria-hidden="true"></a>generated <span class="op">=</span> generate_seq(model, tokenizer, seq_length, seed_text, <span class="dv">100</span>)</span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true"></a>seed_text <span class="op">=</span> <span class="st">&#39;ever since his return , frodo did not know this when gandalf arrived . But the mountains were close and pippin could not abandon merry there &#39;</span></span>
+<span id="cb6-36"><a href="#cb6-36" aria-hidden="true"></a>generated <span class="op">=</span> generate_seq(model, tokenizer, <span class="dv">100</span>, seed_text, <span class="dv">100</span>)</span>
 <span id="cb6-37"><a href="#cb6-37" aria-hidden="true"></a>seed_text <span class="op">+</span> <span class="st">&#39;///&#39;</span> <span class="op">+</span> generated</span></code></pre></div>
 </div>
 
