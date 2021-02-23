@@ -1,0 +1,36 @@
+<!-- /layouts/shortcodes/foldergallery.html -->
+
+<style>
+    div.gallery {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    div.gallery a {
+        flex-grow: 1;
+        object-fit: cover;
+        margin: 15px;
+        display: flex;
+    }
+
+    div.gallery a img {
+        height: 350px;
+        object-fit: cover;
+        flex-grow: 1;
+    }
+</style>
+
+<div class="gallery">
+    {{ $path := print "static/img/" (.Get "src")  }}
+    {{ $url  := print (.Get "src") }}
+    {{ range (readDir $path)  }}
+        {{ $src := print "/img" "/" $url "/" .Name }}
+        {{/*
+            troubleshoot the $src variable as needed
+            <!-- <p>{{ $src }}</p> -->
+        */}}
+        <a data-fancybox="gallery" href="{{ $src }}">
+            <img src="{{ $src }}">  <br/>
+        </a>
+    {{ end }}
+</div>

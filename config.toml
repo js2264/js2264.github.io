@@ -28,14 +28,14 @@ dateformat = "Jan 2, 2006"
 
 ## Site Meta Settings
 [params.meta]
-description = "Simple minimalist theme"
-keywords = "minimalist,blog,goa,hugo,developer"
+description = "JS"
+keywords = "developer,coding,genomics,blog,hugo"
 
 ## Social Accounts
 [params.social]
-github = "js2264>"
-linkedin = "jacquesserizay>"
-google = "jacquesserizay>"
+github = "js2264"
+linkedin = "jacquesserizay"
+google = "jacquesserizay"
 email = "jacquesserizay@gmail.com"
 
 ## Extras
@@ -65,3 +65,8 @@ hightlightjs = true
     weight = 400
     identifier = "blog"
     url = "/blog/"
+[[menu.main]]
+    name = "arts"
+    weight = 500
+    identifier = "arts"
+    url = "/arts/"

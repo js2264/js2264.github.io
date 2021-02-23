@@ -90,7 +90,6 @@
 .card:hover {
     box-shadow: 0 5px 11px rgba(33, 33, 33, 0.445); 
 }
-  
 .index-anchor{text-decoration:none;color:#111}
 .index-anchor:hover{text-decoration:none;color:#111}
 .panel{margin-bottom:22px;background-color:#ffffff;border:1px solid transparent;border-radius:4px}
