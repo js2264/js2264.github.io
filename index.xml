@@ -6,7 +6,43 @@
     <description>Recent content on Jacques Serizay</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Wed, 03 Feb 2021 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 23 Feb 2021 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>/coding/browser/</link>
+      <pubDate>Tue, 23 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/coding/browser/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/coding/periodicdna/</link>
+      <pubDate>Tue, 23 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/coding/periodicdna/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/coding/regatlas/</link>
+      <pubDate>Tue, 23 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/coding/regatlas/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/coding/vplotr/</link>
+      <pubDate>Tue, 23 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/coding/vplotr/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>periodicDNA: an R/Bioconductor package to investigate k-mer periodicity in DNA</title>
       <link>/publications/serizay_periodicdna_2020/</link>

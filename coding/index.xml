@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Codings on Jacques Serizay</title>
+    <link>/coding/</link>
+    <description>Recent content in Codings on Jacques Serizay</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Tue, 23 Feb 2021 00:00:00 +0000</lastBuildDate><atom:link href="/coding/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>/coding/browser/</link>
+      <pubDate>Tue, 23 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/coding/browser/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/coding/periodicdna/</link>
+      <pubDate>Tue, 23 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/coding/periodicdna/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/coding/regatlas/</link>
+      <pubDate>Tue, 23 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/coding/regatlas/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/coding/vplotr/</link>
+      <pubDate>Tue, 23 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/coding/vplotr/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
