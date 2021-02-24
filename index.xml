@@ -6,7 +6,16 @@
     <description>Recent content on Jacques Serizay</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Tue, 23 Feb 2021 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 24 Feb 2021 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Generating fragment density plots in R/Bioconductor with VplotR</title>
+      <link>/publications/serizay_vplotr_2021/</link>
+      <pubDate>Wed, 24 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/publications/serizay_vplotr_2021/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title></title>
       <link>/coding/browser/</link>
