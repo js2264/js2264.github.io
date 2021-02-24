@@ -1,6 +1,6 @@
 ---
 title: "Generating fragment density plots in R/Bioconductor with VplotR"
-date: 2021-02-28
+date: 2021-02-24
 draft: false
 
 # Authors. 

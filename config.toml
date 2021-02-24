@@ -18,6 +18,9 @@ theme = "hugo-goa"
 googleAnalytics = "XYZ"
 enableRobotsTXT = true
 
+## Nanogallery2
+use_custom_ng2_setting = false
+
 ## Site Settings
 [params]
 author = "Jacques Serizay"
@@ -66,7 +69,7 @@ hightlightjs = true
     identifier = "blog"
     url = "/blog/"
 [[menu.main]]
-    name = "arts"
+    name = "gallery"
     weight = 500
     identifier = "arts"
     url = "/arts/"

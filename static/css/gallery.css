@@ -1,0 +1,175 @@
+html {
+	 height: 100%;
+}
+ *, *:after, *:before {
+	 -webkit-box-sizing: border-box;
+	 -moz-box-sizing: border-box;
+	 box-sizing: border-box;
+	 padding: 0;
+	 margin: 0;
+}
+ ::selection {
+	 background: #d13150;
+	 color: white;
+}
+ ::-moz-selection {
+	 background: #d13150;
+	 color: white;
+}
+ body {
+	 font-family: 'JetBrains Mono', monospace;
+	 font-weight: 300;
+	 font-size: 1rem;
+	 overflow: scroll;
+	 overflow-x: hidden;
+	 background: #f5f5f5;
+	 color: #101820;
+	 width: 100%;
+	 min-height: 100%;
+	 line-height: 1.5;
+	 position: relative;
+	 display: block;
+	 min-height: 100vh;
+	 padding: 0 2rem;
+}
+ a {
+	 text-decoration: none;
+	 color: #101820;
+}
+ .content-wrapper {
+	 min-height: 80vh;
+}
+ footer {
+	 width: 100%;
+	 padding: 1.25rem 0;
+	 text-align: center;
+	 display: flex;
+	 flex-flow: column;
+}
+ .link-text {
+	 font-weight: 700;
+}
+ #link::after {
+	 content: "|";
+}
+ #link:last-child::after {
+	 content: "";
+}
+ footer {
+	 font-family: 'JetBrains Mono', monospace;
+}
+ footer a {
+	 color: #d13150;
+	 padding: 0;
+}
+ footer a:hover {
+	 color: white;
+	 background-color: #d13150;
+	 transition: all 0.35s ease-out;
+	 transition-property: all 0.35s ease-out;
+	 -webkit-transition-property: all 0.35s ease-out;
+	 -moz-transition-property: all 0.35s ease-out;
+	 -o-transition-property: all 0.35s ease-out;
+}
+ header {
+	 width: 100%;
+	 max-width: 76em;
+	 position: relative;
+	 font-family: 'JetBrains Mono', monospace;
+	 font-size: 1.2rem;
+	 margin: 1.5rem auto;
+}
+ header .title-container {
+	 margin-bottom: 1rem;
+}
+ header .title-container h1 {
+	 border-bottom: 1px solid #101820;
+	 margin-bottom: 0.55rem;
+}
+ header nav {
+	 text-align: right;
+	 background-color: #d13150;
+	 color: white;
+}
+ header nav a {
+	 color: white;
+	 background-color: #d13150;
+}
+ header .summary {
+	 font-family: 'JetBrains Mono', monospace;
+	 font-size: 1rem;
+	 text-align: right;
+	 margin-top: 1rem;
+}
+ header .summary ul {
+	 list-style-type: none;
+}
+ header .summary ul a {
+	 color: #d13150;
+	 padding: 0;
+}
+ header .summary ul a:hover {
+	 color: white;
+	 background-color: #d13150;
+	 transition: all 0.35s ease-out;
+	 transition-property: all 0.35s ease-out;
+	 -webkit-transition-property: all 0.35s ease-out;
+	 -moz-transition-property: all 0.35s ease-out;
+	 -o-transition-property: all 0.35s ease-out;
+}
+ blockquote {
+	 font-family: 'JetBrains Mono', monospace;
+	 font-size: 1rem;
+}
+ blockquote::after {
+	 content: "";
+}
+ blockquote::before {
+	 content: "\203A";
+}
+ .project-card {
+	 width: 300px;
+	 height: 480px;
+	 overflow: hidden;
+	 text-align: center;
+	 padding: 0;
+	 position: relative;
+	 margin: 2%;
+}
+ .project-card img {
+	 z-index: 2;
+}
+ .project-card .title-content {
+	 text-align: center;
+	 padding: 1.2rem;
+	 position: absolute;
+	 z-index: 100;
+	 width: 100%;
+	 bottom: 0;
+	 left: 0;
+	 background-color: #fbf1d1;
+	 color: #101820;
+}
+ .project-card .title-content .card-title {
+	 font-weight: 400;
+	 font-family: 'JetBrains Mono', monospace;
+	 margin-bottom: 0;
+}
+ .project-card .title-content .card-title::before {
+	 content: "\203A";
+}
+ .project-card .title-content .card-title::after {
+	 content: "\2039";
+}
+ .showcase {
+	 display: flex;
+	 display: -webkit-box;
+	 display: -moz-box;
+	 display: -ms-flexbox;
+	 display: -webkit-flex;
+	 flex-direction: row;
+	 flex-wrap: wrap;
+	 align-items: center;
+	 justify-content: center;
+}
+ 

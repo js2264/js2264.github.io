@@ -3,6 +3,4 @@
 *.swp
 txt/
 *pdf
-box/
-meghna-premium/
-phantom/
+/resources/_gen/
