@@ -170,5 +170,23 @@
 I come from an experimental biology background, but I quickly moved toward a &amp;ldquo;wet/dry&amp;rdquo; PhD (i.e. generating high-throughput sequencing libraries during the day, and analysing the resulting datasets at night). During my post-doc, I am now entirely focusing on data analysis. To answer fundamental biological questions, I routinely use R to dig into the data I generated to highlight mechanisms of gene regulation.</description>
     </item>
     
+    <item>
+      <title>dn&amp;art</title>
+      <link>/arts/dnart/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/arts/dnart/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Vonoroi</title>
+      <link>/arts/voronoi/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/arts/voronoi/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>
