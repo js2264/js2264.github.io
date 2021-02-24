@@ -1,5 +1,5 @@
 ---
-title: "Birds"
-description: "bostorgay denen ayvanın da, cılgada bolur cuvası."
-copyright: "Source: Unsplash"
+title: "Galleries"
 ---
+
+A snapshot of some generative art I have been working on... 
