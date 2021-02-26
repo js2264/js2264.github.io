@@ -13,11 +13,11 @@
     "displayDescription": false
   },
 
-  "thumbnailGutterWidth": 0,
-  "thumbnailGutterHeight": 0,
+  "thumbnailGutterWidth": 10,
+  "thumbnailGutterHeight": 10,
   "thumbnailBorderVertical": 0,
   "thumbnailBorderHorizontal": 0,
-  "thumbnailHoverEffect2": "image_blur_0.05px_0.00px|image_contrast_0.9_1|image_grayscale_80%_0%|imageScale150", 
+  "thumbnailHoverEffect2": "image_blur_0.05px_0.00px|image_contrast_0.75_1|image_grayscale_20%_0%|imageScale150", 
 
   "thumbnailDisplayTransition":          "slideUp2",
   "thumbnailDisplayTransitionDuration":  150,  

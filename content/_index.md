@@ -1,0 +1,3 @@
+---
+gallery: "/content/gallery/"
+---
