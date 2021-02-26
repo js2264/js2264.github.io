@@ -93,13 +93,6 @@ html {
 	 font-size: 1.2rem;
 	 margin: 1.5rem auto;
 }
- header .title-container {
-	 margin-bottom: 1rem;
-}
- header .title-container h1 {
-	 border-bottom: 1px solid #101820;
-	 margin-bottom: 0.55rem;
-}
  header nav {
 	 text-align: right;
 	 background-color: #d13150;
