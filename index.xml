@@ -6,7 +6,16 @@
     <description>Recent content on Jacques Serizay</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Wed, 24 Feb 2021 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 09 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>/coding/movieart/</link>
+      <pubDate>Tue, 09 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/coding/movieart/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Generating fragment density plots in R/Bioconductor with VplotR</title>
       <link>/publications/serizay_vplotr_2021/</link>
@@ -213,6 +222,15 @@ I come from an experimental biology background, but I quickly moved toward a &am
       
       <guid>/galleries/mondrianart/</guid>
       <description></description>
+    </item>
+    
+    <item>
+      <title>movieaRt</title>
+      <link>/galleries/movieart/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/galleries/movieart/</guid>
+      <description>In progress&amp;hellip;</description>
     </item>
     
     <item>
