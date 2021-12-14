@@ -1,9 +1,10 @@
 <!-- <section id="list-pane" class="row list"> -->
-<section id="list-pane" class="row pack">
+<section id="list-pane" class="row list">
 
+  <ul >
     {{ range .Data.Pages.ByPublishDate.Reverse }}
 
-    <!-- FOR BLOG ENTRIES AND PUBLICATIONS -->
+    <!-- FOR BLOG ENTRIES -->
     {{ if eq .Params.class "coding" }}
 
       <div class="col-md-4">
@@ -24,6 +25,39 @@
           </div>
         </a>
       </div>
+
+
+    <!-- FOR PUBLICATION ENTRIES -->
+    {{ else if eq .Params.class "pub" }}
+
+    <div class="row">
+
+      <li class="list-entry box css3-shadow">
+        
+          <div class="col-md-5">
+            <a class="list-entry-link" href="{{ .Permalink }}" style="font-size: 20px;">{{ .Title | markdownify }}</a>
+            <p class="excerpt">
+              {{ if isset .Params "publication_short" }}
+                  </br>
+                  <b>{{ .Params.publication_short | markdownify }}</b>, {{ .Date.Format .Site.Params.dateformat }}
+              {{ end }}
+            </p>
+    
+          </div>
+  
+          
+          <div class="col-md-5">
+            <p class="excerpt">
+              {{ .Description | safeHTML | truncate 300 }}
+            </p>
+          </div>
+
+      </li>
+      
+    </div>
+    
+  </br>
+  <hr>
 
     {{ else if eq .Params.class "art"}}
 
@@ -105,5 +139,7 @@
     <hr style="border-color:rgba(190, 190, 190, 0.185); border-width: 1px; border-style:solid">
   </li> -->
   {{ end }}
+
+</ul>
 
 </section>
