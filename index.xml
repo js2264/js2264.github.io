@@ -6,7 +6,16 @@
     <description>Recent content on Jacques Serizay</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Tue, 09 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 26 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Seuratify</title>
+      <link>/blog/seuratify/</link>
+      <pubDate>Mon, 26 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/seuratify/</guid>
+      <description>pre  code.sourceCode { white-space: pre; position: relative; } pre  code.sourceCode  span { display: inline-block; line-height: 1.25; } pre  code.sourceCode  span:empty { height: 1.2em; } code.sourceCode  span { color: inherit; text-decoration: inherit; } div.sourceCode { margin: 1em 0; } pre.sourceCode { margin: 0; } @media screen { div.sourceCode { overflow: auto; } } @media print { pre  code.sourceCode { white-space: pre-wrap; } pre  code.</description>
+    </item>
+    
     <item>
       <title></title>
       <link>/coding/movieart/</link>
@@ -204,42 +213,6 @@
       <guid>/about/</guid>
       <description>I am currently doing a post-doc at the Institut Pasteur in France, in Romain Koszul lab.
 I come from an experimental biology background, but I quickly moved toward a &amp;ldquo;wet/dry&amp;rdquo; PhD (i.e. generating high-throughput sequencing libraries during the day, and analysing the resulting datasets at night). During my post-doc, I am now entirely focusing on data analysis. To answer fundamental biological questions, I routinely use R to dig into the data I generated to highlight mechanisms of gene regulation.</description>
-    </item>
-    
-    <item>
-      <title>dn&amp;art</title>
-      <link>/galleries/dnart/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/galleries/dnart/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Mondrian-inspired art</title>
-      <link>/galleries/mondrianart/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/galleries/mondrianart/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>movieaRt</title>
-      <link>/galleries/movieart/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/galleries/movieart/</guid>
-      <description>In progress&amp;hellip;</description>
-    </item>
-    
-    <item>
-      <title>Vonoroi</title>
-      <link>/galleries/voronoi/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/galleries/voronoi/</guid>
-      <description></description>
     </item>
     
   </channel>

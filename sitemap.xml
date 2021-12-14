@@ -3,7 +3,31 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>/</loc>
-    <lastmod>2021-03-09T00:00:00+00:00</lastmod>
+    <lastmod>2021-04-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/blog/</loc>
+    <lastmod>2021-04-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/categories/</loc>
+    <lastmod>2021-04-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/data-viz/</loc>
+    <lastmod>2021-04-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/categories/data-viz/</loc>
+    <lastmod>2021-04-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/r/</loc>
+    <lastmod>2021-04-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/categories/r/</loc>
+    <lastmod>2021-04-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/blog/seuratify/</loc>
+    <lastmod>2021-04-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/</loc>
+    <lastmod>2021-04-26T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/coding/movieart/</loc>
     <lastmod>2021-03-09T00:00:00+00:00</lastmod>
@@ -41,28 +65,7 @@
     <loc>/publications/serizay_periodicdna_2020/</loc>
     <lastmod>2021-02-03T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/blog/</loc>
-    <lastmod>2020-11-26T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/categories/</loc>
-    <lastmod>2020-11-26T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/tags/data-viz/</loc>
-    <lastmod>2020-11-26T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/categories/data-viz/</loc>
-    <lastmod>2020-11-26T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>/blog/generate_art/</loc>
-    <lastmod>2020-11-26T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/tags/r/</loc>
-    <lastmod>2020-11-26T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/categories/r/</loc>
-    <lastmod>2020-11-26T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/tags/</loc>
     <lastmod>2020-11-26T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/publications/serizay_genomeresearch_2020/</loc>
@@ -151,15 +154,5 @@
   </url><url>
     <loc>/categories/about/</loc>
     <lastmod>2016-10-02T22:55:05-04:00</lastmod>
-  </url><url>
-    <loc>/galleries/dnart/</loc>
-  </url><url>
-    <loc>/galleries/</loc>
-  </url><url>
-    <loc>/galleries/mondrianart/</loc>
-  </url><url>
-    <loc>/galleries/movieart/</loc>
-  </url><url>
-    <loc>/galleries/voronoi/</loc>
   </url>
 </urlset>
