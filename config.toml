@@ -13,6 +13,7 @@ author = "Jacques Serizay"
 title = "Jacques Serizay"
 
 theme = "hugo-goa"
+custom_css = "css/custom.css"
 
 ## Hugo Built-in Features
 googleAnalytics = "XYZ"
