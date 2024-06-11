@@ -26,7 +26,7 @@ use_custom_ng2_setting = false
 [params]
 author = "Jacques Serizay"
 intro = ""
-description = "Currently Post-doc at the Institut Pasteur X ENS in Paris, looking at my computer. 🖥️🇫🇷</br></br>Previously looking at worms dancing on plates in University of Cambridge, UK. 🐛🇬🇧</br></br>Previously looking at non-coding RNA through the microscope in the USA. 🔬🇺🇸"
+description = "Post-doc at the Institut Pasteur & ENS in Paris, looking at my computer. 🖥️🇫🇷</br></br>Previously looking at worms dancing on plates at the University of Cambridge, UK. 🐛🇬🇧</br></br>Previously looking at non-coding RNA through the microscope in the USA. 🔬🇺🇸"
 authorimage = "avatar.png"
 dateformat = "Jan 2, 2006"
 
@@ -44,7 +44,7 @@ email = "jacquesserizay@gmail.com"
 
 ## Extras
 [params.extra]
-copyright = "© 2021. Jacques Serizay. [Some Rights Reserved](http://creativecommons.org/licenses/by/3.0/)." 
+copyright = "© 2024. Jacques Serizay. [Some Rights Reserved](http://creativecommons.org/licenses/by/3.0/)." 
 poweredby = true
 hightlightjs = true
 
@@ -64,13 +64,13 @@ hightlightjs = true
     weight = 300
     identifier = "coding"
     url = "/coding/"
-[[menu.main]]
-    name = "blog"
-    weight = 400
-    identifier = "blog"
-    url = "/blog/"
-[[menu.main]]
-    name = "galleries"
-    weight = 500
-    identifier = "galleries"
-    url = "/galleries/"
+# [[menu.main]]
+#     name = "blog"
+#     weight = 400
+#     identifier = "blog"
+#     url = "/blog/"
+# [[menu.main]]
+#     name = "galleries"
+#     weight = 500
+#     identifier = "galleries"
+#     url = "/galleries/"
