@@ -4,17 +4,16 @@
     <title>Chromatin on Jacques Serizay</title>
     <link>/tags/chromatin/</link>
     <description>Recent content in Chromatin on Jacques Serizay</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-US</language>
-    <lastBuildDate>Mon, 10 Feb 2020 15:59:13 -0400</lastBuildDate><atom:link href="/tags/chromatin/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 10 Feb 2020 15:59:13 -0400</lastBuildDate>
+    <atom:link href="/tags/chromatin/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Tissue-specific profiling reveals distinctive regulatory architectures for ubiquitous, germline and somatic genes</title>
       <link>/blog/preprint-tissue-spe-orga/</link>
       <pubDate>Mon, 10 Feb 2020 15:59:13 -0400</pubDate>
-      
       <guid>/blog/preprint-tissue-spe-orga/</guid>
       <description>I&amp;rsquo;ll describe in greater details the findings of this project, but for now, here is the link to the preprint, currently on bioRxiv: click here or here.</description>
     </item>
-    
   </channel>
 </rss>

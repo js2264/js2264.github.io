@@ -4,17 +4,16 @@
     <title>Resources on Jacques Serizay</title>
     <link>/tags/resources/</link>
     <description>Recent content in Resources on Jacques Serizay</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-US</language>
-    <lastBuildDate>Wed, 08 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="/tags/resources/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 08 Apr 2020 00:00:00 +0000</lastBuildDate>
+    <atom:link href="/tags/resources/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Why is Bioconductor awesome</title>
       <link>/blog/awesome_bioconductor/</link>
       <pubDate>Wed, 08 Apr 2020 00:00:00 +0000</pubDate>
-      
       <guid>/blog/awesome_bioconductor/</guid>
-      <description>pre  code.sourceCode { white-space: pre; position: relative; } pre  code.sourceCode  span { display: inline-block; line-height: 1.25; } pre  code.sourceCode  span:empty { height: 1.2em; } code.sourceCode  span { color: inherit; text-decoration: inherit; } div.sourceCode { margin: 1em 0; } pre.sourceCode { margin: 0; } @media screen { div.sourceCode { overflow: auto; } } @media print { pre  code.sourceCode { white-space: pre-wrap; } pre  code.</description>
+      <description>I love Bioconductor Since its early ages, Bioconductor has gone very far. I’ve been on board for the past 7-ish years (I think), I use it every day, and every day, I think about how much I love it.&#xA;Some reasons… I love Bioconductor for many reasons, some of them being GenomicRanges, SummarizedExperiment, DESeq2, and of course the amazing team.&#xA;But today, one reason which I want to discuss in more depth is the Annotation Hub.</description>
     </item>
-    
   </channel>
 </rss>

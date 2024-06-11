@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>about on Jacques Serizay</title>
+    <title>About on Jacques Serizay</title>
     <link>/tags/about/</link>
-    <description>Recent content in about on Jacques Serizay</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in About on Jacques Serizay</description>
+    <generator>Hugo</generator>
     <language>en-US</language>
-    <lastBuildDate>Sun, 02 Oct 2016 22:55:05 -0400</lastBuildDate><atom:link href="/tags/about/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 02 Oct 2016 22:55:05 -0400</lastBuildDate>
+    <atom:link href="/tags/about/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>About</title>
       <link>/about/</link>
       <pubDate>Sun, 02 Oct 2016 22:55:05 -0400</pubDate>
-      
       <guid>/about/</guid>
-      <description>I am currently doing a post-doc at the Institut Pasteur in France, in Romain Koszul lab.
-I come from an experimental biology background, but I quickly moved toward a &amp;ldquo;wet/dry&amp;rdquo; PhD (i.e. generating high-throughput sequencing libraries during the day, and analysing the resulting datasets at night). During my post-doc, I am now entirely focusing on data analysis. To answer fundamental biological questions, I routinely use R to dig into the data I generated to highlight mechanisms of gene regulation.</description>
+      <description>I am currently doing a post-doc at the Institut Pasteur in France, in Romain Koszul lab.&#xA;I come from an experimental biology background, but I quickly moved toward a &amp;ldquo;wet/dry&amp;rdquo; PhD (i.e. generating high-throughput sequencing libraries during the day, and analysing the resulting datasets at night). During my post-doc, I am now entirely focusing on data analysis. To answer fundamental biological questions, I routinely use R to dig into the data I generated to highlight mechanisms of gene regulation.</description>
     </item>
-    
   </channel>
 </rss>

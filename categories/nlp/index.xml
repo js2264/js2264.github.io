@@ -4,26 +4,23 @@
     <title>NLP on Jacques Serizay</title>
     <link>/categories/nlp/</link>
     <description>Recent content in NLP on Jacques Serizay</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-US</language>
-    <lastBuildDate>Sat, 13 Jun 2020 00:00:00 +0000</lastBuildDate><atom:link href="/categories/nlp/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 13 Jun 2020 00:00:00 +0000</lastBuildDate>
+    <atom:link href="/categories/nlp/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Machine Learning and Natural Langage Processing</title>
       <link>/blog/ml_nlp/</link>
       <pubDate>Sat, 13 Jun 2020 00:00:00 +0000</pubDate>
-      
       <guid>/blog/ml_nlp/</guid>
-      <description>pre  code.sourceCode { white-space: pre; position: relative; } pre  code.sourceCode  span { display: inline-block; line-height: 1.25; } pre  code.sourceCode  span:empty { height: 1.2em; } code.sourceCode  span { color: inherit; text-decoration: inherit; } div.sourceCode { margin: 1em 0; } pre.sourceCode { margin: 0; } @media screen { div.sourceCode { overflow: auto; } } @media print { pre  code.sourceCode { white-space: pre-wrap; } pre  code.</description>
+      <description>Inspired from https://machinelearningmastery.com/how-to-develop-a-word-level-neural-language-model-in-keras/&#xA;Clean-up data and select Results chapters cat txt/collated_books.txt | \ tr &amp;#39;\n&amp;#39; &amp;#39; &amp;#39; | \ sed &amp;quot;s,&amp;#39;, ,g&amp;quot; | \ sed &amp;quot;s,_,,g&amp;quot; | \ sed &amp;#39;s,[ ]\+, ,g&amp;#39; | \ sed &amp;quot;s,^ ,,g&amp;quot; &amp;gt; txt/collated_books_stripped.txt Create a new conda env. conda create -n keras python=3.6 tensorflow keras nltk conda activate keras Start python import numpy as np import tensorflow as tf tf.config.threading.set_inter_op_parallelism_threads(1) tf.config.threading.set_intra_op_parallelism_threads(1) import keras from pickle import dump from keras import backend as K from keras.</description>
     </item>
-    
     <item>
       <title>Text mining and sentiment analysis in R</title>
       <link>/blog/text_mining_and_sentiment_analysis_in_r/</link>
       <pubDate>Wed, 29 Jan 2020 00:00:00 +0000</pubDate>
-      
       <guid>/blog/text_mining_and_sentiment_analysis_in_r/</guid>
-      <description>pre  code.sourceCode { white-space: pre; position: relative; } pre  code.sourceCode  span { display: inline-block; line-height: 1.25; } pre  code.sourceCode  span:empty { height: 1.2em; } code.sourceCode  span { color: inherit; text-decoration: inherit; } div.sourceCode { margin: 1em 0; } pre.sourceCode { margin: 0; } @media screen { div.sourceCode { overflow: auto; } } @media print { pre  code.sourceCode { white-space: pre-wrap; } pre  code.</description>
+      <description>Pre-processing LOTR text in R Complete LOTR text can be downloaded from Kaggle: https://www.kaggle.com/ashishsinhaiitr/lord-of-the-rings-text. I edited the text very quickly, by simply removing the foreword and name of each of the 3 tomes. I also added the “book” II to VI (there was only an entry for “Book I”, the others were missing). Finally, I collated the three tomes together.&#xA;library(tidyverse) ## ── Attaching packages ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.3.0 ── ## ✔ ggplot2 3.</description>
     </item>
-    
   </channel>
 </rss>
