@@ -21,7 +21,7 @@ jobs:
         run: Rscript -e 'blogdown::install_hugo()'
       - name: Render blog
         run: Rscript -e 'blogdown::build_site()'
-      - uses: actions/upload-artifact@v1
+      - uses: actions/upload-artifact@v4
         with:
           name: public
           path: public/
