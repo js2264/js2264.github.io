@@ -59,11 +59,11 @@ hightlightjs = true
     identifier = "publications"
     weight = 200
     url = "/publications/"
-[[menu.main]]
-    name = "coding"
-    weight = 300
-    identifier = "coding"
-    url = "/coding/"
+# [[menu.main]]
+#     name = "coding"
+#     weight = 300
+#     identifier = "coding"
+#     url = "/coding/"
 # [[menu.main]]
 #     name = "blog"
 #     weight = 400

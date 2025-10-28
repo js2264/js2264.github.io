@@ -1,7 +1,7 @@
 +++
 categories = ["about"]
 comments = false
-date = "2016-10-02T22:55:05-04:00"
+date = "2025-10-28T12:00:00+01:00"
 draft = false
 slug = ""
 tags = ["about"]
@@ -9,8 +9,7 @@ title = "About"
 showpagemeta = false
 +++
 
-I am currently doing a post-doc at the Institut Pasteur in France, in Romain Koszul lab. 
+I am a tenured CNRS researcher since 2025, and I am currently working in the Spatial Regulation of Genomes laboratory under Romain Koszul, at the Institut Pasteur / CNRS UMR 3525 in Paris. I joined the Institut Pasteur as a postdoc in 2020, bringing with me an in-depth expertise in bioinformatics and computational biology. 
+Prior to joining Institut Pasteur, I earned my PhD in Genetics from the University of Cambridge, studying under Julie Ahringer. While there, I conducted research on tissue-specific and developmentally-regulated gene expression in Caenorhabditis elegans. Before pursuing my Ph.D., I earned my Master's degree in Genetics the Ecole Normale Superieure in 2016, and was a visiting researcher in the Plath laboratory at UCLA in 2015, where I focused on the molecular mechanisms underpinning chromosome-wide gene silencing by Xist long non-coding RNA. 
 
-I come from an experimental biology background, but I quickly moved toward a "wet/dry" PhD (*i.e.* generating high-throughput sequencing libraries during the day, and analysing the resulting datasets at night). During my post-doc, I am now entirely focusing on data analysis. To answer fundamental biological questions, I routinely use R to dig into the data I generated to highlight mechanisms of gene regulation.  
-
-On my spare time, I like to play around with computer-assisted generative art. Have a look at [my galleries](https://jserizay.com/galleries/)!. I am also an ardent moviegoer. I wrote an R package to analyse movie box-office results ([link here](https://github.com/js2264/moviestats)). I am now switching to Python to build an interactive dashboard to visually investigate the trends in movie industry by year, genre and actor. But I can still enjoy a movie without thinking about crushing numbers: [check out my Letterboxd](https://letterboxd.com/jserizay/).
+I focus on the integration and analysis of large multi-omics datasets across prokaryotic, microeukaryotic and metazoan systems, to study multi-modal chromatin organization and its impact on gene regulation. I have contributed to developing data structures and tools for genome-wide chromatin conformation capture analysis, including the HiCExperiment suite of R packages. I come from an experimental biology background, transitioned toward combined "wet/dry" research during my Ph.D., generating high-throughput sequencing libraries while analyzing the resulting datasets, eventually focusing entirely on computational data analysis during my postdoctoral work.
