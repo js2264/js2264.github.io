@@ -1,8 +1,4 @@
-.DS_Store
-*/**/.DS_Store
-*.swp
-txt/
-*pdf
-box/
-meghna-premium/
-phantom/
+# Hugo build artifacts
+public/
+resources/
+.hugo_build.lock

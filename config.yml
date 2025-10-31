@@ -1,0 +1,112 @@
+baseURL: "https://jserizay.com/" 
+title: J. Serizay
+theme: PaperMod
+
+enableInlineShortcodes: true
+enableRobotsTXT: true
+pagination:
+  pagerSize: 20
+
+taxonomies:
+    tag: tags
+
+menu:
+    main:
+        - name: About
+          url: about/
+          weight: 2
+        - name: Papers
+          url: papers/
+          weight: 3
+        - name: Courses
+          url: courses/
+          weight: 4
+        - name: Books
+          url: books/
+          weight: 5
+        - name: Data
+          url: data/
+          weight: 6
+        # - name: Blog
+        #   url: https://en.wikipedia.org/wiki/Moritz-Maria_von_Igelfeld_(character)
+        #   weight: 7
+
+params:
+    description: "This website hosts Jacques Serizay's research papers, course materials, books, curriculum vitae, and contact information."
+    author: Jacques Serizay
+    DateFormat: "January 2006"
+    defaultTheme: light
+    hideFooter: false
+    disableThemeToggle: true
+    ShowShareButtons: false
+    ShowReadingTime: false
+    disableSpecial1stPost: true
+    disableAnchoredHeadings: true
+    ShowPostNavLinks: true
+    ShowBreadCrumbs: false
+    ShowCodeCopyButtons: true
+    ShowAllPagesInArchive: false
+    MainSections: ["about", "papers","courses","books","data"]
+    ShowToc: true
+    disableScrollToTop: true
+    TocOpen: true
+    ShowWordCount: false
+    UseHugoToc: true
+    comments: false
+    math: true
+    profileMode:
+          enabled: true
+          title: Jacques Serizay
+          subtitle: "I am a tenured CNRS researcher currently working in the Spatial Regulation of Genomes laboratory under Romain Koszul at the Institut Pasteur / CNRS UMR 3525 in Paris, which I joined as a postdoc in 2020, after finishing my PhD in Genetics with Pr. Julie Ahringer at the University of Cambridge. Before that, I obtained my Master's degree in Genetics from the École Normale Supérieure de Cachan in 2016, and was a visiting researcher in the Plath laboratory at UCLA in 2015."
+          imageUrl: "picture.jpeg"
+          imageWidth: 160
+          imageHeight: 160
+          buttons:
+            - name: About
+              url: about/
+            - name: Papers
+              url: papers/
+            - name: Courses
+              url: courses/
+            - name: Books
+              url: books/
+            - name: Data
+              url: data/
+            # - name: Tags
+            #   url: tags/
+            # - name: Archive
+            #   url: archive/
+            # - name: Blog
+            #   url: https://en.wikipedia.org/wiki/Moritz-Maria_von_Igelfeld_(character)
+
+    socialIcons:
+        - name: CV
+          url: cv.pdf
+        - name: Email
+          url: mailto:jacques.serizay@pasteur.fr
+        - name: Google Scholar
+          url: https://scholar.google.com/citations?user=e5QTBIAAAAAJ
+        - name: GitHub
+          url: https://github.com/js2264
+
+    assets:
+        disableScrollBarStyle: true
+    cover:
+        hiddenInList: false
+        hiddenInSingle: true
+    label:
+      text: "Jacques Serizay"
+      icon: favicon.ico
+      iconHeight: 18
+
+markup:
+    goldmark:
+        renderer:
+            unsafe: true
+    highlight:
+        guessSyntax: true
+        style: autumn 
+    tableOfContents:
+        endLevel: 2
+        ordered: false
+        startLevel: 2
