@@ -1,1 +1,1 @@
-To update: locally run `hugo` then push to master branch.
+To update: locally run `hugo --destination docs` then push to master branch.
