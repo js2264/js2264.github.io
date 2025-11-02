@@ -1,0 +1,6 @@
+.entry-cover img {
+    border-radius: var(--radius);
+    width: 100%;
+    height: auto;
+    /* display: none; */
+}

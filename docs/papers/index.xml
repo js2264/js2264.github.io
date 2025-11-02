@@ -6,28 +6,84 @@
     <description>Recent content in Papers on J. Serizay</description>
     <generator>Hugo -- 0.152.2</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 06 Apr 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 19 Sep 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://jserizay.com/papers/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Your Inner Hedgehog</title>
-      <link>https://jserizay.com/papers/paper3/</link>
-      <pubDate>Tue, 06 Apr 2021 00:00:00 +0000</pubDate>
-      <guid>https://jserizay.com/papers/paper3/</guid>
-      <description>This paper describes the inner hedgehog, a psychological condition widespread in academia. Published in the Journal of Socio-Experimental Psychology, 2021.</description>
+      <title>Phages with a broad host range are common across ecosystems</title>
+      <link>https://jserizay.com/papers/bignaud_natmicrobio_2025/</link>
+      <pubDate>Fri, 19 Sep 2025 00:00:00 +0000</pubDate>
+      <guid>https://jserizay.com/papers/bignaud_natmicrobio_2025/</guid>
+      <description>Bignaud, Conti, Thierry, &lt;strong&gt;Serizay&lt;/strong&gt;, Labadie, Poulain, et al., Nature Microbiology 2025</description>
     </item>
     <item>
-      <title>Unusual Uses For Olive Oil</title>
-      <link>https://jserizay.com/papers/paper1/</link>
-      <pubDate>Tue, 15 Jan 2013 00:00:00 +0000</pubDate>
-      <guid>https://jserizay.com/papers/paper1/</guid>
-      <description>This paper reviews unusual uses for olive oil throughout the Mediterranean world. Published in the Journal of Oleic Science, 2013.</description>
+      <title>High-resolution map of the Plasmodium falciparum genome reveals MORC/ApiAP2-mediated links between distant, functionally related genes</title>
+      <link>https://jserizay.com/papers/singh_natmicrobio_2025/</link>
+      <pubDate>Mon, 30 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>https://jserizay.com/papers/singh_natmicrobio_2025/</guid>
+      <description>Singh † &amp;amp; Serizay † &amp;amp; Couble †, Cabahug, Rosa, Chen, et al., Nature Microbiology 2025</description>
     </item>
     <item>
-      <title>The Finer Points of Sausage Dogs</title>
-      <link>https://jserizay.com/papers/paper2/</link>
-      <pubDate>Tue, 28 Dec 2004 00:00:00 +0000</pubDate>
-      <guid>https://jserizay.com/papers/paper2/</guid>
-      <description>This paper studies the pulmonary efficiency of sausage dogs. Published in the Journal of Canine Science, 2004.</description>
+      <title>Sequence-dependent activity and compartmentalization of foreign DNA in a eukaryotic nucleus</title>
+      <link>https://jserizay.com/papers/meneu_science_2025/</link>
+      <pubDate>Fri, 07 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>https://jserizay.com/papers/meneu_science_2025/</guid>
+      <description>Meneu † &amp;amp; Chapard † &amp;amp; Serizay †, Westbrook, Routhier, Ruault, et al., Science 2025</description>
+    </item>
+    <item>
+      <title>Cyclin switch tailors a cell cycle variant to orchestrate multiciliogenesis</title>
+      <link>https://jserizay.com/papers/serizay_cellrep_2025/</link>
+      <pubDate>Tue, 28 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://jserizay.com/papers/serizay_cellrep_2025/</guid>
+      <description>Serizay, Khoury Damaa, Boudjema, Balagué, Faucourt, Delgehyr, et al., Cell Reports 2025</description>
+    </item>
+    <item>
+      <title>Epigenomics coverage data extraction and aggregation in R with tidyCoverage</title>
+      <link>https://jserizay.com/papers/serizay_bioinfo_2024/</link>
+      <pubDate>Mon, 29 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>https://jserizay.com/papers/serizay_bioinfo_2024/</guid>
+      <description>Serizay, and Koszul, Bioinformatics 2024</description>
+    </item>
+    <item>
+      <title>Orchestrating chromosome conformation capture analysis with Bioconductor</title>
+      <link>https://jserizay.com/papers/serizay_natcomm_2024/</link>
+      <pubDate>Mon, 05 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>https://jserizay.com/papers/serizay_natcomm_2024/</guid>
+      <description>&lt;strong&gt;Serizay&lt;/strong&gt;,  Matthey-Doret,  Bignaud,  Baudry,  and  Koszul, &lt;em&gt;&lt;strong&gt;Nature Communications 2024&lt;/strong&gt;&lt;/em&gt;</description>
+    </item>
+    <item>
+      <title>Generating fragment density plots in R/Bioconductor with VplotR</title>
+      <link>https://jserizay.com/papers/serizay_joss_2024/</link>
+      <pubDate>Fri, 12 Mar 2021 00:00:00 +0000</pubDate>
+      <guid>https://jserizay.com/papers/serizay_joss_2024/</guid>
+      <description>Serizay, Ahringer, JOSS 2021</description>
+    </item>
+    <item>
+      <title>periodicDNA: an R/Bioconductor package to investigate k-mer periodicity in DNA</title>
+      <link>https://jserizay.com/papers/serizay_f1000res_2021/</link>
+      <pubDate>Wed, 24 Feb 2021 00:00:00 +0000</pubDate>
+      <guid>https://jserizay.com/papers/serizay_f1000res_2021/</guid>
+      <description>Serizay, and Ahringer, F1000 Research</description>
+    </item>
+    <item>
+      <title>Distinctive regulatory architectures of germline-active and somatic genes in C. elegans</title>
+      <link>https://jserizay.com/papers/serizay_genomeres_2020/</link>
+      <pubDate>Thu, 08 Oct 2020 00:00:00 +0000</pubDate>
+      <guid>https://jserizay.com/papers/serizay_genomeres_2020/</guid>
+      <description>Serizay, Dong, Jänes, Chesney, Cerrato, and Ahringer, &lt;em&gt;&lt;strong&gt;Genome Research 2020&lt;/strong&gt;&lt;/em&gt;</description>
+    </item>
+    <item>
+      <title>A protein assembly mediates Xist localization and gene silencing</title>
+      <link>https://jserizay.com/papers/pandyajones_nature_2020/</link>
+      <pubDate>Wed, 09 Sep 2020 00:00:00 +0000</pubDate>
+      <guid>https://jserizay.com/papers/pandyajones_nature_2020/</guid>
+      <description>Pandya-Jones, Markaki, Serizay, Chitiashvili, Mancia Leon, Damianov, et al., Nature 2020</description>
+    </item>
+    <item>
+      <title>Genome organization at different scales: nature, formation and function</title>
+      <link>https://jserizay.com/papers/serizay_currentopin_2018/</link>
+      <pubDate>Wed, 18 Apr 2018 00:00:00 +0000</pubDate>
+      <guid>https://jserizay.com/papers/serizay_currentopin_2018/</guid>
+      <description>Serizay, Dong, Jänes, Chesney, Cerrato, and Ahringer, &lt;em&gt;&lt;strong&gt;Genome Research 2020&lt;/strong&gt;&lt;/em&gt;</description>
     </item>
   </channel>
 </rss>

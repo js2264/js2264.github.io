@@ -1,6 +1,7 @@
 baseURL: "https://jserizay.com/" 
 title: J. Serizay
 theme: PaperMod
+publishDir: docs
 
 enableInlineShortcodes: true
 enableRobotsTXT: true
@@ -24,9 +25,12 @@ menu:
         - name: Books
           url: books/
           weight: 5
-        - name: Data
-          url: data/
-          weight: 6
+        - name: CV
+          url: /cv.pdf
+          weight: 7
+        # - name: Data
+        #   url: data/
+        #   weight: 6
         # - name: Blog
         #   url: https://en.wikipedia.org/wiki/Moritz-Maria_von_Igelfeld_(character)
         #   weight: 7
@@ -42,12 +46,12 @@ params:
     ShowReadingTime: false
     disableSpecial1stPost: true
     disableAnchoredHeadings: true
-    ShowPostNavLinks: true
+    ShowPostNavLinks: false
     ShowBreadCrumbs: false
     ShowCodeCopyButtons: true
     ShowAllPagesInArchive: false
-    MainSections: ["about", "papers","courses","books","data"]
-    ShowToc: true
+    MainSections: ["about", "papers","courses","books"]
+    ShowToc: false
     disableScrollToTop: true
     TocOpen: true
     ShowWordCount: false
@@ -58,7 +62,7 @@ params:
           enabled: true
           title: Jacques Serizay
           subtitle: "I am a tenured CNRS researcher currently working in the Spatial Regulation of Genomes laboratory under Romain Koszul at the Institut Pasteur / CNRS UMR 3525 in Paris, which I joined as a postdoc in 2020, after finishing my PhD in Genetics with Pr. Julie Ahringer at the University of Cambridge. Before that, I obtained my Master's degree in Genetics from the École Normale Supérieure de Cachan in 2016, and was a visiting researcher in the Plath laboratory at UCLA in 2015."
-          imageUrl: "picture.jpeg"
+          imageUrl: "picture.png"
           imageWidth: 160
           imageHeight: 160
           buttons:
@@ -70,8 +74,10 @@ params:
               url: courses/
             - name: Books
               url: books/
-            - name: Data
-              url: data/
+            # - name: Data
+            #   url: data/
+            - name: CV
+              url: cv.pdf
             # - name: Tags
             #   url: tags/
             # - name: Archive
@@ -82,18 +88,20 @@ params:
     socialIcons:
         - name: CV
           url: cv.pdf
-        - name: Email
-          url: mailto:jacques.serizay@pasteur.fr
         - name: Google Scholar
           url: https://scholar.google.com/citations?user=e5QTBIAAAAAJ
+        - name: orcid
+          url: https://orcid.org/0000-0002-1508-9656
         - name: GitHub
           url: https://github.com/js2264
+        - name: Email
+          url: mailto:jacques.serizay@pasteur.fr
 
     assets:
         disableScrollBarStyle: true
     cover:
-        hiddenInList: false
-        hiddenInSingle: true
+        hiddenInList: true
+        hiddenInSingle: false
     label:
       text: "Jacques Serizay"
       icon: favicon.ico
