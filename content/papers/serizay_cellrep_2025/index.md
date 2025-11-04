@@ -11,7 +11,7 @@ editPost:
 
 ---
 
-**Serizay**, Khoury Damaa, Boudjema, Balagué, Faucourt, Delgehyr, et al. Cyclin switch tailors a cell cycle variant to orchestrate multiciliogenesis. ***Cell Reports 2025***
+Serizay, Khoury Damaa, Boudjema, Balagué, Faucourt, Delgehyr, et al. Cyclin switch tailors a cell cycle variant to orchestrate multiciliogenesis, Cell Reports 2025
 
 ---
 

@@ -4,14 +4,14 @@ date: 2021-02-24
 cover:
     image: "image.png"
     relative: true
-summary: "Serizay, and Ahringer, F1000 Research"
+summary: "Serizay, and Ahringer, F1000 Research 2020"
 editPost:
     URL: "https://f1000research.com/articles/10-141/v1"
     Text: "10.12688/f1000research.51143.1"
 
 ---
 
-**Serizay**, and Ahringer. periodicDNA: an R/Bioconductor package to investigate k-mer periodicity in DNA. ***F1000Research 2021***
+Serizay, and Ahringer. periodicDNA: an R/Bioconductor package to investigate k-mer periodicity in DNA, F1000Research 2021
 
 ---
 

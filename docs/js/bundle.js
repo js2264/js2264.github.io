@@ -1,0 +1,1 @@
+/js/highlight-author.js

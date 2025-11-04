@@ -4,14 +4,14 @@ date: 2020-10-08
 cover:
     image: "image.png"
     relative: true
-summary: "Serizay, Dong, Jänes, Chesney, Cerrato, and Ahringer, ***Genome Research 2020***"
+summary: "Serizay, Dong, Jänes, Chesney, Cerrato, and Ahringer, Genome Research 2020"
 editPost:
     URL: "https://joss.theoj.org/papers/10.21105/joss.03009"
     Text: "10.21105/joss.03009"
 
 ---
 
-**Serizay**, Dong, Jänes, Chesney, Cerrato, and Ahringer Distinctive regulatory architectures of germline-active and somatic genes in *C. elegans*. ***Genome Research 2020***
+Serizay, Dong, Jänes, Chesney, Cerrato, and Ahringer Distinctive regulatory architectures of germline-active and somatic genes in *C. elegans*, Genome Research 2020
 
 ---
 

@@ -12,7 +12,7 @@ editPost:
 
 ---
 
-**Serizay**, and Koszul. Epigenomics coverage data extraction and aggregation in R with tidyCoverage. ***Bioinformatics 2024***
+Serizay, and Koszul. Epigenomics coverage data extraction and aggregation in R with tidyCoverage, Bioinformatics 2024
 
 ---
 

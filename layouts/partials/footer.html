@@ -139,3 +139,6 @@
     });
 </script>
 {{- end }}
+
+{{ $js := resources.Get "js/citation-formator.js" | minify }}
+<script src="{{ $js.RelPermalink }}"></script>

@@ -4,3 +4,15 @@
     height: auto;
     /* display: none; */
 }
+
+.entry-content {
+    margin: 0px;
+}
+
+.entry-footer {
+    display: none;
+}
+
+.button {
+    font-weight: 600;
+}

@@ -4,14 +4,14 @@ date: 2024-02-05
 cover:
     image: "image.png"
     relative: true
-summary: "**Serizay**,  Matthey-Doret,  Bignaud,  Baudry,  and  Koszul, ***Nature Communications 2024***"
+summary: "Serizay,  Matthey-Doret,  Bignaud,  Baudry,  and  Koszul, Nature Communications 2024"
 editPost:
     URL: "https://doi.org/10.1038/s41467-024-44761-x"
     Text: "10.1038/s41467-024-44761-x"
 
 ---
 
-**Serizay**,  Matthey-Doret,  Bignaud,  Baudry,  and  Koszul  Orchestrating  chromosome  conformation  capture analysis with Bioconductor. ***Nature Communications 2024***
+Serizay,  Matthey-Doret,  Bignaud,  Baudry,  and  Koszul  Orchestrating  chromosome  conformation  capture analysis with Bioconductor, Nature Communications 2024
 
 ---
 

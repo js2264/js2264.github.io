@@ -11,7 +11,7 @@ editPost:
 
 ---
 
-**Meneu † & Chapard † & Serizay †**, Westbrook, Routhier, Ruault, et al. Sequence-dependent activity and compartmentalization of foreign DNA in a eukaryotic nucleus. ***Science 2025***
+Meneu † & Chapard † & Serizay †, Westbrook, Routhier, Ruault, et al. Sequence-dependent activity and compartmentalization of foreign DNA in a eukaryotic nucleus, Science 2025
 
 ---
 

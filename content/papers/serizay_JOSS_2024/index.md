@@ -11,7 +11,7 @@ editPost:
 
 ---
 
-**Serizay**, Ahringer, Generating fragment density plots in R/Bioconductor with VplotR. ***Journal of Open Source Software 2021***
+Serizay, Ahringer, Generating fragment density plots in R/Bioconductor with VplotR, Journal of Open Source Software 2021
 
 ---
 

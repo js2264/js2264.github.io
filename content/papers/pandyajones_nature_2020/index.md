@@ -11,7 +11,7 @@ editPost:
 
 ---
 
-Pandya-Jones, Markaki, **Serizay**, Chitiashvili, Mancia Leon, Damianov, et al. A protein assembly mediates Xist localization and gene silencing. ***Nature 2020***
+Pandya-Jones, Markaki, Serizay, Chitiashvili, Mancia Leon, Damianov, et al. A protein assembly mediates Xist localization and gene silencing, Nature 2020
 
 ---
 

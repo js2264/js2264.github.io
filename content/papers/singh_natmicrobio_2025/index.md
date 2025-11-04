@@ -11,7 +11,7 @@ editPost:
 
 ---
 
-**Singh † & Serizay † & Couble †**, Cabahug, Rosa, Chen, et al. High-resolution map of the *Plasmodium falciparum* genome reveals MORC/ApiAP2-mediated links between distant, functionally related genes. ***Nature Microbiology 2025***
+Singh † & Serizay † & Couble †, Cabahug, Rosa, Chen, et al. High-resolution map of the *Plasmodium falciparum* genome reveals MORC/ApiAP2-mediated links between distant, functionally related genes, Nature Microbiology 2025
 
 ---
 

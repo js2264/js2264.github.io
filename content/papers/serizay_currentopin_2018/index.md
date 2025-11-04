@@ -4,14 +4,14 @@ date: 2018-04-18
 cover:
     image: "image.png"
     relative: true
-summary: "Serizay, Dong, Jänes, Chesney, Cerrato, and Ahringer, ***Genome Research 2020***"
+summary: "Serizay, and Ahringer, Current Opinion in Cell Biology 2018"
 editPost:
     URL: "https://doi.org/10.1016/j.ceb.2018.03.009"
     Text: "10.1016/j.ceb.2018.03.009"
 
 ---
 
-**Serizay**, and Ahringer, Genome organization at different scales: nature, formation and function. ***Current Opinion in Cell Biology 2018***
+Serizay, and Ahringer, Genome organization at different scales: nature, formation and function, Current Opinion in Cell Biology 2018
 
 ---
 

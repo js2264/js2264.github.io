@@ -4,14 +4,14 @@ date: 2025-09-19
 cover:
     image: "image.png"
     relative: true
-summary: "Bignaud, Conti, Thierry, **Serizay**, Labadie, Poulain, et al., Nature Microbiology 2025"
+summary: "Bignaud, Conti, Thierry, Serizay, Labadie, Poulain, et al., Nature Microbiology 2025"
 editPost:
     URL: "https://doi.org/10.1038/s41564-025-02108-2"
     Text: "10.1038/s41564-025-02108-2"
 
 ---
 
-Bignaud, Conti, Thierry, **Serizay**, Labadie, Poulain, et al. Phages with a broad host range are common across ecosystems. ***Nature Microbiology 2025***
+Bignaud, Conti, Thierry, Serizay, Labadie, Poulain, et al. Phages with a broad host range are common across ecosystems, Nature Microbiology 2025
 
 ---
 
