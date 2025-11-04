@@ -83,6 +83,102 @@
 </head>
 
 <body class="list" id="top">
+    
+        <div id="atgc-background"></div>
+
+<style>
+  #atgc-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: #ffffff;
+    pointer-events: none;
+    line-height: 1.2;
+    word-break: break-all;
+    padding: 20px;
+    font-family: monospace;
+    font-size: 14px;
+  }
+
+  .atgc-letter {
+    color: #d3d3d3;
+    cursor: pointer;
+    pointer-events: auto;
+    transition: color 0.1s ease;
+    display: inline;
+  }
+
+  .atgc-letter:hover {
+    color: #ff0000;
+  }
+
+  .atgc-letter.highlight {
+    color: #ff0000;
+  }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    const container = document.getElementById('atgc-background');
+    const letters = ['A', 'T', 'G', 'C'];
+    const textLength = 5000;
+    
+    let text = '';
+    for (let i = 0; i < textLength; i++) {
+        text += letters[Math.floor(Math.random() * letters.length)];
+    }
+    
+    text.split('').forEach((letter, index) => {
+        const span = document.createElement('span');
+        span.className = 'atgc-letter';
+        span.textContent = letter;
+        span.dataset.index = index;
+        
+        span.addEventListener('mouseenter', function() {
+        highlightAllTriplets(index, text);
+        });
+        
+        span.addEventListener('mouseleave', function() {
+        removeHighlight();
+        });
+        
+        container.appendChild(span);
+    });
+    });
+
+    function highlightAllTriplets(index, text) {
+    
+    const start = Math.max(0, index - 1);
+    const end = Math.min(text.length - 1, index + 1);
+    const triplet = text.substring(start, end + 1);
+    
+    
+    const spans = document.querySelectorAll('.atgc-letter');
+    
+    for (let i = 0; i < text.length - 2; i++) {
+        const currentTriplet = text.substring(i, i + 3);
+        
+        if (currentTriplet === triplet) {
+        
+        spans[i].classList.add('highlight');
+        spans[i + 1].classList.add('highlight');
+        spans[i + 2].classList.add('highlight');
+        }
+    }
+    }
+
+    function removeHighlight() {
+    document.querySelectorAll('.atgc-letter').forEach(span => {
+        span.classList.remove('highlight');
+    });
+    }
+
+</script>
+
+    
     <main class="main"><div class="profile">
     <div class="profile_inner">
         <img draggable="false" src="https://jserizay.com/picture.png" alt="profile image" title=""

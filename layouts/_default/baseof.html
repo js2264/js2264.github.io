@@ -17,6 +17,9 @@
 {{- print " dark" }}
 {{- end -}}
 " id="top">
+    {{ if .IsHome }}
+        {{ partial "atgc-background.html" }}
+    {{ end }}
     {{- if not .IsHome  }}
     {{- partialCached "header.html" . .Page -}}
     {{- end }}
