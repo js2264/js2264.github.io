@@ -27,3 +27,8 @@ custommark {
     font-weight: bold;
     font-style: italic;
 }
+
+.profile_inner {
+    padding: 30px;
+    background-color: var(--code-bg);
+}
