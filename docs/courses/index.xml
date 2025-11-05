@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Courses on J. Serizay</title>
-    <link>http://localhost:1313/courses/</link>
+    <link>https://jserizay.com/courses/</link>
     <description>Recent content in Courses on J. Serizay</description>
     <generator>Hugo -- 0.152.2</generator>
     <language>en</language>
     <lastBuildDate>Sun, 02 Nov 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/courses/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://jserizay.com/courses/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Single-cell RNA-seq analysis with Biconductor</title>
-      <link>http://localhost:1313/courses/course1/</link>
+      <link>https://jserizay.com/courses/course1/</link>
       <pubDate>Sun, 02 Nov 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/courses/course1/</guid>
+      <guid>https://jserizay.com/courses/course1/</guid>
       <description>Course on single-cell RNA-seq analysis using Bioconductor packages in R.</description>
     </item>
   </channel>

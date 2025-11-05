@@ -2,115 +2,115 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Papers on J. Serizay</title>
-    <link>http://localhost:1313/papers/</link>
+    <link>https://jserizay.com/papers/</link>
     <description>Recent content in Papers on J. Serizay</description>
     <generator>Hugo -- 0.152.2</generator>
     <language>en</language>
     <lastBuildDate>Fri, 19 Sep 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/papers/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://jserizay.com/papers/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Phages with a broad host range are common across ecosystems</title>
-      <link>http://localhost:1313/papers/bignaud_natmicrobio_2025/</link>
+      <link>https://jserizay.com/papers/bignaud_natmicrobio_2025/</link>
       <pubDate>Fri, 19 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/papers/bignaud_natmicrobio_2025/</guid>
+      <guid>https://jserizay.com/papers/bignaud_natmicrobio_2025/</guid>
       <description>Bignaud, Conti, Thierry, Serizay, Labadie, Poulain, et al., Nature Microbiology 2025</description>
     </item>
     <item>
       <title>High-resolution map of the Plasmodium falciparum genome reveals MORC/ApiAP2-mediated links between distant, functionally related genes</title>
-      <link>http://localhost:1313/papers/singh_natmicrobio_2025/</link>
+      <link>https://jserizay.com/papers/singh_natmicrobio_2025/</link>
       <pubDate>Mon, 30 Jun 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/papers/singh_natmicrobio_2025/</guid>
+      <guid>https://jserizay.com/papers/singh_natmicrobio_2025/</guid>
       <description>Singh † &amp;amp; Serizay † &amp;amp; Couble †, Cabahug, Rosa, Chen, et al., Nature Microbiology 2025</description>
     </item>
     <item>
       <title>Sequence-dependent activity and compartmentalization of foreign DNA in a eukaryotic nucleus</title>
-      <link>http://localhost:1313/papers/meneu_science_2025/</link>
+      <link>https://jserizay.com/papers/meneu_science_2025/</link>
       <pubDate>Fri, 07 Feb 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/papers/meneu_science_2025/</guid>
+      <guid>https://jserizay.com/papers/meneu_science_2025/</guid>
       <description>Meneu † &amp;amp; Chapard † &amp;amp; Serizay †, Westbrook, Routhier, Ruault, et al., Science 2025</description>
     </item>
     <item>
       <title>Cyclin O controls entry into the cell-cycle variant required for multiciliated cell differentiation</title>
-      <link>http://localhost:1313/papers/khoury-damaa_cellrep_2025/</link>
+      <link>https://jserizay.com/papers/khoury-damaa_cellrep_2025/</link>
       <pubDate>Tue, 28 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/papers/khoury-damaa_cellrep_2025/</guid>
+      <guid>https://jserizay.com/papers/khoury-damaa_cellrep_2025/</guid>
       <description>Khoury Damaa, Serizay, Balague, Boudjema, Faucourt, Delgehyr, et al., Cell Reports 2025</description>
     </item>
     <item>
       <title>Cyclin switch tailors a cell cycle variant to orchestrate multiciliogenesis</title>
-      <link>http://localhost:1313/papers/serizay_cellrep_2025/</link>
+      <link>https://jserizay.com/papers/serizay_cellrep_2025/</link>
       <pubDate>Tue, 28 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/papers/serizay_cellrep_2025/</guid>
+      <guid>https://jserizay.com/papers/serizay_cellrep_2025/</guid>
       <description>Serizay, Khoury Damaa, Boudjema, Balagué, Faucourt, Delgehyr, et al., Cell Reports 2025</description>
     </item>
     <item>
       <title>Epigenomics coverage data extraction and aggregation in R with tidyCoverage</title>
-      <link>http://localhost:1313/papers/serizay_bioinfo_2024/</link>
+      <link>https://jserizay.com/papers/serizay_bioinfo_2024/</link>
       <pubDate>Mon, 29 Jul 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/papers/serizay_bioinfo_2024/</guid>
+      <guid>https://jserizay.com/papers/serizay_bioinfo_2024/</guid>
       <description>Serizay, and Koszul, Bioinformatics 2024</description>
     </item>
     <item>
       <title>The tidyomics ecosystem: enhancing omic data analyses</title>
-      <link>http://localhost:1313/papers/hutchinson_natmethods_2024/</link>
+      <link>https://jserizay.com/papers/hutchinson_natmethods_2024/</link>
       <pubDate>Mon, 24 Jun 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/papers/hutchinson_natmethods_2024/</guid>
+      <guid>https://jserizay.com/papers/hutchinson_natmethods_2024/</guid>
       <description>Hutchison † &amp;amp; Keyes †, Crowell, Serizay, Soneson, Davis, et al., Nature Methods 2024</description>
     </item>
     <item>
       <title>Orchestrating chromosome conformation capture analysis with Bioconductor</title>
-      <link>http://localhost:1313/papers/serizay_natcomm_2024/</link>
+      <link>https://jserizay.com/papers/serizay_natcomm_2024/</link>
       <pubDate>Mon, 05 Feb 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/papers/serizay_natcomm_2024/</guid>
+      <guid>https://jserizay.com/papers/serizay_natcomm_2024/</guid>
       <description>Serizay,  Matthey-Doret,  Bignaud,  Baudry,  and  Koszul, Nature Communications 2024</description>
     </item>
     <item>
       <title>Generating fragment density plots in R/Bioconductor with VplotR</title>
-      <link>http://localhost:1313/papers/serizay_joss_2024/</link>
+      <link>https://jserizay.com/papers/serizay_joss_2024/</link>
       <pubDate>Fri, 12 Mar 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/papers/serizay_joss_2024/</guid>
+      <guid>https://jserizay.com/papers/serizay_joss_2024/</guid>
       <description>Serizay, Ahringer, JOSS 2021</description>
     </item>
     <item>
       <title>periodicDNA: an R/Bioconductor package to investigate k-mer periodicity in DNA</title>
-      <link>http://localhost:1313/papers/serizay_f1000res_2021/</link>
+      <link>https://jserizay.com/papers/serizay_f1000res_2021/</link>
       <pubDate>Wed, 24 Feb 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/papers/serizay_f1000res_2021/</guid>
+      <guid>https://jserizay.com/papers/serizay_f1000res_2021/</guid>
       <description>Serizay, and Ahringer, F1000 Research 2020</description>
     </item>
     <item>
       <title>Distinctive regulatory architectures of germline-active and somatic genes in C. elegans</title>
-      <link>http://localhost:1313/papers/serizay_genomeres_2020/</link>
+      <link>https://jserizay.com/papers/serizay_genomeres_2020/</link>
       <pubDate>Thu, 08 Oct 2020 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/papers/serizay_genomeres_2020/</guid>
+      <guid>https://jserizay.com/papers/serizay_genomeres_2020/</guid>
       <description>Serizay, Dong, Jänes, Chesney, Cerrato, and Ahringer, Genome Research 2020</description>
     </item>
     <item>
       <title>A protein assembly mediates Xist localization and gene silencing</title>
-      <link>http://localhost:1313/papers/pandyajones_nature_2020/</link>
+      <link>https://jserizay.com/papers/pandyajones_nature_2020/</link>
       <pubDate>Wed, 09 Sep 2020 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/papers/pandyajones_nature_2020/</guid>
+      <guid>https://jserizay.com/papers/pandyajones_nature_2020/</guid>
       <description>Pandya-Jones, Markaki, Serizay, Chitiashvili, Mancia Leon, Damianov, et al., Nature 2020</description>
     </item>
     <item>
       <title>Analysis of copy number alterations reveals the lncRNA ALAL-1 as a regulator of lung cancer immune evasion</title>
-      <link>http://localhost:1313/papers/athie_jcb_2020/</link>
+      <link>https://jserizay.com/papers/athie_jcb_2020/</link>
       <pubDate>Fri, 05 Jun 2020 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/papers/athie_jcb_2020/</guid>
+      <guid>https://jserizay.com/papers/athie_jcb_2020/</guid>
       <description>Athie, Marchese, González, Lozano, Raimondi, Juvvuna, et al., Journal of Cell Biology 2020</description>
     </item>
     <item>
       <title>Chromatin accessibility dynamics across C. elegans development and ageing</title>
-      <link>http://localhost:1313/papers/janes_elife_2018/</link>
+      <link>https://jserizay.com/papers/janes_elife_2018/</link>
       <pubDate>Fri, 26 Oct 2018 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/papers/janes_elife_2018/</guid>
+      <guid>https://jserizay.com/papers/janes_elife_2018/</guid>
       <description>Jänes † &amp;amp; Dong †, Schoof ‡ &amp;amp; Serizay ‡, Appert, Cerrato, et al., eLife 2018</description>
     </item>
     <item>
       <title>Genome organization at different scales: nature, formation and function</title>
-      <link>http://localhost:1313/papers/serizay_currentopin_2018/</link>
+      <link>https://jserizay.com/papers/serizay_currentopin_2018/</link>
       <pubDate>Wed, 18 Apr 2018 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/papers/serizay_currentopin_2018/</guid>
+      <guid>https://jserizay.com/papers/serizay_currentopin_2018/</guid>
       <description>Serizay, and Ahringer, Current Opinion in Cell Biology 2018</description>
     </item>
   </channel>
