@@ -58,10 +58,7 @@
                     text += line.toUpperCase();
                 }
             }
-            
-            // Take first 5000 characters if sequence is longer
-            text = text.substring(0, 5000);
-            
+                        
             // Create spans for each letter
             text.split('').forEach((letter, index) => {
                 const span = document.createElement('span');
@@ -111,22 +108,25 @@
     });
 
     function highlightAllTriplets(index, text) {
-    // Extract the 3-letter sequence centered on hovered letter
-    const start = Math.max(0, index - 1);
-    const end = Math.min(text.length - 1, index + 1);
+
+        // Extract the 3-letter sequence centered on hovered letter
+    const start = Math.max(0, index - 2);
+    const end = Math.min(text.length - 1, index + 2);
     const triplet = text.substring(start, end + 1);
     
     // Find all occurrences of this triplet
     const spans = document.querySelectorAll('.atgc-letter');
     
     for (let i = 0; i < text.length - 2; i++) {
-        const currentTriplet = text.substring(i, i + 3);
+        const currentTriplet = text.substring(i, i + 5);
         
         if (currentTriplet === triplet) {
         // Highlight all 3 letters of this match
         spans[i].classList.add('highlight');
         spans[i + 1].classList.add('highlight');
         spans[i + 2].classList.add('highlight');
+        spans[i + 3].classList.add('highlight');
+        spans[i + 4].classList.add('highlight');
         }
     }
     }
