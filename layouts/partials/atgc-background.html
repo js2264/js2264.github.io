@@ -37,30 +37,77 @@
 <script>
     document.addEventListener('DOMContentLoaded', function() {
     const container = document.getElementById('atgc-background');
-    const letters = ['A', 'T', 'G', 'C'];
-    const textLength = 5000;
     
-    let text = '';
-    for (let i = 0; i < textLength; i++) {
-        text += letters[Math.floor(Math.random() * letters.length)];
-    }
-    
-    text.split('').forEach((letter, index) => {
-        const span = document.createElement('span');
-        span.className = 'atgc-letter';
-        span.textContent = letter;
-        span.dataset.index = index;
-        
-        span.addEventListener('mouseenter', function() {
-        highlightAllTriplets(index, text);
+    // Fetch the FASTA file from static directory
+    fetch('/errb3b.fa')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('FASTA file not found');
+            }
+            return response.text();
+        })
+        .then(fastaContent => {
+            // Parse FASTA: skip header lines (starting with '>') and concatenate sequence lines
+            const lines = fastaContent.split('\n');
+            let text = '';
+            
+            for (let line of lines) {
+                line = line.trim();
+                // Skip empty lines and header lines
+                if (line && !line.startsWith('>')) {
+                    text += line.toUpperCase();
+                }
+            }
+            
+            // Take first 5000 characters if sequence is longer
+            text = text.substring(0, 5000);
+            
+            // Create spans for each letter
+            text.split('').forEach((letter, index) => {
+                const span = document.createElement('span');
+                span.className = 'atgc-letter';
+                span.textContent = letter;
+                span.dataset.index = index;
+                
+                span.addEventListener('mouseenter', function() {
+                    highlightAllTriplets(index, text);
+                });
+                
+                span.addEventListener('mouseleave', function() {
+                    removeHighlight();
+                });
+                
+                container.appendChild(span);
+            });
+        })
+        .catch(error => {
+            console.error('Error loading FASTA file:', error);
+            // Fallback to random letters if file cannot be loaded
+            const letters = ['A', 'T', 'G', 'C'];
+            const textLength = 5000;
+            
+            let text = '';
+            for (let i = 0; i < textLength; i++) {
+                text += letters[Math.floor(Math.random() * letters.length)];
+            }
+            
+            text.split('').forEach((letter, index) => {
+                const span = document.createElement('span');
+                span.className = 'atgc-letter';
+                span.textContent = letter;
+                span.dataset.index = index;
+                
+                span.addEventListener('mouseenter', function() {
+                    highlightAllTriplets(index, text);
+                });
+                
+                span.addEventListener('mouseleave', function() {
+                    removeHighlight();
+                });
+                
+                container.appendChild(span);
+            });
         });
-        
-        span.addEventListener('mouseleave', function() {
-        removeHighlight();
-        });
-        
-        container.appendChild(span);
-    });
     });
 
     function highlightAllTriplets(index, text) {

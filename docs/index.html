@@ -2,24 +2,24 @@
 <html lang="en" dir="auto">
 
 <head>
-	<meta name="generator" content="Hugo 0.152.2"><meta charset="utf-8">
+	<meta name="generator" content="Hugo 0.152.2"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="index, follow">
+<meta name="robots" content="noindex, nofollow">
 <title>J. Serizay</title>
 
 <meta name="description" content="This website hosts Jacques Serizay&#39;s research papers, course materials, books, curriculum vitae, and contact information.">
 <meta name="author" content="Jacques Serizay">
-<link rel="canonical" href="https://jserizay.com/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.27f5b65ceaa91c4606591aae936c3083c5b33e59a38f1c1a2ec164ef3ca23322.css" integrity="sha256-J/W2XOqpHEYGWRquk2wwg8WzPlmjjxwaLsFk7zyiMyI=" rel="preload stylesheet" as="style">
-<link rel="icon" href="https://jserizay.com/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="https://jserizay.com/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://jserizay.com/favicon-32x32.png">
-<link rel="apple-touch-icon" href="https://jserizay.com/apple-touch-icon.png">
+<link rel="canonical" href="http://localhost:1313/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.fa55a7e6547986c740e4f936c7aff5cfa7bcb37f7202fcfaed39474f3d518cf7.css" integrity="sha256-&#43;lWn5lR5hsdA5Pk2x6/1z6e8s39yAvz67TlHTz1RjPc=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" type="application/rss+xml" href="https://jserizay.com/index.xml">
-<link rel="alternate" hreflang="en" href="https://jserizay.com/">
+<link rel="alternate" type="application/rss+xml" href="http://localhost:1313/index.xml">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/">
 <noscript>
     <style>
         #theme-toggle,
@@ -28,7 +28,7 @@
         }
 
     </style>
-</noscript><meta property="og:url" content="https://jserizay.com/">
+</noscript><meta property="og:url" content="http://localhost:1313/">
   <meta property="og:site_name" content="J. Serizay">
   <meta property="og:title" content="J. Serizay">
   <meta property="og:description" content="This website hosts Jacques Serizay&#39;s research papers, course materials, books, curriculum vitae, and contact information.">
@@ -43,9 +43,9 @@
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "J. Serizay",
-  "url": "https://jserizay.com/",
+  "url": "http://localhost:1313/",
   "description": "This website hosts Jacques Serizay's research papers, course materials, books, curriculum vitae, and contact information.",
-  "logo": "https://jserizay.com/favicon.ico",
+  "logo": "http://localhost:1313/favicon.ico",
   "sameAs": [
       "cv.pdf", "https://scholar.google.com/citations?user=e5QTBIAAAAAJ", "https://orcid.org/0000-0002-1508-9656", "https://github.com/js2264", "mailto:jacques.serizay@pasteur.fr"
   ]
@@ -123,30 +123,77 @@
 <script>
     document.addEventListener('DOMContentLoaded', function() {
     const container = document.getElementById('atgc-background');
-    const letters = ['A', 'T', 'G', 'C'];
-    const textLength = 5000;
     
-    let text = '';
-    for (let i = 0; i < textLength; i++) {
-        text += letters[Math.floor(Math.random() * letters.length)];
-    }
     
-    text.split('').forEach((letter, index) => {
-        const span = document.createElement('span');
-        span.className = 'atgc-letter';
-        span.textContent = letter;
-        span.dataset.index = index;
-        
-        span.addEventListener('mouseenter', function() {
-        highlightAllTriplets(index, text);
+    fetch('/errb3b.fa')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('FASTA file not found');
+            }
+            return response.text();
+        })
+        .then(fastaContent => {
+            
+            const lines = fastaContent.split('\n');
+            let text = '';
+            
+            for (let line of lines) {
+                line = line.trim();
+                
+                if (line && !line.startsWith('>')) {
+                    text += line.toUpperCase();
+                }
+            }
+            
+            
+            text = text.substring(0, 5000);
+            
+            
+            text.split('').forEach((letter, index) => {
+                const span = document.createElement('span');
+                span.className = 'atgc-letter';
+                span.textContent = letter;
+                span.dataset.index = index;
+                
+                span.addEventListener('mouseenter', function() {
+                    highlightAllTriplets(index, text);
+                });
+                
+                span.addEventListener('mouseleave', function() {
+                    removeHighlight();
+                });
+                
+                container.appendChild(span);
+            });
+        })
+        .catch(error => {
+            console.error('Error loading FASTA file:', error);
+            
+            const letters = ['A', 'T', 'G', 'C'];
+            const textLength = 5000;
+            
+            let text = '';
+            for (let i = 0; i < textLength; i++) {
+                text += letters[Math.floor(Math.random() * letters.length)];
+            }
+            
+            text.split('').forEach((letter, index) => {
+                const span = document.createElement('span');
+                span.className = 'atgc-letter';
+                span.textContent = letter;
+                span.dataset.index = index;
+                
+                span.addEventListener('mouseenter', function() {
+                    highlightAllTriplets(index, text);
+                });
+                
+                span.addEventListener('mouseleave', function() {
+                    removeHighlight();
+                });
+                
+                container.appendChild(span);
+            });
         });
-        
-        span.addEventListener('mouseleave', function() {
-        removeHighlight();
-        });
-        
-        container.appendChild(span);
-    });
     });
 
     function highlightAllTriplets(index, text) {
@@ -181,10 +228,80 @@
     
     <main class="main"><div class="profile">
     <div class="profile_inner">
-        <img draggable="false" src="https://jserizay.com/picture.png" alt="profile image" title=""
+        <img draggable="false" src="http://localhost:1313/picture.png" alt="profile image" title=""
             height="160" width="160" />
-        <h1>Jacques Serizay</h1>
-        <span>I am a tenured CNRS researcher currently working in the Spatial Regulation of Genomes laboratory under Romain Koszul at the Institut Pasteur / CNRS UMR 3525 in Paris, which I joined as a postdoc in 2020, after finishing my PhD in Genetics with Pr. Julie Ahringer at the University of Cambridge. Before that, I obtained my Master&rsquo;s degree in Genetics from the École Normale Supérieure de Cachan in 2016, and was a visiting researcher in the Plath laboratory at UCLA in 2015.</span><div class="social-icons" >
+        <h1>Jacques Serizay</h1><div class="profile-content">
+                <p>I am a tenured CNRS researcher currently working in the <strong>Spatial Regulation of Genomes</strong> laboratory under Romain Koszul at the <strong>Institut Pasteur / CNRS UMR 3525</strong> in Paris, which I joined as a postdoc in 2020, after finishing my PhD in Genetics with Pr. <strong>Julie Ahringer at the University of Cambridge</strong>.</p>
+<br>
+<p>Before that, I obtained my Master&rsquo;s degree in Genetics from the <strong>École Normale Supérieure de Cachan</strong> in 2016, and was a visiting researcher in the <strong>Plath laboratory at UCLA</strong> in 2015.</p>
+<br>
+<p>When not diving deep into genomic data, I prefer to dive deep—<em><strong>literally</strong></em>. The sequence in the background is the cDNA of the longest isoform of <em>erbb3b</em>, a gene identified in <em>Amphiprion clarkii</em> (<span class="fish-hover" data-image="Aclarkii.png">
+  <span style="font-weight: bold; ">Nemo's darker cousin, look at it! 👀</span>
+</span>
+
+<style>
+  .fish-hover {
+    cursor: help;
+    border-bottom: 1px dotted #999;
+    position: relative;
+  }
+
+  .fish-popup {
+    position: fixed;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    pointer-events: none;
+    z-index: 10000;
+  }
+
+  .fish-popup img {
+    max-width: 250px;
+    max-height: 200px;
+    object-fit: contain;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const fishSpans = document.querySelectorAll('.fish-hover');
+    let currentPopup = null;
+
+    fishSpans.forEach(span => {
+      span.addEventListener('mouseenter', function(e) {
+        const imageUrl = this.dataset.image;
+        
+        currentPopup = document.createElement('div');
+        currentPopup.className = 'fish-popup';
+        currentPopup.innerHTML = `<img src="${imageUrl}" alt="Fish image">`;
+        document.body.appendChild(currentPopup);
+
+        
+        currentPopup.style.left = (e.clientX + 10) + 'px';
+        currentPopup.style.top = (e.clientY - 120) + 'px';
+      });
+
+      span.addEventListener('mouseleave', function() {
+        if (currentPopup) {
+          currentPopup.remove();
+          currentPopup = null;
+        }
+      });
+
+      span.addEventListener('mousemove', function(e) {
+        if (currentPopup) {
+          currentPopup.style.left = (e.clientX + 10) + 'px';
+          currentPopup.style.top = (e.clientY - 120) + 'px';
+        }
+      });
+    });
+  });
+</script>
+) that plays a key role in its pigmentation patterns (see <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9997566/#jkad002-s2" target="_blank">Moore et al., G3 2022 for more</a>).</p>
+
+            </div><div class="social-icons" >
     <a href="cv.pdf" target="_blank" rel="noopener noreferrer me"
         title="CV">
         

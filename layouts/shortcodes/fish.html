@@ -1,0 +1,64 @@
+<span class="fish-hover" data-image="{{ .Get "image" }}">
+  <span style="font-weight: bold; ">{{ .Inner }}</span>
+</span>
+
+<style>
+  .fish-hover {
+    cursor: help;
+    border-bottom: 1px dotted #999;
+    position: relative;
+  }
+
+  .fish-popup {
+    position: fixed;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    pointer-events: none;
+    z-index: 10000;
+  }
+
+  .fish-popup img {
+    max-width: 250px;
+    max-height: 200px;
+    object-fit: contain;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const fishSpans = document.querySelectorAll('.fish-hover');
+    let currentPopup = null;
+
+    fishSpans.forEach(span => {
+      span.addEventListener('mouseenter', function(e) {
+        const imageUrl = this.dataset.image;
+        
+        currentPopup = document.createElement('div');
+        currentPopup.className = 'fish-popup';
+        currentPopup.innerHTML = `<img src="${imageUrl}" alt="Fish image">`;
+        document.body.appendChild(currentPopup);
+
+        // Position near cursor
+        currentPopup.style.left = (e.clientX + 10) + 'px';
+        currentPopup.style.top = (e.clientY - 120) + 'px';
+      });
+
+      span.addEventListener('mouseleave', function() {
+        if (currentPopup) {
+          currentPopup.remove();
+          currentPopup = null;
+        }
+      });
+
+      span.addEventListener('mousemove', function(e) {
+        if (currentPopup) {
+          currentPopup.style.left = (e.clientX + 10) + 'px';
+          currentPopup.style.top = (e.clientY - 120) + 'px';
+        }
+      });
+    });
+  });
+</script>

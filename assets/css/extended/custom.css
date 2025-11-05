@@ -16,3 +16,14 @@
 .button {
     font-weight: 600;
 }
+
+custommark {
+    font-weight: bold;
+    color: var(--accent-color);
+    display: inline-block; 
+    line-height: 0em; 
+    background-color: #ffdd00ff; 
+    padding-bottom: 1.1em; 
+    font-weight: bold;
+    font-style: italic;
+}
