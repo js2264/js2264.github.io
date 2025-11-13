@@ -1,0 +1,237 @@
+.timeline {
+  position: relative;
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 20px;
+  min-height: 200px;
+}
+
+/* Horizontal line - aligned with markers */
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    var(--primary) 10%, 
+    var(--primary) 90%, 
+    transparent 100%);
+}
+
+.timeline-item {
+  position: relative;
+  flex: 1;
+  opacity: 0;
+  animation: fadeInUp 0.6s ease forwards;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 0;
+}
+
+.timeline-item:nth-child(1) { animation-delay: 0.1s; }
+.timeline-item:nth-child(2) { animation-delay: 0.2s; }
+.timeline-item:nth-child(3) { animation-delay: 0.3s; }
+.timeline-item:nth-child(4) { animation-delay: 0.4s; }
+.timeline-item:nth-child(5) { animation-delay: 0.5s; }
+
+.timeline-content {
+  background: var(--entry);
+  border-radius: 8px;
+  padding: 16px 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--border);
+  transition: all 0.3s ease;
+  position: relative;
+  min-width: 200px;
+  text-align: center;
+  margin-bottom: 30px;
+  order: 1;
+}
+
+/* Arrow pointing down to timeline */
+.timeline-content::before {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid var(--border);
+}
+
+.timeline-content::after {
+  content: '';
+  position: absolute;
+  bottom: -7px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 7px solid var(--entry);
+}
+
+.timeline-marker {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--theme);
+  border: 3px solid var(--primary);
+  box-shadow: 0 0 0 4px var(--theme);
+  transition: all 0.3s ease;
+  z-index: 10;
+  flex-shrink: 0;
+  margin: 0;
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  order: 2;
+}
+
+
+.timeline-item:hover .timeline-marker {
+  transform: translateX(-50%) scale(1.3);
+  box-shadow: 0 0 0 6px var(--theme),
+              0 0 0 10px rgba(var(--primary-rgb, 0, 0, 0), 0.15);
+}
+
+.timeline-item:hover .timeline-content {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.timeline-period {
+  font-size: 0.75em;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--primary);
+  margin: 0 0 8px 0;
+  display: inline-block;
+  padding: 3px 10px;
+  background: rgba(var(--primary-rgb, 0, 0, 0), 0.1);
+  border-radius: 12px;
+}
+
+.timeline-title {
+  font-size: 0.95em;
+  font-weight: 600;
+  margin: 0 0 6px 0;
+  color: var(--content);
+  line-height: 1.3;
+}
+
+.timeline-description {
+  margin: 0;
+  color: var(--secondary);
+  line-height: 1.4;
+  font-size: 0.85em;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design - Stack vertically on smaller screens */
+@media (max-width: 900px) {
+  .timeline {
+    flex-direction: column;
+    padding: 40px 0;
+    margin: 30px 20px;
+    align-items: stretch;
+    min-height: auto;
+  }
+  
+  .timeline::before {
+    left: 20px;
+    top: 0;
+    bottom: auto;
+    width: 2px;
+    height: 100%;
+    transform: none;
+    background: linear-gradient(180deg, 
+      var(--primary) 0%, 
+      var(--primary) 50%, 
+      transparent 100%);
+  }
+  
+  .timeline-item {
+    flex-direction: row;
+    align-items: flex-start;
+    padding-left: 50px;
+    padding-bottom: 0;
+    margin-bottom: 30px;
+  }
+  
+  .timeline-item:last-child {
+    margin-bottom: 0;
+  }
+  
+  .timeline-marker {
+    position: absolute;
+    left: 13px;
+    top: 2px;
+    bottom: auto;
+    transform: none;
+  }
+  
+  .timeline-item:hover .timeline-marker {
+    transform: scale(1.3);
+  }
+  
+  .timeline-content {
+    text-align: left;
+    margin: 0 !important;
+  }
+  
+  .timeline-content::before {
+    top: 8px;
+    left: -8px;
+    bottom: auto;
+    transform: none;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-right: 8px solid var(--border);
+    border-left: none;
+  }
+  
+  .timeline-content::after {
+    top: 9px;
+    left: -7px;
+    bottom: auto;
+    transform: none;
+    border-top: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+    border-right: 7px solid var(--entry);
+    border-left: none;
+  }
+}
+
+/* Dark mode enhancements */
+.dark .timeline-content {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.dark .timeline-item:hover .timeline-content {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}

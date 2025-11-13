@@ -1,0 +1,16 @@
+items:
+  - period: "2020-current"
+    title: "Tenured CNRS Researcher"
+    description: "Spatial Regulation of Genomes laboratory, Institut Pasteur / CNRS UMR 3525, Paris"
+  
+  - period: "2016-2020"
+    title: "PhD in Genetics"
+    description: "University of Cambridge, under Prof. Julie Ahringer"
+  
+  - period: "2016"
+    title: "Master's Degree in Genetics"
+    description: "École Normale Supérieure de Cachan"
+  
+  - period: "2015"
+    title: "Visiting Researcher"
+    description: "Plath laboratory at UCLA"

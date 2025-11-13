@@ -1,0 +1,68 @@
+<div class="papers-list">
+  {{ range $.Site.Data.papers.papers }}
+  <article class="post-entry paper-entry">
+    
+    <!-- {{ if .image }}
+    <figure class="entry-cover">
+      <img loading="lazy" src="/papers/images/{{ .image }}" alt="{{ .title }}">
+    </figure>
+    {{ end }} -->
+    
+    <header class="entry-header">
+      <h2>{{ .title }}</h2>
+    </header>
+    
+    <div class="entry-content">
+      <p class="paper-authors">
+        {{ .authors }}
+      </p>
+      
+      <p class="paper-meta">
+        <em><strong>{{ .journal }}</strong></em>
+        <span class="separator">•</span>
+        <span><strong>{{ .year }}</strong></span>
+        
+        {{ if .doi }}
+        <span class="separator">•</span>
+        <a href="https://doi.org/{{ .doi }}" target="_blank" rel="noopener" class="paper-text-link">
+          DOI
+        </a>
+        {{ end }}
+        
+        {{ if .pdf }}
+        <span class="separator">•</span>
+        <a href="/papers/pdfs/{{ .pdf }}" target="_blank" class="paper-text-link">
+          PDF
+        </a>
+        {{ end }}
+      </p>
+      
+      {{ if .abstract }}
+      <details class="paper-abstract">
+        <summary>
+          <p style="margin: 0;">
+            <strong>Abstract</strong> <span class="separator">•</span> 
+            <span class="abstract-preview">{{ slicestr .abstract 0 120 }}{{ if gt (len .abstract) 120 }}...{{ end }}</span>
+            <span class="chevron">▾</span>
+          </p>
+        </summary>
+        <div class="abstract-full">
+          {{ .abstract | markdownify }}
+        </div>
+      </details>
+      {{ end }}
+    </div>
+    
+    {{ if .tags }}
+    <footer class="entry-footer">
+      <div class="paper-tags">
+        {{ range .tags }}
+        <span class="paper-tag">{{ . }}</span>
+        {{ end }}
+      </div>
+    </footer>
+    {{ end }}
+    
+  </article>
+  {{ end }}
+</div>

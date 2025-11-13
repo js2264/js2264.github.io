@@ -8,6 +8,8 @@ I am a tenured CNRS researcher currently working in the **Spatial Regulation of 
 
 Before that, I obtained my Master's degree in Genetics from the **École Normale Supérieure de Cachan** in 2016, and was a visiting researcher in the **Plath laboratory at UCLA** in 2015.
 
+<!-- {{< timeline >}} -->
+
 <br>
 <hr>
 <br>

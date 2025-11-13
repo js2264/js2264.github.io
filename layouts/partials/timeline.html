@@ -1,0 +1,12 @@
+<div class="timeline">
+  {{ range $index, $item := $.Site.Data.timeline.items }}
+  <div class="timeline-item {{ if modBool $index 2 }}timeline-item-right{{ else }}timeline-item-left{{ end }}">
+    <div class="timeline-marker"></div>
+    <div class="timeline-content">
+      <span class="timeline-period">{{ .period }}</span>
+      <h4 class="timeline-title">{{ .title }}</h4>
+      <p class="timeline-description">{{ .description | markdownify }}</p>
+    </div>
+  </div>
+  {{ end }}
+</div>
