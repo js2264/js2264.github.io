@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>J. Serizay</title>
-    <link>http://localhost:1313/</link>
+    <link>https://jserizay.com/</link>
     <description>Recent content on J. Serizay</description>
     <generator>Hugo -- 0.152.2</generator>
     <language>en</language>
     <lastBuildDate>Sun, 02 Nov 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://jserizay.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Single-cell RNA-seq analysis with Biconductor</title>
-      <link>http://localhost:1313/courses/course1/</link>
+      <link>https://jserizay.com/courses/course1/</link>
       <pubDate>Sun, 02 Nov 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/courses/course1/</guid>
+      <guid>https://jserizay.com/courses/course1/</guid>
       <description>Course on single-cell RNA-seq analysis using Bioconductor packages in R.</description>
     </item>
     <item>
       <title>Orchestrating Hi-C analysis with Bioconductor</title>
-      <link>http://localhost:1313/books/book1/</link>
+      <link>https://jserizay.com/books/book1/</link>
       <pubDate>Fri, 22 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/books/book1/</guid>
+      <guid>https://jserizay.com/books/book1/</guid>
       <description>This book discusses Orchestrating Hi-C analysis with Bioconductor.</description>
     </item>
     <item>
       <title></title>
-      <link>http://localhost:1313/papers/</link>
+      <link>https://jserizay.com/papers/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/papers/</guid>
+      <guid>https://jserizay.com/papers/</guid>
       <description>&lt;div class=&#34;papers-list&#34;&gt;
   
   &lt;article class=&#34;post-entry paper-entry&#34;&gt;
@@ -56,7 +56,7 @@
         
         
         &lt;span class=&#34;separator&#34;&gt;•&lt;/span&gt;
-        &lt;a href=&#34;http://localhost:1313/papers/pdfs/bignaud_natmicro_2025.pdf&#34; target=&#34;_blank&#34; class=&#34;paper-text-link&#34;&gt;
+        &lt;a href=&#34;https://jserizay.com/papers/pdfs/bignaud_natmicro_2025.pdf&#34; target=&#34;_blank&#34; class=&#34;paper-text-link&#34;&gt;
           PDF
         &lt;/a&gt;
         
@@ -97,9 +97,9 @@
     </item>
     <item>
       <title>Home</title>
-      <link>http://localhost:1313/profile/</link>
+      <link>https://jserizay.com/profile/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/profile/</guid>
+      <guid>https://jserizay.com/profile/</guid>
       <description>&lt;p&gt;I am a tenured CNRS researcher currently working in the &lt;strong&gt;Spatial Regulation of Genomes&lt;/strong&gt; laboratory under Romain Koszul at the &lt;strong&gt;Institut Pasteur / CNRS UMR 3525&lt;/strong&gt; in Paris, which I joined as a postdoc in 2020, after finishing my PhD in Genetics with Pr. &lt;strong&gt;Julie Ahringer at the University of Cambridge&lt;/strong&gt;.&lt;/p&gt;
 &lt;br&gt;
 &lt;p&gt;Before that, I obtained my Master&amp;rsquo;s degree in Genetics from the &lt;strong&gt;École Normale Supérieure de Cachan&lt;/strong&gt; in 2016, and was a visiting researcher in the &lt;strong&gt;Plath laboratory at UCLA&lt;/strong&gt; in 2015.&lt;/p&gt;</description>
