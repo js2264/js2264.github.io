@@ -6,21 +6,215 @@
     <description>Recent content on J. Serizay</description>
     <generator>Hugo -- 0.152.2</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 02 Nov 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://jserizay.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Single-cell RNA-seq analysis with Biconductor</title>
-      <link>https://jserizay.com/courses/course1/</link>
-      <pubDate>Sun, 02 Nov 2025 00:00:00 +0000</pubDate>
-      <guid>https://jserizay.com/courses/course1/</guid>
-      <description>Course on single-cell RNA-seq analysis using Bioconductor packages in R.</description>
+      <title></title>
+      <link>https://jserizay.com/books/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://jserizay.com/books/</guid>
+      <description>&lt;div class=&#34;books-list&#34;&gt;
+  
+  &lt;article class=&#34;post-entry book-entry&#34;&gt;
+    
+    
+    &lt;figure class=&#34;entry-cover&#34;&gt;
+      &lt;img loading=&#34;lazy&#34; src=&#34;https://jserizay.com/book_covers/2024_ohca.png&#34; alt=&#34;Orchestrating Hi-C analysis with Bioconductor&#34;&gt;
+    &lt;/figure&gt;
+    
+    
+    &lt;header class=&#34;entry-header&#34;&gt;
+      &lt;h2&gt;
+        
+        &lt;a href=&#34;https://jserizay.com/OHCA/docs/devel/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Orchestrating Hi-C analysis with Bioconductor&lt;/a&gt;
+        
+      &lt;/h2&gt;
+    &lt;/header&gt;
+    
+    &lt;div class=&#34;entry-content&#34;&gt;
+      &lt;p class=&#34;book-meta&#34;&gt;
+        
+        &lt;span class=&#34;book-edition&#34;&gt;&lt;strong&gt;Online book&lt;/strong&gt;&lt;/span&gt;
+        &lt;span class=&#34;separator&#34;&gt;•&lt;/span&gt;
+        
+        &lt;span class=&#34;book-date&#34;&gt;&lt;strong&gt;August 2024&lt;/strong&gt;&lt;/span&gt;
+      &lt;/p&gt;
+    &lt;/div&gt;
+    
+  &lt;/article&gt;
+  
+&lt;/div&gt;</description>
     </item>
     <item>
-      <title>Orchestrating Hi-C analysis with Bioconductor</title>
-      <link>https://jserizay.com/books/book1/</link>
-      <pubDate>Fri, 22 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>https://jserizay.com/books/book1/</guid>
-      <description>This book discusses Orchestrating Hi-C analysis with Bioconductor.</description>
+      <title></title>
+      <link>https://jserizay.com/courses/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://jserizay.com/courses/</guid>
+      <description>&lt;div class=&#34;courses-list&#34;&gt;
+  
+  &lt;article class=&#34;post-entry course-entry&#34;&gt;
+    
+    &lt;header class=&#34;entry-header&#34;&gt;
+      &lt;h2&gt;
+        
+        &lt;a href=&#34;https://jserizay.com/NGS-Physalia/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Processing and analysing epigenomics data in R, ed. 2025&lt;/a&gt;
+        
+      &lt;/h2&gt;
+    &lt;/header&gt;
+    
+    &lt;div class=&#34;entry-content&#34;&gt;
+      &lt;p class=&#34;course-meta&#34;&gt;
+        &lt;span class=&#34;course-duration&#34;&gt;&lt;strong&gt;5-day course&lt;/strong&gt;&lt;/span&gt;
+        &lt;span class=&#34;separator&#34;&gt;•&lt;/span&gt;
+        &lt;span class=&#34;course-date&#34;&gt;&lt;strong&gt;April 2025&lt;/strong&gt;&lt;/span&gt;
+        
+        &lt;span class=&#34;separator&#34;&gt;•&lt;/span&gt;
+        &lt;span class=&#34;course-location&#34;&gt;Online&lt;/span&gt;
+        
+      &lt;/p&gt;
+    &lt;/div&gt;
+    
+  &lt;/article&gt;
+  
+  &lt;article class=&#34;post-entry course-entry&#34;&gt;
+    
+    &lt;header class=&#34;entry-header&#34;&gt;
+      &lt;h2&gt;
+        
+        &lt;a href=&#34;https://carpentries-incubator.github.io/bioc-rnaseq/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Bulk RNA-seq analysis with Bioconductor&lt;/a&gt;
+        
+      &lt;/h2&gt;
+    &lt;/header&gt;
+    
+    &lt;div class=&#34;entry-content&#34;&gt;
+      &lt;p class=&#34;course-meta&#34;&gt;
+        &lt;span class=&#34;course-duration&#34;&gt;&lt;strong&gt;2-day Carpentries workshop&lt;/strong&gt;&lt;/span&gt;
+        &lt;span class=&#34;separator&#34;&gt;•&lt;/span&gt;
+        &lt;span class=&#34;course-date&#34;&gt;&lt;strong&gt;September 2025&lt;/strong&gt;&lt;/span&gt;
+        
+        &lt;span class=&#34;separator&#34;&gt;•&lt;/span&gt;
+        &lt;span class=&#34;course-location&#34;&gt;CRG, Barcelona, Spain&lt;/span&gt;
+        
+      &lt;/p&gt;
+    &lt;/div&gt;
+    
+  &lt;/article&gt;
+  
+  &lt;article class=&#34;post-entry course-entry&#34;&gt;
+    
+    &lt;header class=&#34;entry-header&#34;&gt;
+      &lt;h2&gt;
+        
+        &lt;a href=&#34;https://jserizay.com/scRNAseq_Physalia_2025/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Single-cell RNA-seq analysis with Bioconductor, ed. 2025&lt;/a&gt;
+        
+      &lt;/h2&gt;
+    &lt;/header&gt;
+    
+    &lt;div class=&#34;entry-content&#34;&gt;
+      &lt;p class=&#34;course-meta&#34;&gt;
+        &lt;span class=&#34;course-duration&#34;&gt;&lt;strong&gt;5-day course&lt;/strong&gt;&lt;/span&gt;
+        &lt;span class=&#34;separator&#34;&gt;•&lt;/span&gt;
+        &lt;span class=&#34;course-date&#34;&gt;&lt;strong&gt;November 2025&lt;/strong&gt;&lt;/span&gt;
+        
+        &lt;span class=&#34;separator&#34;&gt;•&lt;/span&gt;
+        &lt;span class=&#34;course-location&#34;&gt;Online&lt;/span&gt;
+        
+      &lt;/p&gt;
+    &lt;/div&gt;
+    
+  &lt;/article&gt;
+  
+  &lt;article class=&#34;post-entry course-entry&#34;&gt;
+    
+    &lt;header class=&#34;entry-header&#34;&gt;
+      &lt;h2&gt;
+        
+        &lt;a href=&#34;https://jserizay.com/scRNAseq_Physalia_2024/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Single-cell RNA-seq analysis with Bioconductor, ed. 2024&lt;/a&gt;
+        
+      &lt;/h2&gt;
+    &lt;/header&gt;
+    
+    &lt;div class=&#34;entry-content&#34;&gt;
+      &lt;p class=&#34;course-meta&#34;&gt;
+        &lt;span class=&#34;course-duration&#34;&gt;&lt;strong&gt;5-day course&lt;/strong&gt;&lt;/span&gt;
+        &lt;span class=&#34;separator&#34;&gt;•&lt;/span&gt;
+        &lt;span class=&#34;course-date&#34;&gt;&lt;strong&gt;November 2024&lt;/strong&gt;&lt;/span&gt;
+        
+        &lt;span class=&#34;separator&#34;&gt;•&lt;/span&gt;
+        &lt;span class=&#34;course-location&#34;&gt;Online&lt;/span&gt;
+        
+      &lt;/p&gt;
+    &lt;/div&gt;
+    
+  &lt;/article&gt;
+  
+  &lt;article class=&#34;post-entry course-entry&#34;&gt;
+    
+    &lt;header class=&#34;entry-header&#34;&gt;
+      &lt;h2&gt;
+        
+        &lt;a href=&#34;https://jserizay.com/scRNAseq_Physalia_2023/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Single-cell RNA-seq analysis with Bioconductor, ed. 2023&lt;/a&gt;
+        
+      &lt;/h2&gt;
+    &lt;/header&gt;
+    
+    &lt;div class=&#34;entry-content&#34;&gt;
+      &lt;p class=&#34;course-meta&#34;&gt;
+        &lt;span class=&#34;course-duration&#34;&gt;&lt;strong&gt;5-day course&lt;/strong&gt;&lt;/span&gt;
+        &lt;span class=&#34;separator&#34;&gt;•&lt;/span&gt;
+        &lt;span class=&#34;course-date&#34;&gt;&lt;strong&gt;June 2023&lt;/strong&gt;&lt;/span&gt;
+        
+        &lt;span class=&#34;separator&#34;&gt;•&lt;/span&gt;
+        &lt;span class=&#34;course-location&#34;&gt;Online&lt;/span&gt;
+        
+      &lt;/p&gt;
+    &lt;/div&gt;
+    
+  &lt;/article&gt;
+  
+  &lt;article class=&#34;post-entry course-entry&#34;&gt;
+    
+    &lt;header class=&#34;entry-header&#34;&gt;
+      &lt;h2&gt;
+        
+        &lt;a href=&#34;https://jserizay.com/scRNAseq-workshop/docs/devel/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Single-cell RNA-seq analysis with Bioconductor&lt;/a&gt;
+        
+      &lt;/h2&gt;
+    &lt;/header&gt;
+    
+    &lt;div class=&#34;entry-content&#34;&gt;
+      &lt;p class=&#34;course-meta&#34;&gt;
+        &lt;span class=&#34;course-duration&#34;&gt;&lt;strong&gt;Self-paced&lt;/strong&gt;&lt;/span&gt;
+        &lt;span class=&#34;separator&#34;&gt;•&lt;/span&gt;
+        &lt;span class=&#34;course-date&#34;&gt;&lt;strong&gt;January 2024&lt;/strong&gt;&lt;/span&gt;
+        
+        &lt;span class=&#34;separator&#34;&gt;•&lt;/span&gt;
+        &lt;span class=&#34;course-location&#34;&gt;Online&lt;/span&gt;
+        
+      &lt;/p&gt;
+    &lt;/div&gt;
+    
+  &lt;/article&gt;
+  
+  &lt;article class=&#34;post-entry course-entry&#34;&gt;
+    
+    &lt;header class=&#34;entry-header&#34;&gt;
+      &lt;h2&gt;
+        
+        &lt;a href=&#34;https://jserizay.com/Bioc-workshop/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Developing R/Bioconductor packages for Genomics&lt;/a&gt;
+        
+      &lt;/h2&gt;
+    &lt;/header&gt;
+    
+    &lt;div class=&#34;entry-content&#34;&gt;
+      &lt;p class=&#34;course-meta&#34;&gt;
+        &lt;span class=&#34;course-duration&#34;&gt;&lt;strong&gt;5-day course&lt;/strong&gt;&lt;/span&gt;
+        &lt;span class=&#34;separator&#34;&gt;•&lt;/span&gt;
+        &lt;span class=&#34;course-date&#34;&gt;&lt;strong&gt;June 2023&lt;/strong&gt;&lt;/span&gt;
+        
+        &lt;span class=&#34;separator&#34;&gt;•&lt;/span&gt;
+        &lt;span class=&#34;course-location&#34;&gt;Online&lt;/span&gt;
+        
+      &lt;/p&gt;</description>
     </item>
     <item>
       <title></title>

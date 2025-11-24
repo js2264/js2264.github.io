@@ -1,0 +1,144 @@
+.books-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  margin: 40px 0;
+}
+
+.book-entry {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.book-entry .entry-cover {
+  margin: 0px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--code-bg);
+  max-width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.book-entry .entry-cover img {
+  margin: 0px;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+  display: block;
+}
+
+.book-entry:hover .entry-cover img {
+  transform: scale(1.02);
+}
+
+.book-entry .entry-header {
+  flex-shrink: 0;
+  text-align: center;
+}
+
+.book-entry .entry-header h2 {
+  font-size: 18px;
+  line-height: 1.3;
+  margin: 10px;
+}
+
+.book-entry .entry-header h2 a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.book-entry .entry-header h2 a:hover {
+  color: var(--secondary);
+}
+
+.book-entry .entry-content p {
+  padding: 0px; 
+  margin-bottom: 0px;
+}
+
+.book-entry .entry-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.book-meta {
+  color: var(--secondary);
+  font-size: 14px;
+  line-height: 1.4;
+  margin: 0;
+  padding: 0 !important;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0;
+  justify-content: center;
+}
+
+.book-meta .separator {
+  margin: 0 8px;
+  color: var(--border);
+}
+
+.book-edition {
+  color: var(--content);
+  font-weight: 500;
+}
+
+.book-date {
+  color: var(--primary);
+  font-weight: 500;
+}
+
+
+
+/* Responsive breakpoints */
+/* Large screens: 2 columns */
+@media (min-width: 768px) {
+  .books-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Small screens: 1 column */
+@media (max-width: 767px) {
+  .books-list {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin: 20px 0;
+  }
+  
+  .book-entry {
+    padding: 16px;
+  }
+  
+  .book-entry .entry-cover {
+    max-width: 150px;
+  }
+  
+  .book-entry .entry-header h2 {
+    font-size: 16px;
+  }
+  
+  .book-meta {
+    font-size: 13px;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+  
+  .book-meta .separator {
+    display: none;
+  }
+}
+
+/* Dark mode specific adjustments */
+.dark .book-entry:hover {
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.05);
+}

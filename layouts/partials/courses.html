@@ -1,0 +1,29 @@
+<div class="courses-list">
+  {{ range $.Site.Data.courses.courses }}
+  <article class="post-entry course-entry">
+    
+    <header class="entry-header">
+      <h2>
+        {{ if .url }}
+        <a href="{{ .url }}" target="_blank" rel="noopener">{{ .title }}</a>
+        {{ else }}
+        {{ .title }}
+        {{ end }}
+      </h2>
+    </header>
+    
+    <div class="entry-content">
+      <p class="course-meta">
+        <span class="course-duration"><strong>{{ .duration }}</strong></span>
+        <span class="separator">•</span>
+        <span class="course-date"><strong>{{ (time .date).Format "January 2006" }}</strong></span>
+        {{ if .location }}
+        <span class="separator">•</span>
+        <span class="course-location">{{ .location }}</span>
+        {{ end }}
+      </p>
+    </div>
+    
+  </article>
+  {{ end }}
+</div>

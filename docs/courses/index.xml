@@ -2,18 +2,67 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Courses on J. Serizay</title>
-    <link>https://jserizay.com/courses/</link>
+    <link>http://localhost:1313/courses/</link>
     <description>Recent content in Courses on J. Serizay</description>
     <generator>Hugo -- 0.152.2</generator>
     <language>en</language>
     <lastBuildDate>Sun, 02 Nov 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://jserizay.com/courses/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/courses/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Single-cell RNA-seq analysis with Biconductor</title>
-      <link>https://jserizay.com/courses/course1/</link>
+      <title>Single-cell RNA-seq analysis with Biconductor, ed. 2025 [5-day course]</title>
+      <link>http://localhost:1313/courses/2025_scrna/</link>
       <pubDate>Sun, 02 Nov 2025 00:00:00 +0000</pubDate>
-      <guid>https://jserizay.com/courses/course1/</guid>
+      <guid>http://localhost:1313/courses/2025_scrna/</guid>
       <description>Course on single-cell RNA-seq analysis using Bioconductor packages in R.</description>
+    </item>
+    <item>
+      <title>Processing and analysing epigenomics data in R, ed. 2025 [5-day course]</title>
+      <link>http://localhost:1313/courses/2025_ngs-analysis/</link>
+      <pubDate>Fri, 18 Apr 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/courses/2025_ngs-analysis/</guid>
+      <description>Processing and analysing epigenomics data in R</description>
+    </item>
+    <item>
+      <title>Single-cell RNA-seq analysis with Biconductor, ed. 2024 [5-day course]</title>
+      <link>http://localhost:1313/courses/2024_scrna/</link>
+      <pubDate>Sun, 03 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/courses/2024_scrna/</guid>
+      <description>Course on single-cell RNA-seq analysis using Bioconductor packages in R.</description>
+    </item>
+    <item>
+      <title>Single-cell RNA-seq analysis with Biconductor [self-paced]</title>
+      <link>http://localhost:1313/courses/_scrnaseq/</link>
+      <pubDate>Tue, 23 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/courses/_scrnaseq/</guid>
+      <description>Course on single-cell RNA-seq analysis using Bioconductor packages in R.</description>
+    </item>
+    <item>
+      <title>Developing R/Bioconductor packages for Genomics</title>
+      <link>http://localhost:1313/courses/2023_bioc_package/</link>
+      <pubDate>Wed, 14 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/courses/2023_bioc_package/</guid>
+      <description>Developing R/Bioconductor packages for Genomics</description>
+    </item>
+    <item>
+      <title>Single-cell RNA-seq analysis with Biconductor, ed. 2023 [5-day course]</title>
+      <link>http://localhost:1313/courses/2023_scrna/</link>
+      <pubDate>Thu, 08 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/courses/2023_scrna/</guid>
+      <description>Course on single-cell RNA-seq analysis using Bioconductor packages in R.</description>
+    </item>
+    <item>
+      <title>Single-cell and bulk ATAC-seq analysis with Biconductor [5-day course]</title>
+      <link>http://localhost:1313/courses/2021_scatac/</link>
+      <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/courses/2021_scatac/</guid>
+      <description>Course on single-cell and bulk ATAC-seq analysis using Bioconductor packages in R.</description>
+    </item>
+    <item>
+      <title>Introduction to Multiomics Data Integration and Visualisation</title>
+      <link>http://localhost:1313/courses/2020_multiomics_data_integration/</link>
+      <pubDate>Tue, 10 Mar 2020 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/courses/2020_multiomics_data_integration/</guid>
+      <description>Introduction to Multiomics Data Integration and Visualisation</description>
     </item>
   </channel>
 </rss>

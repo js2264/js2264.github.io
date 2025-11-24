@@ -1,0 +1,63 @@
+courses:
+  - id: "2025_ngs"
+    title: "Processing and analysing epigenomics data in R, ed. 2025"
+    duration: "5-day course"
+    location: "Online"
+    date: 2025-04-18
+    url: "https://jserizay.com/NGS-Physalia/"
+
+  - id: "2025_RNAseq"
+    title: "Bulk RNA-seq analysis with Bioconductor"
+    duration: "2-day Carpentries workshop"
+    location: "CRG, Barcelona, Spain"
+    date: 2025-09-15
+    url: "https://carpentries-incubator.github.io/bioc-rnaseq/"
+
+  - id: "2025_scRNAseq"
+    title: "Single-cell RNA-seq analysis with Bioconductor, ed. 2025"
+    duration: "5-day course"
+    location: "Online"
+    date: 2025-11-02
+    url: "https://jserizay.com/scRNAseq_Physalia_2025/"
+
+  - id: "2024_scRNAseq"
+    title: "Single-cell RNA-seq analysis with Bioconductor, ed. 2024"
+    duration: "5-day course"
+    location: "Online"
+    date: 2024-11-03
+    url: "https://jserizay.com/scRNAseq_Physalia_2024/"
+
+  - id: "2023_scRNAseq"
+    title: "Single-cell RNA-seq analysis with Bioconductor, ed. 2023"
+    duration: "5-day course"
+    location: "Online"
+    date: 2023-06-08
+    url: "https://jserizay.com/scRNAseq_Physalia_2023/"
+
+  - id: "scRNAseq_selfpaced"
+    title: "Single-cell RNA-seq analysis with Bioconductor"
+    duration: "Self-paced"
+    location: "Online"
+    date: 2024-01-23
+    url: "https://jserizay.com/scRNAseq-workshop/docs/devel/"
+
+  - id: "2023_bioc_packages"
+    title: "Developing R/Bioconductor packages for Genomics"
+    duration: "5-day course"
+    location: "Online"
+    date: 2023-06-14
+    url: "https://jserizay.com/Bioc-workshop/"
+
+  - id: "ATAC_2021"
+    title: "Single-cell and bulk ATAC-seq analysis with Bioconductor"
+    duration: "5-day course"
+    location: "Online"
+    date: 2021-01-01
+    url: "https://jserizay.com/scATACseq-workshop/"
+
+  - id: "EBI_multiOmics_2020"
+    title: "Introduction to Multiomics Data Integration and Visualisation"
+    duration: "5-day course"
+    location: "European Bioinformatics Institute (EMBL-EBI)"
+    date: 2020-03-10
+    url: "https://jserizay.com/EBI_multiOmics_2020"

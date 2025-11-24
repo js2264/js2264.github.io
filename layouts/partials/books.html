@@ -1,0 +1,33 @@
+<div class="books-list">
+  {{ range $.Site.Data.books.books }}
+  <article class="post-entry book-entry">
+    
+    {{ if .cover }}
+    <figure class="entry-cover">
+      <img loading="lazy" src="/{{ .cover }}" alt="{{ .title }}">
+    </figure>
+    {{ end }}
+    
+    <header class="entry-header">
+      <h2>
+        {{ if .url }}
+        <a href="{{ .url }}" target="_blank" rel="noopener">{{ .title }}</a>
+        {{ else }}
+        {{ .title }}
+        {{ end }}
+      </h2>
+    </header>
+    
+    <div class="entry-content">
+      <p class="book-meta">
+        {{ if .edition }}
+        <span class="book-edition"><strong>{{ .edition }}</strong></span>
+        <span class="separator">•</span>
+        {{ end }}
+        <span class="book-date"><strong>{{ (time .date).Format "January 2006" }}</strong></span>
+      </p>
+    </div>
+    
+  </article>
+  {{ end }}
+</div>

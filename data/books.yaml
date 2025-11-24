@@ -1,0 +1,7 @@
+books:
+  - id: "2024_ohca"
+    title: "Orchestrating Hi-C analysis with Bioconductor"
+    edition: "Online book"
+    date: 2024-08-22
+    url: "https://jserizay.com/OHCA/docs/devel/"
+    cover: "book_covers/2024_ohca.png"
