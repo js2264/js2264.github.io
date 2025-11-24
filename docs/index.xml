@@ -34,29 +34,29 @@
     
     
     &lt;header class=&#34;entry-header&#34;&gt;
-      &lt;h2&gt;Cyclin switch tailors a cell cycle variant to orchestrate multiciliogenesis&lt;/h2&gt;
+      &lt;h2&gt;Phages with a broad host range are common across ecosystems&lt;/h2&gt;
     &lt;/header&gt;
     
     &lt;div class=&#34;entry-content&#34;&gt;
       &lt;p class=&#34;paper-authors&#34;&gt;
-        Serizay, Khoury Damaa, Boudjema, Balagué, Faucourt, Delgehyr, et al.
+        Bignaud, Conti, Thierry,Serizay, Labadie, Poulain, et al.
       &lt;/p&gt;
       
       &lt;p class=&#34;paper-meta&#34;&gt;
-        &lt;em&gt;&lt;strong&gt;Cell Reports&lt;/strong&gt;&lt;/em&gt;
+        &lt;em&gt;&lt;strong&gt;Nature Microbiology&lt;/strong&gt;&lt;/em&gt;
         &lt;span class=&#34;separator&#34;&gt;•&lt;/span&gt;
         &lt;span&gt;&lt;strong&gt;2025&lt;/strong&gt;&lt;/span&gt;
         
         
         &lt;span class=&#34;separator&#34;&gt;•&lt;/span&gt;
-        &lt;a href=&#34;https://doi.org/10.1016/j.celrep.2024.115103&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34; class=&#34;paper-text-link&#34;&gt;
+        &lt;a href=&#34;https://doi.org/10.1038/s41564-025-02108-2&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34; class=&#34;paper-text-link&#34;&gt;
           DOI
         &lt;/a&gt;
         
         
         
         &lt;span class=&#34;separator&#34;&gt;•&lt;/span&gt;
-        &lt;a href=&#34;http://localhost:1313/papers/pdfs/serizay_cellrep_2025.pdf&#34; target=&#34;_blank&#34; class=&#34;paper-text-link&#34;&gt;
+        &lt;a href=&#34;http://localhost:1313/papers/pdfs/bignaud_natmicro_2025.pdf&#34; target=&#34;_blank&#34; class=&#34;paper-text-link&#34;&gt;
           PDF
         &lt;/a&gt;
         
@@ -67,12 +67,12 @@
         &lt;summary&gt;
           &lt;p style=&#34;margin: 0;&#34;&gt;
             &lt;strong&gt;Abstract&lt;/strong&gt; &lt;span class=&#34;separator&#34;&gt;•&lt;/span&gt; 
-            &lt;span class=&#34;abstract-preview&#34;&gt;Meiosis, endoreplication, and asynthetic fissions are variations of the canonical cell cycle where either replication or...&lt;/span&gt;
+            &lt;span class=&#34;abstract-preview&#34;&gt;Phages are diverse and abundant within microbial communities, where they play major roles in their evolution and adaptat...&lt;/span&gt;
             &lt;span class=&#34;chevron&#34;&gt;▾&lt;/span&gt;
           &lt;/p&gt;
         &lt;/summary&gt;
         &lt;div class=&#34;abstract-full&#34;&gt;
-          Meiosis, endoreplication, and asynthetic fissions are variations of the canonical cell cycle where either replication or mitotic divisions are muted. Here, we identify a cell cycle variantconserved across organs and mammals, where both replication and mitosis are muted, and that orchestrates the differentiation of post-mitotic progenitors into multiciliated cells (MCCs). MCC progenitors reactivate most of the cell cycle transcriptional program but replace the temporal expression of cyclins E2 and A2 with non-canonical cyclins O and A1. In addition, the primary APC/C inhibitor Emi1 is silenced. Re-expressing cyclins E2 and A2 and/or Emi1 can induce partial replication or mitosis. This shows that a cell can co-opt the cell cycle genetic program and regulate only certain elements to qualitatively and quantitatively divert CDK activity toward differentiation rather than division. We propose this cell cycle variant to exploit the existence of a cytoplasmic—or centriolar—CDK threshold lower than the S-phase threshold.
+          Phages are diverse and abundant within microbial communities, where they play major roles in their evolution and adaptation. Phage replication, and multiplication, is generally thought to be restricted within a single or narrow host range. Here we use published and newly generated proximity-ligation-based metagenomic Hi-C (metaHiC) data from various environments to explore virus–host interactions. We reconstructed 4,975 microbial and 6,572 phage genomes of medium quality or higher. MetaHiC yielded a contact network between genomes and enabled assignment of approximately half of phage genomes to their hosts, revealing that a substantial proportion of these phages interact with multiple species in environments as diverse as the oceanic water column or the human gut. This observation challenges the traditional view of a narrow host spectrum of phages by unveiling that multihost associations are common across ecosystems, with implications for how they might impact ecology and evolution and phage therapy approaches.
         &lt;/div&gt;
       &lt;/details&gt;
       
@@ -87,12 +87,12 @@
     
     
     &lt;header class=&#34;entry-header&#34;&gt;
-      &lt;h2&gt;Cyclin switch tailors a cell cycle variant to orchestrate multiciliogenesis&lt;/h2&gt;
+      &lt;h2&gt;High-resolution map of the Plasmodium falciparum genome reveals MORC/ApiAP2-mediated links between distant, functionally related genes&lt;/h2&gt;
     &lt;/header&gt;
     
     &lt;div class=&#34;entry-content&#34;&gt;
       &lt;p class=&#34;paper-authors&#34;&gt;
-        Serizay, Khoury Damaa, Boudjema, Balagué, Faucourt, Delgehyr, et al.
+        Singh † &amp;amp; Serizay † &amp;amp; Couble †, Cabahug, Rosa, Chen, et al.
       &lt;/p&gt;</description>
     </item>
     <item>
