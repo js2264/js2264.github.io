@@ -228,31 +228,21 @@
     
     
     &lt;header class=&#34;entry-header&#34;&gt;
-      &lt;h2&gt;Phages with a broad host range are common across ecosystems&lt;/h2&gt;
+      &lt;h2&gt;The MCC variant of the cell cycle incorporates two centriole biogenesis cycles&lt;/h2&gt;
     &lt;/header&gt;
     
     &lt;div class=&#34;entry-content&#34;&gt;
       &lt;p class=&#34;paper-authors&#34;&gt;
-        Bignaud, Conti, Thierry,Serizay, Labadie, Poulain, et al.
+        Boudjema † &amp;amp; Balagué †, Jewett, Serizay, LoMastro, Mercey, et al.
       &lt;/p&gt;
       
       &lt;p class=&#34;paper-meta&#34;&gt;
-        &lt;em&gt;&lt;strong&gt;Nature Microbiology&lt;/strong&gt;&lt;/em&gt;
+        &lt;em&gt;&lt;strong&gt;eLife&lt;/strong&gt;&lt;/em&gt;
         &lt;span class=&#34;separator&#34;&gt;•&lt;/span&gt;
-        &lt;span&gt;&lt;strong&gt;2025&lt;/strong&gt;&lt;/span&gt;
-        
-        
-        &lt;span class=&#34;separator&#34;&gt;•&lt;/span&gt;
-        &lt;a href=&#34;https://doi.org/10.1038/s41564-025-02108-2&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34; class=&#34;paper-text-link&#34;&gt;
-          DOI
-        &lt;/a&gt;
+        &lt;span&gt;&lt;strong&gt;2026&lt;/strong&gt;&lt;/span&gt;
         
         
         
-        &lt;span class=&#34;separator&#34;&gt;•&lt;/span&gt;
-        &lt;a href=&#34;https://jserizay.com/papers/pdfs/bignaud_natmicro_2025.pdf&#34; target=&#34;_blank&#34; class=&#34;paper-text-link&#34;&gt;
-          PDF
-        &lt;/a&gt;
         
       &lt;/p&gt;
       
@@ -261,12 +251,12 @@
         &lt;summary&gt;
           &lt;p style=&#34;margin: 0;&#34;&gt;
             &lt;strong&gt;Abstract&lt;/strong&gt; &lt;span class=&#34;separator&#34;&gt;•&lt;/span&gt; 
-            &lt;span class=&#34;abstract-preview&#34;&gt;Phages are diverse and abundant within microbial communities, where they play major roles in their evolution and adaptat...&lt;/span&gt;
+            &lt;span class=&#34;abstract-preview&#34;&gt;Multiciliated cell (MCC) differentiation is a genuine but calibrated version of the canonical cell cycle, allowing to am...&lt;/span&gt;
             &lt;span class=&#34;chevron&#34;&gt;▾&lt;/span&gt;
           &lt;/p&gt;
         &lt;/summary&gt;
         &lt;div class=&#34;abstract-full&#34;&gt;
-          Phages are diverse and abundant within microbial communities, where they play major roles in their evolution and adaptation. Phage replication, and multiplication, is generally thought to be restricted within a single or narrow host range. Here we use published and newly generated proximity-ligation-based metagenomic Hi-C (metaHiC) data from various environments to explore virus–host interactions. We reconstructed 4,975 microbial and 6,572 phage genomes of medium quality or higher. MetaHiC yielded a contact network between genomes and enabled assignment of approximately half of phage genomes to their hosts, revealing that a substantial proportion of these phages interact with multiple species in environments as diverse as the oceanic water column or the human gut. This observation challenges the traditional view of a narrow host spectrum of phages by unveiling that multihost associations are common across ecosystems, with implications for how they might impact ecology and evolution and phage therapy approaches.
+          Multiciliated cell (MCC) differentiation is a genuine but calibrated version of the canonical cell cycle, allowing to amplify the number of centrioles to allow the nucleation of dozen of motile cilia, while avoiding cell division. In this study, we now show that the MCC cell cycle variant is also an accelerated version of the canonical cell cycle, which superposes two cycles of centriole biogenesis, in order to obtain multiple mature centrioles within a single -instead of double- cell cycle iteration. We further show that the precocious maturation of amplified procentrioles is even determinant for their spatial self-organization, disengagement and apical migration for cilia nucleation. Altogether, this suggests that the decomposition of centriole biogenesis over two cycle iterations in dividing cells may have been adopted to ensure the growth of a solitary primary cilium, and exemplifies how minimal deviations of the canonical cell cycle allows MCC progenitors to both amplify and accelerate centriole biogenesis to meet the need for multiple motile cilia nucleation.
         &lt;/div&gt;
       &lt;/details&gt;
       
@@ -281,12 +271,12 @@
     
     
     &lt;header class=&#34;entry-header&#34;&gt;
-      &lt;h2&gt;High-resolution map of the Plasmodium falciparum genome reveals MORC/ApiAP2-mediated links between distant, functionally related genes&lt;/h2&gt;
+      &lt;h2&gt;Phages with a broad host range are common across ecosystems&lt;/h2&gt;
     &lt;/header&gt;
     
     &lt;div class=&#34;entry-content&#34;&gt;
       &lt;p class=&#34;paper-authors&#34;&gt;
-        Singh † &amp;amp; Serizay † &amp;amp; Couble †, Cabahug, Rosa, Chen, et al.
+        Bignaud, Conti, Thierry, Serizay, Labadie, Poulain, et al.
       &lt;/p&gt;</description>
     </item>
     <item>

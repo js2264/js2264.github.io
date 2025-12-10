@@ -7,8 +7,11 @@ document.addEventListener('DOMContentLoaded', function() {
       if (text.includes(authorName) || text.includes('Serizay')) {
         const parent = node.parentNode;
         parent.innerHTML = parent.innerHTML.replace(
-          /([^,]*?Serizay[^,]*?)(?=,)/g,
-          `<mark style="display: inline-block; line-height: 0em; background-color: #ffdd00ff; padding-bottom: 1.1em; font-weight: bold;">$1</mark>`
+          /(?:^|,\s+)([^,]*?Serizay[^,]*?)(?=,|$)/g,
+          (match, name) => {
+            const prefix = match.startsWith(',') ? ', ' : '';
+            return `${prefix}<mark style="display: inline-block; line-height: 0em; background-color: #ffdd00ff; padding-bottom: 0.2em; font-weight: bold;">${name}</mark>`;
+          }
         );
         parent.innerHTML = parent.innerHTML.replace(
           /,\s+([^,<]*?)\s+(\d{4})(?=[<,]|$)/g,
