@@ -228,21 +228,31 @@
     
     
     &lt;header class=&#34;entry-header&#34;&gt;
-      &lt;h2&gt;The MCC variant of the cell cycle incorporates two centriole biogenesis cycles&lt;/h2&gt;
+      &lt;h2&gt;Phages with a broad host range are common across ecosystems&lt;/h2&gt;
     &lt;/header&gt;
     
     &lt;div class=&#34;entry-content&#34;&gt;
       &lt;p class=&#34;paper-authors&#34;&gt;
-        Boudjema † &amp;amp; Balagué †, Jewett, Serizay, LoMastro, Mercey, et al.
+        Bignaud, Conti, Thierry, Serizay, Labadie, Poulain, et al.
       &lt;/p&gt;
       
       &lt;p class=&#34;paper-meta&#34;&gt;
-        &lt;em&gt;&lt;strong&gt;eLife&lt;/strong&gt;&lt;/em&gt;
+        &lt;em&gt;&lt;strong&gt;Nature Microbiology&lt;/strong&gt;&lt;/em&gt;
         &lt;span class=&#34;separator&#34;&gt;•&lt;/span&gt;
-        &lt;span&gt;&lt;strong&gt;2026&lt;/strong&gt;&lt;/span&gt;
+        &lt;span&gt;&lt;strong&gt;2025&lt;/strong&gt;&lt;/span&gt;
+        
+        
+        &lt;span class=&#34;separator&#34;&gt;•&lt;/span&gt;
+        &lt;a href=&#34;https://doi.org/10.1038/s41564-025-02108-2&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34; class=&#34;paper-text-link&#34;&gt;
+          DOI
+        &lt;/a&gt;
         
         
         
+        &lt;span class=&#34;separator&#34;&gt;•&lt;/span&gt;
+        &lt;a href=&#34;https://jserizay.com/papers/pdfs/bignaud_natmicro_2025.pdf&#34; target=&#34;_blank&#34; class=&#34;paper-text-link&#34;&gt;
+          PDF
+        &lt;/a&gt;
         
       &lt;/p&gt;
       
@@ -251,12 +261,12 @@
         &lt;summary&gt;
           &lt;p style=&#34;margin: 0;&#34;&gt;
             &lt;strong&gt;Abstract&lt;/strong&gt; &lt;span class=&#34;separator&#34;&gt;•&lt;/span&gt; 
-            &lt;span class=&#34;abstract-preview&#34;&gt;Multiciliated cell (MCC) differentiation is a genuine but calibrated version of the canonical cell cycle, allowing to am...&lt;/span&gt;
+            &lt;span class=&#34;abstract-preview&#34;&gt;Phages are diverse and abundant within microbial communities, where they play major roles in their evolution and adaptat...&lt;/span&gt;
             &lt;span class=&#34;chevron&#34;&gt;▾&lt;/span&gt;
           &lt;/p&gt;
         &lt;/summary&gt;
         &lt;div class=&#34;abstract-full&#34;&gt;
-          Multiciliated cell (MCC) differentiation is a genuine but calibrated version of the canonical cell cycle, allowing to amplify the number of centrioles to allow the nucleation of dozen of motile cilia, while avoiding cell division. In this study, we now show that the MCC cell cycle variant is also an accelerated version of the canonical cell cycle, which superposes two cycles of centriole biogenesis, in order to obtain multiple mature centrioles within a single -instead of double- cell cycle iteration. We further show that the precocious maturation of amplified procentrioles is even determinant for their spatial self-organization, disengagement and apical migration for cilia nucleation. Altogether, this suggests that the decomposition of centriole biogenesis over two cycle iterations in dividing cells may have been adopted to ensure the growth of a solitary primary cilium, and exemplifies how minimal deviations of the canonical cell cycle allows MCC progenitors to both amplify and accelerate centriole biogenesis to meet the need for multiple motile cilia nucleation.
+          Phages are diverse and abundant within microbial communities, where they play major roles in their evolution and adaptation. Phage replication, and multiplication, is generally thought to be restricted within a single or narrow host range. Here we use published and newly generated proximity-ligation-based metagenomic Hi-C (metaHiC) data from various environments to explore virus–host interactions. We reconstructed 4,975 microbial and 6,572 phage genomes of medium quality or higher. MetaHiC yielded a contact network between genomes and enabled assignment of approximately half of phage genomes to their hosts, revealing that a substantial proportion of these phages interact with multiple species in environments as diverse as the oceanic water column or the human gut. This observation challenges the traditional view of a narrow host spectrum of phages by unveiling that multihost associations are common across ecosystems, with implications for how they might impact ecology and evolution and phage therapy approaches.
         &lt;/div&gt;
       &lt;/details&gt;
       
@@ -271,12 +281,12 @@
     
     
     &lt;header class=&#34;entry-header&#34;&gt;
-      &lt;h2&gt;Phages with a broad host range are common across ecosystems&lt;/h2&gt;
+      &lt;h2&gt;High-resolution map of the Plasmodium falciparum genome reveals MORC/ApiAP2-mediated links between distant, functionally related genes&lt;/h2&gt;
     &lt;/header&gt;
     
     &lt;div class=&#34;entry-content&#34;&gt;
       &lt;p class=&#34;paper-authors&#34;&gt;
-        Bignaud, Conti, Thierry, Serizay, Labadie, Poulain, et al.
+        Singh † &amp;amp; Serizay † &amp;amp; Couble †, Cabahug, Rosa, Chen, et al.
       &lt;/p&gt;</description>
     </item>
     <item>
@@ -284,9 +294,9 @@
       <link>https://jserizay.com/profile/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://jserizay.com/profile/</guid>
-      <description>&lt;p&gt;I am a tenured CNRS researcher currently working in the &lt;strong&gt;Spatial Regulation of Genomes&lt;/strong&gt; laboratory under Romain Koszul at the &lt;strong&gt;Institut Pasteur / CNRS UMR 3525&lt;/strong&gt; in Paris, which I joined as a postdoc in 2020, after finishing my PhD in Genetics with Pr. &lt;strong&gt;Julie Ahringer at the University of Cambridge&lt;/strong&gt;.&lt;/p&gt;
+      <description>&lt;p&gt;I am a tenured CNRS researcher working &lt;strong&gt;at the Institut Pasteur, Dept. Genomes &amp;amp; Genetics&lt;/strong&gt;, in Paris. My long-term endeavor is to decrypt the intricate, multi-modal organization of genomes and its impact on gene regulation. To achieve this, I develop computational frameworks for analyzing cutting-edge biological data.&lt;/p&gt;
 &lt;br&gt;
-&lt;p&gt;Before that, I obtained my Master&amp;rsquo;s degree in Genetics from the &lt;strong&gt;École Normale Supérieure de Cachan&lt;/strong&gt; in 2016, and was a visiting researcher in the &lt;strong&gt;Plath laboratory at UCLA&lt;/strong&gt; in 2015.&lt;/p&gt;</description>
+&lt;p&gt;Between 2020 and 2025, I worked as a postdoctoral researcher in the &lt;strong&gt;Spatial Regulation of Genomes laboratory&lt;/strong&gt; under Pr. &lt;strong&gt;Romain Koszul&lt;/strong&gt;, focusing on chromatin organization and genome dynamics in microeukaryotes. Before that, I completed my PhD in Genetics with Pr. &lt;strong&gt;Julie Ahringer at the University of Cambridge&lt;/strong&gt;. I obtained my Master&amp;rsquo;s degree in Genetics from the &lt;strong&gt;École Normale Supérieure de Cachan&lt;/strong&gt; in 2016, and was a visiting researcher in the &lt;strong&gt;Plath laboratory at UCLA&lt;/strong&gt; in 2015.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
