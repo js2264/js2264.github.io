@@ -2,11 +2,11 @@
 title: "Home"
 ---
 
-I am a tenured CNRS researcher working **at the Institut Pasteur, Dept. Genomes & Genetics**, in Paris. My long-term endeavor is to decrypt the intricate, multi-modal organization of genomes and its impact on gene regulation. To achieve this, I develop computational frameworks for analyzing cutting-edge biological data. 
+I am an Assistant Research Professor at CNRS, working **at the Institut Pasteur, Dept. Genomes & Genetics**, in Paris. My long-term endeavor is to decipher the intricate, multi-modal organization of genomes and its impact on gene regulation, more specifically in microeukaryotes. To achieve this, I develop computational frameworks for analyzing multi-omics and high-dimensional biological data. 
 
 <br>
 
-Between 2020 and 2025, I worked as a postdoctoral researcher in the **Spatial Regulation of Genomes laboratory** under Pr. **Romain Koszul**, focusing on chromatin organization and genome dynamics in microeukaryotes. Before that, I completed my PhD in Genetics with Pr. **Julie Ahringer at the University of Cambridge**. I obtained my Master's degree in Genetics from the **École Normale Supérieure de Cachan** in 2016, and was a visiting researcher in the **Plath laboratory at UCLA** in 2015.
+Between 2020 and 2025, I worked as a postdoctoral researcher in the **Spatial Regulation of Genomes laboratory** under Pr. **Romain Koszul**, focusing on chromatin organization and genome dynamics in microeukaryotes. Before that, I completed my Ph.D. in Genetics with Pr. **Julie Ahringer at the University of Cambridge**. I obtained my Master's degree in Genetics from the **École Normale Supérieure de Cachan** in 2016, and was a visiting researcher in the **Plath laboratory at UCLA** in 2015.
 
 <!-- {{< timeline >}} -->
 
