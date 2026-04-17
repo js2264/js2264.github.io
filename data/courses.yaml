@@ -1,4 +1,11 @@
 courses:
+  - id: "2026_ngs"
+    title: "Epigenomics data analysis in R, ed. 2026"
+    duration: "5-day course"
+    location: "Online"
+    date: 2026-04-17
+    url: "https://jserizay.com/NGS-Physalia/docs/devel"
+
   - id: "2025_ngs"
     title: "Processing and analysing epigenomics data in R, ed. 2025"
     duration: "5-day course"

@@ -1,4 +1,31 @@
 papers:
+  - id: "perrot_curropin_2026"
+    title: "Synthetic chromosomes for 3D functional genomics: from principles to AI-guided design"
+    authors: "Perrot, Serizay, and Koszul"
+    journal: "Current Opinion in Genetics & Development"
+    year: 2026
+    date: "2026-04-15"
+    doi: "10.1016/j.gde.2026.102471"
+    # pdf: "perrot_curropin_2026.pdf"
+    # image: "perrot_curropin_2026.png"
+    abstract:
+      The role of genome 3D organization for fundamental chromatin processes, such as long-range promoter-activator regulatory interactions, remains ambiguous. Synthetic genomics, defined as the rational design of kilobase-scale genomic sequences and their assembly into chromosomal segments spanning up to hundreds of kb (and ultimately, entire genomes), provides powerful solutions to lift this ambiguity and directly test structure-function relationships through controlled perturbations. In this review, we highlight how synthetic genomics approaches overcome traditional experimental constraints by creating simplified but functional systems that isolate specific organizational principles, so far mostly in budding yeast and mammalian cells. Combined with AI-based sequence design, these approaches not only provide unprecedented insight into the organizational logic governing genome function but also open new avenues for therapeutic genomic engineering.
+
+
+  - id: "thomas_ajrcmb_2026"
+    title: "FOXJ1 transcriptional targets in human airway cells and impaired multiciliogenesis in FOXJ1-associated primary ciliary dyskinesia"
+    authors: "Thomas † & Serizay †, Mani, Couvet, Papon, Tamalet, et al."
+    journal: "American Journal of Respiratory Cell and Molecular Biology"
+    year: 2026
+    date: "2026-03-30"
+    doi: "10.1093/ajrcmb/aanag071"
+    # pdf: "thomas_ajrcmb_2026.pdf"
+    # image: "thomas_ajrcmb_2026.png"
+    abstract:
+      Fluid mobilization on epithelia is ensured by the motile cilia of differentiated multiciliated cells (MCCs). Key transcriptional regulators of motile ciliogenesis include CCNO, MCIDAS, RFXs, and the transcription factor FOXJ1, whose precise role in humans remains unclear. We show that, unlike CCNO and MCIDAS, FOXJ1 expression persists in well-differentiated human airway epithelial cells (hAECs), suggesting functions beyond cilia initiation. ChIP-seq in hAECs allowed us to refine the consensus target motifs of FOXJ1 and RFXs, as well as their close proximity, which strongly suggests functional cooperation within a transcriptional complex. By combining ChIP-seq in normal cells with RNAseq from patients with FOXJ1-related primary ciliary dyskinesia (PCD), we identified 683 direct FOXJ1 target genes. Among these, 89 MCC-enriched genes—particularly those encoding axonemal proteins such as microtubule-inner proteins (MIPs) and dynein arm docking components—were downregulated in FOXJ1-deficient cells. Collectively, these findings provide new insights into how FOXJ1 contributes to human motile ciliogenesis, and reveal a potential role for FOXJ1 in maintaining MCCs differentiation and ciliary function by sustaining the expression of ciliary proteins, particularly those in direct contact with axonemal tubulin.
+
+
+
   - id: "bignaud_natmicro_2025"
     title: "Phages with a broad host range are common across ecosystems"
     authors: "Bignaud, Conti, Thierry, Serizay, Labadie, Poulain, et al."
@@ -79,7 +106,7 @@ papers:
     year: 2024
     date: "2024-06-01"
     doi: "10.1038/s41592-024-02299-2"
-    authors: "Hutchison † & Keyes †, Crowell,Serizay, Soneson, Davis, et al."
+    authors: "Hutchison † & Keyes †, Crowell, Serizay, Soneson, Davis, et al."
     journal: "Nature Methods"
     pdf: "hutchinson_natmethods_2024.pdf"
     # image: "hutchinson_natmethods_2024.png"
@@ -146,7 +173,7 @@ papers:
     year: 2020
     date: "2020-09-01"
     doi: "10.1038/s41586-020-2703-0"
-    authors: "Pandya-Jones, Markaki,Serizay, Chitiashvili, Mancia Leon, Damianov, et al."
+    authors: "Pandya-Jones, Markaki, Serizay, Chitiashvili, Mancia Leon, Damianov, et al."
     journal: "Nature"
     pdf: "pandyajones_nature_2020.pdf"
     # image: "pandyajones_fnature2020.png"
@@ -172,7 +199,7 @@ papers:
     year: 2018
     date: "2018-10-01"
     doi: "10.1016/j.celrep.2024.115117"
-    authors: "Jänes † & Dong †,Schoof ‡ & Serizay ‡, Appert, Cerrato, et al."
+    authors: "Jänes † & Dong †, Schoof ‡ & Serizay ‡, Appert, Cerrato, et al."
     journal: "eLife"
     pdf: "janes_elife_2018.pdf"
     # image: "janes_elife_2018.png"

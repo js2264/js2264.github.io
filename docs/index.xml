@@ -56,6 +56,30 @@
     &lt;header class=&#34;entry-header&#34;&gt;
       &lt;h2&gt;
         
+        &lt;a href=&#34;https://jserizay.com/NGS-Physalia/docs/devel&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Epigenomics data analysis in R, ed. 2026&lt;/a&gt;
+        
+      &lt;/h2&gt;
+    &lt;/header&gt;
+    
+    &lt;div class=&#34;entry-content&#34;&gt;
+      &lt;p class=&#34;course-meta&#34;&gt;
+        &lt;span class=&#34;course-duration&#34;&gt;&lt;strong&gt;5-day course&lt;/strong&gt;&lt;/span&gt;
+        &lt;span class=&#34;separator&#34;&gt;•&lt;/span&gt;
+        &lt;span class=&#34;course-date&#34;&gt;&lt;strong&gt;April 2026&lt;/strong&gt;&lt;/span&gt;
+        
+        &lt;span class=&#34;separator&#34;&gt;•&lt;/span&gt;
+        &lt;span class=&#34;course-location&#34;&gt;Online&lt;/span&gt;
+        
+      &lt;/p&gt;
+    &lt;/div&gt;
+    
+  &lt;/article&gt;
+  
+  &lt;article class=&#34;post-entry course-entry&#34;&gt;
+    
+    &lt;header class=&#34;entry-header&#34;&gt;
+      &lt;h2&gt;
+        
         &lt;a href=&#34;https://jserizay.com/NGS-Physalia/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Processing and analysing epigenomics data in R, ed. 2025&lt;/a&gt;
         
       &lt;/h2&gt;
@@ -190,30 +214,6 @@
         &lt;span class=&#34;separator&#34;&gt;•&lt;/span&gt;
         &lt;span class=&#34;course-location&#34;&gt;Online&lt;/span&gt;
         
-      &lt;/p&gt;
-    &lt;/div&gt;
-    
-  &lt;/article&gt;
-  
-  &lt;article class=&#34;post-entry course-entry&#34;&gt;
-    
-    &lt;header class=&#34;entry-header&#34;&gt;
-      &lt;h2&gt;
-        
-        &lt;a href=&#34;https://jserizay.com/Bioc-workshop/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Developing R/Bioconductor packages for Genomics&lt;/a&gt;
-        
-      &lt;/h2&gt;
-    &lt;/header&gt;
-    
-    &lt;div class=&#34;entry-content&#34;&gt;
-      &lt;p class=&#34;course-meta&#34;&gt;
-        &lt;span class=&#34;course-duration&#34;&gt;&lt;strong&gt;5-day course&lt;/strong&gt;&lt;/span&gt;
-        &lt;span class=&#34;separator&#34;&gt;•&lt;/span&gt;
-        &lt;span class=&#34;course-date&#34;&gt;&lt;strong&gt;June 2023&lt;/strong&gt;&lt;/span&gt;
-        
-        &lt;span class=&#34;separator&#34;&gt;•&lt;/span&gt;
-        &lt;span class=&#34;course-location&#34;&gt;Online&lt;/span&gt;
-        
       &lt;/p&gt;</description>
     </item>
     <item>
@@ -228,31 +228,26 @@
     
     
     &lt;header class=&#34;entry-header&#34;&gt;
-      &lt;h2&gt;Phages with a broad host range are common across ecosystems&lt;/h2&gt;
+      &lt;h2&gt;Synthetic chromosomes for 3D functional genomics: from principles to AI-guided design&lt;/h2&gt;
     &lt;/header&gt;
     
     &lt;div class=&#34;entry-content&#34;&gt;
       &lt;p class=&#34;paper-authors&#34;&gt;
-        Bignaud, Conti, Thierry, Serizay, Labadie, Poulain, et al.
+        Perrot, Serizay, and Koszul
       &lt;/p&gt;
       
       &lt;p class=&#34;paper-meta&#34;&gt;
-        &lt;em&gt;&lt;strong&gt;Nature Microbiology&lt;/strong&gt;&lt;/em&gt;
+        &lt;em&gt;&lt;strong&gt;Current Opinion in Genetics &amp;amp; Development&lt;/strong&gt;&lt;/em&gt;
         &lt;span class=&#34;separator&#34;&gt;•&lt;/span&gt;
-        &lt;span&gt;&lt;strong&gt;2025&lt;/strong&gt;&lt;/span&gt;
+        &lt;span&gt;&lt;strong&gt;2026&lt;/strong&gt;&lt;/span&gt;
         
         
         &lt;span class=&#34;separator&#34;&gt;•&lt;/span&gt;
-        &lt;a href=&#34;https://doi.org/10.1038/s41564-025-02108-2&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34; class=&#34;paper-text-link&#34;&gt;
+        &lt;a href=&#34;https://doi.org/10.1016/j.gde.2026.102471&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34; class=&#34;paper-text-link&#34;&gt;
           DOI
         &lt;/a&gt;
         
         
-        
-        &lt;span class=&#34;separator&#34;&gt;•&lt;/span&gt;
-        &lt;a href=&#34;https://jserizay.com/papers/pdfs/bignaud_natmicro_2025.pdf&#34; target=&#34;_blank&#34; class=&#34;paper-text-link&#34;&gt;
-          PDF
-        &lt;/a&gt;
         
       &lt;/p&gt;
       
@@ -261,12 +256,12 @@
         &lt;summary&gt;
           &lt;p style=&#34;margin: 0;&#34;&gt;
             &lt;strong&gt;Abstract&lt;/strong&gt; &lt;span class=&#34;separator&#34;&gt;•&lt;/span&gt; 
-            &lt;span class=&#34;abstract-preview&#34;&gt;Phages are diverse and abundant within microbial communities, where they play major roles in their evolution and adaptat...&lt;/span&gt;
+            &lt;span class=&#34;abstract-preview&#34;&gt;The role of genome 3D organization for fundamental chromatin processes, such as long-range promoter-activator regulatory...&lt;/span&gt;
             &lt;span class=&#34;chevron&#34;&gt;▾&lt;/span&gt;
           &lt;/p&gt;
         &lt;/summary&gt;
         &lt;div class=&#34;abstract-full&#34;&gt;
-          Phages are diverse and abundant within microbial communities, where they play major roles in their evolution and adaptation. Phage replication, and multiplication, is generally thought to be restricted within a single or narrow host range. Here we use published and newly generated proximity-ligation-based metagenomic Hi-C (metaHiC) data from various environments to explore virus–host interactions. We reconstructed 4,975 microbial and 6,572 phage genomes of medium quality or higher. MetaHiC yielded a contact network between genomes and enabled assignment of approximately half of phage genomes to their hosts, revealing that a substantial proportion of these phages interact with multiple species in environments as diverse as the oceanic water column or the human gut. This observation challenges the traditional view of a narrow host spectrum of phages by unveiling that multihost associations are common across ecosystems, with implications for how they might impact ecology and evolution and phage therapy approaches.
+          The role of genome 3D organization for fundamental chromatin processes, such as long-range promoter-activator regulatory interactions, remains ambiguous. Synthetic genomics, defined as the rational design of kilobase-scale genomic sequences and their assembly into chromosomal segments spanning up to hundreds of kb (and ultimately, entire genomes), provides powerful solutions to lift this ambiguity and directly test structure-function relationships through controlled perturbations. In this review, we highlight how synthetic genomics approaches overcome traditional experimental constraints by creating simplified but functional systems that isolate specific organizational principles, so far mostly in budding yeast and mammalian cells. Combined with AI-based sequence design, these approaches not only provide unprecedented insight into the organizational logic governing genome function but also open new avenues for therapeutic genomic engineering.
         &lt;/div&gt;
       &lt;/details&gt;
       
@@ -281,12 +276,12 @@
     
     
     &lt;header class=&#34;entry-header&#34;&gt;
-      &lt;h2&gt;High-resolution map of the Plasmodium falciparum genome reveals MORC/ApiAP2-mediated links between distant, functionally related genes&lt;/h2&gt;
+      &lt;h2&gt;FOXJ1 transcriptional targets in human airway cells and impaired multiciliogenesis in FOXJ1-associated primary ciliary dyskinesia&lt;/h2&gt;
     &lt;/header&gt;
     
     &lt;div class=&#34;entry-content&#34;&gt;
       &lt;p class=&#34;paper-authors&#34;&gt;
-        Singh † &amp;amp; Serizay † &amp;amp; Couble †, Cabahug, Rosa, Chen, et al.
+        Thomas † &amp;amp; Serizay †, Mani, Couvet, Papon, Tamalet, et al.
       &lt;/p&gt;</description>
     </item>
     <item>
