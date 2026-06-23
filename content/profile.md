@@ -2,7 +2,7 @@
 title: "Home"
 ---
 
-I am an Assistant Research Professor at CNRS, working **at the Institut Pasteur, Dept. Genomes & Genetics**, in Paris. My long-term endeavor is to decipher the intricate, multi-modal organization of genomes and its impact on gene regulation, more specifically in microeukaryotes. To achieve this, I develop computational frameworks for analyzing multi-omics and high-dimensional biological data. 
+I am a CNRS Research Associate, working **at the Institut Pasteur, Dept. Genomes & Genetics**, in Paris. My long-term endeavor is to decipher the intricate, multi-modal organization of genomes and its impact on gene regulation, more specifically in microeukaryotes. To achieve this, I develop computational frameworks for analyzing multi-omics and high-dimensional biological data. 
 
 <br>
 

@@ -2,7 +2,7 @@
 title: "About me"
 ---
 
-I am an Assistant Research Professor at the CNRS, based at the Institut Pasteur (Dept. of Genetics and Genomics) in Paris. Between 2020 and 2025, I worked as a postdoctoral researcher at the Institut Pasteur in Romain Koszul's Spatial Regulation of Genomes laboratory.
+I am a CNRS Research Associate, based at the Institut Pasteur (Dept. of Genetics and Genomics) in Paris. Between 2020 and 2025, I worked as a postdoctoral researcher at the Institut Pasteur in Romain Koszul's Spatial Regulation of Genomes laboratory.
 
 I am working on developing biology-oriented methodologies to model dynamics of multi-modal chromatin organization and its impact on gene regulation across biological systems. I have contributed to developing data structures and tools for genome-wide omics data, including **momics** for deep-learning applications, the **tidyomics** ecosystem and the **HiCExperiment** suite of R packages. I come from an experimental biology background, transitioned toward combined "wet/dry" research during my Ph.D., and eventually focused entirely on computational data analysis during my postdoctoral work.  
 
