@@ -24,25 +24,19 @@ The build warns when a paper's `pdf` or `supp` file is missing from `static/pape
 ## Preview locally
 
 ```sh
-hugo server --renderToMemory
+hugo server
 ```
 
-Keep `--renderToMemory` while `publishDir: docs` is set in `config.yml`: a plain `hugo server`
-writes its development build into `docs/`.
+Local builds (`hugo`, `hugo server`) are written to `public/`, which is not committed.
 
 ## Deploy
 
-Pushing to `master` builds and deploys the site with GitHub Actions (`.github/workflows/hugo.yml`).
-This requires *Settings > Pages > Build and deployment > Source: GitHub Actions*, with jserizay.com
-as custom domain.
+Pushing to `master` deploys the site: GitHub Actions builds it with Hugo and publishes it to
+GitHub Pages (`.github/workflows/hugo.yml`). Only the sources are committed.
 
-### Legacy `docs/` folder
-
-Before the switch to GitHub Actions, the site was served from the committed `docs/` folder, built with:
-
-```sh
-hugo --cleanDestinationDir
-```
-
-Once Pages deploys through GitHub Actions, `docs/` is no longer used: delete it (`git rm -r docs`)
-and remove `publishDir: docs` from `config.yml`.
+- Follow runs in the repository's *Actions* tab, or with `gh run list --workflow hugo.yml`.
+- Redeploy without a new commit from the *Actions* tab ("Run workflow"), or with `gh workflow run hugo.yml`.
+- The Hugo version used for deployment is pinned in the workflow (`HUGO_VERSION`): bump it when
+  upgrading Hugo locally.
+- Pages settings: *Settings > Pages > Build and deployment > Source: GitHub Actions*, with jserizay.com
+  as custom domain (set there; `static/CNAME` is not needed for Actions deployments).

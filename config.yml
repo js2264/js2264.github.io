@@ -1,7 +1,6 @@
 baseURL: "https://jserizay.com/" 
 title: J. Serizay
 theme: PaperMod
-publishDir: docs
 
 enableInlineShortcodes: true
 enableRobotsTXT: true
