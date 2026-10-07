@@ -1,33 +1,53 @@
 <div class="books-list">
   {{ range $.Site.Data.books.books }}
   <article class="post-entry book-entry">
-    
+
     {{ if .cover }}
     <figure class="entry-cover">
       <img loading="lazy" src="/{{ .cover }}" alt="{{ .title }}">
     </figure>
     {{ end }}
-    
-    <header class="entry-header">
-      <h2>
-        {{ if .url }}
-        <a href="{{ .url }}" target="_blank" rel="noopener">{{ .title }}</a>
-        {{ else }}
-        {{ .title }}
+
+    <div class="book-body">
+      <header class="entry-header">
+        <h2>
+          {{ if .url }}
+          <a href="{{ .url }}" target="_blank" rel="noopener">{{ .title }}</a>
+          {{ else }}
+          {{ .title }}
+          {{ end }}
+        </h2>
+      </header>
+
+      <div class="entry-content">
+        <p class="book-meta">
+          {{ if .edition }}
+          <span class="book-edition"><strong>{{ .edition }}</strong></span>
+          <span class="separator">•</span>
+          {{ end }}
+          <span class="book-date"><strong>{{ (time .date).Format "January 2006" }}</strong></span>
+        </p>
+
+        {{ with .description }}
+        <p class="book-description">{{ . }}</p>
         {{ end }}
-      </h2>
-    </header>
-    
-    <div class="entry-content">
-      <p class="book-meta">
-        {{ if .edition }}
-        <span class="book-edition"><strong>{{ .edition }}</strong></span>
-        <span class="separator">•</span>
-        {{ end }}
-        <span class="book-date"><strong>{{ (time .date).Format "January 2006" }}</strong></span>
-      </p>
+
+        {{- $links := slice }}
+        {{- with .url }}{{ $links = $links | append (dict "label" "Read online" "url" .) }}{{ end }}
+        {{- with .bioconductor }}{{ $links = $links | append (dict "label" "Bioconductor" "url" .) }}{{ end }}
+        {{- with .repo }}{{ $links = $links | append (dict "label" "GitHub" "url" (printf "https://github.com/%s" .)) }}{{ end }}
+        {{- with .paper }}{{ $links = $links | append (dict "label" "Paper" "url" (printf "https://doi.org/%s" .)) }}{{ end }}
+        {{- with $links }}
+        <p class="book-links">
+          {{- range $i, $link := . }}
+          {{- if $i }}<span class="separator">•</span>{{ end }}
+          <a href="{{ $link.url }}" target="_blank" rel="noopener">{{ $link.label }}</a>
+          {{- end }}
+        </p>
+        {{- end }}
+      </div>
     </div>
-    
+
   </article>
   {{ end }}
 </div>

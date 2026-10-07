@@ -5,3 +5,7 @@ books:
     date: 2024-08-22
     url: "https://jserizay.com/OHCA/docs/devel/"
     cover: "book_covers/2024_ohca.png"
+    description: "Free online book on Hi-C analysis with Bioconductor, in three parts: fundamentals (pre-processing, Hi-C data structures in R, manipulation and visualization), in-depth analyses (matrix- and interactions-centric, topological features), and three end-to-end workflows."
+    bioconductor: "https://bioconductor.org/books/release/OHCA/"
+    repo: "js2264/OHCA"
+    paper: "10.1038/s41467-024-44761-x"

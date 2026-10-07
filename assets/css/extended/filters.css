@@ -1,0 +1,48 @@
+/* Filter chips: layouts/partials/filter-chips.html */
+
+[data-filter-root] [hidden] {
+  display: none !important;
+}
+
+.filter-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 8px 0;
+}
+
+.filter-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 14px;
+  font-size: 14px;
+  color: var(--secondary);
+  background: var(--entry);
+  border: 2px solid var(--border);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.filter-chip:hover {
+  color: var(--primary);
+  border-color: var(--darkcolor);
+}
+
+.filter-chip[aria-pressed="true"] {
+  color: var(--accent-text);
+  background: var(--accent-bg);
+  border-color: var(--darkcolor);
+  font-weight: 500;
+}
+
+.filter-chip-count {
+  font-size: 12px;
+  color: var(--gray);
+  font-variant-numeric: tabular-nums;
+}
+
+.filter-chip[aria-pressed="true"] .filter-chip-count {
+  color: inherit;
+}

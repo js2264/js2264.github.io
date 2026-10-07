@@ -1,6 +1,6 @@
 .books-list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: minmax(0, 1fr);
   gap: 20px;
   margin: 40px 0;
 }
@@ -8,18 +8,18 @@
 .book-entry {
   position: relative;
   display: flex;
-  flex-direction: column;
-  height: 100%;
+  flex-direction: row;
+  align-items: center;
+  gap: 28px;
+  padding: 20px 24px;
 }
 
 .book-entry .entry-cover {
+  flex: 0 0 180px;
   margin: 0px;
   border-radius: var(--radius);
   overflow: hidden;
   background: var(--code-bg);
-  max-width: 200px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .book-entry .entry-cover img {
@@ -35,15 +35,15 @@
   transform: scale(1.02);
 }
 
-.book-entry .entry-header {
-  flex-shrink: 0;
-  text-align: center;
+.book-body {
+  flex: 1;
+  min-width: 0;
 }
 
 .book-entry .entry-header h2 {
-  font-size: 18px;
+  font-size: 20px;
   line-height: 1.3;
-  margin: 10px;
+  margin: 0 0 6px 0;
 }
 
 .book-entry .entry-header h2 a {
@@ -57,15 +57,14 @@
 }
 
 .book-entry .entry-content p {
-  padding: 0px; 
+  padding: 0px;
   margin-bottom: 0px;
 }
 
 .book-entry .entry-content {
-  flex: 1;
   display: flex;
   flex-direction: column;
-  text-align: center;
+  gap: 12px;
 }
 
 .book-meta {
@@ -78,12 +77,12 @@
   align-items: center;
   flex-wrap: wrap;
   gap: 0;
-  justify-content: center;
 }
 
-.book-meta .separator {
+.book-meta .separator,
+.book-links .separator {
   margin: 0 8px;
-  color: var(--border);
+  color: var(--tertiary);
 }
 
 .book-edition {
@@ -96,45 +95,44 @@
   font-weight: 500;
 }
 
-
-
-/* Responsive breakpoints */
-/* Large screens: 2 columns */
-@media (min-width: 768px) {
-  .books-list {
-    grid-template-columns: repeat(2, 1fr);
-  }
+.book-entry .entry-content .book-description {
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--content);
 }
 
-/* Small screens: 1 column */
+.book-links {
+  font-size: 14px;
+}
+
+.book-links a {
+  font-weight: 500;
+  color: var(--primary);
+}
+
+/* Responsive breakpoints */
+/* Small screens: cover above the text */
 @media (max-width: 767px) {
   .books-list {
-    grid-template-columns: 1fr;
     gap: 16px;
     margin: 20px 0;
   }
-  
+
   .book-entry {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
     padding: 16px;
   }
-  
+
   .book-entry .entry-cover {
-    max-width: 150px;
+    flex-basis: auto;
+    width: 150px;
+    margin: 0 auto;
   }
-  
+
   .book-entry .entry-header h2 {
-    font-size: 16px;
-  }
-  
-  .book-meta {
-    font-size: 13px;
-    flex-direction: column;
-    align-items: center;
-    gap: 4px;
-  }
-  
-  .book-meta .separator {
-    display: none;
+    font-size: 17px;
   }
 }
 

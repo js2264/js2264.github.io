@@ -1,0 +1,21 @@
+{{- /*
+  Filter chips, wired up by assets/js/filters.js. Place inside an element with
+  `data-filter-root`; items to filter carry space-separated `data-tags`.
+  Optional: `data-filter-group` on containers hidden when they end up empty, and
+  `data-filter-whole` on elements shown only when their whole group is visible.
+
+  Usage: partial "filter-chips.html" (dict "label" "aria label" "total" 12 "filters" (slice (dict "key" "r" "label" "R" "count" 8)))
+*/ -}}
+<div class="filter-chips" role="group" aria-label="{{ .label }}" hidden>
+  <button type="button" class="filter-chip" data-filter="all" aria-pressed="true">
+    All <span class="filter-chip-count">{{ .total }}</span>
+  </button>
+  {{- range .filters }}
+  <button type="button" class="filter-chip" data-filter="{{ .key }}" aria-pressed="false">
+    {{ .label }} <span class="filter-chip-count">{{ .count }}</span>
+  </button>
+  {{- end }}
+</div>
+
+{{- $js := resources.Get "js/filters.js" | minify | fingerprint }}
+<script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" defer></script>

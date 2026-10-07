@@ -24,7 +24,15 @@
     {{- partialCached "header.html" . .Page -}}
     {{- end }}
     <main class="main">
+        {{- if .IsHome }}
         {{- block "main" . }}{{ end }}
+        {{- else }}
+        {{- /* Wrapped so that the page keeps its block layout when .main becomes a flex column (page-nav.css) */}}
+        <div class="main-content">
+            {{- block "main" . }}{{ end }}
+        </div>
+        {{- partial "page-nav.html" . }}
+        {{- end }}
     </main>
     {{ partialCached "footer.html" . .Layout .Kind (.Param "hideFooter") (.Param "ShowCodeCopyButtons") -}}
 </body>

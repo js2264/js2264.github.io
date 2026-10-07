@@ -1,0 +1,95 @@
+/* Previous / next links between tabs: layouts/partials/page-nav.html */
+
+/* .main is at least one screen tall: pushing the links to its end keeps them at the
+   bottom of the screen on short pages, and after the content on long ones */
+.main:has(> .page-nav) {
+  display: flex;
+  flex-direction: column;
+}
+
+.page-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: auto;
+  padding-top: 40px;
+}
+
+.page-nav-link {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 200px;
+  padding: 10px 18px;
+  background: var(--entry);
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  transition: border-color 0.2s;
+}
+
+.page-nav-link:hover {
+  border-color: var(--darkcolor);
+}
+
+.page-nav-next {
+  margin-left: auto;
+  text-align: right;
+}
+
+.page-nav-direction {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--secondary);
+}
+
+.page-nav-arrow {
+  display: inline-block;
+  color: rgb(191, 121, 0);
+  transition: transform 0.2s;
+}
+
+.page-nav-prev:hover .page-nav-arrow {
+  transform: translateX(-3px);
+}
+
+.page-nav-next:hover .page-nav-arrow {
+  transform: translateX(3px);
+}
+
+.page-nav-name {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.page-nav-badge {
+  margin-left: 4px;
+  padding: 0 6px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  vertical-align: 2px;
+  color: var(--secondary);
+  border: 1px solid var(--tertiary);
+  border-radius: 4px;
+}
+
+/* Small screens: two equal buttons */
+@media (max-width: 600px) {
+  .page-nav {
+    gap: 10px;
+    padding-top: 28px;
+  }
+
+  .page-nav-link {
+    flex: 1;
+    min-width: 0;
+    padding: 8px 12px;
+  }
+
+  .page-nav-name {
+    font-size: 15px;
+  }
+}

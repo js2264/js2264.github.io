@@ -2,9 +2,9 @@
 title: "About me"
 ---
 
-I am a CNRS Research Associate, based at the Institut Pasteur (Dept. of Genetics and Genomics) in Paris. Between 2020 and 2025, I worked as a postdoctoral researcher at the Institut Pasteur in Romain Koszul's Spatial Regulation of Genomes laboratory.
+I am a CNRS Research Associate (Chargé de Recherche), based at the Institut Pasteur (Dept. of Genetics and Genomics) in Paris. Between 2020 and 2025, I worked as a postdoctoral researcher at the Institut Pasteur in Romain Koszul's Spatial Regulation of Genomes laboratory.
 
-I am working on developing biology-oriented methodologies to model dynamics of multi-modal chromatin organization and its impact on gene regulation across biological systems. I have contributed to developing data structures and tools for genome-wide omics data, including **momics** for deep-learning applications, the **tidyomics** ecosystem and the **HiCExperiment** suite of R packages. I come from an experimental biology background, transitioned toward combined "wet/dry" research during my Ph.D., and eventually focused entirely on computational data analysis during my postdoctoral work.  
+I am working on developing biology-oriented methodologies to model dynamics of multi-modal chromatin organization and its impact on gene regulation across biological systems. I have contributed to developing data structures and tools for genome-wide omics data, including [**momics**](/software/#momics) for deep-learning applications, the [**tidyomics**](https://github.com/tidyomics) ecosystem and the [**HiCExperiment**](/software/#hic-r) suite of R packages. I come from an experimental biology background, transitioned toward combined "wet/dry" research during my Ph.D., and eventually focused entirely on computational data analysis during my postdoctoral work.  
 
 Prior to joining the Institut Pasteur, I earned my Ph.D. in Genetics from the University of Cambridge, studying under Julie Ahringer. While there, I conducted research on tissue-specific and developmentally-regulated gene expression in *Caenorhabditis elegans*. Before pursuing my Ph.D., I earned my Master's degree in Genetics from the École Normale Supérieure de Cachan in 2016, and was a visiting researcher in the Plath laboratory at UCLA in 2015, where I focused on the molecular mechanisms underpinning chromosome-wide gene silencing by *Xist* long non-coding RNA.  
 
@@ -15,8 +15,8 @@ My main research interests have covered a wide range of topics, including:
 - Modeling cell cycle-like transcriptional dynamics during mouse cell differentiation;
 - Profiling tissue-specific regulatory landscape in *C. elegans*.
 
-For a full record of my publications, see [Pubmed](https://pubmed.ncbi.nlm.nih.gov/?term=jacques+serizay%5BAuthor%5D&sort=pubdate).
+For a full record of my publications, see [Pubmed](https://pubmed.ncbi.nlm.nih.gov/?term=jacques+serizay%5BAuthor%5D&sort=pubdate) or the [Papers](/papers/) page.
 
-In addition to biology research, I develop computational frameworks for analyzing multi-omics and high-dimensional biological data. I maintain over a dozen python and R packages, published either on PyPI or Bioconductor. In 2024, I was elected as a member of the Bioconductor Technical Advisory Board for a three-year term, contributing to the strategic direction of the project.
+In addition to biology research, I develop computational frameworks for analyzing multi-omics and high-dimensional biological data. I maintain [over a dozen python and R packages](/software/), published either on PyPI or Bioconductor. In 2024, I was elected as a member of the [Bioconductor Technical Advisory Board](https://bioconductor.org/about/technical-advisory-board/) for a three-year term, contributing to the strategic direction of the project.
 
-If you are working in a company and would like help with some analysis or one of my packages, don’t hesitate to get in touch, as I am happy to consult on projects.
+If you are working in a company and would like help with some analysis or one of my packages, don’t hesitate to [get in touch](mailto:jacques.serizay@pasteur.fr), as I am happy to consult on projects.

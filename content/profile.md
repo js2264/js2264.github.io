@@ -1,5 +1,9 @@
 ---
 title: "Home"
+# Rendered inside the home page only (layouts/partials/index_profile.html)
+build:
+  render: never
+  list: never
 ---
 
 I am a CNRS Research Associate, working **at the Institut Pasteur, Dept. Genomes & Genetics**, in Paris. My long-term endeavor is to decipher the intricate, multi-modal organization of genomes and its impact on gene regulation, more specifically in microeukaryotes. To achieve this, I develop computational frameworks for analyzing multi-omics and high-dimensional biological data. 

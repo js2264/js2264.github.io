@@ -1,0 +1,242 @@
+# Packages listed on the Software page (rendered by layouts/partials/software.html).
+#
+# Package fields:
+#   name      package name, also used as the card anchor (e.g. /software/#hicexperiment)
+#   language  R | Python | TypeScript | ... (drives the filter buttons)
+#   kind      optional label shown next to the language (e.g. "web app");
+#             "data" and "book" are added automatically for Bioconductor data packages and books
+#   tagline   one-line description
+#   since     year of first release
+#   roles     author and/or maintainer
+#   bioc      software | data | book -> Bioconductor link (+ BiocManager install command)
+#   pypi      PyPI project name -> PyPI link (+ pip install command)
+#   repo      GitHub "owner/name"
+#   docs      documentation website (the card title links here, or to the repo)
+#   paper     DOI of the reference paper
+#   status    replaces the registry and install command, e.g. for unreleased tools
+#
+# A section can define a `flow`: `steps` chained by arrows, and `extras` listed below them.
+
+sections:
+  - id: "hic-r"
+    title: "Hi-C in R"
+    description: "The HiCExperiment ecosystem: from raw reads to tidy, analysis-ready contact maps, within Bioconductor."
+    flow:
+      steps:
+        - label: "Process"
+          packages: ["HiCool"]
+        - label: "Import"
+          packages: ["HiCExperiment"]
+        - label: "Analyze"
+          packages: ["HiContacts", "plyinteractions"]
+      extras:
+        - label: "Example & public data"
+          packages: ["HiContactsData", "fourDNData", "DNAZooData"]
+        - label: "Learn"
+          packages: ["OHCA"]
+    packages:
+      - name: "HiCool"
+        language: "R"
+        tagline: "Process paired-end Hi-C reads into normalized .mcool contact maps, with shareable QC reports."
+        since: 2023
+        roles: ["author", "maintainer"]
+        bioc: "software"
+        repo: "js2264/HiCool"
+        docs: "https://jserizay.com/HiCool/"
+        paper: "10.1038/s41467-024-44761-x"
+
+      - name: "HiCExperiment"
+        language: "R"
+        tagline: "Import .cool, .mcool, .hic, HiC-Pro and pairs files into R, with memory-efficient random access."
+        since: 2023
+        roles: ["author", "maintainer"]
+        bioc: "software"
+        repo: "js2264/HiCExperiment"
+        docs: "https://jserizay.com/HiCExperiment/"
+        paper: "10.1038/s41467-024-44761-x"
+
+      - name: "HiContacts"
+        language: "R"
+        tagline: "Analyze and visualize Hi-C maps: distance laws, virtual 4C, compartments, insulation and more."
+        since: 2022
+        roles: ["author", "maintainer"]
+        bioc: "software"
+        repo: "js2264/HiContacts"
+        docs: "https://jserizay.com/HiContacts/"
+        paper: "10.1038/s41467-024-44761-x"
+
+      - name: "plyinteractions"
+        language: "R"
+        tagline: "dplyr-like verbs to filter, mutate, join and summarize genomic interactions, as part of tidyomics."
+        since: 2023
+        roles: ["author", "maintainer"]
+        bioc: "software"
+        repo: "tidyomics/plyinteractions"
+        docs: "https://tidyomics.github.io/plyinteractions/"
+        paper: "10.1038/s41592-024-02299-2"
+
+      - name: "OHCA"
+        language: "R"
+        tagline: "Open online book on Hi-C analysis with Bioconductor, from raw reads to biological insights."
+        since: 2023
+        roles: ["author", "maintainer"]
+        bioc: "book"
+        repo: "js2264/OHCA"
+        docs: "https://jserizay.com/OHCA/docs/devel/"
+        paper: "10.1038/s41467-024-44761-x"
+
+      - name: "HiContactsData"
+        language: "R"
+        tagline: "Example Hi-C files (fastq, pairs, .cool, .mcool) used throughout the ecosystem's documentation."
+        since: 2022
+        roles: ["author", "maintainer"]
+        bioc: "data"
+        repo: "js2264/HiContactsData"
+        docs: "https://jserizay.com/HiContactsData/"
+
+      - name: "fourDNData"
+        language: "R"
+        tagline: "Programmatic access to Hi-C contact maps uniformly processed by the 4D Nucleome consortium."
+        since: 2023
+        roles: ["author", "maintainer"]
+        bioc: "data"
+        repo: "js2264/fourDNData"
+        docs: "https://jserizay.com/fourDNData/"
+
+      - name: "DNAZooData"
+        language: "R"
+        tagline: "Programmatic access to DNA Zoo Hi-C contact maps and chromosome-length genome assemblies."
+        since: 2023
+        roles: ["author", "maintainer"]
+        bioc: "data"
+        repo: "js2264/DNAZooData"
+        docs: "https://jserizay.com/DNAZooData/"
+
+  - id: "hic-tools"
+    title: "Hi-C toolkits & viewers"
+    description: "Command-line tools, file formats and a viewer to build, mine and explore contact maps, from single genomes to entire metagenomes."
+    packages:
+      - name: "hicstuff"
+        language: "Python"
+        tagline: "Hi-C processing pipeline and library: alignment, read filtering, binning, normalization and plotting."
+        since: 2018
+        roles: ["author", "maintainer"]
+        pypi: "hicstuff"
+        repo: "koszullab/hicstuff"
+        docs: "https://hicstuff.readthedocs.io/"
+
+      - name: "chromosight"
+        language: "Python"
+        tagline: "Computer-vision detection of loops, borders, hairpins and other patterns in contact maps."
+        since: 2019
+        roles: ["maintainer"]
+        pypi: "chromosight"
+        repo: "koszullab/chromosight"
+        docs: "https://chromosight.readthedocs.io/"
+        paper: "10.1038/s41467-020-19562-7"
+
+      - name: "instaGRAAL"
+        language: "Python"
+        tagline: "Chromosome-level genome scaffolding from Hi-C contacts, with GPU-accelerated MCMC."
+        since: 2018
+        roles: ["maintainer"]
+        pypi: "instagraal"
+        repo: "koszullab/instaGRAAL"
+        docs: "https://instagraal.readthedocs.io/"
+        paper: "10.1186/s13059-020-02041-z"
+
+      - name: "metaTOR"
+        language: "Python"
+        tagline: "Bin metagenomic contigs into genomes using metaHiC / meta3C contact networks."
+        since: 2018
+        roles: ["author", "maintainer"]
+        pypi: "metator"
+        repo: "koszullab/metaTOR"
+        docs: "https://metator.readthedocs.io/"
+        paper: "10.3389/fgene.2019.00753"
+
+      - name: "metacooler"
+        language: "Python"
+        tagline: "Extends the cooler format to metagenomes: genome-aware contact maps that remain readable by cooler."
+        roles: ["author", "maintainer"]
+        status: "Coming soon"
+
+      - name: "ChromLens"
+        language: "TypeScript"
+        kind: "web app"
+        tagline: "In-browser viewer for contact maps, genome tracks and 3D chromatin models. No server, no upload, no preprocessing."
+        roles: ["author", "maintainer"]
+        status: "Coming soon"
+
+  - id: "coverage"
+    title: "Coverage & sequence features"
+    description: "Extract, store and aggregate genome-wide signal; profile fragment sizes and DNA sequence periodicity."
+    packages:
+      - name: "tidyCoverage"
+        language: "R"
+        tagline: "Extract, aggregate and visualize genomic coverage over thousands of loci, the tidy way."
+        since: 2024
+        roles: ["author", "maintainer"]
+        bioc: "software"
+        repo: "js2264/tidyCoverage"
+        docs: "https://jserizay.com/tidyCoverage/"
+        paper: "10.1093/bioinformatics/btae487"
+
+      - name: "momics"
+        language: "Python"
+        tagline: "Store and query genomic coverage tracks and sequences in TileDB arrays, e.g. to train deep-learning models."
+        since: 2024
+        roles: ["author", "maintainer"]
+        pypi: "momics"
+        repo: "js2264/momics"
+        paper: "10.1101/2025.10.10.681692"
+
+      - name: "VplotR"
+        language: "R"
+        tagline: "V-plots and footprint profiles from paired-end fragment densities, e.g. ATAC-seq or MNase-seq."
+        since: 2020
+        roles: ["author", "maintainer"]
+        bioc: "software"
+        repo: "js2264/VplotR"
+        docs: "https://jserizay.com/VplotR/"
+        paper: "10.21105/joss.03009"
+
+      - name: "periodicDNA"
+        language: "R"
+        tagline: "Identify k-mers occurring periodically in DNA sequences, such as the ~10-bp periodicity of WW dinucleotides."
+        since: 2020
+        roles: ["author", "maintainer"]
+        bioc: "software"
+        repo: "js2264/periodicDNA"
+        docs: "https://jserizay.com/periodicDNA/"
+        paper: "10.12688/f1000research.51143.1"
+
+  - id: "tooling"
+    title: "Pipelines & infrastructure"
+    description: "Read mapping for common genomic assays, and building blocks for the Bioconductor community."
+    packages:
+      - name: "tinyMapper"
+        language: "Python"
+        tagline: "Minimalist mapping workflow for ChIP-seq, RNA-seq, ATAC-seq, MNase-seq, Hi-C and shotgun reads."
+        since: 2021
+        roles: ["author", "maintainer"]
+        pypi: "tinymapper"
+        repo: "js2264/tinyMapper"
+        docs: "https://jserizay.com/tinyMapper/"
+
+      - name: "BiocBook"
+        language: "R"
+        tagline: "Write, containerize, publish and version Quarto books with Bioconductor."
+        since: 2023
+        roles: ["author", "maintainer"]
+        bioc: "software"
+        repo: "js2264/BiocBook"
+
+      - name: "GenomicCoordinates"
+        language: "R"
+        tagline: "Parse genomic coordinates written in many formats into GRanges, GPos or GInteractions objects."
+        since: 2026
+        roles: ["author", "maintainer"]
+        bioc: "software"
+        repo: "js2264/GenomicCoordinates"
+        docs: "https://jserizay.com/GenomicCoordinates/"

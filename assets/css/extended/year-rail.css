@@ -1,0 +1,103 @@
+/* Year timeline (Courses, Papers): items grouped by year along a vertical rail.
+   Markup: .year-rail > .year-rail-year > (h2.year-rail-label + .year-rail-items) */
+
+.year-rail {
+  --year-width: 56px;
+  --rail-gap: 36px;
+  --marker-y: 24px; /* level with the year labels */
+  position: relative;
+  margin: 40px 0;
+}
+
+/* Rail: one continuous line through the column gap, fading into the past */
+.year-rail::before {
+  content: "";
+  position: absolute;
+  top: var(--marker-y);
+  bottom: 0;
+  left: calc(var(--year-width) + var(--rail-gap) / 2);
+  width: 2px;
+  transform: translateX(-50%);
+  border-radius: 1px;
+  background: linear-gradient(to bottom, rgba(191, 121, 0, 0.6), rgba(191, 121, 0, 0.2) 60%, rgba(191, 121, 0, 0));
+}
+
+.year-rail-year {
+  display: grid;
+  grid-template-columns: var(--year-width) minmax(0, 1fr);
+  column-gap: var(--rail-gap);
+}
+
+.post-content .year-rail-label {
+  position: relative;
+  margin: 0;
+  padding-top: 13px;
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.3;
+  text-align: right;
+  color: var(--secondary);
+  font-variant-numeric: tabular-nums;
+  transition: color 0.2s;
+}
+
+/* Year marker, centred on the rail; its halo cuts the line */
+.year-rail-label::after {
+  content: "";
+  position: absolute;
+  top: var(--marker-y);
+  left: calc(100% + var(--rail-gap) / 2);
+  width: 12px;
+  height: 12px;
+  transform: translate(-50%, -50%);
+  border: 2px solid rgb(191, 121, 0);
+  border-radius: 50%;
+  background: var(--theme);
+  box-shadow: 0 0 0 4px var(--theme);
+  transition: background 0.2s, transform 0.2s;
+}
+
+/* Filled marker for the latest year and the hovered one */
+.year-rail-year:first-child .year-rail-label::after,
+.year-rail-year:hover .year-rail-label::after {
+  background: rgb(191, 121, 0);
+}
+
+/* When filters hide years, the latest year shown (flagged by assets/js/filters.js) */
+.year-rail-year[data-filter-first] .year-rail-label::after {
+  background: rgb(191, 121, 0);
+}
+
+.year-rail-year:hover .year-rail-label::after {
+  transform: translate(-50%, -50%) scale(1.2);
+}
+
+.year-rail-year:hover .year-rail-label {
+  color: var(--accent-text);
+}
+
+.year-rail .year-rail-items {
+  margin: 0;
+  padding-bottom: 28px;
+}
+
+/* Small screens: plain year headings above the items */
+@media (max-width: 767px) {
+  .year-rail-year {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .post-content .year-rail-label {
+    padding: 0 0 10px 0;
+    text-align: left;
+  }
+
+  .year-rail::before,
+  .year-rail-label::after {
+    display: none;
+  }
+
+  .year-rail .year-rail-items {
+    padding-bottom: 24px;
+  }
+}

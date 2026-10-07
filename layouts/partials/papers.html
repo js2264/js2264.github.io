@@ -1,68 +1,86 @@
-<div class="papers-list">
-  {{ range $.Site.Data.papers.papers }}
-  <article class="post-entry paper-entry">
-    
-    <!-- {{ if .image }}
-    <figure class="entry-cover">
-      <img loading="lazy" src="/papers/images/{{ .image }}" alt="{{ .title }}">
-    </figure>
-    {{ end }} -->
-    
-    <header class="entry-header">
-      <h2>{{ .title }}</h2>
-    </header>
-    
-    <div class="entry-content">
-      <p class="paper-authors">
-        {{ .authors }}
-      </p>
-      
-      <p class="paper-meta">
-        <em><strong>{{ .journal }}</strong></em>
-        <span class="separator">•</span>
-        <span><strong>{{ .year }}</strong></span>
-        
-        {{ if .doi }}
-        <span class="separator">•</span>
-        <a href="https://doi.org/{{ .doi }}" target="_blank" rel="noopener" class="paper-text-link">
-          DOI
-        </a>
-        {{ end }}
-        
-        {{ if .pdf }}
-        <span class="separator">•</span>
-        <a href="/papers/pdfs/{{ .pdf }}" target="_blank" class="paper-text-link">
-          PDF
-        </a>
-        {{ end }}
-      </p>
-      
-      {{ if .abstract }}
-      <details class="paper-abstract">
-        <summary>
-          <p style="margin: 0;">
-            <strong>Abstract</strong> <span class="separator">•</span> 
-            <span class="abstract-preview">{{ slicestr .abstract 0 120 }}{{ if gt (len .abstract) 120 }}...{{ end }}</span>
-            <span class="chevron">▾</span>
-          </p>
-        </summary>
-        <div class="abstract-full">
-          {{ .abstract | markdownify }}
-        </div>
-      </details>
-      {{ end }}
+{{- /* Packages from the Software page, matched to papers by DOI */}}
+{{- $software := slice }}
+{{- range $.Site.Data.software.sections }}{{ range .packages }}{{ $software = $software | append . }}{{ end }}{{ end }}
+
+{{- /* Tag papers for the filter chips (see the field reference in data/papers.yaml) */}}
+{{- $entries := slice }}
+{{- $topics := slice }}
+{{- range $.Site.Data.papers.papers }}
+  {{- $packages := slice }}
+  {{- with .doi }}{{ $packages = where $software "paper" . }}{{ end }}
+  {{- $type := .type | default "research" }}
+  {{- $tags := slice (.field | default (cond (gt (len $packages) 0) "methods" "biology")) }}
+  {{- if in (slice "research" "review") $type }}{{ $tags = $tags | append "peer-reviewed" }}{{ end }}
+  {{- if in (slice "review" "commentary") $type }}{{ $tags = $tags | append "review" }}{{ end }}
+  {{- if eq $type "preprint" }}{{ $tags = $tags | append "preprint" }}{{ end }}
+  {{- range .topics }}
+    {{- $tags = $tags | append (anchorize .) }}
+    {{- $topics = $topics | append . }}
+  {{- end }}
+  {{- range slice .pdf .supp }}
+    {{- with . }}
+      {{- if not (fileExists (printf "static/papers/pdfs/%s" .)) }}
+        {{- warnf "papers.yaml: %q not found in static/papers/pdfs/" . }}
+      {{- end }}
+    {{- end }}
+  {{- end }}
+  {{- $entries = $entries | append (dict "paper" . "type" $type "tags" $tags "packages" $packages) }}
+{{- end }}
+
+{{- /* Filter chips, skipping those that would match no paper */}}
+{{- $candidates := slice
+  (dict "key" "methods" "label" "Computational methods")
+  (dict "key" "biology" "label" "Biology")
+  (dict "key" "peer-reviewed" "label" "Peer-reviewed")
+  (dict "key" "review" "label" "Reviews")
+  (dict "key" "preprint" "label" "Preprints")
+}}
+{{- range uniq $topics }}{{ $candidates = $candidates | append (dict "key" (anchorize .) "label" .) }}{{ end }}
+{{- $filters := slice }}
+{{- range $candidates }}
+  {{- $count := len (where $entries "tags" "intersect" (slice .key)) }}
+  {{- if $count }}{{ $filters = $filters | append (merge . (dict "count" $count)) }}{{ end }}
+{{- end }}
+
+{{- $years := slice }}
+{{- range $entries }}{{ $years = $years | append .paper.year }}{{ end }}
+
+<div class="papers" data-filter-root>
+
+{{ partial "filter-chips.html" (dict "label" "Filter papers" "total" (len $entries) "filters" $filters) }}
+
+{{- /* Papers grouped by year along a timeline; each title links to the publication */}}
+<div class="papers-timeline year-rail">
+  {{- range uniq $years }}
+  {{- $year := . }}
+  <section class="year-rail-year" data-filter-group>
+    <h2 class="year-rail-label">{{ $year }}</h2>
+    <div class="papers-compact-list year-rail-items">
+      {{- range where $entries "paper.year" $year }}
+      {{- $paper := .paper }}
+      <article class="post-entry paper-compact" data-tags="{{ delimit .tags " " }}">
+        <h3{{ with $paper.lang }} lang="{{ . }}"{{ end }}>
+          {{- with $paper.doi }}<a href="https://doi.org/{{ . }}" target="_blank" rel="noopener">{{ $paper.title }}</a>{{ else }}{{ $paper.title }}{{ end -}}
+        </h3>
+        <p class="paper-authors">{{ $paper.authors }}</p>
+        <p class="paper-compact-meta">
+          <em>{{ $paper.journal }}</em>
+          {{- if ne .type "research" }}<span class="paper-type">{{ humanize .type }}</span>{{ end }}
+          {{- with $paper.doi }}<span class="separator">•</span><a href="https://doi.org/{{ . }}" target="_blank" rel="noopener" class="paper-text-link">DOI</a>{{ end }}
+          {{- with $paper.pdf }}<span class="separator">•</span><a href="/papers/pdfs/{{ . }}" target="_blank" class="paper-text-link">PDF</a>{{ end }}
+          {{- with $paper.supp }}<span class="separator">•</span><a href="/papers/pdfs/{{ . }}" target="_blank" class="paper-text-link">Supp.</a>{{ end }}
+        </p>
+        {{- with .packages }}
+        <p class="paper-software">
+          <span class="paper-software-label">Software</span>
+          {{- range . }}<a href="/software/#{{ .name | anchorize }}">{{ .name }}</a>{{ end }}
+        </p>
+        {{- end }}
+      </article>
+      {{- end }}
     </div>
-    
-    {{ if .tags }}
-    <footer class="entry-footer">
-      <div class="paper-tags">
-        {{ range .tags }}
-        <span class="paper-tag">{{ . }}</span>
-        {{ end }}
-      </div>
-    </footer>
-    {{ end }}
-    
-  </article>
-  {{ end }}
+  </section>
+  {{- end }}
+</div>
+
 </div>

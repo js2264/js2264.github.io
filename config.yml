@@ -7,6 +7,12 @@ enableInlineShortcodes: true
 enableRobotsTXT: true
 pagination:
   pagerSize: 20
+  disableAliases: true
+
+# No tags are used: don't publish empty /tags/ pages, nor RSS feeds for sections
+disableKinds: ["taxonomy", "term"]
+outputs:
+    section: ["HTML"]
 
 taxonomies:
     tag: tags
@@ -19,24 +25,27 @@ menu:
         - name: Papers
           url: papers/
           weight: 3
+        - name: Software
+          url: software/
+          weight: 4
         - name: Courses
           url: courses/
-          weight: 4
+          weight: 5
         - name: Books
           url: books/
-          weight: 5
+          weight: 6
         - name: CV
           url: /cv.pdf
-          weight: 7
+          weight: 8
         # - name: Data
         #   url: data/
-        #   weight: 6
+        #   weight: 7
         # - name: Blog
         #   url: https://en.wikipedia.org/wiki/Moritz-Maria_von_Igelfeld_(character)
         #   weight: 7
 
 params:
-    description: "This website hosts Jacques Serizay's research papers, course materials, books, curriculum vitae, and contact information."
+    description: "This website hosts Jacques Serizay's research papers, software packages, course materials, books, curriculum vitae, and contact information."
     author: Jacques Serizay
     DateFormat: "January 2006"
     defaultTheme: light
@@ -51,14 +60,17 @@ params:
     ShowBreadCrumbs: false
     ShowCodeCopyButtons: true
     ShowAllPagesInArchive: false
-    MainSections: ["about", "papers","courses","books"]
+    MainSections: ["about", "papers", "software", "courses", "books"]
     ShowToc: false
     disableScrollToTop: true
     TocOpen: true
     ShowWordCount: false
     UseHugoToc: true
     comments: false
-    math: true
+    # KaTeX: off site-wide (no page uses math); set `math: true` in a page's front matter if needed
+    math: false
+    # Default image for link previews (Open Graph / Twitter cards)
+    images: ["picture.png"]
     profileMode:
           enabled: true
           title: Jacques Serizay
@@ -71,6 +83,8 @@ params:
               url: about/
             - name: Papers
               url: papers/
+            - name: Software
+              url: software/
             - name: Courses
               url: courses/
             - name: Books

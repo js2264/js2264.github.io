@@ -1,4 +1,11 @@
 courses:
+  - id: "2026_biocafrica"
+    title: "Introduction to scRNAseq analysis"
+    duration: "2-hour BiocAfrica workshop"
+    location: "Online"
+    date: 2026-09-16
+    url: "https://jserizay.com/BiocAfrica_scRNAseq2026/"
+
   - id: "2026_ngs"
     title: "Epigenomics data analysis in R, ed. 2026"
     duration: "5-day course"

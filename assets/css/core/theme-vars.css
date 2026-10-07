@@ -18,6 +18,9 @@
     --border: rgb(238, 238, 238);
     --darkcolor: rgba(191, 121, 0, 0.568);
     --lightcolor: rgba(191, 121, 0, 0.568);
+    --accent-text: rgb(122, 79, 0);
+    --accent-bg: rgba(191, 121, 0, 0.12);
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
     --semibold: 500;
     --homesize: 16px;
     --textsize: 18px;
@@ -40,6 +43,8 @@
     --code-block-bg: rgb(46, 46, 51);
     --code-bg: rgb(55, 56, 62);
     --border: rgb(51, 51, 51);
+    --accent-text: rgb(226, 183, 100);
+    --accent-bg: rgba(191, 121, 0, 0.2);
 }
 
 .list {

@@ -1,0 +1,338 @@
+.software {
+  margin: 0 0 40px 0;
+}
+
+/* Sections */
+
+.software-section {
+  margin-top: 36px;
+}
+
+.software-section-header {
+  margin-bottom: 14px;
+}
+
+.software .software-section-header h2 {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 0 0 4px 0;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--secondary);
+}
+
+.software .software-section-header h2::after {
+  content: "";
+  flex: 1;
+  height: 2px;
+  background: var(--tertiary);
+}
+
+.software .software-section-header p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.45;
+  color: var(--secondary);
+}
+
+/* Workflow diagram */
+
+.software-flow {
+  margin: 0 0 16px 0;
+  padding: 14px 18px;
+  background: var(--entry);
+  border: 2px dashed var(--tertiary);
+  border-radius: var(--radius);
+}
+
+.software .software-flow-steps {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 12px 52px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.software .software-flow-step {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 0;
+}
+
+.software-flow-steps .software-flow-step + .software-flow-step::before {
+  content: "→";
+  position: absolute;
+  left: -38px;
+  bottom: 3px;
+  font-size: 20px;
+  line-height: 1;
+  color: var(--darkcolor);
+}
+
+.software-flow-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--secondary);
+}
+
+.software-flow-packages {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.software .software-flow-packages a {
+  padding: 2px 10px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--primary);
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  box-shadow: none;
+  transition: border-color 0.2s;
+}
+
+.software .software-flow-packages a:hover {
+  border-color: var(--darkcolor);
+}
+
+.software-flow-extras {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 40px;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px dashed var(--tertiary);
+}
+
+/* Package cards */
+
+.software-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.software .software-entry {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0;
+  padding: 16px 18px;
+}
+
+.software .software-entry:target {
+  border-color: var(--darkcolor);
+}
+
+.software .software-entry.is-flashed {
+  animation: software-flash 1.6s ease-out;
+}
+
+@keyframes software-flash {
+  0%, 40% {
+    border-color: rgba(191, 121, 0, 0.9);
+    box-shadow: 0 0 0 4px rgba(191, 121, 0, 0.15);
+  }
+}
+
+.software-entry-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.software .software-entry-header h3 {
+  margin: 0;
+  min-width: 0;
+  font-family: var(--font-mono);
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.software .software-entry-header h3 a:hover {
+  color: var(--secondary);
+}
+
+.software-lang {
+  flex-shrink: 0;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gray);
+}
+
+.software .software-tagline {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.45;
+  color: var(--content);
+}
+
+.software .software-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+  font-size: 13px;
+  color: var(--secondary);
+}
+
+.software-role,
+.software-status {
+  padding: 1px 9px;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  border: 1px solid transparent;
+  border-radius: 999px;
+}
+
+.software-role-author {
+  color: var(--accent-text);
+  background: var(--accent-bg);
+}
+
+.software-role-maintainer {
+  color: var(--accent-text);
+  border-color: var(--darkcolor);
+}
+
+.software-status {
+  color: var(--secondary);
+  border: 1px dashed var(--gray);
+}
+
+.software-registry {
+  margin-left: 4px;
+}
+
+.software .separator {
+  margin: 0 6px;
+  color: var(--tertiary);
+}
+
+.software .software-links {
+  margin: 0;
+  font-size: 13px;
+}
+
+.software-links a {
+  font-weight: 500;
+  color: var(--primary);
+}
+
+/* Install command */
+
+.software-install {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-top: auto;
+  padding: 5px 6px 5px 12px;
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  cursor: copy;
+  transition: border-color 0.2s;
+}
+
+.software-install:hover {
+  border-color: var(--darkcolor);
+}
+
+.software-install::before {
+  content: attr(data-prompt);
+  color: var(--gray);
+  user-select: none;
+}
+
+.software .software-install code {
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  font-size: inherit;
+  color: var(--primary);
+  background: none;
+  border-radius: 0;
+  overflow-wrap: anywhere;
+  user-select: all;
+}
+
+.software-copy {
+  flex-shrink: 0;
+  padding: 1px 8px;
+  font-size: 11px;
+  color: var(--secondary);
+  background: var(--entry);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.software-copy.is-copied {
+  color: var(--accent-text);
+  border-color: var(--darkcolor);
+}
+
+/* Responsive breakpoints */
+/* Medium and small screens: 1 column */
+@media (max-width: 899px) {
+  .software-list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .software-section {
+    margin-top: 28px;
+  }
+
+  .software .software-entry {
+    padding: 14px;
+  }
+
+  .software .software-entry-header h3 {
+    font-size: 16px;
+  }
+
+  .software .software-tagline {
+    font-size: 14px;
+  }
+}
+
+/* Workflow diagram stacks vertically on narrow screens */
+@media (max-width: 600px) {
+  .software .software-flow-steps {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 26px;
+  }
+
+  .software-flow-steps .software-flow-step + .software-flow-step::before {
+    content: "↓";
+    left: 2px;
+    top: -23px;
+    bottom: auto;
+  }
+}

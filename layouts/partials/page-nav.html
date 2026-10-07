@@ -1,0 +1,33 @@
+{{- /* Previous / next links between tabs, following the main menu order (Home first) */}}
+{{- $tabs := slice (dict "name" "Home" "url" ("" | absLangURL)) }}
+{{- range site.Menus.main }}
+  {{- $tabs = $tabs | append (dict "name" .Name "url" (.URL | absLangURL)) }}
+{{- end }}
+
+{{- $current := -1 }}
+{{- range $i, $tab := $tabs }}
+  {{- if eq $tab.url $.Permalink }}{{ $current = $i }}{{ end }}
+{{- end }}
+
+{{- if ge $current 0 }}
+<nav class="page-nav" aria-label="Previous and next pages">
+  {{- if gt $current 0 }}
+  {{- with index $tabs (sub $current 1) }}
+  <a class="page-nav-link page-nav-prev" href="{{ .url }}" rel="prev">
+    <span class="page-nav-direction"><span class="page-nav-arrow" aria-hidden="true">←</span> Previous</span>
+    <span class="page-nav-name">{{ .name }}</span>
+  </a>
+  {{- end }}
+  {{- end }}
+  {{- if lt (add $current 1) (len $tabs) }}
+  {{- with index $tabs (add $current 1) }}
+  <a class="page-nav-link page-nav-next" href="{{ .url }}" rel="next">
+    <span class="page-nav-direction">Next <span class="page-nav-arrow" aria-hidden="true">→</span></span>
+    <span class="page-nav-name">
+      {{- .name }}{{ if strings.HasSuffix .url ".pdf" }} <span class="page-nav-badge">PDF</span>{{ end -}}
+    </span>
+  </a>
+  {{- end }}
+  {{- end }}
+</nav>
+{{- end }}

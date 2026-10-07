@@ -1,0 +1,147 @@
+{{- $sections := $.Site.Data.software.sections }}
+
+{{- /* Flatten packages to build the language filter buttons */}}
+{{- $all := slice }}
+{{- range $sections }}{{ range .packages }}{{ $all = $all | append . }}{{ end }}{{ end }}
+{{- $languages := slice }}
+{{- range $all }}{{ $languages = $languages | append .language }}{{ end }}
+{{- $filters := slice }}
+{{- range uniq $languages }}
+  {{- $filters = $filters | append (dict "key" (lower .) "label" . "count" (len (where $all "language" .))) }}
+{{- end }}
+
+<div class="software" data-filter-root>
+
+  {{ partial "filter-chips.html" (dict "label" "Filter packages by language" "total" (len $all) "filters" $filters) }}
+
+  {{- range $sections }}
+  <section class="software-section" id="{{ .id }}" data-filter-group>
+
+    <header class="software-section-header">
+      <h2>{{ .title }}</h2>
+      {{- with .description }}
+      <p>{{ . }}</p>
+      {{- end }}
+    </header>
+
+    {{- with .flow }}
+    <div class="software-flow" data-filter-whole>
+      <ol class="software-flow-steps">
+        {{- range .steps }}
+        <li class="software-flow-step">
+          <span class="software-flow-label">{{ .label }}</span>
+          <span class="software-flow-packages">
+            {{- range .packages }}<a href="#{{ . | anchorize }}">{{ . }}</a>{{ end -}}
+          </span>
+        </li>
+        {{- end }}
+      </ol>
+      {{- with .extras }}
+      <div class="software-flow-extras">
+        {{- range . }}
+        <div class="software-flow-step">
+          <span class="software-flow-label">{{ .label }}</span>
+          <span class="software-flow-packages">
+            {{- range .packages }}<a href="#{{ . | anchorize }}">{{ . }}</a>{{ end -}}
+          </span>
+        </div>
+        {{- end }}
+      </div>
+      {{- end }}
+    </div>
+    {{- end }}
+
+    <div class="software-list">
+      {{- range .packages }}
+      {{- $pkg := . }}
+
+      {{- /* Derive links, install command and labels from bioc / pypi / repo */}}
+      {{- $repo := "" }}
+      {{- with $pkg.repo }}{{ $repo = printf "https://github.com/%s" . }}{{ end }}
+      {{- $kind := $pkg.kind | default "" }}
+      {{- $registry := "" }}
+      {{- $registryURL := "" }}
+      {{- $install := "" }}
+      {{- $prompt := "" }}
+      {{- with $pkg.bioc }}
+        {{- $registry = "Bioconductor" }}
+        {{- $registryURL = printf "https://bioconductor.org/packages/%s" $pkg.name }}
+        {{- $install = printf `BiocManager::install("%s")` $pkg.name }}
+        {{- $prompt = ">" }}
+        {{- if eq . "data" }}{{ $kind = $kind | default "data" }}{{ end }}
+        {{- if eq . "book" }}
+          {{- $kind = $kind | default "book" }}
+          {{- $registryURL = printf "https://bioconductor.org/books/release/%s/" $pkg.name }}
+          {{- $install = "" }}
+        {{- end }}
+      {{- end }}
+      {{- with $pkg.pypi }}
+        {{- $registry = "PyPI" }}
+        {{- $registryURL = printf "https://pypi.org/project/%s/" . }}
+        {{- $install = printf "pip install %s" . }}
+        {{- $prompt = "$" }}
+      {{- end }}
+
+      {{- $links := slice }}
+      {{- with $pkg.docs }}{{ $links = $links | append (dict "label" "Docs" "url" .) }}{{ end }}
+      {{- with $repo }}{{ $links = $links | append (dict "label" "GitHub" "url" .) }}{{ end }}
+      {{- with $registryURL }}{{ $links = $links | append (dict "label" $registry "url" .) }}{{ end }}
+      {{- with $pkg.paper }}{{ $links = $links | append (dict "label" "Paper" "url" (printf "https://doi.org/%s" .)) }}{{ end }}
+
+      <article class="post-entry software-entry" id="{{ $pkg.name | anchorize }}" data-tags="{{ $pkg.language | lower }}">
+
+        <header class="software-entry-header">
+          <h3>
+            {{- with $pkg.docs | default $repo }}
+            <a href="{{ . }}" target="_blank" rel="noopener">{{ $pkg.name }}</a>
+            {{- else }}
+            {{ $pkg.name }}
+            {{- end }}
+          </h3>
+          <span class="software-lang">{{ $pkg.language }}{{ with $kind }} · {{ . }}{{ end }}</span>
+        </header>
+
+        <p class="software-tagline">{{ $pkg.tagline }}</p>
+
+        <p class="software-meta">
+          {{- range $pkg.roles }}
+          <span class="software-role software-role-{{ . }}">{{ . | title }}</span>
+          {{- end }}
+          {{- with $pkg.status }}
+          <span class="software-status">{{ . }}</span>
+          {{- else }}
+          {{- $where := $registry | default (cond (ne $repo "") "GitHub" "") }}
+          <span class="software-registry">
+            {{- $where }}
+            {{- with $pkg.since }}{{ if $where }}<span class="separator">•</span>{{ end }}since {{ . }}{{ end -}}
+          </span>
+          {{- end }}
+        </p>
+
+        {{- with $links }}
+        <p class="software-links">
+          {{- range $i, $link := . }}
+          {{- if $i }}<span class="separator">•</span>{{ end }}
+          <a href="{{ $link.url }}" target="_blank" rel="noopener">{{ $link.label }}</a>
+          {{- end }}
+        </p>
+        {{- end }}
+
+        {{- with $install }}
+        <div class="software-install" data-prompt="{{ $prompt }}">
+          <code>{{ replace (htmlEscape .) "(" "(<wbr>" | safeHTML }}</code>
+          <button type="button" class="software-copy" aria-label="Copy install command for {{ $pkg.name }}" hidden>copy</button>
+        </div>
+        {{- end }}
+
+      </article>
+      {{- end }}
+    </div>
+
+  </section>
+  {{- end }}
+
+</div>
+
+{{ $js := resources.Get "js/software.js" | minify | fingerprint }}
+<script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" defer></script>

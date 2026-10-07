@@ -1,4 +1,56 @@
+# Papers, newest first (rendered by layouts/partials/papers.html).
+#
+# Optional fields used by the filters on the Papers page:
+#   type     research (default) | review | commentary | preprint
+#            research and review count as "Peer-reviewed";
+#   field    methods | biology; defaults to methods when a package in
+#            data/software.yaml cites this paper's DOI, biology otherwise
+#   topics   list of topics, each becoming a filter (e.g. ["3D genome"])
+#   lang     language of the title when not English (e.g. "fr")
+#   pdf, supp  files in static/papers/pdfs/ (the build warns if missing)
+
 papers:
+  - id: "villain_biorxiv_2026"
+    title: "Chromatin is dispensable for bacterial life"
+    authors: "Villain, Hocher, Serizay, Whilding, Montoya, Shliaha, et al."
+    journal: "bioRxiv"
+    year: 2026
+    date: "2026-08-21"
+    doi: "10.64898/2026.08.21.744486"
+    type: "preprint"
+    topics: ["3D genome"]
+    abstract: >-
+      Inside cells, DNA is intimately associated with proteins, forming chromatin. The protein constituents of chromatin vary across the tree of life: histones are the principal building blocks of chromatin in eukaryotes and many archaea, whereas bacteria typically encode a collection of nucleoid-associated proteins (NAPs) that wrap, bend, bridge or coat the DNA. Although chromatin proteins appear to be a universal feature of cellular life, DNA-templated processes such as transcription, replication, and DNA repair can take place in vitro in the absence of chromatin, raising the possibility that cellular systems might exist – or could be built – that lack chromatin proteins. To explore this possibility, the molecular consequences and potential systemic adjustments required for life without chromatin, we serially deleted the nine most abundant NAPs from E. coli (hupA, hupB, ihfA, ihfB, hns, stpA, fis, dps, lrp), resulting in a strain (ΔNAP9) that lacks its native chromatin. Using an array of different techniques, we document change – and sometimes surprising lack thereof – in compaction, composition and 3D architecture of the nucleoid, supercoiling, prophage activity, growth, viability, and genetic make-up of ΔNAP9. Most notably, we find that ΔNAP9 exhibits global dysregulation of gene expression, marked by a striking homogenization of transcriptional output across the genome that is reminiscent of the effects of histone depletion in eukaryotic cells. Our results reinforce the notion that chromatin plays a key role in compartmentalizing the use of genomic information, enabling both the localized suppression of selfish elements and dynamic reprogramming of genome activity in response to environmental change. At the same time, the successful construction of ΔNAP9 demonstrates that bacterial cells can carry out basic cellular functions in the absence of co-evolved chromatin proteins, highlighting the potential for radical (re-)engineering of prokaryotic chromatin and systems of gene expression.
+
+
+  - id: "boudjema_elife_2026"
+    title: "The cell cycle variant in multiciliated cells incorporates 2 centriole biogenesis cycles"
+    authors: "Boudjema, Balagué, Jewett, Serizay, LoMastro, Mercey, et al."
+    journal: "eLife"
+    year: 2026
+    date: "2026-07-09"
+    doi: "10.7554/eLife.96584.2"
+    pdf: "boudjema_elife_2026.pdf"
+    abstract: >-
+      Multiciliated cell (MCC) differentiation is a calibrated version of the canonical cell cycle. The MCC cell cycle variant sustains amplification of centrioles for the nucleation of dozens of motile cilia, while avoiding cell division. In this study, we show that the MCC cell cycle variant is an accelerated version of the canonical cell cycle, which superposes two cycles of centriole biogenesis, in order to obtain multiple mature centrioles within a single -instead of double- cell cycle iteration. We further show that the precocious maturation of amplified procentrioles is even determinant for their spatial self-organization, disengagement and apical migration for cilia nucleation. Our findings collectively suggest that the decomposition of centriole biogenesis over two cycle iterations in dividing cells may have been adopted to ensure the growth of a solitary primary cilium, and exemplify how minimal deviations of the canonical cell cycle allow MCC progenitors to both amplify, and accelerate, centriole biogenesis for vital motile ciliogenesis.
+
+
+  - id: "meneu_medsci_2026"
+    title: "Quand une cellule eucaryote adopte un chromosome bactérien"
+    authors: "Meneu, Serizay, and Koszul"
+    journal: "médecine/sciences"
+    year: 2026
+    date: "2026-06-01"
+    doi: "10.1051/medsci/2026096"
+    type: "commentary"
+    topics: ["3D genome"]
+    lang: "fr"
+    pdf: meneu_medsci_2026.pdf
+    abstract:
+      L'information génétique qui constitue un génome est contenue dans un chromosome (chez les bactéries) ou répartie dans plusieurs chromosomes (chez les eucaryotes), dont la molécule d'ADN « en double hélice » comporte une combinaison séquentielle de bases nucléotidiques, adénine (A), cytosine (C), guanine (G), ou thymine (T), appariées en AT et GC. Chaque espèce présente dans son génome des proportions relatives de paires de base AT et GC variables. L'ordonnancement de ces bases le long de la molécule d'ADN non seulement individualise les différents gènes, mais aussi est impliqué dans la régulation de leur expression, la réplication du génome, ou son repliement tridimensionnel. Cette dernière propriété est essentielle pour permettre à des molécules dont la taille cumulée peut atteindre plusieurs mètres (environ deux mètres pour le génome humain) de trouver leur place dans un noyau cellulaire dont le diamètre mesure quelques micromètres. Cette compaction n'est cependant pas aléatoire, tous les génomes, qu'ils proviennent d'une bactérie, et contiennent alors environ 3 millions de paires de base, ou d'un mammifère, et en contiennent alors environ 3 milliards, sont structurés selon plusieurs niveaux d'organisation spatiale, allant de petits domaines liés à la transcription des gènes, à un ou plusieurs grands compartiments. Dans les génomes de mammifères, ces compartiments sont souvent associés à un état transcriptionnel actif ou inactif, mais leur fonction reste souvent à déterminer.
+
+
+
   - id: "perrot_curropin_2026"
     title: "Synthetic chromosomes for 3D functional genomics: from principles to AI-guided design"
     authors: "Perrot, Serizay, and Koszul"
@@ -6,7 +58,9 @@ papers:
     year: 2026
     date: "2026-04-15"
     doi: "10.1016/j.gde.2026.102471"
-    # pdf: "perrot_curropin_2026.pdf"
+    type: "review"
+    topics: ["3D genome"]
+    pdf: "perrot_curropin_2026.pdf"
     # image: "perrot_curropin_2026.png"
     abstract:
       The role of genome 3D organization for fundamental chromatin processes, such as long-range promoter-activator regulatory interactions, remains ambiguous. Synthetic genomics, defined as the rational design of kilobase-scale genomic sequences and their assembly into chromosomal segments spanning up to hundreds of kb (and ultimately, entire genomes), provides powerful solutions to lift this ambiguity and directly test structure-function relationships through controlled perturbations. In this review, we highlight how synthetic genomics approaches overcome traditional experimental constraints by creating simplified but functional systems that isolate specific organizational principles, so far mostly in budding yeast and mammalian cells. Combined with AI-based sequence design, these approaches not only provide unprecedented insight into the organizational logic governing genome function but also open new avenues for therapeutic genomic engineering.
@@ -19,11 +73,36 @@ papers:
     year: 2026
     date: "2026-03-30"
     doi: "10.1093/ajrcmb/aanag071"
-    # pdf: "thomas_ajrcmb_2026.pdf"
+    pdf: "thomas_ajrcmb_2026.pdf"
     # image: "thomas_ajrcmb_2026.png"
     abstract:
       Fluid mobilization on epithelia is ensured by the motile cilia of differentiated multiciliated cells (MCCs). Key transcriptional regulators of motile ciliogenesis include CCNO, MCIDAS, RFXs, and the transcription factor FOXJ1, whose precise role in humans remains unclear. We show that, unlike CCNO and MCIDAS, FOXJ1 expression persists in well-differentiated human airway epithelial cells (hAECs), suggesting functions beyond cilia initiation. ChIP-seq in hAECs allowed us to refine the consensus target motifs of FOXJ1 and RFXs, as well as their close proximity, which strongly suggests functional cooperation within a transcriptional complex. By combining ChIP-seq in normal cells with RNAseq from patients with FOXJ1-related primary ciliary dyskinesia (PCD), we identified 683 direct FOXJ1 target genes. Among these, 89 MCC-enriched genes—particularly those encoding axonemal proteins such as microtubule-inner proteins (MIPs) and dynein arm docking components—were downregulated in FOXJ1-deficient cells. Collectively, these findings provide new insights into how FOXJ1 contributes to human motile ciliogenesis, and reveal a potential role for FOXJ1 in maintaining MCCs differentiation and ciliary function by sustaining the expression of ciliary proteins, particularly those in direct contact with axonemal tubulin.
 
+
+
+  - id: "borman_biorxiv_2025"
+    title: "Orchestrating Microbiome Analysis with Bioconductor"
+    authors: "Borman, Benedetti, Muluh, Raulo, Valderrama, Sannikov, et al."
+    journal: "bioRxiv"
+    year: 2025
+    date: "2025-10-30"
+    doi: "10.1101/2025.10.29.685036"
+    type: "preprint"
+    field: "methods"
+    abstract: >-
+      The expansion of microbiome research has led to the accumulation of interlinked datasets encompassing versatile taxonomic and functional assays. The analysis of increasingly large and heterogeneous multi-modal microbiome data would benefit from unified approaches supporting the design of modular data science workflows through interoperable methods. The Bioconductor project has recently developed an optimized statistical programming framework for multi-assay data integration. Building on this foundation, we introduce a community-developed open source ecosystem for microbiome data science. In contrast to the previous alternatives, the methodology is specifically designed to support joint analysis of hierarchical, interlinked, and heterogeneous multi-table datasets that are increasingly common in modern microbiome research. This data science ecosystem encompasses open data, methods, tutorials, and an active online community. These resources support standardized and reproducible data wrangling, joint analysis, and reporting. We have detailed the functionality and usage in the online book https://microbiome.github.io/OMA , which offers guidance for prospective users and contributors.
+
+
+  - id: "serizay_biorxiv_2025"
+    title: "Multi-modal data integration for machine learning applications"
+    authors: "Serizay, and Koszul"
+    journal: "bioRxiv"
+    year: 2025
+    date: "2025-10-13"
+    doi: "10.1101/2025.10.10.681692"
+    type: "preprint"
+    abstract: >-
+      The integration of multi-modal genomic data, encompassing sequences, annotations, and coverage tracks, remains a major bottleneck in bioinformatics, both for exploratory data analysis and machine learning applications. Current approaches rely on several specialized tools for different data modalities, leading to inefficient workflows and computational overhead. Here, we present momics, a unified framework to consolidate multi-omics data in a single repository and interrogate it with a high-performance query engine. Compared to existing tools, momics ingests genomic sequences, feature annotations, and unlimited coverage tracks into TileDB-backed repositories, and provides a scalable query engine for concurrent multi-modal queries across millions of genomic loci. Our benchmarks demonstrate up to 20-fold better data compression and up to 100-fold speed improvements over standard tools like pyBigWig, with a sublinear time complexity ideal for large-scale queries. Momics provides a python library optimized for exploratory data analysis and machine learning workflows, natively supporting current state-of-the-art bioinformatic ecosystems and cloud storage systems. We demonstrate momics’ utility through two real-world applications: (1) multi-modal data integration of hundreds of ChIP-seq datasets together with genomic sequence, and (2) multi-modal deep learning for chromatin accessibility prediction. By eliminating the need for multiple data parsing tools and providing a unified interface for all genomic data types, momics represents a paradigm shift in how large-scale multi-omics data can be managed and analyzed.
 
 
   - id: "bignaud_natmicro_2025"
@@ -34,6 +113,7 @@ papers:
     date: "2025-09-01"
     doi: "10.1038/s41564-025-02108-2"
     pdf: "bignaud_natmicro_2025.pdf"
+    supp: "bignaud_natmicro_2025_supp.pdf"
     # image: "bignaud_natmicro_2025.png"
     abstract:
       Phages are diverse and abundant within microbial communities, where they play major roles in their evolution and adaptation. Phage replication, and multiplication, is generally thought to be restricted within a single or narrow host range. Here we use published and newly generated proximity-ligation-based metagenomic Hi-C (metaHiC) data from various environments to explore virus–host interactions. We reconstructed 4,975 microbial and 6,572 phage genomes of medium quality or higher. MetaHiC yielded a contact network between genomes and enabled assignment of approximately half of phage genomes to their hosts, revealing that a substantial proportion of these phages interact with multiple species in environments as diverse as the oceanic water column or the human gut. This observation challenges the traditional view of a narrow host spectrum of phages by unveiling that multihost associations are common across ecosystems, with implications for how they might impact ecology and evolution and phage therapy approaches.
@@ -46,6 +126,7 @@ papers:
     year: 2025
     date: "2025-06-01"
     doi: "10.1038/s41564-025-02038-z"
+    topics: ["3D genome"]
     pdf: "singh_natmicro_2025.pdf"
     # image: "singh_natmicro_2025.png"
     abstract:
@@ -59,7 +140,9 @@ papers:
     year: 2025
     date: "2025-02-01"
     doi: "10.1126/science.adm9466"
+    topics: ["3D genome"]
     pdf: "meneu_science_2025.pdf"
+    supp: "meneu_science_2025_supp.pdf"
     # image: "meneu_science_2025.png"
     abstract:
       The composition of genomic sequences, such as GC content, nucleotide motifs, and repeats, varies from one species to another and within the same genome. Composition correlates with gene transcriptional activity and chromosome organization, and all genome sequences have coevolved with the chromatin-associated complexes they encode to precisely regulate these two features. However, when foreign DNA—including exogenous mobile elements and natural or artificial genesinvades or integrates a host nucleus, it encounters regulatory mechanisms and rules under which it has not evolved. How host cells process and eventually adopt these unfamiliar exogenous sequences remains largely unexplored.
@@ -72,6 +155,7 @@ papers:
     authors: "Khoury Damaa, Serizay, Balague, Boudjema, Faucourt, Delgehyr, et al."
     journal: "Cell Reports"
     pdf: "khourydamaa_cellrep_2025.pdf"
+    supp: "khourydamaa_cellrep_2025_supp.pdf"
     # image: "khourydamaa_cellrep_2025.png"
     abstract:
       Multiciliated cells (MCCs) ensure fluid circulation in various organs. Their differentiation is marked by the amplification of cilia-nucleating centrioles, driven by a genuine cell-cycle variant, which is characterized by wave-like expression of canonical and non-canonical cyclins such as Cyclin O (CCNO). Patients with CCNO mutations exhibit a subtype of primary ciliary dyskinesia called reduced generation of motile cilia (RGMC). Here, we show that Ccno is activated at the crossroads of the onset of MCC differentiation, the entry into the MCC cell-cycle variant, and the activation of the centriole biogenesis program. Its absence blocks the G1/S-like transition of the cell-cycle variant, interrupts the centriologenesis transcription program, and compromises the production of centrioles and cilia in mouse brain and human respiratory MCCs. Altogether, our study identifies CCNO as a core regulator of entry into the MCC cell-cycle variant and the interruption of this variant as one etiology of RGMC.
@@ -85,6 +169,7 @@ papers:
     date: "2025-01-28"
     doi: "10.1016/j.celrep.2024.115103"
     pdf: "serizay_cellrep_2025.pdf"
+    supp: "serizay_cellrep_2025_supp.pdf"
     # image: "serizay_cellrep_2025.png"
     abstract:
       Meiosis, endoreplication, and asynthetic fissions are variations of the canonical cell cycle where either replication or mitotic divisions are muted. Here, we identify a cell cycle variantconserved across organs and mammals, where both replication and mitosis are muted, and that orchestrates the differentiation of post-mitotic progenitors into multiciliated cells (MCCs). MCC progenitors reactivate most of the cell cycle transcriptional program but replace the temporal expression of cyclins E2 and A2 with non-canonical cyclins O and A1. In addition, the primary APC/C inhibitor Emi1 is silenced. Re-expressing cyclins E2 and A2 and/or Emi1 can induce partial replication or mitosis. This shows that a cell can co-opt the cell cycle genetic program and regulate only certain elements to qualitatively and quantitatively divert CDK activity toward differentiation rather than division. We propose this cell cycle variant to exploit the existence of a cytoplasmic—or centriolar—CDK threshold lower than the S-phase threshold.
@@ -95,7 +180,7 @@ papers:
     journal: "Bioinformatics"
     year: 2024
     date: "2024-06-01"
-    doi: "10.1016/j.celrep.2024.115103"
+    doi: "10.1093/bioinformatics/btae487"
     pdf: "serizay_bioinfo_2024.pdf"
     # image: "serizay_bioinfo_2024.png"
     abstract:
@@ -119,9 +204,11 @@ papers:
     year: 2024
     date: "2024-02-01"
     doi: "10.1038/s41467-024-44761-x"
+    topics: ["3D genome"]
     authors: "Serizay, Matthey-Doret, Bignaud, Baudry, and Koszul"
     journal: "Nature Communications"
     pdf: "serizay_natcomm_2024.pdf"
+    supp: "serizay_natcomm_2024_supp.pdf"
     # image: "serizay_natcomm_2024.png"
     abstract:
       Genome-wide chromatin conformation capture assays provide formidable insights into the spatial organization of genomes. However, due to the complexity of the data structure, their integration in multi-omics workflows remains challenging. We present data structures, computational methods and visualization tools available in Bioconductor to investigate Hi-C, micro-C and other 3C-related data, in R. An online book (https://bioconductor.org/books/OHCA/) further provides prospective end users with a number of workflows to process, import, analyze and visualize any type of chromosome conformation capture data.
@@ -158,10 +245,11 @@ papers:
     title: "Distinctive regulatory architectures of germline-active and somatic genes in C. elegans"
     year: 2020
     date: "2020-10-01"
-    doi: "10.21105/joss.03009"
+    doi: "10.1101/gr.265934.120"
     authors: "Serizay, Dong, Jänes, Chesney, Cerrato, and Ahringer"
     journal: "Genome Research"
     pdf: "serizay_genomeres_2020.pdf"
+    supp: "serizay_genomeres_2020_supp.pdf"
     # image: "serizay_fgenomeres2020.png"
     abstract:
       RNA profiling has provided increasingly detailed knowledge of gene expression patterns, yet the different regulatory ar- chitectures that drive them are not well understood. To address this, we profiled and compared transcriptional and regu- latory element activities across five tissues of Caenorhabditis elegans, covering ∼90% of cells. We find that the majority of promoters and enhancers have tissue-specific accessibility, and we discover regulatory grammars associated with ubiquitous, germline, and somatic tissue–specific gene expression patterns. In addition, we find that germline-active and soma-specific promoters have distinct features. Germline-active promoters have well-positioned +1 and −1 nucleosomes associated with a periodic 10-bp WW signal (W = A/T). Somatic tissue–specific promoters lack positioned nucleosomes and this signal, have wide nucleosome-depleted regions, and are more enriched for core promoter elements, which largely differ between tissues. We observe the 10-bp periodic WW signal at ubiquitous promoters in other animals, suggesting it is an ancient conserved signal. Our results show fundamental differences in regulatory architectures of germline and somatic tissue–specific genes, uncover regulatory rules for generating diverse gene expression patterns, and provide a tissue-specific resource for future studies.
@@ -176,6 +264,7 @@ papers:
     authors: "Pandya-Jones, Markaki, Serizay, Chitiashvili, Mancia Leon, Damianov, et al."
     journal: "Nature"
     pdf: "pandyajones_nature_2020.pdf"
+    supp: "pandyajones_nature_2020_supp.pdf"
     # image: "pandyajones_fnature2020.png"
     abstract:
       Nuclear compartments have diverse roles in regulating gene expression, yet the molecular forces and components that drive compartment formation remain largely unclear1. The long non-coding RNA Xist establishes an intra-chromosomal compartment by localizing at a high concentration in a territory spatially close to its transcription locus2 and binding diverse proteins3–5 to achieve X-chromosome inactivation (XCI)6,7. The XCI process therefore serves as a paradigm for understanding how RNA-mediated recruitment of various proteins induces a functional compartment. The properties of the inactive X (Xi)-compartment are known to change over time, because after initial Xist spreading and transcriptional shutoff a state is reached in which gene silencing remains stable even if Xist is turned off8. Here we show that the Xist RNA-binding proteins PTBP19, MATR310, TDP-4311 and CELF112 assemble on the multivalent E-repeat element of Xist7 and, via self-aggregation and heterotypic protein–protein interactions, form a condensate1 in the Xi. This condensate is required for gene silencing and for the anchoring of Xist to the Xi territory, and can be sustained in the absence of Xist. Notably, these E-repeat-binding proteins become essential coincident with transition to the Xist-independent XCI phase8, indicating that the condensate seeded by the E-repeat underlies the developmental switch from Xist-dependence to Xist-independence. Taken together, our data show that Xist forms the Xi compartment by seeding a heteromeric condensate that consists of ubiquitous RNA-binding proteins, revealing an unanticipated mechanism for heritable gene silencing.
@@ -198,10 +287,11 @@ papers:
     title: "Chromatin accessibility dynamics across C. elegans development and ageing"
     year: 2018
     date: "2018-10-01"
-    doi: "10.1016/j.celrep.2024.115117"
+    doi: "10.7554/eLife.37344"
     authors: "Jänes † & Dong †, Schoof ‡ & Serizay ‡, Appert, Cerrato, et al."
     journal: "eLife"
     pdf: "janes_elife_2018.pdf"
+    supp: "janes_elife_2018_supp.pdf"
     # image: "janes_elife_2018.png"
     abstract:
       An essential step for understanding the transcriptional circuits that control development and physiology is the global identification and characterization of regulatory elements. Here, we present the first map of regulatory elements across the development and ageing of an animal, identifying 42,245 elements accessible in at least one Caenorhabditis elegans stage. Based on nuclear transcription profiles, we define 15,714 protein-coding promoters and 19,231 putative enhancers, and find that both types of element can drive orientation-independent transcription. Additionally, more than 1000 promoters produce transcripts antisense to protein coding genes, suggesting involvement in a widespread regulatory mechanism. We find that the accessibility of most elements changes during development and/or ageing and that patterns of accessibility change are linked to specific developmental or physiological processes. The map and characterization of regulatory elements across C. elegans life provides a platform for understanding how transcription controls development and ageing.
@@ -213,6 +303,8 @@ papers:
     year: 2018
     date: "2018-04-01"
     doi: "10.1016/j.ceb.2018.03.009"
+    type: "review"
+    topics: ["3D genome"]
     authors: "Serizay, and Ahringer"
     journal: "Current Opinion in Cell Biology"
     pdf: "serizay_currop_2018.pdf"
