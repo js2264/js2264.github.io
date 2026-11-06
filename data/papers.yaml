@@ -147,7 +147,7 @@ papers:
     abstract:
       The composition of genomic sequences, such as GC content, nucleotide motifs, and repeats, varies from one species to another and within the same genome. Composition correlates with gene transcriptional activity and chromosome organization, and all genome sequences have coevolved with the chromatin-associated complexes they encode to precisely regulate these two features. However, when foreign DNA—including exogenous mobile elements and natural or artificial genesinvades or integrates a host nucleus, it encounters regulatory mechanisms and rules under which it has not evolved. How host cells process and eventually adopt these unfamiliar exogenous sequences remains largely unexplored.
 
-  - id: "serizay_cellrep_2025"
+  - id: "khourydamaa_cellrep_2025"
     title: "Cyclin O controls entry into the cell-cycle variant required for multiciliated cell differentiation"
     year: 2025
     date: "2025-01-28"

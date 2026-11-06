@@ -1,4 +1,18 @@
 courses:
+  - id: "2026_scRNAseq"
+    title: "Single-cell RNA-seq analysis with Bioconductor, ed. 2026"
+    duration: "5-day course"
+    location: "Online"
+    date: 2026-11-16
+    url: "https://jserizay.com/scRNAseq_Physalia_2026/devel/"
+
+  - id: "2026_gene2"
+    title: "Introduction to scRNAseq analysis"
+    duration: "2.5-hour GenE2 Master 2 workshop"
+    location: "Université Paris Saclay, France"
+    date: 2026-10-27
+    url: "https://jserizay.com/GenE2-scRNAseq-intro/devel/"
+
   - id: "2026_biocafrica"
     title: "Introduction to scRNAseq analysis"
     duration: "2-hour BiocAfrica workshop"
