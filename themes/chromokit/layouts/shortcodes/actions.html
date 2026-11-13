@@ -1,0 +1,2 @@
+{{- /* {{< actions >}}[Source](https://…) [Get started](docs/){{< /actions >}}: links become buttons, the last one filled. */ -}}
+<div class="cx-actions">{{ .Inner | markdownify | replaceRE `<a href` `<a class="cx-button" href` | replaceRE `(?s)(.*)<a class="cx-button"` `${1}<a class="cx-button cx-button--filled"` | safeHTML }}</div>

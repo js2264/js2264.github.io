@@ -1,7 +1,10 @@
-{{ define "title" }}404{{ end }}
 {{ define "main" }}
-  <div class="not-found">
-    <h1>Page not found</h1>
-    <p>Sorry, the requested page could not be found.</p>
+<main class="cx-main cx-ground" id="main" style="min-height: calc(100vh - var(--cx-header-h))">
+  <div class="cx-landing" style="text-align: center; padding-inline: 16px">
+    <p class="cx-kicker">404</p>
+    <h1 class="cx-masthead">Page not found</h1>
+    <p class="cx-tagline">Sorry, the requested page could not be found.</p>
+    <div class="cx-actions"><a class="cx-button cx-button--filled" href="{{ "/" | relURL }}">Home</a></div>
   </div>
+</main>
 {{ end }}

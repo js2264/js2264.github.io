@@ -1,0 +1,3 @@
+{{- /* {{< tiles kicker="Start here" >}} … {{< /tiles >}} */ -}}
+{{ with .Get "kicker" }}<p class="cx-kicker">{{ . }}</p>{{ end }}
+<div class="cx-tiles">{{ .Inner }}</div>

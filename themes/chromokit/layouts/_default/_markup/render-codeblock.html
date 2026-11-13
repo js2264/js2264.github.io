@@ -1,0 +1,4 @@
+{{- $terminal := in (slice "bash" "sh" "shell" "console" "zsh") .Type -}}
+<div class="cx-code{{ if $terminal }} cx-code--terminal{{ end }}">
+  {{- transform.Highlight .Inner .Type .Options -}}
+</div>

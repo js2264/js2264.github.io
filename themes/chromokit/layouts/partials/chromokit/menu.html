@@ -1,0 +1,15 @@
+{{- /*
+  The site's `menu.main`, Home first, as a list of dicts: name, url, current
+  (the page being rendered), and external (a file such as a PDF, or another
+  site, which opens in a new tab). The sidebar and the previous/next links
+  both read it.
+*/ -}}
+{{- $here := .RelPermalink -}}
+{{- $items := slice (dict "name" "Home" "url" ("/" | relURL) "current" .IsHome "external" false) -}}
+{{- range site.Menus.main -}}
+  {{- $url := .URL | relURL -}}
+  {{- with .Page }}{{ $url = .RelPermalink }}{{ end -}}
+  {{- $external := or (strings.Contains .URL "://") (strings.HasSuffix .URL ".pdf") -}}
+  {{- $items = $items | append (dict "name" .Name "url" $url "current" (and (not $external) (eq (strings.TrimSuffix "/" $url) (strings.TrimSuffix "/" $here))) "external" $external) -}}
+{{- end -}}
+{{- return $items -}}

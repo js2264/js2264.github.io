@@ -1,0 +1,20 @@
+{{ define "main" }}
+{{- $toc := and (ne .Params.toc false) (gt (len .TableOfContents) 32) -}}
+<div class="cx-layout{{ if not $toc }} cx-layout--no-toc{{ end }}{{ with .Params.class }} {{ . }}{{ end }}">
+  <aside class="cx-sidebar">{{ partial "chromokit/sidebar.html" . }}</aside>
+  <main class="cx-main cx-ground" id="main">
+    <article class="cx-content cx-prose">
+      <h1>{{ .Title }}</h1>
+      {{ with .Description }}<p class="cx-dim">{{ . }}</p>{{ end }}
+      {{ .Content }}
+      {{ partial "chromokit/page-footer.html" . }}
+    </article>
+  </main>
+  {{ if $toc }}
+  <aside class="cx-toc">
+    <p class="cx-toc__title">On this page</p>
+    {{ .TableOfContents }}
+  </aside>
+  {{ end }}
+</div>
+{{ end }}

@@ -1,0 +1,45 @@
+{{- /*
+  The sidebar. With a `menu.main` in the site's config, it is that menu, Home
+  first. Without one: top-level pages, then each section as a group under its
+  kicker, by weight. On narrow screens, where it is the drawer, it also lists
+  `params.links`.
+*/ -}}
+{{- $current := . -}}
+<nav class="cx-nav" aria-label="Pages">
+  <ul>
+    {{- with site.Menus.main }}
+    <li class="cx-nav__group"><ul style="margin:0;border:0">
+      {{- range partial "chromokit/menu.html" $current }}
+      <li><a href="{{ .url }}"{{ if .current }} aria-current="page"{{ end }}{{ if .external }} target="_blank" rel="noopener"{{ end }}>{{ .name }}{{ if .external }} {{ partial "chromokit/icon.html" "arrow-up-right" }}{{ end }}</a></li>
+      {{- end }}
+    </ul></li>
+    {{- else }}
+    <li class="cx-nav__group"><ul style="margin:0;border:0">
+      <li><a href="{{ "/" | relURL }}"{{ if .IsHome }} aria-current="page"{{ end }}>Home</a></li>
+      {{ range (where site.RegularPages "Section" "").ByWeight }}
+      <li><a href="{{ .RelPermalink }}"{{ if eq .RelPermalink $current.RelPermalink }} aria-current="page"{{ end }}>{{ .LinkTitle }}</a></li>
+      {{ end }}
+    </ul></li>
+    {{ range site.Sections.ByWeight }}
+    <li class="cx-nav__group">
+      <details open>
+        <summary>{{ .LinkTitle }}</summary>
+        <ul>
+          {{ range .Pages.ByWeight }}
+          <li><a href="{{ .RelPermalink }}"{{ if eq .RelPermalink $current.RelPermalink }} aria-current="page"{{ end }}>{{ .LinkTitle }}</a></li>
+          {{ end }}
+        </ul>
+      </details>
+    </li>
+    {{ end }}
+    {{- end }}
+    {{- /* The header's links, which narrow screens leave out of the header */}}
+    {{- with site.Params.links }}
+    <li class="cx-nav__group cx-narrow"><ul style="margin:0;border:0">
+      {{- range . }}
+      <li><a href="{{ .url }}">{{ partial "chromokit/icon.html" .icon }} {{ .name }}</a></li>
+      {{- end }}
+    </ul></li>
+    {{- end }}
+  </ul>
+</nav>

@@ -1,0 +1,14 @@
+{{- /* chromokit for Hugo: the page shell. Kit file — overrides go in your site's own layouts/. */ -}}
+<!doctype html>
+<html lang="{{ site.Language.LanguageCode | default "en" }}">
+<head>
+  {{ partial "chromokit/head.html" . }}
+</head>
+<body class="cx-page">
+  <input type="checkbox" id="cx-drawer" class="cx-drawer-toggle" aria-hidden="true">
+  {{ partial "chromokit/header.html" . }}
+  <label class="cx-drawer-scrim" for="cx-drawer" aria-hidden="true"></label>
+  {{ block "main" . }}{{ end }}
+  {{ partial "chromokit/extend-body.html" . }}
+</body>
+</html>

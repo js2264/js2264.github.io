@@ -1,14 +1,22 @@
 # jserizay.com
 
 Source of [jserizay.com](https://jserizay.com): a [Hugo](https://gohugo.io) site using the
-[PaperMod](https://github.com/adityatelange/hugo-PaperMod) theme (vendored in `themes/PaperMod/`,
-customized through `layouts/` and `assets/`).
+[chromokit](https://github.com/js2264/chromokit) theme (the look of chromosomix, metacooler's
+documentation and chromokit's own site), in light and dark.
+
+- `themes/chromokit/` is chromokit's, copied by `chromokit init hugo` and listed with hashes in
+  `chromokit.json`. Leave it as it is: `npx github:js2264/chromokit sync` replaces it with a newer
+  version, and `npx github:js2264/chromokit check` says whether a file of it was edited.
+- Everything of this site's own is outside it: the home page (`layouts/index.html`), the data-driven
+  partials (`layouts/partials/`), additions to `<head>` (`layouts/partials/chromokit/extend-head.html`),
+  the styles (`static/site.css`, on chromokit's `--cx-*` tokens) and the scripts (`static/site.js`,
+  `assets/js/filters.js`).
 
 ## Editing content
 
 | Page     | Where                                                                                       |
 | -------- | ------------------------------------------------------------------------------------------- |
-| Home     | `content/profile.md` (text); `config.yml` > `params.profileMode` (picture, buttons)         |
+| Home     | `content/_index.md` (text); `config.yml` > `params.home` (picture, line under the name)     |
 | About    | `content/about/_index.md`                                                                   |
 | Papers   | `data/papers.yaml`; PDFs in `static/papers/pdfs/` as `<id>.pdf` (and `<id>_supp.pdf`)       |
 | Software | `data/software.yaml` (field reference at the top of the file)                               |
@@ -17,7 +25,11 @@ customized through `layouts/` and `assets/`).
 | CV       | `static/cv.pdf`                                                                             |
 
 Data-driven pages follow the same pattern: `content/<page>.md` calls the `<page>` shortcode, which
-renders `layouts/partials/<page>.html` from `data/<page>.yaml`, styled by `assets/css/extended/<page>.css`.
+renders `layouts/partials/<page>.html` from `data/<page>.yaml`, styled in `static/site.css`.
+
+The menu (`config.yml` > `menu.main`) is the sidebar and the previous/next links at the foot of
+each page. The links in the header (Scholar, ORCID, GitHub, email) are `params.links`, and the CV
+button is `params.cta`.
 
 The build warns when a paper's `pdf` or `supp` file is missing from `static/papers/pdfs/`.
 

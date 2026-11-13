@@ -1,12 +1,10 @@
-<div class="timeline">
-  {{ range $index, $item := $.Site.Data.timeline.items }}
-  <div class="timeline-item {{ if modBool $index 2 }}timeline-item-right{{ else }}timeline-item-left{{ end }}">
-    <div class="timeline-marker"></div>
-    <div class="timeline-content">
-      <span class="timeline-period">{{ .period }}</span>
-      <h4 class="timeline-title">{{ .title }}</h4>
-      <p class="timeline-description">{{ .description | markdownify }}</p>
-    </div>
-  </div>
-  {{ end }}
-</div>
+{{- /* Career timeline from data/timeline.yaml (not on any page at the moment: see content/_index.md). */ -}}
+<ol class="timeline">
+  {{- range $.Site.Data.timeline.items }}
+  <li class="timeline__item">
+    <span class="timeline__period cx-num">{{ .period }}</span>
+    <strong class="timeline__title">{{ .title }}</strong>
+    <span class="timeline__description">{{ .description | markdownify }}</span>
+  </li>
+  {{- end }}
+</ol>

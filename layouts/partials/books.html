@@ -1,53 +1,35 @@
-<div class="books-list">
-  {{ range $.Site.Data.books.books }}
-  <article class="post-entry book-entry">
+<div class="book-list">
+  {{- range $.Site.Data.books.books }}
+  {{- $book := . }}
+  <article class="cx-card book">
 
-    {{ if .cover }}
-    <figure class="entry-cover">
-      <img loading="lazy" src="/{{ .cover }}" alt="{{ .title }}">
+    {{- with $book.cover }}
+    <figure class="book__cover">
+      <img loading="lazy" src="{{ . | relURL }}" alt="Cover of {{ $book.title }}">
     </figure>
-    {{ end }}
+    {{- end }}
 
-    <div class="book-body">
-      <header class="entry-header">
-        <h2>
-          {{ if .url }}
-          <a href="{{ .url }}" target="_blank" rel="noopener">{{ .title }}</a>
-          {{ else }}
-          {{ .title }}
-          {{ end }}
-        </h2>
-      </header>
+    <div class="book__body">
+      <h2 class="book__title">
+        {{- with $book.url }}<a href="{{ . }}" target="_blank" rel="noopener">{{ $book.title }}</a>{{ else }}{{ $book.title }}{{ end -}}
+      </h2>
+      <p class="book__meta">
+        {{- with $book.edition }}<span class="cx-badge cx-badge--plain">{{ . }}</span>{{ end }}
+        <span>{{ partial "chromokit/icon.html" "calendar" }}{{ (time $book.date).Format "January 2006" }}</span>
+      </p>
 
-      <div class="entry-content">
-        <p class="book-meta">
-          {{ if .edition }}
-          <span class="book-edition"><strong>{{ .edition }}</strong></span>
-          <span class="separator">•</span>
-          {{ end }}
-          <span class="book-date"><strong>{{ (time .date).Format "January 2006" }}</strong></span>
-        </p>
+      {{- with $book.description }}
+      <p class="book__description">{{ . }}</p>
+      {{- end }}
 
-        {{ with .description }}
-        <p class="book-description">{{ . }}</p>
-        {{ end }}
-
-        {{- $links := slice }}
-        {{- with .url }}{{ $links = $links | append (dict "label" "Read online" "url" .) }}{{ end }}
-        {{- with .bioconductor }}{{ $links = $links | append (dict "label" "Bioconductor" "url" .) }}{{ end }}
-        {{- with .repo }}{{ $links = $links | append (dict "label" "GitHub" "url" (printf "https://github.com/%s" .)) }}{{ end }}
-        {{- with .paper }}{{ $links = $links | append (dict "label" "Paper" "url" (printf "https://doi.org/%s" .)) }}{{ end }}
-        {{- with $links }}
-        <p class="book-links">
-          {{- range $i, $link := . }}
-          {{- if $i }}<span class="separator">•</span>{{ end }}
-          <a href="{{ $link.url }}" target="_blank" rel="noopener">{{ $link.label }}</a>
-          {{- end }}
-        </p>
-        {{- end }}
-      </div>
+      <p class="cx-actions book__actions">
+        {{- with $book.url }}<a class="cx-button cx-button--filled" href="{{ . }}" target="_blank" rel="noopener">{{ partial "chromokit/icon.html" "book-open" }}Read online</a>{{ end }}
+        {{- with $book.bioconductor }}<a class="cx-button" href="{{ . }}" target="_blank" rel="noopener">{{ partial "chromokit/icon.html" "bioconductor" }}Bioconductor</a>{{ end }}
+        {{- with $book.repo }}<a class="cx-button" href="https://github.com/{{ . }}" target="_blank" rel="noopener">{{ partial "chromokit/icon.html" "github" }}GitHub</a>{{ end }}
+        {{- with $book.paper }}<a class="cx-button" href="https://doi.org/{{ . }}" target="_blank" rel="noopener">{{ partial "chromokit/icon.html" "newspaper" }}Paper</a>{{ end }}
+      </p>
     </div>
 
   </article>
-  {{ end }}
+  {{- end }}
 </div>

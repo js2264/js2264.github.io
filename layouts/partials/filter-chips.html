@@ -4,15 +4,16 @@
   Optional: `data-filter-group` on containers hidden when they end up empty, and
   `data-filter-whole` on elements shown only when their whole group is visible.
 
-  Usage: partial "filter-chips.html" (dict "label" "aria label" "total" 12 "filters" (slice (dict "key" "r" "label" "R" "count" 8)))
+  Usage: partial "filter-chips.html" (dict "label" "aria label" "total" 12 "filters" (slice (dict "key" "r" "label" "R" "count" 8 "icon" "r")))
 */ -}}
 <div class="filter-chips" role="group" aria-label="{{ .label }}" hidden>
   <button type="button" class="filter-chip" data-filter="all" aria-pressed="true">
-    All <span class="filter-chip-count">{{ .total }}</span>
+    All <span class="cx-count">{{ .total }}</span>
   </button>
   {{- range .filters }}
   <button type="button" class="filter-chip" data-filter="{{ .key }}" aria-pressed="false">
-    {{ .label }} <span class="filter-chip-count">{{ .count }}</span>
+    {{- with .icon }}{{ partial "chromokit/icon.html" . }}{{ end }}
+    {{ .label }} <span class="cx-count">{{ .count }}</span>
   </button>
   {{- end }}
 </div>
