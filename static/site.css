@@ -11,6 +11,8 @@
 /* ---- the frame: no header (config.yml > params.header), a thin sidebar --- */
 body.cx-page {
   --cx-sidebar-w: 200px;
+  /* "On this page" (Papers: the years; Software: the themes) */
+  --cx-toc-w: 210px;
 }
 
 .cx-sidebar {

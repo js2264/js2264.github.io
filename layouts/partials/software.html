@@ -10,6 +10,11 @@
   {{- $filters = $filters | append (dict "key" (lower .) "label" . "icon" (lower .) "count" (len (where $all "language" .))) }}
 {{- end }}
 
+{{- /* The themes, as the page's "On this page" (chromokit's theme reads this) */}}
+{{- $toc := slice }}
+{{- range $sections }}{{ $toc = $toc | append (dict "id" .id "title" .title) }}{{ end }}
+{{- $.Page.Store.Set "chromokit.toc" $toc }}
+
 <div class="software" data-filter-root>
 
   {{ partial "filter-chips.html" (dict "label" "Filter packages by language" "total" (len $all) "filters" $filters) }}
@@ -78,8 +83,14 @@
         {{- $registryURL = printf "https://pypi.org/project/%s/" . }}
         {{- $install = printf "pip install %s" . }}
       {{- end }}
+      {{- with $pkg.npm }}
+        {{- $registry = "npm" }}
+        {{- $registryURL = printf "https://www.npmjs.com/package/%s" . }}
+        {{- $install = printf "npm install -g %s" . }}
+      {{- end }}
 
       {{- $links := slice }}
+      {{- with $pkg.app }}{{ $links = $links | append (dict "label" "App" "url" .) }}{{ end }}
       {{- with $pkg.docs }}{{ $links = $links | append (dict "label" "Docs" "url" .) }}{{ end }}
       {{- with $repo }}{{ $links = $links | append (dict "label" "GitHub" "url" .) }}{{ end }}
       {{- with $registryURL }}{{ $links = $links | append (dict "label" $registry "url" .) }}{{ end }}

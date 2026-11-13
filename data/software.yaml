@@ -10,6 +10,8 @@
 #   roles     author and/or maintainer
 #   bioc      software | data | book -> Bioconductor link (+ BiocManager install command)
 #   pypi      PyPI project name -> PyPI link (+ pip install command)
+#   npm       npm package name -> npm link (+ npm install -g command)
+#   app       web address of the running app -> "App" link
 #   repo      GitHub "owner/name"
 #   docs      documentation website (the card title links here, or to the repo)
 #   paper     DOI of the reference paper
@@ -161,12 +163,16 @@ sections:
         roles: ["author", "maintainer"]
         status: "Coming soon"
 
-      - name: "ChromLens"
+      - name: "chromosomix"
         language: "TypeScript"
         kind: "web app"
-        tagline: "In-browser viewer for contact maps, genome tracks and 3D chromatin models. No server, no upload, no preprocessing."
+        tagline: "Genome browser for contact maps, genome tracks and 3D chromatin models, side by side, straight from your files. No server, no upload, no preprocessing."
+        since: 2026
         roles: ["author", "maintainer"]
-        status: "Coming soon"
+        npm: "chromosomix"
+        repo: "js2264/chromosomix"
+        docs: "https://doc.chromosomix.app/"
+        app: "https://chromosomix.app/"
 
   - id: "coverage"
     title: "Coverage & sequence features"

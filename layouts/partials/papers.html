@@ -45,6 +45,11 @@
 {{- $years := slice }}
 {{- range $entries }}{{ $years = $years | append .paper.year }}{{ end }}
 
+{{- /* The years, as the page's "On this page" (chromokit's theme reads this) */}}
+{{- $toc := slice }}
+{{- range uniq $years }}{{ $toc = $toc | append (dict "id" (printf "%v" .) "title" (printf "%v" .)) }}{{ end }}
+{{- $.Page.Store.Set "chromokit.toc" $toc }}
+
 <div class="papers" data-filter-root>
 
 {{ partial "filter-chips.html" (dict "label" "Filter papers" "total" (len $entries) "filters" $filters) }}
@@ -53,7 +58,7 @@
 <div class="year-rail">
   {{- range uniq $years }}
   {{- $year := . }}
-  <section class="year-rail__year" data-filter-group>
+  <section class="year-rail__year" id="{{ $year }}" data-filter-group>
     <h2 class="year-rail__label">{{ $year }}</h2>
     <div class="year-rail__items paper-grid">
       {{- range where $entries "paper.year" $year }}

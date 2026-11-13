@@ -32,7 +32,12 @@ is the sidebar, with the name at its top and the links (Scholar, ORCID, GitHub, 
 `params.links`) at its foot, and the previous/next links at the foot of each page. The home page
 has no sidebar: a button for each page of the menu sits under the introduction, and the links
 under the name. The site is always light (`params.palette: light`); without that line it follows
-the reader's system and gets a light/dark toggle. The sidebar's width is
+the reader's system and gets a light/dark toggle.
+
+Papers and Software have an "On this page" list on the right: the years and the themes, set by
+their partials (`.Page.Store.Set "chromokit.toc"`), and following the filter chips. A page's
+`description` is used for search engines and link previews only, not shown under its title
+(`params.showDescription: false`). The sidebar's width is
 `--cx-sidebar-w` in `static/site.css`.
 
 The build warns when a paper's `pdf` or `supp` file is missing from `static/papers/pdfs/`.

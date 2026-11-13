@@ -47,13 +47,14 @@ params:
     description: "This website hosts Jacques Serizay's research papers, software packages, course materials, books, curriculum vitae, and contact information."
     author: Jacques Serizay
     # chromokit (themes/chromokit): no bar across the top; the sidebar carries
-    # the mark (also the tab's icon), the name, the small capitals under it,
-    # the menu, and at its foot the links. Always the light palette, whatever
-    # the reader's system, with no theme toggle (remove `palette` for both).
+    # the mark (also the tab's icon), the name, the menu, and at its foot the
+    # links. Always the light palette, whatever the reader's system, with no
+    # theme toggle (remove `palette` for both). A page's description stays in
+    # <head> (search engines, link previews) and is not shown under its title.
     header: false
     palette: light
+    showDescription: false
     mark: mark.svg
-    kicker: "CNRS · Institut Pasteur"
     css: ["site.css"]
     footer: "Jacques Serizay, CNRS · Institut Pasteur"
     links:

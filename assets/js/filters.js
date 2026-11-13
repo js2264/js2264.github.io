@@ -19,6 +19,12 @@ document.addEventListener('DOMContentLoaded', function () {
         const incomplete = !!group.querySelector('[data-tags][hidden]');
         group.querySelectorAll('[data-filter-whole]').forEach(el => { el.hidden = incomplete; });
       });
+      // A group left empty leaves "On this page" too
+      groups.forEach(group => {
+        if (!group.id) return;
+        const link = document.querySelector(`.cx-toc a[href="#${CSS.escape(group.id)}"]`);
+        if (link) link.parentElement.hidden = group.hidden;
+      });
       // Flag the first group still shown (e.g. the latest year of a timeline)
       const firstShown = groups.find(group => !group.hidden);
       groups.forEach(group => group.toggleAttribute('data-filter-first', group === firstShown));
