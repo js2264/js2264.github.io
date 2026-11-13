@@ -48,8 +48,10 @@ params:
     author: Jacques Serizay
     # chromokit (themes/chromokit): no bar across the top; the sidebar carries
     # the mark (also the tab's icon), the name, the small capitals under it,
-    # the menu, and at its foot the links and the theme toggle
+    # the menu, and at its foot the links. Always the light palette, whatever
+    # the reader's system, with no theme toggle (remove `palette` for both).
     header: false
+    palette: light
     mark: mark.svg
     kicker: "CNRS · Institut Pasteur"
     css: ["site.css"]

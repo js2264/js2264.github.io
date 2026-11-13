@@ -1,6 +1,8 @@
 {{- /* chromokit for Hugo: the page shell. Kit file — overrides go in your site's own layouts/. */ -}}
 <!doctype html>
-<html lang="{{ site.Language.LanguageCode | default "en" }}">
+{{- /* `params.palette = "light"` (or "dark"): one palette, whatever the reader's system, and no toggle. */ -}}
+{{- $palette := cond (in (slice "light" "dark") site.Params.palette) site.Params.palette "" }}
+<html lang="{{ site.Language.LanguageCode | default "en" }}"{{ with $palette }} data-theme="{{ . }}"{{ end }}>
 <head>
   {{ partial "chromokit/head.html" . }}
 </head>

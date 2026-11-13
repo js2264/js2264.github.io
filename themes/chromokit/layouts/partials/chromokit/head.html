@@ -3,7 +3,7 @@
 <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} · {{ site.Title }}{{ end }}</title>
 {{ with .Description | default site.Params.description }}<meta name="description" content="{{ . }}">{{ end }}
 {{ with site.Params.mark }}<link rel="icon" href="{{ . | relURL }}" type="image/svg+xml">{{ end }}
-<script src="{{ "chromokit/theme.js" | relURL }}"></script>
+{{ if not (in (slice "light" "dark") site.Params.palette) }}<script src="{{ "chromokit/theme.js" | relURL }}"></script>{{ end }}
 <link rel="stylesheet" href="{{ "chromokit/chromokit.css" | relURL }}">
 {{ range site.Params.css }}<link rel="stylesheet" href="{{ . | relURL }}">{{ end }}
 <script defer src="{{ "chromokit/chromokit.js" | relURL }}"></script>

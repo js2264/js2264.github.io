@@ -29,9 +29,10 @@ renders `layouts/partials/<page>.html` from `data/<page>.yaml`, styled in `stati
 
 There is no bar across the top (`params.header: false`): the menu (`config.yml` > `menu.main`)
 is the sidebar, with the name at its top and the links (Scholar, ORCID, GitHub, email:
-`params.links`) and the theme toggle at its foot, and the previous/next links at the foot of each
-page. The home page has no sidebar: a button for each page of the menu sits under the
-introduction, and the links and the toggle under the name. The sidebar's width is
+`params.links`) at its foot, and the previous/next links at the foot of each page. The home page
+has no sidebar: a button for each page of the menu sits under the introduction, and the links
+under the name. The site is always light (`params.palette: light`); without that line it follows
+the reader's system and gets a light/dark toggle. The sidebar's width is
 `--cx-sidebar-w` in `static/site.css`.
 
 The build warns when a paper's `pdf` or `supp` file is missing from `static/papers/pdfs/`.
