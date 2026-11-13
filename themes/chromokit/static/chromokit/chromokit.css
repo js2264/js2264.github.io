@@ -2370,6 +2370,75 @@ body.cx-page {
   pointer-events: none;
 }
 
+/* ---- no header (`.cx-page--no-header` on <body>): the sidebar is the chrome,
+   with the brand at its top and the links and the theme toggle at its foot. */
+.cx-page--no-header {
+  --cx-header-h: 0px;
+}
+
+html:has(> body.cx-page--no-header) {
+  scroll-padding-top: 24px;
+}
+
+.cx-page--no-header .cx-sidebar {
+  display: flex;
+  flex-direction: column;
+}
+
+.cx-sidebar__brand {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 2px 4px;
+  font-size: var(--cx-step-1);
+  font-weight: 650;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: var(--cx-text);
+  text-decoration: none;
+}
+
+.cx-sidebar__brand img {
+  flex: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+}
+
+.cx-sidebar__kicker {
+  margin: 8px 0 0;
+  padding: 0 4px;
+  font: 600 var(--cx-label) / 1.45 var(--cx-sans);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-wrap: balance;
+  color: var(--cx-accent);
+}
+
+.cx-page--no-header .cx-nav {
+  margin-top: 26px;
+}
+
+.cx-sidebar__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: auto;
+  padding: 24px 4px 0;
+}
+
+/* Square and small, so five fit across a thin sidebar */
+.cx-sidebar__actions .cx-control--icon {
+  width: 28px;
+  height: 28px;
+  padding: 0;
+}
+
+/* The drawer's button, where there is no header to hold it */
+.cx-drawer-button {
+  display: none;
+}
+
 @media (max-width: 60rem) {
   .cx-layout,
   .cx-layout--no-toc {
@@ -2410,6 +2479,24 @@ body.cx-page {
 
   .cx-drawer-toggle:checked ~ .cx-drawer-scrim {
     display: block;
+  }
+
+  .cx-page--no-header .cx-drawer-button {
+    position: fixed;
+    top: 12px;
+    left: 12px;
+    z-index: 14;
+    display: inline-flex;
+    box-shadow: var(--cx-shadow-2);
+  }
+
+  body.cx-page--no-header:not(:has(.cx-sidebar)) .cx-drawer-button {
+    display: none;
+  }
+
+  /* Room for the drawer's button above the title */
+  .cx-page--no-header .cx-content {
+    padding-top: 64px;
   }
 
   .cx-content {

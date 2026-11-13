@@ -115,7 +115,7 @@
         {{- end }}
 
         {{- with $install }}
-        <div class="cx-code package__install"><pre><code>{{ . }}</code></pre></div>
+        <div class="cx-code package__install"><pre><code>{{ replace (htmlEscape .) "(" "(<wbr>" | safeHTML }}</code></pre></div>
         {{- end }}
 
       </article>

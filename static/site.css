@@ -8,6 +8,15 @@
  * component's own class to win over them.
  */
 
+/* ---- the frame: no header (config.yml > params.header), a thin sidebar --- */
+body.cx-page {
+  --cx-sidebar-w: 200px;
+}
+
+.cx-sidebar {
+  padding: 24px 12px 20px 14px;
+}
+
 /* ---- the pages with grids of cards: a wider column ----------------------- */
 .site-wide {
   --cx-content-w: 1040px;
@@ -88,14 +97,21 @@
   margin: 22px 0;
 }
 
-.site-home__kicker {
-  margin: 2.5rem 0 0.75rem;
-  text-align: center;
+.site-intro .site-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 14px 0 0;
 }
 
-.site-home .cx-page-footer {
-  margin-top: 2.5rem;
-  text-align: center;
+/* A button for each page of the menu, at the foot of the introduction */
+.site-pages {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--cx-border);
 }
 
 /* The sequence (layouts/partials/atgc-background.html, static/site.js) */
@@ -548,7 +564,7 @@
 
 .software-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(19rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(21rem, 1fr));
   gap: 12px;
 }
 
@@ -649,8 +665,8 @@
   padding: 7px 42px 7px 12px;
   font-size: var(--cx-step--1);
   line-height: 1.5;
+  /* A command breaks only after its bracket (the <wbr> in software.html) */
   white-space: pre-wrap;
-  overflow-wrap: anywhere;
 }
 
 .package .package__install .cx-code__copy {
@@ -798,16 +814,6 @@
   color: var(--cx-text-dim);
 }
 
-/* ---- narrow screens: the header's links move into the introduction ------- */
-@media (max-width: 60rem) {
-  .site-intro .site-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    margin: 14px 0 0;
-  }
-}
-
 /* ---- phones -------------------------------------------------------------- */
 @media (max-width: 640px) {
   .site-home__inner {
@@ -829,7 +835,8 @@
     height: 96px;
   }
 
-  .site-intro .site-links {
+  .site-intro .site-links,
+  .site-pages {
     justify-content: center;
   }
 

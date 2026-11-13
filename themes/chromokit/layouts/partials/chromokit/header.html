@@ -12,10 +12,6 @@
     {{ with site.Params.cta }}<a class="cx-control cx-header__wide" href="{{ .href }}">{{ .text }}</a>{{ end }}
     {{ range site.Params.links }}<a class="cx-control cx-control--icon cx-header__wide" href="{{ .url }}" aria-label="{{ .name }}" title="{{ .name }}">{{ partial "chromokit/icon.html" .icon }}</a>{{ end }}
     {{ with site.Params.repo }}<a class="cx-control cx-control--icon" href="{{ . }}" aria-label="Source">{{ partial "chromokit/icon.html" "github" }}</a>{{ end }}
-    <button type="button" class="cx-control cx-control--icon cx-theme-toggle" data-cx-theme-toggle aria-label="Theme">
-      <span class="cx-theme-icon cx-theme-icon--system">{{ partial "chromokit/icon.html" "monitor" }}</span>
-      <span class="cx-theme-icon cx-theme-icon--light">{{ partial "chromokit/icon.html" "sun" }}</span>
-      <span class="cx-theme-icon cx-theme-icon--dark">{{ partial "chromokit/icon.html" "moon" }}</span>
-    </button>
+    {{ partial "chromokit/theme-toggle.html" . }}
   </div>
 </header>

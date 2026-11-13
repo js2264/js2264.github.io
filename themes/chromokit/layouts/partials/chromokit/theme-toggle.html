@@ -1,0 +1,6 @@
+{{- /* The light / dark / system toggle (theme.js cycles it). */ -}}
+<button type="button" class="cx-control cx-control--icon cx-theme-toggle" data-cx-theme-toggle aria-label="Theme">
+  <span class="cx-theme-icon cx-theme-icon--system">{{ partial "chromokit/icon.html" "monitor" }}</span>
+  <span class="cx-theme-icon cx-theme-icon--light">{{ partial "chromokit/icon.html" "sun" }}</span>
+  <span class="cx-theme-icon cx-theme-icon--dark">{{ partial "chromokit/icon.html" "moon" }}</span>
+</button>

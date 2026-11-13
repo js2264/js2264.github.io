@@ -1,22 +1,11 @@
 {{- /*
-  The home page: the sequence in the background, the introduction (content/_index.md)
-  beside the portrait, and a tile for each page of the menu.
+  The home page: the sequence in the background, and the introduction
+  (content/_index.md) beside the portrait, with the links (params.links) and the
+  theme toggle under the name and a button for each page of the menu below it.
+  There is no sidebar here: these buttons are the way in.
 */ -}}
 {{ define "main" }}
-{{- $papers := site.Data.papers.papers }}
-{{- $packages := slice }}
-{{- range site.Data.software.sections }}{{ range .packages }}{{ $packages = $packages | append . }}{{ end }}{{ end }}
-{{- $years := slice }}
-{{- range $papers }}{{ $years = $years | append .year }}{{ end }}
-{{- $years = sort $years }}
-{{- $tiles := dict
-  "About" (dict "icon" "user" "text" "Research, background and interests")
-  "Papers" (dict "icon" "newspaper" "text" (printf "%d papers, %v–%v" (len $papers) (index $years 0) (index $years (sub (len $years) 1))))
-  "Software" (dict "icon" "package" "text" (printf "%d packages in R, Python and TypeScript" (len $packages)))
-  "Courses" (dict "icon" "presentation" "text" (printf "%d courses and workshops" (len site.Data.courses.courses)))
-  "Books" (dict "icon" "book" "text" (cond (eq (len site.Data.books.books) 1) (index site.Data.books.books 0).title (printf "%d books" (len site.Data.books.books))))
-  "CV" (dict "icon" "file-text" "text" "Curriculum vitae, as a PDF")
-}}
+{{- $icons := dict "About" "user" "Papers" "newspaper" "Software" "package" "Courses" "presentation" "Books" "book" "CV" "file-text" }}
 {{ partial "atgc-background.html" . }}
 <main class="cx-main site-home" id="main">
   <div class="site-home__inner">
@@ -26,32 +15,28 @@
         <div>
           <h1 class="site-name" id="site-name">{{ site.Title }}</h1>
           {{ with site.Params.home.role }}<p class="site-role">{{ . }}</p>{{ end }}
-          {{- /* The header's links, which narrow screens leave out of the header */}}
-          <p class="site-links cx-narrow">
-            {{- with site.Params.cta }}<a class="cx-control" href="{{ .href }}">{{ .text }}</a>{{ end }}
+          <p class="site-links">
             {{- range site.Params.links }}
             <a class="cx-control cx-control--icon" href="{{ .url }}" aria-label="{{ .name }}" title="{{ .name }}">{{ partial "chromokit/icon.html" .icon }}</a>
             {{- end }}
+            {{ partial "chromokit/theme-toggle.html" . }}
           </p>
         </div>
       </header>
+
       <div class="cx-prose site-intro__text">
         {{ .Content }}
       </div>
-    </section>
 
-    <p class="cx-kicker site-home__kicker">On this site</p>
-    <div class="cx-tiles">
-      {{- range site.Menus.main }}
-      {{- $tile := index $tiles .Name | default (dict "icon" "arrow-right" "text" "") }}
-      {{- $file := strings.HasSuffix .URL ".pdf" }}
-      <a class="cx-tile" href="{{ .URL | relURL }}"{{ if $file }} target="_blank" rel="noopener"{{ end }}>
-        <span class="cx-glyph">{{ partial "chromokit/icon.html" $tile.icon }}</span>
-        <strong>{{ .Name }}</strong>
-        <span class="cx-tile-text">{{ $tile.text }}</span>
-      </a>
-      {{- end }}
-    </div>
+      <nav class="site-pages" aria-label="Pages">
+        {{- range site.Menus.main }}
+        {{- $file := strings.HasSuffix .URL ".pdf" }}
+        <a class="cx-button" href="{{ .URL | relURL }}"{{ if $file }} target="_blank" rel="noopener"{{ end }}>
+          {{- partial "chromokit/icon.html" (index $icons .Name | default "arrow-right") }}{{ .Name -}}
+        </a>
+        {{- end }}
+      </nav>
+    </section>
   </div>
 </main>
 {{ end }}

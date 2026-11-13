@@ -46,15 +46,14 @@ menu:
 params:
     description: "This website hosts Jacques Serizay's research papers, software packages, course materials, books, curriculum vitae, and contact information."
     author: Jacques Serizay
-    # chromokit (themes/chromokit): the mark in the header and the tab, the
-    # small capitals beside the name, the header's links, and the footer line
+    # chromokit (themes/chromokit): no bar across the top; the sidebar carries
+    # the mark (also the tab's icon), the name, the small capitals under it,
+    # the menu, and at its foot the links and the theme toggle
+    header: false
     mark: mark.svg
     kicker: "CNRS · Institut Pasteur"
     css: ["site.css"]
     footer: "Jacques Serizay, CNRS · Institut Pasteur"
-    cta:
-        text: CV
-        href: /cv.pdf
     links:
         - name: Google Scholar
           url: https://scholar.google.com/citations?user=e5QTBIAAAAAJ

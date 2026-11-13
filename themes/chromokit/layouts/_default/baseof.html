@@ -4,9 +4,15 @@
 <head>
   {{ partial "chromokit/head.html" . }}
 </head>
-<body class="cx-page">
+{{- /* `params.header = false`: no bar across the top; the sidebar carries the brand and the links. */ -}}
+{{- $header := ne site.Params.header false }}
+<body class="cx-page{{ if not $header }} cx-page--no-header{{ end }}">
   <input type="checkbox" id="cx-drawer" class="cx-drawer-toggle" aria-hidden="true">
+  {{- if $header }}
   {{ partial "chromokit/header.html" . }}
+  {{- else }}
+  <label class="cx-control cx-control--icon cx-drawer-button" for="cx-drawer" aria-label="Menu">{{ partial "chromokit/icon.html" "menu" }}</label>
+  {{- end }}
   <label class="cx-drawer-scrim" for="cx-drawer" aria-hidden="true"></label>
   {{ block "main" . }}{{ end }}
   {{ partial "chromokit/extend-body.html" . }}
