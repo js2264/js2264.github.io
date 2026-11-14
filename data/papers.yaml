@@ -1,5 +1,12 @@
 # Papers, newest first (rendered by layouts/partials/papers.html).
 #
+# Each paper also gets its own page, /papers/<id>/ (content/papers/_content.gotmpl):
+# its authors, abstract, links and "Cite" (a reference, BibTeX and RIS). The full
+# author list, volume, issue and pages come from its Crossref record in
+# data/citations/<id>.json; after adding a paper, fetch its record with
+#     python3 scripts/citations.py
+# (without one, the page falls back to the short `authors` below).
+#
 # Optional fields used by the filters on the Papers page:
 #   type     research (default) | review | commentary | preprint
 #            research and review count as "Peer-reviewed";

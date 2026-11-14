@@ -1,0 +1,27 @@
+{
+  "doi": "10.1016/j.ceb.2018.03.009",
+  "type": "journal-article",
+  "title": "Genome organization at different scales: nature, formation and function",
+  "container": "Current Opinion in Cell Biology",
+  "short_container": "Current Opinion in Cell Biology",
+  "publisher": "Elsevier BV",
+  "volume": "52",
+  "page": "145-153",
+  "issued": [
+    2018,
+    6
+  ],
+  "issn": [
+    "0955-0674"
+  ],
+  "authors": [
+    {
+      "given": "Jacques",
+      "family": "Serizay"
+    },
+    {
+      "given": "Julie",
+      "family": "Ahringer"
+    }
+  ]
+}

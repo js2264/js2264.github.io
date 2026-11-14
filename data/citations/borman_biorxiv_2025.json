@@ -1,0 +1,123 @@
+{
+  "doi": "10.1101/2025.10.29.685036",
+  "type": "posted-content",
+  "subtype": "preprint",
+  "title": "Orchestrating Microbiome Analysis with Bioconductor",
+  "publisher": "openRxiv",
+  "institution": "bioRxiv",
+  "issued": [
+    2025,
+    10,
+    30
+  ],
+  "authors": [
+    {
+      "given": "Tuomas",
+      "family": "Borman",
+      "orcid": "https://orcid.org/0000-0002-8563-8884"
+    },
+    {
+      "given": "Giulio",
+      "family": "Benedetti",
+      "orcid": "https://orcid.org/0000-0002-8732-7692"
+    },
+    {
+      "given": "Geraldson",
+      "family": "Muluh",
+      "orcid": "https://orcid.org/0000-0002-9721-5192"
+    },
+    {
+      "given": "Aura",
+      "family": "Raulo",
+      "orcid": "https://orcid.org/0000-0003-4860-7840"
+    },
+    {
+      "given": "Benjamin",
+      "family": "Valderrama",
+      "orcid": "https://orcid.org/0000-0002-4740-8965"
+    },
+    {
+      "given": "Artur",
+      "family": "Sannikov",
+      "orcid": "https://orcid.org/0000-0001-7765-123X"
+    },
+    {
+      "given": "Stefanie",
+      "family": "Peschel",
+      "orcid": "https://orcid.org/0000-0002-7936-7627"
+    },
+    {
+      "given": "Yihan",
+      "family": "Liu",
+      "orcid": "https://orcid.org/0009-0008-0462-7501"
+    },
+    {
+      "given": "Rasmus",
+      "family": "Hindström",
+      "orcid": "https://orcid.org/0009-0004-5731-178X"
+    },
+    {
+      "name": "OMA consortium"
+    },
+    {
+      "given": "Katariina",
+      "family": "Pärnänen",
+      "orcid": "https://orcid.org/0000-0003-2220-1738"
+    },
+    {
+      "given": "Christian L.",
+      "family": "Müller",
+      "orcid": "https://orcid.org/0000-0002-3821-7083"
+    },
+    {
+      "given": "Aki S.",
+      "family": "Havulinna",
+      "orcid": "https://orcid.org/0000-0002-4787-8959"
+    },
+    {
+      "given": "Sudarshan",
+      "family": "Shetty",
+      "orcid": "https://orcid.org/0000-0001-7280-9915"
+    },
+    {
+      "given": "Marcel",
+      "family": "Ramos",
+      "orcid": "https://orcid.org/0000-0002-3242-0582"
+    },
+    {
+      "given": "Domenick J.",
+      "family": "Braccia",
+      "orcid": "https://orcid.org/0000-0002-4606-6254"
+    },
+    {
+      "given": "Héctor Corrada",
+      "family": "Bravo",
+      "orcid": "https://orcid.org/0000-0002-1255-4444"
+    },
+    {
+      "given": "Felix M.",
+      "family": "Ernst",
+      "orcid": "https://orcid.org/0000-0001-5064-0928"
+    },
+    {
+      "given": "Levi",
+      "family": "Waldron",
+      "orcid": "https://orcid.org/0000-0003-2725-0694"
+    },
+    {
+      "given": "Thomaz F. S.",
+      "family": "Bastiaanssen",
+      "orcid": "https://orcid.org/0000-0001-6891-734X"
+    },
+    {
+      "given": "Himel",
+      "family": "Mallick",
+      "orcid": "https://orcid.org/0000-0003-4956-2429"
+    },
+    {
+      "given": "Leo",
+      "family": "Lahti",
+      "orcid": "https://orcid.org/0000-0001-5537-637X"
+    }
+  ]
+}

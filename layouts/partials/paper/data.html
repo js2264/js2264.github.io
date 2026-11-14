@@ -1,0 +1,61 @@
+{{- /*
+  Everything known about one paper, as a dict: what data/papers.yaml says, and
+  its Crossref record when scripts/citations.py fetched one (data/citations/<id>.json).
+
+    partial "paper/data.html" "<id>"  →  dict
+      paper     the entry of papers.yaml
+      record    the Crossref record, or nil
+      authors   list of dicts: name ("Jacques Serizay"), given, family, orcid,
+                me (this site's author), equal (a † in papers.yaml)
+      others    true when the list is papers.yaml's short one, cut by "et al."
+      equal     true when some authors contributed equally
+      volume, issue, pages
+      packages  the packages of data/software.yaml that cite this paper's DOI
+      page      the paper's page (/papers/<id>/)
+*/ -}}
+{{- $id := . -}}
+{{- $paper := index (where site.Data.papers.papers "id" $id) 0 -}}
+{{- $record := index (site.Data.citations | default dict) $id -}}
+
+{{- /* Equal contributions: the names followed by † in papers.yaml */ -}}
+{{- $equal := slice -}}
+{{- range findRE `[^\s,&†]+ †` $paper.authors }}{{ $equal = $equal | append (strings.TrimSuffix " †" .) }}{{ end -}}
+
+{{- $authors := slice -}}
+{{- $others := false -}}
+{{- with $record }}{{ with .authors -}}
+  {{- range . -}}
+    {{- $family := .family | default .name -}}
+    {{- $name := .name | default (trim (printf "%s %s" (.given | default "") (.family | default "")) " ") -}}
+    {{- $authors = $authors | append (dict "name" $name "given" (.given | default "") "family" $family "orcid" (.orcid | default "") "me" (eq $family "Serizay") "equal" (in $equal $family)) -}}
+  {{- end -}}
+{{- end }}{{ end -}}
+{{- if not $authors -}}
+  {{- /* No record: papers.yaml's short list of family names */ -}}
+  {{- $others = strings.Contains $paper.authors "et al" -}}
+  {{- $list := replaceRE `,?\s*et al\.?$` "" $paper.authors -}}
+  {{- range split (replaceRE `(,\s*and\s+|\s+and\s+|\s*&\s*)` ", " $list) ", " -}}
+    {{- $family := trim (replace . "†" "") " " -}}
+    {{- with $family }}{{ $authors = $authors | append (dict "name" . "given" "" "family" . "orcid" "" "me" (eq . "Serizay") "equal" (in $equal .)) }}{{ end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- $pages := "" -}}
+{{- with $record }}{{ $pages = .page | default .article_number | default "" }}{{ end -}}
+
+{{- $software := slice -}}
+{{- range site.Data.software.sections }}{{ range .packages }}{{ $software = $software | append . }}{{ end }}{{ end -}}
+{{- $packages := cond (isset $paper "doi") (where $software "paper" $paper.doi) slice -}}
+
+{{- return dict
+  "paper" $paper
+  "record" $record
+  "authors" $authors
+  "others" $others
+  "equal" (gt (len $equal) 0)
+  "volume" (cond (isset ($record | default dict) "volume") (index ($record | default dict) "volume") "")
+  "issue" (cond (isset ($record | default dict) "issue") (index ($record | default dict) "issue") "")
+  "pages" $pages
+  "packages" $packages
+  "page" (site.GetPage (printf "/papers/%s" $id))
+-}}

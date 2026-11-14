@@ -406,7 +406,8 @@ body.cx-page {
 }
 
 /* This site's author, as a highlighter would mark it */
-.paper .paper__me {
+.paper .paper__me,
+.paper-page .paper__me {
   font-weight: 600;
   color: var(--cx-text);
   background: linear-gradient(to top, var(--cx-accent-soft) 45%, transparent 45%);
@@ -472,6 +473,126 @@ body.cx-page {
   width: 12px;
   height: 12px;
   color: var(--cx-text-faint);
+}
+
+/* All the papers' citations, above the filters */
+.papers .papers__downloads {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 6px;
+  align-items: center;
+  margin: 0 0 14px;
+  font-size: var(--cx-step--1);
+  color: var(--cx-text-dim);
+}
+
+.papers__downloads svg {
+  width: 13px;
+  height: 13px;
+  color: var(--cx-text-faint);
+}
+
+/* ---- a paper's page (layouts/partials/paper-page.html) -------------------- */
+.paper-page .paper-page__authors {
+  margin: 0;
+  font-size: var(--cx-step-0);
+  line-height: 1.65;
+  color: var(--cx-text-dim);
+}
+
+.paper-page__authors sup,
+.paper-page__note sup {
+  margin-left: 1px;
+  color: var(--cx-accent);
+}
+
+.paper-page .paper-page__note {
+  margin: 4px 0 0;
+  font-size: var(--cx-step--1);
+  color: var(--cx-text-faint);
+}
+
+.paper-page .paper-page__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+  align-items: center;
+  margin: 14px 0 0;
+  font-size: var(--cx-step-0);
+  color: var(--cx-text-dim);
+}
+
+.paper-page__meta em {
+  color: var(--cx-text);
+}
+
+.paper-page__meta span:not(.cx-badge) {
+  display: inline-flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.paper-page__meta svg {
+  width: 13px;
+  height: 13px;
+  color: var(--cx-text-faint);
+}
+
+.paper-page .cx-badge {
+  padding: 3px 9px;
+  font-size: var(--cx-step--2);
+}
+
+.paper-page .paper-page__actions,
+.paper-page .paper-page__downloads {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 22px 0 0;
+}
+
+.paper-page .paper-page__downloads {
+  margin-top: 12px;
+}
+
+.paper-page .paper-page__software {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.paper-page__software a.cx-chip {
+  color: var(--cx-text);
+  text-decoration: none;
+}
+
+.paper-page__software a.cx-chip:hover {
+  color: var(--cx-accent);
+  border-color: var(--cx-accent);
+}
+
+.paper-page__software .cx-chip svg {
+  width: 12px;
+  height: 12px;
+  color: var(--cx-text-faint);
+}
+
+.paper-page .paper-page__reference {
+  margin: 0 0 14px;
+  padding: 12px 16px;
+  font-size: var(--cx-step-0);
+  line-height: 1.6;
+  background: var(--cx-bg-raised);
+  border: 1px solid var(--cx-border);
+  border-left: 3px solid var(--cx-accent);
+  border-radius: var(--cx-radius);
+}
+
+/* The BibTeX entry wraps, so that its long author line can be read */
+.paper-page__bibtex pre {
+  font-size: var(--cx-step--1);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
 }
 
 /* ---- software ------------------------------------------------------------ */

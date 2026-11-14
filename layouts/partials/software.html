@@ -10,6 +10,10 @@
   {{- $filters = $filters | append (dict "key" (lower .) "label" . "icon" (lower .) "count" (len (where $all "language" .))) }}
 {{- end }}
 
+{{- /* schema.org: one SoftwareSourceCode per package, written by the author below */}}
+{{- $person := printf "%s#person" ("/" | absURL) }}
+{{- $graph := slice }}
+
 {{- /* The themes, as the page's "On this page" (chromokit's theme reads this) */}}
 {{- $toc := slice }}
 {{- range $sections }}{{ $toc = $toc | append (dict "id" .id "title" .title) }}{{ end }}
@@ -94,7 +98,33 @@
       {{- with $pkg.docs }}{{ $links = $links | append (dict "label" "Docs" "url" .) }}{{ end }}
       {{- with $repo }}{{ $links = $links | append (dict "label" "GitHub" "url" .) }}{{ end }}
       {{- with $registryURL }}{{ $links = $links | append (dict "label" $registry "url" .) }}{{ end }}
-      {{- with $pkg.paper }}{{ $links = $links | append (dict "label" "Paper" "url" (printf "https://doi.org/%s" .)) }}{{ end }}
+      {{- /* The paper to cite: its page here when papers.yaml has it, else its DOI */}}
+      {{- with $pkg.paper }}
+        {{- $cited := where site.Data.papers.papers "doi" . }}
+        {{- with and $cited (site.GetPage (printf "/papers/%s" (index $cited 0).id)) }}
+          {{- $links = $links | append (dict "label" "Cite" "url" (printf "%s#cite" .RelPermalink) "internal" true) }}
+        {{- else }}
+          {{- $links = $links | append (dict "label" "Paper" "url" (printf "https://doi.org/%s" .)) }}
+        {{- end }}
+      {{- end }}
+
+      {{- /* schema.org: the package, for search engines */}}
+      {{- $code := dict
+        "@type" (cond (eq $kind "web app") (slice "SoftwareSourceCode" "WebApplication") "SoftwareSourceCode")
+        "@id" (printf "%s#%s" $.Page.Permalink ($pkg.name | anchorize))
+        "name" $pkg.name
+        "description" $pkg.tagline
+        "programmingLanguage" $pkg.language
+        "author" (dict "@id" $person)
+      }}
+      {{- with $pkg.docs | default $pkg.app | default $repo }}{{ $code = merge $code (dict "url" .) }}{{ end }}
+      {{- with $repo }}{{ $code = merge $code (dict "codeRepository" .) }}{{ end }}
+      {{- with $registryURL }}{{ $code = merge $code (dict "sameAs" .) }}{{ end }}
+      {{- with $pkg.since }}{{ $code = merge $code (dict "dateCreated" (printf "%v" .)) }}{{ end }}
+      {{- if in ($pkg.roles | default slice) "maintainer" }}{{ $code = merge $code (dict "maintainer" (dict "@id" $person)) }}{{ end }}
+      {{- with $pkg.paper }}{{ $code = merge $code (dict "citation" (printf "https://doi.org/%s" .)) }}{{ end }}
+      {{- with $kind }}{{ if eq . "web app" }}{{ $code = merge $code (dict "applicationCategory" "Science" "operatingSystem" "Any (web browser)") }}{{ end }}{{ end }}
+      {{- $graph = $graph | append $code }}
 
       <article class="cx-card package" id="{{ $pkg.name | anchorize }}" data-tags="{{ $pkg.language | lower }}">
 
@@ -121,7 +151,7 @@
 
         {{- with $links }}
         <p class="package__links">
-          {{- range . }}<a href="{{ .url }}" target="_blank" rel="noopener">{{ .label }}</a>{{ end }}
+          {{- range . }}<a href="{{ .url }}"{{ if not .internal }} target="_blank" rel="noopener"{{ end }}>{{ .label }}</a>{{ end }}
         </p>
         {{- end }}
 
@@ -137,3 +167,5 @@
   {{- end }}
 
 </div>
+
+<script type="application/ld+json">{{ dict "@context" "https://schema.org" "@graph" $graph | jsonify | safeJS }}</script>

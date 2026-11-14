@@ -1,0 +1,116 @@
+{
+  "doi": "10.1126/science.adm9466",
+  "type": "journal-article",
+  "title": "Sequence-dependent activity and compartmentalization of foreign DNA in a eukaryotic nucleus",
+  "container": "Science",
+  "short_container": "Science",
+  "publisher": "American Association for the Advancement of Science (AAAS)",
+  "volume": "387",
+  "issue": "6734",
+  "article_number": "eadm9466",
+  "issued": [
+    2025,
+    2,
+    7
+  ],
+  "issn": [
+    "0036-8075",
+    "1095-9203"
+  ],
+  "authors": [
+    {
+      "given": "Léa",
+      "family": "Meneu",
+      "orcid": "https://orcid.org/0000-0003-4245-6762"
+    },
+    {
+      "given": "Christophe",
+      "family": "Chapard",
+      "orcid": "https://orcid.org/0000-0003-4342-6012"
+    },
+    {
+      "given": "Jacques",
+      "family": "Serizay",
+      "orcid": "https://orcid.org/0000-0002-4295-0624"
+    },
+    {
+      "given": "Alex",
+      "family": "Westbrook",
+      "orcid": "https://orcid.org/0009-0002-1771-7617"
+    },
+    {
+      "given": "Etienne",
+      "family": "Routhier",
+      "orcid": "https://orcid.org/0009-0003-4003-7588"
+    },
+    {
+      "given": "Myriam",
+      "family": "Ruault",
+      "orcid": "https://orcid.org/0000-0003-2990-4794"
+    },
+    {
+      "given": "Manon",
+      "family": "Perrot"
+    },
+    {
+      "given": "Alexandros",
+      "family": "Minakakis"
+    },
+    {
+      "given": "Fabien",
+      "family": "Girard"
+    },
+    {
+      "given": "Amaury",
+      "family": "Bignaud",
+      "orcid": "https://orcid.org/0000-0003-4480-920X"
+    },
+    {
+      "given": "Antoine",
+      "family": "Even"
+    },
+    {
+      "given": "Géraldine",
+      "family": "Gourgues"
+    },
+    {
+      "given": "Domenico",
+      "family": "Libri",
+      "orcid": "https://orcid.org/0000-0001-6728-0594"
+    },
+    {
+      "given": "Carole",
+      "family": "Lartigue",
+      "orcid": "https://orcid.org/0000-0001-5550-7579"
+    },
+    {
+      "given": "Aurèle",
+      "family": "Piazza",
+      "orcid": "https://orcid.org/0000-0002-7722-0955"
+    },
+    {
+      "given": "Agnès",
+      "family": "Thierry",
+      "orcid": "https://orcid.org/0000-0002-1566-0664"
+    },
+    {
+      "given": "Angela",
+      "family": "Taddei"
+    },
+    {
+      "given": "Frédéric",
+      "family": "Beckouët",
+      "orcid": "https://orcid.org/0000-0002-9009-1852"
+    },
+    {
+      "given": "Julien",
+      "family": "Mozziconacci",
+      "orcid": "https://orcid.org/0000-0001-5652-0302"
+    },
+    {
+      "given": "Romain",
+      "family": "Koszul",
+      "orcid": "https://orcid.org/0000-0002-3086-1173"
+    }
+  ]
+}

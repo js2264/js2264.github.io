@@ -1,0 +1,35 @@
+{
+  "doi": "10.1051/medsci/2026096",
+  "type": "journal-article",
+  "title": "Quand une cellule eucaryote adopte un chromosome bactérien",
+  "container": "médecine/sciences",
+  "short_container": "Med Sci (Paris)",
+  "publisher": "EDP Sciences",
+  "volume": "42",
+  "issue": "6-7",
+  "page": "541-543",
+  "issued": [
+    2026,
+    6
+  ],
+  "issn": [
+    "0767-0974",
+    "1958-5381"
+  ],
+  "authors": [
+    {
+      "given": "Léa",
+      "family": "Meneu",
+      "orcid": "https://orcid.org/0000-0003-4245-6762"
+    },
+    {
+      "given": "Jacques",
+      "family": "Serizay",
+      "orcid": "https://orcid.org/0000-0002-4295-0624"
+    },
+    {
+      "given": "Romain",
+      "family": "Koszul"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "doi": "10.1038/s41467-024-44761-x",
+  "type": "journal-article",
+  "title": "Orchestrating chromosome conformation capture analysis with Bioconductor",
+  "container": "Nature Communications",
+  "short_container": "Nat Commun",
+  "publisher": "Springer Science and Business Media LLC",
+  "volume": "15",
+  "issue": "1",
+  "article_number": "1072",
+  "issued": [
+    2024,
+    2,
+    5
+  ],
+  "issn": [
+    "2041-1723"
+  ],
+  "authors": [
+    {
+      "given": "Jacques",
+      "family": "Serizay",
+      "orcid": "https://orcid.org/0000-0002-4295-0624"
+    },
+    {
+      "given": "Cyril",
+      "family": "Matthey-Doret",
+      "orcid": "https://orcid.org/0000-0002-1126-1535"
+    },
+    {
+      "given": "Amaury",
+      "family": "Bignaud",
+      "orcid": "https://orcid.org/0000-0003-4480-920X"
+    },
+    {
+      "given": "Lyam",
+      "family": "Baudry",
+      "orcid": "https://orcid.org/0000-0002-9283-674X"
+    },
+    {
+      "given": "Romain",
+      "family": "Koszul",
+      "orcid": "https://orcid.org/0000-0002-3086-1173"
+    }
+  ]
+}

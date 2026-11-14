@@ -1,0 +1,32 @@
+{
+  "doi": "10.1016/j.gde.2026.102471",
+  "type": "journal-article",
+  "title": "Synthetic chromosomes for 3D functional genomics: from principles to AI-guided design",
+  "container": "Current Opinion in Genetics & Development",
+  "short_container": "Current Opinion in Genetics & Development",
+  "publisher": "Elsevier BV",
+  "volume": "98",
+  "page": "102471",
+  "article_number": "102471",
+  "issued": [
+    2026,
+    6
+  ],
+  "issn": [
+    "0959-437X"
+  ],
+  "authors": [
+    {
+      "given": "Manon",
+      "family": "Perrot"
+    },
+    {
+      "given": "Jacques",
+      "family": "Serizay"
+    },
+    {
+      "given": "Romain",
+      "family": "Koszul"
+    }
+  ]
+}

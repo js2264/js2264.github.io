@@ -1,0 +1,138 @@
+{
+  "doi": "10.1093/ajrcmb/aanag071",
+  "type": "journal-article",
+  "title": "FOXJ1 transcriptional targets in human airway cells and impaired multiciliogenesis in FOXJ1 -associated primary ciliary dyskinesia",
+  "container": "American Journal of Respiratory Cell and Molecular Biology",
+  "publisher": "Oxford University Press (OUP)",
+  "volume": "74",
+  "issue": "11",
+  "page": "1553-1565",
+  "issued": [
+    2026,
+    3,
+    30
+  ],
+  "issn": [
+    "1535-4989"
+  ],
+  "authors": [
+    {
+      "given": "Lucie",
+      "family": "Thomas",
+      "orcid": "https://orcid.org/0000-0001-6998-590X"
+    },
+    {
+      "given": "Jacques",
+      "family": "Serizay",
+      "orcid": "https://orcid.org/0000-0002-4295-0624"
+    },
+    {
+      "given": "Rahma",
+      "family": "Mani",
+      "orcid": "https://orcid.org/0000-0003-4603-1016"
+    },
+    {
+      "given": "Sandrine",
+      "family": "Couvet",
+      "orcid": "https://orcid.org/0000-0003-3676-1891"
+    },
+    {
+      "given": "Jean-François",
+      "family": "Papon",
+      "orcid": "https://orcid.org/0000-0002-2323-9239"
+    },
+    {
+      "given": "Aline",
+      "family": "Tamalet"
+    },
+    {
+      "given": "Rana",
+      "family": "Mitri"
+    },
+    {
+      "given": "Catherine",
+      "family": "Faucon"
+    },
+    {
+      "given": "Marlene",
+      "family": "Murris-Espin"
+    },
+    {
+      "given": "Emmanuelle",
+      "family": "Blanchard",
+      "orcid": "https://orcid.org/0000-0002-9541-5190"
+    },
+    {
+      "given": "Maud",
+      "family": "Langeois"
+    },
+    {
+      "given": "Sophie",
+      "family": "Blesson"
+    },
+    {
+      "given": "Sylvie",
+      "family": "Tissier",
+      "orcid": "https://orcid.org/0000-0003-4503-3124"
+    },
+    {
+      "given": "Guy",
+      "family": "Montantin",
+      "orcid": "https://orcid.org/0000-0003-1886-4133"
+    },
+    {
+      "given": "Florence Dastot-Le",
+      "family": "Moal",
+      "orcid": "https://orcid.org/0000-0001-7368-5344"
+    },
+    {
+      "given": "Romain",
+      "family": "Levergeois",
+      "orcid": "https://orcid.org/0009-0001-7339-2039"
+    },
+    {
+      "given": "Bruno",
+      "family": "Louis",
+      "orcid": "https://orcid.org/0000-0001-9587-9932"
+    },
+    {
+      "given": "Nicole",
+      "family": "Beydon"
+    },
+    {
+      "given": "Guillaume",
+      "family": "Thouvenin",
+      "orcid": "https://orcid.org/0000-0003-0528-5458"
+    },
+    {
+      "given": "Estelle",
+      "family": "Escudier",
+      "orcid": "https://orcid.org/0000-0002-1569-8072"
+    },
+    {
+      "given": "Serge",
+      "family": "Amselem",
+      "orcid": "https://orcid.org/0000-0001-9506-3968"
+    },
+    {
+      "given": "Irina",
+      "family": "Giurgea",
+      "orcid": "https://orcid.org/0000-0002-5035-2958"
+    },
+    {
+      "given": "Laure-Emmanuelle",
+      "family": "Zaragosi",
+      "orcid": "https://orcid.org/0000-0001-6747-7928"
+    },
+    {
+      "given": "Alice",
+      "family": "Meunier",
+      "orcid": "https://orcid.org/0000-0001-6131-7747"
+    },
+    {
+      "given": "Marie",
+      "family": "Legendre",
+      "orcid": "https://orcid.org/0000-0003-2178-0846"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{{- /*
+  One page per paper of data/papers.yaml, at /papers/<id>/: nothing to write by
+  hand. The page's body is the `paper` shortcode (layouts/partials/paper-page.html),
+  its description (for search engines and link previews) the abstract's start,
+  and its weight the paper's place in papers.yaml, so that the previous / next
+  links at its foot go from paper to paper, newest first.
+*/ -}}
+{{- range $i, $paper := site.Data.papers.papers }}
+  {{- $.AddPage (dict
+    "kind" "page"
+    "path" $paper.id
+    "title" $paper.title
+    "date" $paper.date
+    "weight" (add $i 1)
+    "params" (dict
+      "paper" $paper.id
+      "description" (cond (isset $paper "abstract") (truncate 200 $paper.abstract) (printf "%s, %s %v." $paper.title $paper.journal $paper.year))
+    )
+    "content" (dict "mediaType" "text/markdown" "value" (printf "{{< paper %q >}}" $paper.id))
+  ) }}
+{{- end }}

@@ -1,8 +1,8 @@
 {{- /*
   The site's `menu.main`, Home first, as a list of dicts: name, url, current
-  (the page being rendered), and external (a file such as a PDF, or another
-  site, which opens in a new tab). The sidebar and the previous/next links
-  both read it.
+  (the page being rendered), ancestor (a page below it: /papers/ for
+  /papers/one/), and external (a file such as a PDF, or another site, which
+  opens in a new tab). The sidebar and the previous/next links both read it.
 */ -}}
 {{- $here := .RelPermalink -}}
 {{- $items := slice (dict "name" "Home" "url" ("/" | relURL) "current" .IsHome "external" false) -}}
@@ -10,6 +10,8 @@
   {{- $url := .URL | relURL -}}
   {{- with .Page }}{{ $url = .RelPermalink }}{{ end -}}
   {{- $external := or (strings.Contains .URL "://") (strings.HasSuffix .URL ".pdf") -}}
-  {{- $items = $items | append (dict "name" .Name "url" $url "current" (and (not $external) (eq (strings.TrimSuffix "/" $url) (strings.TrimSuffix "/" $here))) "external" $external) -}}
+  {{- $current := and (not $external) (eq (strings.TrimSuffix "/" $url) (strings.TrimSuffix "/" $here)) -}}
+  {{- $ancestor := and (not $external) (not $current) (ne $url ("/" | relURL)) (strings.HasPrefix $here (printf "%s/" (strings.TrimSuffix "/" $url))) -}}
+  {{- $items = $items | append (dict "name" .Name "url" $url "current" $current "ancestor" $ancestor "external" $external) -}}
 {{- end -}}
 {{- return $items -}}

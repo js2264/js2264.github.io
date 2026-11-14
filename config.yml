@@ -70,6 +70,18 @@ params:
         - name: Email
           url: mailto:jacques.serizay@pasteur.fr
           icon: mail
+    # Who the site is about, for search engines (schema.org Person, on every page:
+    # layouts/partials/jsonld.html); the profiles are the `links` above
+    person:
+        jobTitle: "Research Associate (Chargé de recherche)"
+        worksFor:
+            - name: Institut Pasteur
+              url: https://www.pasteur.fr/
+            - name: CNRS
+              url: https://www.cnrs.fr/
+        alumniOf:
+            - name: University of Cambridge
+            - name: École Normale Supérieure de Cachan
     # The home page (layouts/index.html): the portrait and the line under the name
     home:
         image: picture.png
@@ -78,6 +90,13 @@ params:
     images: ["picture.png"]
     # KaTeX: off site-wide (no page uses math); set `math: true` in a page's front matter if needed
     math: false
+
+# The citation files of each paper (/papers/<id>/<id>.bib and .ris)
+mediaTypes:
+    application/x-bibtex:
+        suffixes: ["bib"]
+    application/x-research-info-systems:
+        suffixes: ["ris"]
 
 markup:
     goldmark:

@@ -22,7 +22,7 @@
     {{- with site.Menus.main }}
     <li class="cx-nav__group"><ul style="margin:0;border:0">
       {{- range partial "chromokit/menu.html" $current }}
-      <li><a href="{{ .url }}"{{ if .current }} aria-current="page"{{ end }}{{ if .external }} target="_blank" rel="noopener"{{ end }}>{{ .name }}{{ if .external }} {{ partial "chromokit/icon.html" "arrow-up-right" }}{{ end }}</a></li>
+      <li><a href="{{ .url }}"{{ if .current }} aria-current="page"{{ else if .ancestor }} aria-current="true"{{ end }}{{ if .external }} target="_blank" rel="noopener"{{ end }}>{{ .name }}{{ if .external }} {{ partial "chromokit/icon.html" "arrow-up-right" }}{{ end }}</a></li>
       {{- end }}
     </ul></li>
     {{- else }}

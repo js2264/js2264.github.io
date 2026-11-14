@@ -1,0 +1,25 @@
+{{- /*
+  A paper's reference, as one line of HTML in the Vancouver style biomedical
+  journals use: the first six authors (family name and initials), then "et al.".
+
+    Villain M, Hocher A, Serizay J, et al. Chromatin is dispensable for
+    bacterial life. bioRxiv. 2026. doi:10.64898/2026.08.21.744486
+*/ -}}
+{{- $d := . -}}
+{{- $p := $d.paper -}}
+{{- $names := slice -}}
+{{- range first 6 $d.authors -}}
+  {{- $initials := "" -}}
+  {{- range split (replace .given "-" " ") " " }}{{ with . }}{{ $initials = printf "%s%s" $initials (substr . 0 1) }}{{ end }}{{ end -}}
+  {{- $names = $names | append (trim (printf "%s %s" .family $initials) " ") -}}
+{{- end -}}
+{{- $authors := delimit $names ", " -}}
+{{- if or (gt (len $d.authors) 6) $d.others }}{{ $authors = printf "%s, et al" $authors }}{{ end -}}
+{{- $title := $p.title -}}
+{{- if not (findRE `[.?!]$` $title) }}{{ $title = printf "%s." $title }}{{ end -}}
+{{- $where := printf "%v" $p.year -}}
+{{- with $d.volume }}{{ $where = printf "%s;%s" $where . }}{{ with $d.issue }}{{ $where = printf "%s(%s)" $where . }}{{ end }}{{ end -}}
+{{- with $d.pages }}{{ $where = printf "%s:%s" $where . }}{{ end -}}
+{{- $html := printf "%s. %s <em>%s</em>. %s." (htmlEscape $authors) (htmlEscape $title) (htmlEscape $p.journal) $where -}}
+{{- with $p.doi }}{{ $html = printf `%s doi:<a href="https://doi.org/%s">%s</a>` $html . . }}{{ end -}}
+{{- return (safeHTML $html) -}}

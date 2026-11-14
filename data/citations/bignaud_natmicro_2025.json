@@ -1,0 +1,113 @@
+{
+  "doi": "10.1038/s41564-025-02108-2",
+  "type": "journal-article",
+  "title": "Phages with a broad host range are common across ecosystems",
+  "container": "Nature Microbiology",
+  "short_container": "Nat Microbiol",
+  "publisher": "Springer Science and Business Media LLC",
+  "volume": "10",
+  "issue": "10",
+  "page": "2537-2549",
+  "issued": [
+    2025,
+    9,
+    19
+  ],
+  "issn": [
+    "2058-5276"
+  ],
+  "authors": [
+    {
+      "given": "Amaury",
+      "family": "Bignaud",
+      "orcid": "https://orcid.org/0000-0003-4480-920X"
+    },
+    {
+      "given": "Devon E.",
+      "family": "Conti"
+    },
+    {
+      "given": "Agnès",
+      "family": "Thierry"
+    },
+    {
+      "given": "Jacques",
+      "family": "Serizay",
+      "orcid": "https://orcid.org/0000-0002-4295-0624"
+    },
+    {
+      "given": "Karine",
+      "family": "Labadie",
+      "orcid": "https://orcid.org/0000-0001-7467-8509"
+    },
+    {
+      "given": "Julie",
+      "family": "Poulain"
+    },
+    {
+      "given": "Olivia",
+      "family": "Cheny"
+    },
+    {
+      "given": "Maritrini",
+      "family": "Colón-González",
+      "orcid": "https://orcid.org/0000-0001-6821-1726"
+    },
+    {
+      "given": "Laurent",
+      "family": "Debarbieux",
+      "orcid": "https://orcid.org/0000-0001-6875-5758"
+    },
+    {
+      "given": "Marianna",
+      "family": "Guerrero-Osornio"
+    },
+    {
+      "given": "Sophie",
+      "family": "Helaine",
+      "orcid": "https://orcid.org/0000-0002-9877-4180"
+    },
+    {
+      "given": "Peter",
+      "family": "Hill"
+    },
+    {
+      "given": "Gwenaelle",
+      "family": "Le Tinier"
+    },
+    {
+      "given": "Gael A.",
+      "family": "Millot"
+    },
+    {
+      "given": "Lucia",
+      "family": "Morales",
+      "orcid": "https://orcid.org/0000-0002-9511-5067"
+    },
+    {
+      "given": "Andrés",
+      "family": "Parada",
+      "orcid": "https://orcid.org/0000-0003-0100-7100"
+    },
+    {
+      "given": "Nadia",
+      "family": "Riera",
+      "orcid": "https://orcid.org/0000-0001-6295-6452"
+    },
+    {
+      "given": "Gregorio",
+      "family": "Iraola",
+      "orcid": "https://orcid.org/0000-0002-6516-3404"
+    },
+    {
+      "given": "Romain",
+      "family": "Koszul",
+      "orcid": "https://orcid.org/0000-0002-3086-1173"
+    },
+    {
+      "given": "Martial",
+      "family": "Marbouty",
+      "orcid": "https://orcid.org/0000-0002-1668-8423"
+    }
+  ]
+}

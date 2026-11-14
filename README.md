@@ -18,7 +18,7 @@ documentation and chromokit's own site), in light and dark.
 | -------- | ------------------------------------------------------------------------------------------- |
 | Home     | `content/_index.md` (text); `config.yml` > `params.home` (picture, line under the name)     |
 | About    | `content/about/_index.md`                                                                   |
-| Papers   | `data/papers.yaml`; PDFs in `static/papers/pdfs/` as `<id>.pdf` (and `<id>_supp.pdf`)       |
+| Papers   | `data/papers.yaml`; PDFs in `static/papers/pdfs/` as `<id>.pdf` (and `<id>_supp.pdf`); then `python3 scripts/citations.py` |
 | Software | `data/software.yaml` (field reference at the top of the file)                               |
 | Courses  | `data/courses.yaml` (sorted and grouped by year automatically)                              |
 | Books    | `data/books.yaml`; covers in `static/book_covers/`                                          |
@@ -26,6 +26,19 @@ documentation and chromokit's own site), in light and dark.
 
 Data-driven pages follow the same pattern: `content/<page>.md` calls the `<page>` shortcode, which
 renders `layouts/partials/<page>.html` from `data/<page>.yaml`, styled in `static/site.css`.
+
+**Papers** also get a page each, `/papers/<id>/`, made by `content/papers/_content.gotmpl` from
+`data/papers.yaml` (nothing to write by hand): authors, journal, abstract, links, the packages
+that implement it, and a "Cite" section with a reference, BibTeX, and `.bib` and `.ris` files.
+The Papers page offers every paper in one `.bib` and one `.ris`. The full author lists, volumes
+and pages come from Crossref: `python3 scripts/citations.py` fetches the record of each paper that
+has none yet into `data/citations/<id>.json` (`--refresh` fetches them all again). The records are
+committed, so the build needs no network, and can be corrected by hand.
+
+**For search engines**, every page describes its subject in schema.org terms (JSON-LD,
+`layouts/partials/jsonld.html`): the person (`params.person` and `params.links`), each paper's page
+a `ScholarlyArticle` (authors with their ORCID, journal, DOI, abstract, PDF), the Papers page the
+list of them, and the Software page a `SoftwareSourceCode` per package.
 
 There is no bar across the top (`params.header: false`): the menu (`config.yml` > `menu.main`)
 is the sidebar, with the name at its top and the links (Scholar, ORCID, GitHub, email:

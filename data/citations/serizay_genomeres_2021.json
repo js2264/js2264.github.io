@@ -1,0 +1,48 @@
+{
+  "doi": "10.1101/gr.265934.120",
+  "type": "journal-article",
+  "title": "Distinctive regulatory architectures of germline-active and somatic genes in C. elegans",
+  "container": "Genome Research",
+  "short_container": "Genome Res.",
+  "publisher": "Cold Spring Harbor Laboratory",
+  "volume": "30",
+  "issue": "12",
+  "page": "1752-1765",
+  "issued": [
+    2020,
+    10,
+    22
+  ],
+  "issn": [
+    "1088-9051",
+    "1549-5469"
+  ],
+  "authors": [
+    {
+      "given": "Jacques",
+      "family": "Serizay",
+      "orcid": "https://orcid.org/0000-0002-4295-0624"
+    },
+    {
+      "given": "Yan",
+      "family": "Dong"
+    },
+    {
+      "given": "Jürgen",
+      "family": "Jänes"
+    },
+    {
+      "given": "Michael",
+      "family": "Chesney"
+    },
+    {
+      "given": "Chiara",
+      "family": "Cerrato"
+    },
+    {
+      "given": "Julie",
+      "family": "Ahringer",
+      "orcid": "https://orcid.org/0000-0002-7074-4051"
+    }
+  ]
+}
