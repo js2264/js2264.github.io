@@ -69,7 +69,33 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     needs: build
+    outputs:
+      page_url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5
+
+  # After deploying: every stylesheet and script of a few pages must load from the live
+  # site. On jserizay.com, each repository with a Pages site of its own takes the path of its
+  # name (jserizay.com/chromokit/ is chromokit's site), so a folder of this site with the
+  # same name is never served; the theme's files once were, and the site went unstyled.
+  check:
+    runs-on: ubuntu-latest
+    needs: deploy
+    steps:
+      - name: The live pages' stylesheets and scripts load
+        env:
+          SITE: ${{ needs.deploy.outputs.page_url }}
+        # The query string asks the CDN for this deploy's files, not copies it cached before
+        run: |
+          site="${SITE%/}"
+          fail=0
+          for page in / /papers/ /software/; do
+            for asset in $(curl -fsSL "${site}${page}?check=${GITHUB_RUN_ID}" | grep -oE '(href|src)="?/[^" >]+\.(css|js)' | sed -E 's/^(href|src)="?//' | sort -u); do
+              code=$(curl -s -o /dev/null -w '%{http_code}' "${site}${asset}?check=${GITHUB_RUN_ID}")
+              echo "$code $asset ($page)"
+              [ "$code" = 200 ] || { echo "::error::${asset}, loaded by ${page}, answers ${code}"; fail=1; }
+            done
+          done
+          exit $fail
