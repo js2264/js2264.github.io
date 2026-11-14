@@ -3,9 +3,11 @@
 # Each paper also gets its own page, /papers/<id>/ (content/papers/_content.gotmpl):
 # its authors, abstract, links and "Cite" (a reference, BibTeX and RIS). The full
 # author list, volume, issue and pages come from its Crossref record in
-# data/citations/<id>.json; after adding a paper, fetch its record with
+# data/citations/<id>.json. The deploy fetches the record of a paper that has
+# none; to preview its page locally, or to keep (and correct) its record, run
 #     python3 scripts/citations.py
-# (without one, the page falls back to the short `authors` below).
+# and commit data/citations/. Without a record, the page shows the short
+# `authors` below.
 #
 # Optional fields used by the filters on the Papers page:
 #   type     research (default) | review | commentary | preprint

@@ -18,7 +18,7 @@ documentation and chromokit's own site), in light and dark.
 | -------- | ------------------------------------------------------------------------------------------- |
 | Home     | `content/_index.md` (text); `config.yml` > `params.home` (picture, line under the name)     |
 | About    | `content/about/_index.md`                                                                   |
-| Papers   | `data/papers.yaml`; PDFs in `static/papers/pdfs/` as `<id>.pdf` (and `<id>_supp.pdf`); then `python3 scripts/citations.py` |
+| Papers   | `data/papers.yaml`; PDFs in `static/papers/pdfs/` as `<id>.pdf` (and `<id>_supp.pdf`)       |
 | Software | `data/software.yaml` (field reference at the top of the file)                               |
 | Courses  | `data/courses.yaml` (sorted and grouped by year automatically)                              |
 | Books    | `data/books.yaml`; covers in `static/book_covers/`                                          |
@@ -32,8 +32,11 @@ renders `layouts/partials/<page>.html` from `data/<page>.yaml`, styled in `stati
 that implement it, and a "Cite" section with a reference, BibTeX, and `.bib` and `.ris` files.
 The Papers page offers every paper in one `.bib` and one `.ris`. The full author lists, volumes
 and pages come from Crossref: `python3 scripts/citations.py` fetches the record of each paper that
-has none yet into `data/citations/<id>.json` (`--refresh` fetches them all again). The records are
-committed, so the build needs no network, and can be corrected by hand.
+has none yet into `data/citations/<id>.json` (`--refresh` fetches them all again). The deploy runs
+it before Hugo, so a paper added to `papers.yaml` gets its record without anything else to do; the
+run's summary lists what it fetched, and warns about a DOI Crossref does not know. Run it locally to
+preview a new paper's page with `hugo server`, or to commit its record and correct it by hand: the
+committed records are kept as they are, and the deploy only fetches the missing ones.
 
 **For search engines**, every page describes its subject in schema.org terms (JSON-LD,
 `layouts/partials/jsonld.html`): the person (`params.person` and `params.links`), each paper's page

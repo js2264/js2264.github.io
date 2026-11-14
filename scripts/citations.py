@@ -6,6 +6,10 @@ Fetch each paper's full citation record from Crossref into data/citations/<id>.j
     python3 scripts/citations.py --refresh  # every paper again
     python3 scripts/citations.py <id> ...   # these papers only (again)
 
+The deploy (.github/workflows/hugo.yml) runs it before Hugo, so a paper added to
+papers.yaml gets its record without running it here; run it here to preview the
+paper's page with `hugo server`, or to commit the record (and correct it).
+
 data/papers.yaml lists each paper with its DOI and a short author list; Crossref
 holds the rest (every author with their given name and ORCID, volume, issue,
 pages). The paper pages, the "Cite" section and its BibTeX and RIS files read
@@ -15,6 +19,7 @@ corrected by hand. Standard library only.
 """
 import html
 import json
+import os
 import re
 import sys
 import time
@@ -84,11 +89,18 @@ def record(doi):
     return {k: v for k, v in keep.items() if v not in (None, [], "")}
 
 
+def annotate(kind, message):
+    """A line in the run's summary, on GitHub Actions; nothing elsewhere."""
+    if os.environ.get("GITHUB_ACTIONS") == "true":
+        print(f"::{kind} file=data/papers.yaml,title=Citation records::{message}")
+
+
 def main(argv):
     refresh = "--refresh" in argv
     only = {a for a in argv if not a.startswith("--")}
     OUT.mkdir(parents=True, exist_ok=True)
     failed = 0
+    fetched = []
     for pid, doi in papers():
         target = OUT / f"{pid}.json"
         if only and pid not in only:
@@ -99,11 +111,17 @@ def main(argv):
             data = record(doi)
         except (urllib.error.URLError, KeyError, ValueError) as error:
             print(f"  {pid}: {doi} not found on Crossref ({error})", file=sys.stderr)
+            annotate("warning", f"{pid}: {doi} not found on Crossref ({error}); its page shows the short author list")
             failed += 1
             continue
         target.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
         print(f"  {pid}: {len(data.get('authors', []))} authors")
+        fetched.append(pid)
         time.sleep(0.2)  # Crossref's public pool asks for a gentle rate
+    if fetched:
+        annotate("notice", f"Fetched for this build: {', '.join(fetched)}. Run scripts/citations.py and commit data/citations/ to keep them.")
+    elif not failed:
+        print("every paper has its record")
     return 1 if failed else 0
 
 
