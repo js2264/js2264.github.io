@@ -45,37 +45,59 @@
 {{- $years := slice }}
 {{- range $entries }}{{ $years = $years | append .paper.year }}{{ end }}
 
+{{- /* The years, as the page's "On this page" (chromokit's theme reads this) */}}
+{{- $toc := slice }}
+{{- range uniq $years }}{{ $toc = $toc | append (dict "id" (printf "%v" .) "title" (printf "%v" .)) }}{{ end }}
+{{- $.Page.Store.Set "chromokit.toc" $toc }}
+
+{{- /* Every paper's citation in one file: BibTeX and RIS */}}
+{{- $bibs := slice }}{{ $riss := slice }}
+{{- range $entries }}
+  {{- $d := partial "paper/data.html" .paper.id }}
+  {{- $bibs = $bibs | append (partial "paper/bibtex.html" $d) }}
+  {{- $riss = $riss | append (partial "paper/ris.html" $d) }}
+{{- end }}
+{{- $allBib := resources.FromString "papers/serizay-papers.bib" (delimit $bibs "\n") }}
+{{- $allRis := resources.FromString "papers/serizay-papers.ris" (delimit $riss "\n") }}
+
 <div class="papers" data-filter-root>
+
+<p class="papers__downloads">
+  {{ partial "chromokit/icon.html" "download" }}All {{ len $entries }} papers, to import in a reference manager:
+  <a href="{{ $allBib.RelPermalink }}" download>BibTeX</a> · <a href="{{ $allRis.RelPermalink }}" download>RIS</a>
+</p>
 
 {{ partial "filter-chips.html" (dict "label" "Filter papers" "total" (len $entries) "filters" $filters) }}
 
-{{- /* Papers grouped by year along a timeline; each title links to the publication */}}
-<div class="papers-timeline year-rail">
+{{- /* Papers grouped by year along a rail; each title links to the publication */}}
+<div class="year-rail">
   {{- range uniq $years }}
   {{- $year := . }}
-  <section class="year-rail-year" data-filter-group>
-    <h2 class="year-rail-label">{{ $year }}</h2>
-    <div class="papers-compact-list year-rail-items">
+  <section class="year-rail__year" id="{{ $year }}" data-filter-group>
+    <h2 class="year-rail__label">{{ $year }}</h2>
+    <div class="year-rail__items paper-grid">
       {{- range where $entries "paper.year" $year }}
       {{- $paper := .paper }}
-      <article class="post-entry paper-compact" data-tags="{{ delimit .tags " " }}">
-        <h3{{ with $paper.lang }} lang="{{ . }}"{{ end }}>
-          {{- with $paper.doi }}<a href="https://doi.org/{{ . }}" target="_blank" rel="noopener">{{ $paper.title }}</a>{{ else }}{{ $paper.title }}{{ end -}}
+      {{- $page := site.GetPage (printf "/papers/%s" $paper.id) }}
+      <article class="cx-card paper" data-tags="{{ delimit .tags " " }}">
+        <h3 class="paper__title"{{ with $paper.lang }} lang="{{ . }}"{{ end }}>
+          <a href="{{ $page.RelPermalink }}">{{ $paper.title }}</a>
         </h3>
-        <p class="paper-authors">{{ $paper.authors }}</p>
-        <p class="paper-compact-meta">
-          <em>{{ $paper.journal }}</em>
-          {{- if ne .type "research" }}<span class="paper-type">{{ humanize .type }}</span>{{ end }}
-          {{- with $paper.doi }}<span class="separator">•</span><a href="https://doi.org/{{ . }}" target="_blank" rel="noopener" class="paper-text-link">DOI</a>{{ end }}
-          {{- with $paper.pdf }}<span class="separator">•</span><a href="/papers/pdfs/{{ . }}" target="_blank" class="paper-text-link">PDF</a>{{ end }}
-          {{- with $paper.supp }}<span class="separator">•</span><a href="/papers/pdfs/{{ . }}" target="_blank" class="paper-text-link">Supp.</a>{{ end }}
+        {{- /* The list of authors, with this site's author in bold */}}
+        <p class="paper__authors">
+          {{- range $i, $name := split $paper.authors ", " }}{{ if $i }}, {{ end }}{{ if strings.Contains $name "Serizay" }}<strong class="paper__me">{{ $name }}</strong>{{ else }}{{ $name }}{{ end }}{{ end -}}
         </p>
-        {{- with .packages }}
-        <p class="paper-software">
-          <span class="paper-software-label">Software</span>
-          {{- range . }}<a href="/software/#{{ .name | anchorize }}">{{ .name }}</a>{{ end }}
+        <p class="paper__meta">
+          <em class="paper__journal">{{ $paper.journal }}</em>
+          {{- if ne .type "research" }}<span class="cx-badge cx-badge--plain paper__type">{{ humanize .type }}</span>{{ end }}
         </p>
-        {{- end }}
+        <p class="paper__links">
+          {{- with $paper.doi }}<a href="https://doi.org/{{ . }}" target="_blank" rel="noopener">DOI</a>{{ end }}
+          {{- with $paper.pdf }}<a href="{{ printf "papers/pdfs/%s" . | relURL }}" target="_blank">PDF</a>{{ end }}
+          {{- with $paper.supp }}<a href="{{ printf "papers/pdfs/%s" . | relURL }}" target="_blank">Supplementary</a>{{ end }}
+          <a href="{{ $page.RelPermalink }}#cite">Cite</a>
+          {{- range .packages }}<a class="cx-chip" href="{{ printf "software/#%s" (.name | anchorize) | relURL }}" title="{{ .name }} on the Software page">{{ partial "chromokit/icon.html" "package" }}{{ .name }}</a>{{ end }}
+        </p>
       </article>
       {{- end }}
     </div>
@@ -84,3 +106,12 @@
 </div>
 
 </div>
+
+{{- /* schema.org: the list of papers, each pointing to its own page */}}
+{{- $items := slice }}
+{{- range $i, $e := $entries }}
+  {{- with site.GetPage (printf "/papers/%s" $e.paper.id) }}
+  {{- $items = $items | append (dict "@type" "ListItem" "position" (add $i 1) "url" .Permalink "name" $e.paper.title) }}
+  {{- end }}
+{{- end }}
+<script type="application/ld+json">{{ dict "@context" "https://schema.org" "@type" "ItemList" "name" (printf "Papers by %s" site.Title) "numberOfItems" (len $items) "itemListElement" $items | jsonify | safeJS }}</script>

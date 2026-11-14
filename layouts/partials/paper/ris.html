@@ -1,0 +1,22 @@
+{{- /*
+  A paper's RIS record (EndNote, Zotero, Mendeley…), from paper/data.html:
+  partial "paper/ris.html" $data → string.
+*/ -}}
+{{- $d := . -}}
+{{- $p := $d.paper -}}
+{{- $lines := slice "TY  - JOUR" -}}
+{{- range $d.authors }}{{ $lines = $lines | append (printf "AU  - %s" (cond (ne .given "") (printf "%s, %s" .family .given) .family)) }}{{ end -}}
+{{- $lines = $lines | append (printf "TI  - %s" $p.title) (printf "T2  - %s" $p.journal) (printf "PY  - %v" $p.year) -}}
+{{- with $p.date }}{{ $lines = $lines | append (printf "DA  - %s" (replace . "-" "/")) }}{{ end -}}
+{{- with $d.volume }}{{ $lines = $lines | append (printf "VL  - %s" .) }}{{ end -}}
+{{- with $d.issue }}{{ $lines = $lines | append (printf "IS  - %s" .) }}{{ end -}}
+{{- with $d.pages -}}
+  {{- $range := split . "-" -}}
+  {{- $lines = $lines | append (printf "SP  - %s" (index $range 0)) -}}
+  {{- if gt (len $range) 1 }}{{ $lines = $lines | append (printf "EP  - %s" (index $range 1)) }}{{ end -}}
+{{- end -}}
+{{- with $p.doi }}{{ $lines = $lines | append (printf "DO  - %s" .) (printf "UR  - https://doi.org/%s" .) }}{{ end -}}
+{{- with $p.abstract }}{{ $lines = $lines | append (printf "AB  - %s" .) }}{{ end -}}
+{{- with $p.lang }}{{ $lines = $lines | append (printf "LA  - %s" .) }}{{ end -}}
+{{- $lines = $lines | append "ER  - " -}}
+{{- return printf "%s\n" (delimit $lines "\n") -}}

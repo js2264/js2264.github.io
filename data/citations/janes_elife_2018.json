@@ -1,0 +1,87 @@
+{
+  "doi": "10.7554/elife.37344",
+  "type": "journal-article",
+  "title": "Chromatin accessibility dynamics across C. elegans development and ageing",
+  "container": "eLife",
+  "publisher": "eLife Sciences Publications, Ltd",
+  "volume": "7",
+  "article_number": "e37344",
+  "issued": [
+    2018,
+    10,
+    26
+  ],
+  "issn": [
+    "2050-084X"
+  ],
+  "authors": [
+    {
+      "given": "Jürgen",
+      "family": "Jänes",
+      "orcid": "https://orcid.org/0000-0002-2540-1236"
+    },
+    {
+      "given": "Yan",
+      "family": "Dong"
+    },
+    {
+      "given": "Michael",
+      "family": "Schoof"
+    },
+    {
+      "given": "Jacques",
+      "family": "Serizay"
+    },
+    {
+      "given": "Alex",
+      "family": "Appert"
+    },
+    {
+      "given": "Chiara",
+      "family": "Cerrato"
+    },
+    {
+      "given": "Carson",
+      "family": "Woodbury"
+    },
+    {
+      "given": "Ron",
+      "family": "Chen"
+    },
+    {
+      "given": "Carolina",
+      "family": "Gemma"
+    },
+    {
+      "given": "Ni",
+      "family": "Huang",
+      "orcid": "https://orcid.org/0000-0001-8849-038X"
+    },
+    {
+      "given": "Djem",
+      "family": "Kissiov"
+    },
+    {
+      "given": "Przemyslaw",
+      "family": "Stempor",
+      "orcid": "https://orcid.org/0000-0002-9464-7475"
+    },
+    {
+      "given": "Annette",
+      "family": "Steward"
+    },
+    {
+      "given": "Eva",
+      "family": "Zeiser"
+    },
+    {
+      "given": "Sascha",
+      "family": "Sauer"
+    },
+    {
+      "given": "Julie",
+      "family": "Ahringer",
+      "orcid": "https://orcid.org/0000-0002-7074-4051"
+    }
+  ]
+}

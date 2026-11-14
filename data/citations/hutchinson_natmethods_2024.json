@@ -1,0 +1,174 @@
+{
+  "doi": "10.1038/s41592-024-02299-2",
+  "type": "journal-article",
+  "title": "The tidyomics ecosystem: enhancing omic data analyses",
+  "container": "Nature Methods",
+  "short_container": "Nat Methods",
+  "publisher": "Springer Science and Business Media LLC",
+  "volume": "21",
+  "issue": "7",
+  "page": "1166-1170",
+  "issued": [
+    2024,
+    6,
+    14
+  ],
+  "issn": [
+    "1548-7091",
+    "1548-7105"
+  ],
+  "authors": [
+    {
+      "given": "William J.",
+      "family": "Hutchison",
+      "orcid": "https://orcid.org/0009-0001-6242-4269"
+    },
+    {
+      "given": "Timothy J.",
+      "family": "Keyes",
+      "orcid": "https://orcid.org/0000-0003-0423-9679"
+    },
+    {
+      "name": "The tidyomics Consortium"
+    },
+    {
+      "given": "Helena L.",
+      "family": "Crowell",
+      "orcid": "https://orcid.org/0000-0002-4801-1767"
+    },
+    {
+      "given": "Jacques",
+      "family": "Serizay"
+    },
+    {
+      "given": "Charlotte",
+      "family": "Soneson"
+    },
+    {
+      "given": "Eric S.",
+      "family": "Davis",
+      "orcid": "https://orcid.org/0000-0003-4051-3217"
+    },
+    {
+      "given": "Noriaki",
+      "family": "Sato",
+      "orcid": "https://orcid.org/0000-0001-7721-9359"
+    },
+    {
+      "given": "Lambda",
+      "family": "Moses",
+      "orcid": "https://orcid.org/0000-0002-7092-9427"
+    },
+    {
+      "given": "Boyd",
+      "family": "Tarlinton",
+      "orcid": "https://orcid.org/0000-0002-4146-7083"
+    },
+    {
+      "given": "Abdullah A.",
+      "family": "Nahid",
+      "orcid": "https://orcid.org/0000-0002-4390-0768"
+    },
+    {
+      "given": "Miha",
+      "family": "Kosmac"
+    },
+    {
+      "given": "Quentin",
+      "family": "Clayssen",
+      "orcid": "https://orcid.org/0000-0002-2574-073X"
+    },
+    {
+      "given": "Victor",
+      "family": "Yuan"
+    },
+    {
+      "given": "Wancen",
+      "family": "Mu",
+      "orcid": "https://orcid.org/0000-0002-5061-7581"
+    },
+    {
+      "given": "Ji-Eun",
+      "family": "Park",
+      "orcid": "https://orcid.org/0009-0002-8433-9281"
+    },
+    {
+      "given": "Izabela",
+      "family": "Mamede",
+      "orcid": "https://orcid.org/0000-0002-0707-5588"
+    },
+    {
+      "given": "Min Hyung",
+      "family": "Ryu",
+      "orcid": "https://orcid.org/0000-0003-3071-7363"
+    },
+    {
+      "given": "Pierre-Paul",
+      "family": "Axisa"
+    },
+    {
+      "given": "Paulina",
+      "family": "Paiz",
+      "orcid": "https://orcid.org/0009-0009-1766-7032"
+    },
+    {
+      "given": "Chi-Lam",
+      "family": "Poon",
+      "orcid": "https://orcid.org/0000-0001-6298-7099"
+    },
+    {
+      "given": "Ming",
+      "family": "Tang",
+      "orcid": "https://orcid.org/0000-0002-7739-8913"
+    },
+    {
+      "given": "Raphael",
+      "family": "Gottardo",
+      "orcid": "https://orcid.org/0000-0002-3867-0232"
+    },
+    {
+      "given": "Martin",
+      "family": "Morgan",
+      "orcid": "https://orcid.org/0000-0002-5874-8148"
+    },
+    {
+      "given": "Stuart",
+      "family": "Lee",
+      "orcid": "https://orcid.org/0000-0003-1179-8436"
+    },
+    {
+      "given": "Michael",
+      "family": "Lawrence"
+    },
+    {
+      "given": "Stephanie C.",
+      "family": "Hicks",
+      "orcid": "https://orcid.org/0000-0002-7858-0231"
+    },
+    {
+      "given": "Garry P.",
+      "family": "Nolan",
+      "orcid": "https://orcid.org/0000-0002-8862-9043"
+    },
+    {
+      "given": "Kara L.",
+      "family": "Davis",
+      "orcid": "https://orcid.org/0000-0002-7182-2592"
+    },
+    {
+      "given": "Anthony T.",
+      "family": "Papenfuss",
+      "orcid": "https://orcid.org/0000-0002-1102-8506"
+    },
+    {
+      "given": "Michael I.",
+      "family": "Love",
+      "orcid": "https://orcid.org/0000-0001-8401-0545"
+    },
+    {
+      "given": "Stefano",
+      "family": "Mangiola",
+      "orcid": "https://orcid.org/0000-0001-7474-836X"
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "doi": "10.64898/2026.08.21.744486",
+  "type": "posted-content",
+  "subtype": "preprint",
+  "title": "Chromatin is dispensable for bacterial life",
+  "publisher": "openRxiv",
+  "institution": "bioRxiv",
+  "issued": [
+    2026,
+    8,
+    21
+  ],
+  "authors": [
+    {
+      "given": "Paul",
+      "family": "Villain"
+    },
+    {
+      "given": "Antoine",
+      "family": "Hocher"
+    },
+    {
+      "given": "Jacques",
+      "family": "Serizay",
+      "orcid": "https://orcid.org/0000-0002-4295-0624"
+    },
+    {
+      "given": "Chad",
+      "family": "Whilding"
+    },
+    {
+      "given": "Alex",
+      "family": "Montoya"
+    },
+    {
+      "given": "Pavel V",
+      "family": "Shliaha"
+    },
+    {
+      "given": "Romain",
+      "family": "Koszul"
+    },
+    {
+      "given": "Tobias",
+      "family": "Warnecke",
+      "orcid": "https://orcid.org/0000-0002-4936-5428"
+    }
+  ]
+}

@@ -1,14 +1,22 @@
 # jserizay.com
 
 Source of [jserizay.com](https://jserizay.com): a [Hugo](https://gohugo.io) site using the
-[PaperMod](https://github.com/adityatelange/hugo-PaperMod) theme (vendored in `themes/PaperMod/`,
-customized through `layouts/` and `assets/`).
+[chromokit](https://github.com/js2264/chromokit) theme (the look of chromosomix, metacooler's
+documentation and chromokit's own site), in light and dark.
+
+- `themes/chromokit/` is chromokit's, copied by `chromokit init hugo` and listed with hashes in
+  `chromokit.json`. Leave it as it is: `npx github:js2264/chromokit sync` replaces it with a newer
+  version, and `npx github:js2264/chromokit check` says whether a file of it was edited.
+- Everything of this site's own is outside it: the home page (`layouts/index.html`), the data-driven
+  partials (`layouts/partials/`), additions to `<head>` (`layouts/partials/chromokit/extend-head.html`),
+  the styles (`static/site.css`, on chromokit's `--cx-*` tokens) and the scripts (`static/site.js`,
+  `assets/js/filters.js`).
 
 ## Editing content
 
 | Page     | Where                                                                                       |
 | -------- | ------------------------------------------------------------------------------------------- |
-| Home     | `content/profile.md` (text); `config.yml` > `params.profileMode` (picture, buttons)         |
+| Home     | `content/_index.md` (text); `config.yml` > `params.home` (picture, line under the name)     |
 | About    | `content/about/_index.md`                                                                   |
 | Papers   | `data/papers.yaml`; PDFs in `static/papers/pdfs/` as `<id>.pdf` (and `<id>_supp.pdf`)       |
 | Software | `data/software.yaml` (field reference at the top of the file)                               |
@@ -17,7 +25,36 @@ customized through `layouts/` and `assets/`).
 | CV       | `static/cv.pdf`                                                                             |
 
 Data-driven pages follow the same pattern: `content/<page>.md` calls the `<page>` shortcode, which
-renders `layouts/partials/<page>.html` from `data/<page>.yaml`, styled by `assets/css/extended/<page>.css`.
+renders `layouts/partials/<page>.html` from `data/<page>.yaml`, styled in `static/site.css`.
+
+**Papers** also get a page each, `/papers/<id>/`, made by `content/papers/_content.gotmpl` from
+`data/papers.yaml` (nothing to write by hand): authors, journal, abstract, links, the packages
+that implement it, and a "Cite" section with a reference, BibTeX, and `.bib` and `.ris` files.
+The Papers page offers every paper in one `.bib` and one `.ris`. The full author lists, volumes
+and pages come from Crossref: `python3 scripts/citations.py` fetches the record of each paper that
+has none yet into `data/citations/<id>.json` (`--refresh` fetches them all again). The deploy runs
+it before Hugo, so a paper added to `papers.yaml` gets its record without anything else to do; the
+run's summary lists what it fetched, and warns about a DOI Crossref does not know. Run it locally to
+preview a new paper's page with `hugo server`, or to commit its record and correct it by hand: the
+committed records are kept as they are, and the deploy only fetches the missing ones.
+
+**For search engines**, every page describes its subject in schema.org terms (JSON-LD,
+`layouts/partials/jsonld.html`): the person (`params.person` and `params.links`), each paper's page
+a `ScholarlyArticle` (authors with their ORCID, journal, DOI, abstract, PDF), the Papers page the
+list of them, and the Software page a `SoftwareSourceCode` per package.
+
+There is no bar across the top (`params.header: false`): the menu (`config.yml` > `menu.main`)
+is the sidebar, with the name at its top and the links (Scholar, ORCID, GitHub, email:
+`params.links`) at its foot, and the previous/next links at the foot of each page. The home page
+has no sidebar: a button for each page of the menu sits under the introduction, and the links
+under the name. The site is always light (`params.palette: light`); without that line it follows
+the reader's system and gets a light/dark toggle.
+
+Papers and Software have an "On this page" list on the right: the years and the themes, set by
+their partials (`.Page.Store.Set "chromokit.toc"`), and following the filter chips. A page's
+`description` is used for search engines and link previews only, not shown under its title
+(`params.showDescription: false`). The sidebar's width is
+`--cx-sidebar-w` in `static/site.css`.
 
 The build warns when a paper's `pdf` or `supp` file is missing from `static/papers/pdfs/`.
 

@@ -7,8 +7,17 @@
 {{- range $all }}{{ $languages = $languages | append .language }}{{ end }}
 {{- $filters := slice }}
 {{- range uniq $languages }}
-  {{- $filters = $filters | append (dict "key" (lower .) "label" . "count" (len (where $all "language" .))) }}
+  {{- $filters = $filters | append (dict "key" (lower .) "label" . "icon" (lower .) "count" (len (where $all "language" .))) }}
 {{- end }}
+
+{{- /* schema.org: one SoftwareSourceCode per package, written by the author below */}}
+{{- $person := printf "%s#person" ("/" | absURL) }}
+{{- $graph := slice }}
+
+{{- /* The themes, as the page's "On this page" (chromokit's theme reads this) */}}
+{{- $toc := slice }}
+{{- range $sections }}{{ $toc = $toc | append (dict "id" .id "title" .title) }}{{ end }}
+{{- $.Page.Store.Set "chromokit.toc" $toc }}
 
 <div class="software" data-filter-root>
 
@@ -17,32 +26,32 @@
   {{- range $sections }}
   <section class="software-section" id="{{ .id }}" data-filter-group>
 
-    <header class="software-section-header">
+    <header class="software-section__head">
       <h2>{{ .title }}</h2>
-      {{- with .description }}
-      <p>{{ . }}</p>
-      {{- end }}
+      {{- with .description }}<p class="cx-dim">{{ . }}</p>{{ end }}
     </header>
 
     {{- with .flow }}
+    {{- /* The workflow: steps chained by arrows, then the extras */}}
     <div class="software-flow" data-filter-whole>
-      <ol class="software-flow-steps">
-        {{- range .steps }}
-        <li class="software-flow-step">
-          <span class="software-flow-label">{{ .label }}</span>
-          <span class="software-flow-packages">
-            {{- range .packages }}<a href="#{{ . | anchorize }}">{{ . }}</a>{{ end -}}
+      <ol class="software-flow__steps">
+        {{- range $i, $step := .steps }}
+        {{- if $i }}<li class="software-flow__arrow" aria-hidden="true">{{ partial "chromokit/icon.html" "arrow-right" }}</li>{{ end }}
+        <li class="software-flow__step">
+          <span class="software-flow__label">{{ $step.label }}</span>
+          <span class="software-flow__packages">
+            {{- range $step.packages }}<a class="cx-chip" href="#{{ . | anchorize }}">{{ . }}</a>{{ end -}}
           </span>
         </li>
         {{- end }}
       </ol>
       {{- with .extras }}
-      <div class="software-flow-extras">
+      <div class="software-flow__extras">
         {{- range . }}
-        <div class="software-flow-step">
-          <span class="software-flow-label">{{ .label }}</span>
-          <span class="software-flow-packages">
-            {{- range .packages }}<a href="#{{ . | anchorize }}">{{ . }}</a>{{ end -}}
+        <div class="software-flow__step">
+          <span class="software-flow__label">{{ .label }}</span>
+          <span class="software-flow__packages">
+            {{- range .packages }}<a class="cx-chip" href="#{{ . | anchorize }}">{{ . }}</a>{{ end -}}
           </span>
         </div>
         {{- end }}
@@ -51,7 +60,7 @@
     </div>
     {{- end }}
 
-    <div class="software-list">
+    <div class="software-grid">
       {{- range .packages }}
       {{- $pkg := . }}
 
@@ -62,12 +71,10 @@
       {{- $registry := "" }}
       {{- $registryURL := "" }}
       {{- $install := "" }}
-      {{- $prompt := "" }}
       {{- with $pkg.bioc }}
         {{- $registry = "Bioconductor" }}
         {{- $registryURL = printf "https://bioconductor.org/packages/%s" $pkg.name }}
         {{- $install = printf `BiocManager::install("%s")` $pkg.name }}
-        {{- $prompt = ">" }}
         {{- if eq . "data" }}{{ $kind = $kind | default "data" }}{{ end }}
         {{- if eq . "book" }}
           {{- $kind = $kind | default "book" }}
@@ -79,59 +86,77 @@
         {{- $registry = "PyPI" }}
         {{- $registryURL = printf "https://pypi.org/project/%s/" . }}
         {{- $install = printf "pip install %s" . }}
-        {{- $prompt = "$" }}
+      {{- end }}
+      {{- with $pkg.npm }}
+        {{- $registry = "npm" }}
+        {{- $registryURL = printf "https://www.npmjs.com/package/%s" . }}
+        {{- $install = printf "npm install -g %s" . }}
       {{- end }}
 
       {{- $links := slice }}
+      {{- with $pkg.app }}{{ $links = $links | append (dict "label" "App" "url" .) }}{{ end }}
       {{- with $pkg.docs }}{{ $links = $links | append (dict "label" "Docs" "url" .) }}{{ end }}
       {{- with $repo }}{{ $links = $links | append (dict "label" "GitHub" "url" .) }}{{ end }}
       {{- with $registryURL }}{{ $links = $links | append (dict "label" $registry "url" .) }}{{ end }}
-      {{- with $pkg.paper }}{{ $links = $links | append (dict "label" "Paper" "url" (printf "https://doi.org/%s" .)) }}{{ end }}
+      {{- /* The paper to cite: its page here when papers.yaml has it, else its DOI */}}
+      {{- with $pkg.paper }}
+        {{- $cited := where site.Data.papers.papers "doi" . }}
+        {{- with and $cited (site.GetPage (printf "/papers/%s" (index $cited 0).id)) }}
+          {{- $links = $links | append (dict "label" "Cite" "url" (printf "%s#cite" .RelPermalink) "internal" true) }}
+        {{- else }}
+          {{- $links = $links | append (dict "label" "Paper" "url" (printf "https://doi.org/%s" .)) }}
+        {{- end }}
+      {{- end }}
 
-      <article class="post-entry software-entry" id="{{ $pkg.name | anchorize }}" data-tags="{{ $pkg.language | lower }}">
+      {{- /* schema.org: the package, for search engines */}}
+      {{- $code := dict
+        "@type" (cond (eq $kind "web app") (slice "SoftwareSourceCode" "WebApplication") "SoftwareSourceCode")
+        "@id" (printf "%s#%s" $.Page.Permalink ($pkg.name | anchorize))
+        "name" $pkg.name
+        "description" $pkg.tagline
+        "programmingLanguage" $pkg.language
+        "author" (dict "@id" $person)
+      }}
+      {{- with $pkg.docs | default $pkg.app | default $repo }}{{ $code = merge $code (dict "url" .) }}{{ end }}
+      {{- with $repo }}{{ $code = merge $code (dict "codeRepository" .) }}{{ end }}
+      {{- with $registryURL }}{{ $code = merge $code (dict "sameAs" .) }}{{ end }}
+      {{- with $pkg.since }}{{ $code = merge $code (dict "dateCreated" (printf "%v" .)) }}{{ end }}
+      {{- if in ($pkg.roles | default slice) "maintainer" }}{{ $code = merge $code (dict "maintainer" (dict "@id" $person)) }}{{ end }}
+      {{- with $pkg.paper }}{{ $code = merge $code (dict "citation" (printf "https://doi.org/%s" .)) }}{{ end }}
+      {{- with $kind }}{{ if eq . "web app" }}{{ $code = merge $code (dict "applicationCategory" "Science" "operatingSystem" "Any (web browser)") }}{{ end }}{{ end }}
+      {{- $graph = $graph | append $code }}
 
-        <header class="software-entry-header">
-          <h3>
-            {{- with $pkg.docs | default $repo }}
-            <a href="{{ . }}" target="_blank" rel="noopener">{{ $pkg.name }}</a>
-            {{- else }}
-            {{ $pkg.name }}
-            {{- end }}
+      <article class="cx-card package" id="{{ $pkg.name | anchorize }}" data-tags="{{ $pkg.language | lower }}">
+
+        <header class="package__head">
+          <h3 class="package__name">
+            {{- with $pkg.docs | default $repo }}<a href="{{ . }}" target="_blank" rel="noopener">{{ $pkg.name }}</a>{{ else }}{{ $pkg.name }}{{ end -}}
           </h3>
-          <span class="software-lang">{{ $pkg.language }}{{ with $kind }} · {{ . }}{{ end }}</span>
+          <span class="package__language" title="{{ $pkg.language }}">
+            {{- partial "chromokit/icon.html" (lower $pkg.language) }}{{ $pkg.language }}{{ with $kind }} · {{ . }}{{ end -}}
+          </span>
         </header>
 
-        <p class="software-tagline">{{ $pkg.tagline }}</p>
+        <p class="package__tagline">{{ $pkg.tagline }}</p>
 
-        <p class="software-meta">
-          {{- range $pkg.roles }}
-          <span class="software-role software-role-{{ . }}">{{ . | title }}</span>
-          {{- end }}
+        <p class="package__meta">
+          {{- range $pkg.roles }}<span class="cx-badge cx-badge--plain">{{ . | title }}</span>{{ end }}
           {{- with $pkg.status }}
-          <span class="software-status">{{ . }}</span>
+          <span class="cx-badge cx-badge--accent">{{ . }}</span>
           {{- else }}
           {{- $where := $registry | default (cond (ne $repo "") "GitHub" "") }}
-          <span class="software-registry">
-            {{- $where }}
-            {{- with $pkg.since }}{{ if $where }}<span class="separator">•</span>{{ end }}since {{ . }}{{ end -}}
-          </span>
+          <span class="package__registry">{{ $where }}{{ with $pkg.since }}{{ if $where }} · {{ end }}since {{ . }}{{ end }}</span>
           {{- end }}
         </p>
 
         {{- with $links }}
-        <p class="software-links">
-          {{- range $i, $link := . }}
-          {{- if $i }}<span class="separator">•</span>{{ end }}
-          <a href="{{ $link.url }}" target="_blank" rel="noopener">{{ $link.label }}</a>
-          {{- end }}
+        <p class="package__links">
+          {{- range . }}<a href="{{ .url }}"{{ if not .internal }} target="_blank" rel="noopener"{{ end }}>{{ .label }}</a>{{ end }}
         </p>
         {{- end }}
 
         {{- with $install }}
-        <div class="software-install" data-prompt="{{ $prompt }}">
-          <code>{{ replace (htmlEscape .) "(" "(<wbr>" | safeHTML }}</code>
-          <button type="button" class="software-copy" aria-label="Copy install command for {{ $pkg.name }}" hidden>copy</button>
-        </div>
+        <div class="cx-code package__install"><pre><code>{{ replace (htmlEscape .) "(" "(<wbr>" | safeHTML }}</code></pre></div>
         {{- end }}
 
       </article>
@@ -143,5 +168,4 @@
 
 </div>
 
-{{ $js := resources.Get "js/software.js" | minify | fingerprint }}
-<script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" defer></script>
+<script type="application/ld+json">{{ dict "@context" "https://schema.org" "@graph" $graph | jsonify | safeJS }}</script>

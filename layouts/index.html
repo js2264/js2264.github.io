@@ -1,0 +1,42 @@
+{{- /*
+  The home page: the sequence in the background, and the introduction
+  (content/_index.md) beside the portrait, with the links (params.links) and the
+  theme toggle under the name and a button for each page of the menu below it.
+  There is no sidebar here: these buttons are the way in.
+*/ -}}
+{{ define "main" }}
+{{- $icons := dict "About" "user" "Papers" "newspaper" "Software" "package" "Courses" "presentation" "Books" "book" "CV" "file-text" }}
+{{ partial "atgc-background.html" . }}
+<main class="cx-main site-home" id="main">
+  <div class="site-home__inner">
+    <section class="site-intro" aria-labelledby="site-name">
+      <header class="site-intro__head">
+        {{ with site.Params.home.image }}<img class="site-portrait" src="{{ . | relURL }}" alt="" width="112" height="112">{{ end }}
+        <div>
+          <h1 class="site-name" id="site-name">{{ site.Title }}</h1>
+          {{ with site.Params.home.role }}<p class="site-role">{{ . }}</p>{{ end }}
+          <p class="site-links">
+            {{- range site.Params.links }}
+            <a class="cx-control cx-control--icon" href="{{ .url }}" aria-label="{{ .name }}" title="{{ .name }}">{{ partial "chromokit/icon.html" .icon }}</a>
+            {{- end }}
+            {{ partial "chromokit/theme-toggle.html" . }}
+          </p>
+        </div>
+      </header>
+
+      <div class="cx-prose site-intro__text">
+        {{ .Content }}
+      </div>
+
+      <nav class="site-pages" aria-label="Pages">
+        {{- range site.Menus.main }}
+        {{- $file := strings.HasSuffix .URL ".pdf" }}
+        <a class="cx-button" href="{{ .URL | relURL }}"{{ if $file }} target="_blank" rel="noopener"{{ end }}>
+          {{- partial "chromokit/icon.html" (index $icons .Name | default "arrow-right") }}{{ .Name -}}
+        </a>
+        {{- end }}
+      </nav>
+    </section>
+  </div>
+</main>
+{{ end }}

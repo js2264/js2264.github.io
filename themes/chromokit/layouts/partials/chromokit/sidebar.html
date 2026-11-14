@@ -1,0 +1,67 @@
+{{- /*
+  The sidebar. With a `menu.main` in the site's config, it is that menu, Home
+  first. Without one: top-level pages, then each section as a group under its
+  kicker, by weight.
+
+  With a header, narrow screens (where the sidebar is the drawer) also list
+  `params.links` here. With `params.header = false`, the sidebar carries what
+  the header would: the mark, name and kicker at the top, and the button,
+  the links and the theme toggle at the foot.
+*/ -}}
+{{- $current := . -}}
+{{- $header := ne site.Params.header false -}}
+{{- if not $header }}
+<a class="cx-sidebar__brand" href="{{ "/" | relURL }}">
+  {{- with site.Params.mark }}<img src="{{ . | relURL }}" alt="" width="28" height="28">{{ end -}}
+  <span>{{ site.Title }}</span>
+</a>
+{{- with site.Params.kicker }}<p class="cx-sidebar__kicker">{{ . }}{{ with site.Params.version }} · v{{ . }}{{ end }}</p>{{ end }}
+{{- end }}
+<nav class="cx-nav" aria-label="Pages">
+  <ul>
+    {{- with site.Menus.main }}
+    <li class="cx-nav__group"><ul style="margin:0;border:0">
+      {{- range partial "chromokit/menu.html" $current }}
+      <li><a href="{{ .url }}"{{ if .current }} aria-current="page"{{ else if .ancestor }} aria-current="true"{{ end }}{{ if .external }} target="_blank" rel="noopener"{{ end }}>{{ .name }}{{ if .external }} {{ partial "chromokit/icon.html" "arrow-up-right" }}{{ end }}</a></li>
+      {{- end }}
+    </ul></li>
+    {{- else }}
+    <li class="cx-nav__group"><ul style="margin:0;border:0">
+      <li><a href="{{ "/" | relURL }}"{{ if .IsHome }} aria-current="page"{{ end }}>Home</a></li>
+      {{ range (where site.RegularPages "Section" "").ByWeight }}
+      <li><a href="{{ .RelPermalink }}"{{ if eq .RelPermalink $current.RelPermalink }} aria-current="page"{{ end }}>{{ .LinkTitle }}</a></li>
+      {{ end }}
+    </ul></li>
+    {{ range site.Sections.ByWeight }}
+    <li class="cx-nav__group">
+      <details open>
+        <summary>{{ .LinkTitle }}</summary>
+        <ul>
+          {{ range .Pages.ByWeight }}
+          <li><a href="{{ .RelPermalink }}"{{ if eq .RelPermalink $current.RelPermalink }} aria-current="page"{{ end }}>{{ .LinkTitle }}</a></li>
+          {{ end }}
+        </ul>
+      </details>
+    </li>
+    {{ end }}
+    {{- end }}
+    {{- /* The header's links, which narrow screens leave out of the header */}}
+    {{- if $header }}
+    {{- with site.Params.links }}
+    <li class="cx-nav__group cx-narrow"><ul style="margin:0;border:0">
+      {{- range . }}
+      <li><a href="{{ .url }}">{{ partial "chromokit/icon.html" .icon }} {{ .name }}</a></li>
+      {{- end }}
+    </ul></li>
+    {{- end }}
+    {{- end }}
+  </ul>
+</nav>
+{{- if not $header }}
+<div class="cx-sidebar__actions">
+  {{- with site.Params.cta }}<a class="cx-control" href="{{ .href }}">{{ .text }}</a>{{ end }}
+  {{- range site.Params.links }}<a class="cx-control cx-control--icon" href="{{ .url }}" aria-label="{{ .name }}" title="{{ .name }}">{{ partial "chromokit/icon.html" .icon }}</a>{{ end }}
+  {{- with site.Params.repo }}<a class="cx-control cx-control--icon" href="{{ . }}" aria-label="Source" title="Source">{{ partial "chromokit/icon.html" "github" }}</a>{{ end }}
+  {{ partial "chromokit/theme-toggle.html" . }}
+</div>
+{{- end }}

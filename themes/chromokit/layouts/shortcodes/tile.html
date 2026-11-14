@@ -1,0 +1,6 @@
+{{- /* {{< tile href="docs/" icon="rocket" title="Quickstart" >}}A first result.{{< /tile >}} */ -}}
+<a class="cx-tile" href="{{ .Get "href" }}">
+  <span class="cx-glyph">{{ partial "chromokit/icon.html" (.Get "icon" | default "arrow-right") }}</span>
+  <strong>{{ .Get "title" }}</strong>
+  <span class="cx-tile-text">{{ .Inner | markdownify }}</span>
+</a>

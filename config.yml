@@ -1,6 +1,6 @@
 baseURL: "https://jserizay.com/" 
-title: J. Serizay
-theme: PaperMod
+title: Jacques Serizay
+theme: chromokit
 
 enableInlineShortcodes: true
 enableRobotsTXT: true
@@ -46,89 +46,63 @@ menu:
 params:
     description: "This website hosts Jacques Serizay's research papers, software packages, course materials, books, curriculum vitae, and contact information."
     author: Jacques Serizay
-    DateFormat: "January 2006"
-    defaultTheme: light
-    hideFooter: false
-    disableThemeToggle: true
-    ShowShareButtons: false
-    ShowReadingTime: false
-    hideAuthor: true
-    disableSpecial1stPost: true
-    disableAnchoredHeadings: true
-    ShowPostNavLinks: false
-    ShowBreadCrumbs: false
-    ShowCodeCopyButtons: true
-    ShowAllPagesInArchive: false
-    MainSections: ["about", "papers", "software", "courses", "books"]
-    ShowToc: false
-    disableScrollToTop: true
-    TocOpen: true
-    ShowWordCount: false
-    UseHugoToc: true
-    comments: false
-    # KaTeX: off site-wide (no page uses math); set `math: true` in a page's front matter if needed
-    math: false
-    # Default image for link previews (Open Graph / Twitter cards)
-    images: ["picture.png"]
-    profileMode:
-          enabled: true
-          title: Jacques Serizay
-          subtitle: "I am a tenured CNRS researcher currently working in the Spatial Regulation of Genomes laboratory under Romain Koszul at the Institut Pasteur / CNRS UMR 3525 in Paris, which I joined as a postdoc in 2020, after finishing my PhD in Genetics with Pr. Julie Ahringer at the University of Cambridge. Before that, I obtained my Master's degree in Genetics from the École Normale Supérieure de Cachan in 2016, and was a visiting researcher in the Plath laboratory at UCLA in 2015."
-          imageUrl: "picture.png"
-          imageWidth: 160
-          imageHeight: 160
-          buttons:
-            - name: About
-              url: about/
-            - name: Papers
-              url: papers/
-            - name: Software
-              url: software/
-            - name: Courses
-              url: courses/
-            - name: Books
-              url: books/
-            # - name: Data
-            #   url: data/
-            - name: CV
-              url: cv.pdf
-            # - name: Tags
-            #   url: tags/
-            # - name: Archive
-            #   url: archive/
-            # - name: Blog
-            #   url: https://en.wikipedia.org/wiki/Moritz-Maria_von_Igelfeld_(character)
-
-    socialIcons:
-        - name: CV
-          url: cv.pdf
+    # chromokit (themes/chromokit): no bar across the top; the sidebar carries
+    # the mark (also the tab's icon), the name, the menu, and at its foot the
+    # links. Always the light palette, whatever the reader's system, with no
+    # theme toggle (remove `palette` for both). A page's description stays in
+    # <head> (search engines, link previews) and is not shown under its title.
+    header: false
+    palette: light
+    showDescription: false
+    mark: mark.svg
+    css: ["site.css"]
+    footer: "Jacques Serizay, CNRS · Institut Pasteur"
+    links:
         - name: Google Scholar
           url: https://scholar.google.com/citations?user=e5QTBIAAAAAJ
-        - name: orcid
+          icon: googlescholar
+        - name: ORCID
           url: https://orcid.org/0000-0002-4295-0624
+          icon: orcid
         - name: GitHub
           url: https://github.com/js2264
+          icon: github
         - name: Email
           url: mailto:jacques.serizay@pasteur.fr
+          icon: mail
+    # Who the site is about, for search engines (schema.org Person, on every page:
+    # layouts/partials/jsonld.html); the profiles are the `links` above
+    person:
+        jobTitle: "Research Associate (Chargé de recherche)"
+        worksFor:
+            - name: Institut Pasteur
+              url: https://www.pasteur.fr/
+            - name: CNRS
+              url: https://www.cnrs.fr/
+        alumniOf:
+            - name: University of Cambridge
+            - name: École Normale Supérieure de Cachan
+    # The home page (layouts/index.html): the portrait and the line under the name
+    home:
+        image: picture.png
+        role: "CNRS researcher in genomics, Institut Pasteur, Paris"
+    # Default image for link previews (Open Graph / Twitter cards)
+    images: ["picture.png"]
+    # KaTeX: off site-wide (no page uses math); set `math: true` in a page's front matter if needed
+    math: false
 
-    assets:
-        disableScrollBarStyle: true
-    cover:
-        hiddenInList: true
-        hiddenInSingle: false
-    label:
-      text: "Jacques Serizay"
-      icon: favicon.ico
-      iconHeight: 18
+# The citation files of each paper (/papers/<id>/<id>.bib and .ris)
+mediaTypes:
+    application/x-bibtex:
+        suffixes: ["bib"]
+    application/x-research-info-systems:
+        suffixes: ["ris"]
 
 markup:
     goldmark:
         renderer:
             unsafe: true
     highlight:
+        # chromokit colours Chroma's classes from its tokens, in both palettes
+        noClasses: false
         guessSyntax: true
-        style: autumn 
-    tableOfContents:
-        endLevel: 2
-        ordered: false
-        startLevel: 2

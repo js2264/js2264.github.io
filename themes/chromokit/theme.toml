@@ -1,0 +1,6 @@
+name = "chromokit"
+license = "MIT"
+licenselink = "https://github.com/js2264/chromokit/blob/main/LICENSE"
+description = "chromokit for Hugo: a documentation site in the look of doc.chromosomix.app."
+homepage = "https://github.com/js2264/chromokit"
+min_version = "0.120.0"

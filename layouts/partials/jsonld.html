@@ -1,0 +1,37 @@
+{{- /*
+  schema.org, on every page: who the site is about (a Person, from
+  params.person and params.links) and the site itself; the home page is that
+  person's profile page. A paper's page adds its ScholarlyArticle, Papers its
+  list, and Software its packages (layouts/partials/paper-page.html,
+  papers.html, software.html), each pointing back to this Person by its @id.
+*/ -}}
+{{- $home := "/" | absURL -}}
+{{- $id := printf "%s#person" $home -}}
+{{- $sameAs := slice -}}
+{{- range site.Params.links }}{{ if not (hasPrefix .url "mailto:") }}{{ $sameAs = $sameAs | append .url }}{{ end }}{{ end -}}
+{{- $person := dict
+  "@type" "Person"
+  "@id" $id
+  "name" site.Title
+  "url" $home
+  "sameAs" $sameAs
+-}}
+{{- with site.Params.home.image }}{{ $person = merge $person (dict "image" (. | absURL)) }}{{ end -}}
+{{- with site.Params.person -}}
+  {{- with .jobTitle }}{{ $person = merge $person (dict "jobTitle" .) }}{{ end -}}
+  {{- with .worksFor -}}
+    {{- $orgs := slice -}}
+    {{- range . }}{{ $orgs = $orgs | append (merge (dict "@type" "Organization") .) }}{{ end -}}
+    {{- $person = merge $person (dict "worksFor" $orgs "affiliation" $orgs) -}}
+  {{- end -}}
+  {{- with .alumniOf -}}
+    {{- $schools := slice -}}
+    {{- range . }}{{ $schools = $schools | append (merge (dict "@type" "CollegeOrUniversity") .) }}{{ end -}}
+    {{- $person = merge $person (dict "alumniOf" $schools) -}}
+  {{- end -}}
+{{- end -}}
+{{- $graph := slice $person (dict "@type" "WebSite" "@id" (printf "%s#website" $home) "url" $home "name" site.Title "author" (dict "@id" $id)) -}}
+{{- if .IsHome -}}
+  {{- $graph = $graph | append (dict "@type" "ProfilePage" "@id" .Permalink "url" .Permalink "name" site.Title "mainEntity" (dict "@id" $id)) -}}
+{{- end -}}
+<script type="application/ld+json">{{ dict "@context" "https://schema.org" "@graph" $graph | jsonify | safeJS }}</script>

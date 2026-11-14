@@ -1,0 +1,30 @@
+{
+  "doi": "10.1093/bioinformatics/btae487",
+  "type": "journal-article",
+  "title": "Epigenomics coverage data extraction and aggregation in R with tidyCoverage",
+  "container": "Bioinformatics",
+  "publisher": "Oxford University Press (OUP)",
+  "volume": "40",
+  "issue": "8",
+  "article_number": "btae487",
+  "issued": [
+    2024,
+    7,
+    29
+  ],
+  "issn": [
+    "1367-4811"
+  ],
+  "authors": [
+    {
+      "given": "Jacques",
+      "family": "Serizay",
+      "orcid": "https://orcid.org/0000-0002-4295-0624"
+    },
+    {
+      "given": "Romain",
+      "family": "Koszul",
+      "orcid": "https://orcid.org/0000-0002-3086-1173"
+    }
+  ]
+}

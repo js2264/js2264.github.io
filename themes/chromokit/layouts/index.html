@@ -1,0 +1,14 @@
+{{ define "main" }}
+<main class="cx-main cx-ground" id="main">
+  <div class="cx-content cx-prose" style="max-width: none">
+    <div class="cx-landing">
+      <h1 class="cx-masthead">
+        {{ with site.Params.mark }}<img src="{{ . | relURL }}" alt="" width="64" height="64">{{ end }}<span>{{ site.Title }}</span>
+      </h1>
+      {{ with site.Params.description }}<p class="cx-tagline">{{ . }}</p>{{ end }}
+      {{ .Content }}
+    </div>
+    <div style="text-align: center">{{ partial "chromokit/page-footer.html" . }}</div>
+  </div>
+</main>
+{{ end }}

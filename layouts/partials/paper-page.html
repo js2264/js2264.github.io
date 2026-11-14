@@ -1,0 +1,95 @@
+{{- /*
+  The body of a paper's page (/papers/<id>/): authors, journal, links, abstract,
+  the packages that implement it, and how to cite it (a reference, BibTeX, and
+  .bib and .ris files). Its schema.org ScholarlyArticle closes it.
+  Called by the `paper` shortcode with (dict "id" "<id>" "page" .Page).
+*/ -}}
+{{- $d := partial "paper/data.html" .id -}}
+{{- $p := $d.paper -}}
+{{- $page := .page -}}
+{{- $bib := partial "paper/bibtex.html" $d -}}
+{{- $ris := partial "paper/ris.html" $d -}}
+{{- $bibFile := resources.FromString (printf "papers/%s/%s.bib" $p.id $p.id) $bib -}}
+{{- $risFile := resources.FromString (printf "papers/%s/%s.ris" $p.id $p.id) $ris -}}
+{{- $type := $p.type | default "research" -}}
+
+<div class="paper-page">
+  <p class="paper-page__authors">
+    {{- range $i, $a := $d.authors }}{{ if $i }}, {{ end }}
+      {{- if $a.me }}<strong class="paper__me">{{ $a.name }}</strong>{{ else }}{{ $a.name }}{{ end }}
+      {{- if $a.equal }}<sup title="Equal contribution">†</sup>{{ end }}
+    {{- end }}{{ if $d.others }}, et al.{{ end -}}
+  </p>
+  {{- if $d.equal }}<p class="paper-page__note"><sup>†</sup> Equal contribution</p>{{ end }}
+
+  <p class="paper-page__meta">
+    <em>{{ $p.journal }}</em>
+    {{- with $d.volume }}<span>{{ . }}{{ with $d.issue }}({{ . }}){{ end }}{{ with $d.pages }}: {{ . }}{{ end }}</span>{{ end }}
+    <span>{{ partial "chromokit/icon.html" "calendar" }}{{ (time $p.date).Format "2 January 2006" }}</span>
+    {{- if ne $type "research" }}<span class="cx-badge cx-badge--plain">{{ humanize $type }}</span>{{ end }}
+  </p>
+
+  <p class="paper-page__actions">
+    {{- with $p.doi }}<a class="cx-button cx-button--filled" href="https://doi.org/{{ . }}" target="_blank" rel="noopener">{{ partial "chromokit/icon.html" "external-link" }}Read it (DOI)</a>{{ end }}
+    {{- with $p.pdf }}<a class="cx-button" href="{{ printf "papers/pdfs/%s" . | relURL }}" target="_blank">{{ partial "chromokit/icon.html" "file-text" }}PDF</a>{{ end }}
+    {{- with $p.supp }}<a class="cx-button" href="{{ printf "papers/pdfs/%s" . | relURL }}" target="_blank">{{ partial "chromokit/icon.html" "file-text" }}Supplementary</a>{{ end }}
+    <a class="cx-button" href="#cite">{{ partial "chromokit/icon.html" "braces" }}Cite</a>
+  </p>
+
+  {{- with $p.abstract }}
+  <h2 id="abstract">Abstract</h2>
+  <p class="paper-page__abstract"{{ with $p.lang }} lang="{{ . }}"{{ end }}>{{ . }}</p>
+  {{- end }}
+
+  {{- with $d.packages }}
+  <h2 id="software">Software</h2>
+  <p class="paper-page__software">
+    {{- range . }}<a class="cx-chip" href="{{ printf "software/#%s" (.name | anchorize) | relURL }}">{{ partial "chromokit/icon.html" "package" }}{{ .name }}</a>{{ end -}}
+  </p>
+  {{- end }}
+
+  <h2 id="cite">Cite</h2>
+  <p class="paper-page__reference">{{ partial "paper/reference.html" $d }}</p>
+  <div class="cx-code paper-page__bibtex"><span class="cx-code__title">BibTeX</span><pre><code>{{ $bib }}</code></pre></div>
+  <p class="paper-page__downloads">
+    <a class="cx-button" href="{{ $bibFile.RelPermalink }}" download>{{ partial "chromokit/icon.html" "download" }}BibTeX (.bib)</a>
+    <a class="cx-button" href="{{ $risFile.RelPermalink }}" download>{{ partial "chromokit/icon.html" "download" }}EndNote, Zotero, Mendeley (.ris)</a>
+  </p>
+</div>
+
+{{- /* schema.org: this page's paper, for search engines */ -}}
+{{- $person := printf "%s#person" ("/" | absURL) -}}
+{{- $authors := slice -}}
+{{- range $d.authors -}}
+  {{- if .me -}}
+    {{- $authors = $authors | append (dict "@id" $person) -}}
+  {{- else -}}
+    {{- $a := dict "@type" "Person" "name" .name -}}
+    {{- with .given }}{{ $a = merge $a (dict "givenName" .) }}{{ end -}}
+    {{- with .family }}{{ $a = merge $a (dict "familyName" .) }}{{ end -}}
+    {{- with .orcid }}{{ $a = merge $a (dict "sameAs" .) }}{{ end -}}
+    {{- $authors = $authors | append $a -}}
+  {{- end -}}
+{{- end -}}
+{{- $periodical := dict "@type" "Periodical" "name" $p.journal -}}
+{{- with $d.record }}{{ with .issn }}{{ $periodical = merge $periodical (dict "issn" .) }}{{ end }}{{ end -}}
+{{- $article := dict
+  "@context" "https://schema.org"
+  "@type" "ScholarlyArticle"
+  "@id" (printf "%s#article" $page.Permalink)
+  "url" $page.Permalink
+  "mainEntityOfPage" $page.Permalink
+  "headline" $p.title
+  "name" $p.title
+  "author" $authors
+  "datePublished" $p.date
+  "isPartOf" $periodical
+  "inLanguage" ($p.lang | default "en")
+-}}
+{{- with $p.doi }}{{ $article = merge $article (dict "identifier" (dict "@type" "PropertyValue" "propertyID" "DOI" "value" .) "sameAs" (printf "https://doi.org/%s" .)) }}{{ end -}}
+{{- with $p.abstract }}{{ $article = merge $article (dict "abstract" .) }}{{ end -}}
+{{- with $p.topics }}{{ $article = merge $article (dict "keywords" .) }}{{ end -}}
+{{- with $d.pages }}{{ $article = merge $article (dict "pagination" .) }}{{ end -}}
+{{- with $d.record }}{{ with .publisher }}{{ $article = merge $article (dict "publisher" (dict "@type" "Organization" "name" .)) }}{{ end }}{{ end -}}
+{{- with $p.pdf }}{{ $article = merge $article (dict "encoding" (dict "@type" "MediaObject" "contentUrl" (printf "papers/pdfs/%s" . | absURL) "encodingFormat" "application/pdf")) }}{{ end -}}
+<script type="application/ld+json">{{ $article | jsonify | safeJS }}</script>

@@ -1,0 +1,6 @@
+{{- /* {{< callout title="Note" variant="warn" >}}…{{< /callout >}} — variant: note, ok, warn, danger, quiet */ -}}
+{{- $variant := .Get "variant" | default "note" -}}
+<aside class="cx-callout{{ if ne $variant "note" }} cx-callout--{{ $variant }}{{ end }}">
+  {{ with .Get "title" }}<p class="cx-callout__title">{{ . }}</p>{{ end }}
+  {{ .Inner | markdownify }}
+</aside>

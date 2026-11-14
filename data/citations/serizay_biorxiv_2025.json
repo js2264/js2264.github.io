@@ -1,0 +1,25 @@
+{
+  "doi": "10.1101/2025.10.10.681692",
+  "type": "posted-content",
+  "subtype": "preprint",
+  "title": "Multi-modal data integration for machine learning applications",
+  "publisher": "openRxiv",
+  "institution": "bioRxiv",
+  "issued": [
+    2025,
+    10,
+    13
+  ],
+  "authors": [
+    {
+      "given": "Jacques",
+      "family": "Serizay",
+      "orcid": "https://orcid.org/0000-0002-4295-0624"
+    },
+    {
+      "given": "Romain",
+      "family": "Koszul",
+      "orcid": "https://orcid.org/0000-0002-3086-1173"
+    }
+  ]
+}

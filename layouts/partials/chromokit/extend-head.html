@@ -1,0 +1,17 @@
+{{- /* Added to chromokit's <head> (themes/chromokit/layouts/partials/chromokit/head.html). */ -}}
+{{- if hugo.IsProduction | and (ne .Params.robotsNoIndex true) }}
+<meta name="robots" content="index, follow">
+{{- else }}
+<meta name="robots" content="noindex, nofollow">
+{{- end }}
+<meta name="author" content="{{ site.Params.author }}">
+<link rel="canonical" href="{{ .Permalink }}">
+<link rel="icon" type="image/png" sizes="32x32" href="{{ "favicon-32x32.png" | absURL }}">
+<link rel="apple-touch-icon" href="{{ "apple-touch-icon.png" | absURL }}">
+{{- range .AlternativeOutputFormats }}
+<link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}">
+{{- end }}
+{{- partial "opengraph.html" . }}
+{{- partial "twitter_cards.html" . }}
+{{- partial "jsonld.html" . }}
+{{- if or .Params.math site.Params.math }}{{ partial "math.html" . }}{{ end }}

@@ -40,6 +40,14 @@ jobs:
           && sudo dpkg -i ${{ runner.temp }}/hugo.deb
       - name: Checkout
         uses: actions/checkout@v7
+      - name: Fetch missing citation records
+        # Fetches from Crossref the record of any paper of data/papers.yaml that has
+        # none in data/citations/ yet, for this build (the committed records, and
+        # any correction made to them, are kept as they are). If Crossref cannot
+        # be reached, the build goes on and those papers' pages fall back to
+        # their short author list.
+        continue-on-error: true
+        run: python3 scripts/citations.py
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v6

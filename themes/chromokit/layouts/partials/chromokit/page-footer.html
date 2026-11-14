@@ -1,0 +1,46 @@
+{{- /*
+  Previous and next, then the build line. A page in the site's `menu.main`
+  follows the menu's order (Home first); any other page follows its section,
+  by weight.
+*/ -}}
+{{- $prev := false -}}{{- $next := false -}}
+{{- $menu := slice -}}
+{{- with site.Menus.main }}{{ $menu = partial "chromokit/menu.html" $ }}{{ end -}}
+{{- $at := -1 -}}
+{{- range $i, $item := $menu }}{{ if $item.current }}{{ $at = $i }}{{ end }}{{ end -}}
+{{- if ge $at 0 -}}
+  {{- if gt $at 0 }}{{ with index $menu (sub $at 1) }}{{ $prev = dict "url" .url "title" .name "external" .external }}{{ end }}{{ end -}}
+  {{- if lt (add $at 1) (len $menu) }}{{ with index $menu (add $at 1) }}{{ $next = dict "url" .url "title" .name "external" .external }}{{ end }}{{ end -}}
+{{- else if and .IsPage .Section -}}
+  {{- $pages := (where site.RegularPages "Section" .Section).ByWeight -}}
+  {{- $here := .RelPermalink -}}
+  {{- range $i, $p := $pages -}}
+    {{- if eq $p.RelPermalink $here -}}
+      {{- if gt $i 0 }}{{ with index $pages (sub $i 1) }}{{ $prev = dict "url" .RelPermalink "title" .LinkTitle "external" false }}{{ end }}{{ end -}}
+      {{- if lt (add $i 1) (len $pages) }}{{ with index $pages (add $i 1) }}{{ $next = dict "url" .RelPermalink "title" .LinkTitle "external" false }}{{ end }}{{ end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+<footer class="cx-page-footer">
+  {{ if or $prev $next }}
+  <nav class="cx-pagination" aria-label="Pages">
+    {{ with $prev }}
+    <a class="cx-pagination__link cx-pagination__link--prev" href="{{ .url }}" rel="prev">
+      {{ partial "chromokit/icon.html" "arrow-left" }}
+      <span class="cx-pagination__text"><span class="cx-pagination__direction">Previous</span><span class="cx-pagination__title">{{ .title }}</span></span>
+    </a>
+    {{ else }}<span></span>{{ end }}
+    {{ with $next }}
+    <a class="cx-pagination__link cx-pagination__link--next" href="{{ .url }}"{{ if .external }} target="_blank" rel="noopener"{{ else }} rel="next"{{ end }}>
+      <span class="cx-pagination__text"><span class="cx-pagination__direction">Next</span><span class="cx-pagination__title">{{ .title }}</span></span>
+      {{ partial "chromokit/icon.html" (cond .external "arrow-up-right" "arrow-right") }}
+    </a>
+    {{ end }}
+  </nav>
+  {{ end }}
+  <p class="cx-build">
+    {{ site.Params.footer | default (printf "Documentation of %s" site.Title) }}{{ with site.Params.version }} v{{ . }}{{ end }}
+    {{ with site.Params.repo }}· <a href="{{ . }}">source</a>{{ end }}
+    · built with <a href="https://gohugo.io/">Hugo</a> and <a href="https://github.com/js2264/chromokit">chromokit</a>
+  </p>
+</footer>

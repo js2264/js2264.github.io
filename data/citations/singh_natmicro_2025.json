@@ -1,0 +1,66 @@
+{
+  "doi": "10.1038/s41564-025-02038-z",
+  "type": "journal-article",
+  "title": "High-resolution map of the Plasmodium falciparum genome reveals MORC/ApiAP2-mediated links between distant, functionally related genes",
+  "container": "Nature Microbiology",
+  "short_container": "Nat Microbiol",
+  "publisher": "Springer Science and Business Media LLC",
+  "volume": "10",
+  "issue": "7",
+  "page": "1665-1683",
+  "issued": [
+    2025,
+    6,
+    30
+  ],
+  "issn": [
+    "2058-5276"
+  ],
+  "authors": [
+    {
+      "given": "Parul",
+      "family": "Singh"
+    },
+    {
+      "given": "Jacques",
+      "family": "Serizay",
+      "orcid": "https://orcid.org/0000-0002-4295-0624"
+    },
+    {
+      "given": "Justine",
+      "family": "Couble"
+    },
+    {
+      "given": "Maureen D.",
+      "family": "Cabahug"
+    },
+    {
+      "given": "Catarina",
+      "family": "Rosa"
+    },
+    {
+      "given": "Patty",
+      "family": "Chen"
+    },
+    {
+      "given": "Artur",
+      "family": "Scherf",
+      "orcid": "https://orcid.org/0000-0003-2411-3328"
+    },
+    {
+      "given": "Romain",
+      "family": "Koszul",
+      "orcid": "https://orcid.org/0000-0002-3086-1173"
+    },
+    {
+      "given": "Sebastian",
+      "family": "Baumgarten",
+      "orcid": "https://orcid.org/0000-0003-2646-7699"
+    },
+    {
+      "given": "Jessica M.",
+      "family": "Bryant",
+      "orcid": "https://orcid.org/0000-0002-2349-8353"
+    }
+  ]
+}

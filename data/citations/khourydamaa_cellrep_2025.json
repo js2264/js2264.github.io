@@ -1,0 +1,126 @@
+{
+  "doi": "10.1016/j.celrep.2024.115117",
+  "type": "journal-article",
+  "title": "Cyclin O controls entry into the cell-cycle variant required for multiciliated cell differentiation",
+  "container": "Cell Reports",
+  "short_container": "Cell Reports",
+  "publisher": "Elsevier BV",
+  "volume": "44",
+  "issue": "1",
+  "page": "115117",
+  "article_number": "115117",
+  "issued": [
+    2025,
+    1
+  ],
+  "issn": [
+    "2211-1247"
+  ],
+  "authors": [
+    {
+      "given": "Michella",
+      "family": "Khoury Damaa",
+      "orcid": "https://orcid.org/0009-0001-8236-4144"
+    },
+    {
+      "given": "Jacques",
+      "family": "Serizay"
+    },
+    {
+      "given": "Rémi",
+      "family": "Balagué"
+    },
+    {
+      "given": "Amélie-Rose",
+      "family": "Boudjema"
+    },
+    {
+      "given": "Marion",
+      "family": "Faucourt"
+    },
+    {
+      "given": "Nathalie",
+      "family": "Delgehyr"
+    },
+    {
+      "given": "Kim Jee",
+      "family": "Goh"
+    },
+    {
+      "given": "Hao",
+      "family": "Lu"
+    },
+    {
+      "given": "Ee Kim",
+      "family": "Tan"
+    },
+    {
+      "given": "Cameron T.",
+      "family": "James"
+    },
+    {
+      "given": "Catherine",
+      "family": "Faucon"
+    },
+    {
+      "given": "Rana",
+      "family": "Mitri"
+    },
+    {
+      "given": "Diana Carolin",
+      "family": "Bracht"
+    },
+    {
+      "given": "Colin D.",
+      "family": "Bingle"
+    },
+    {
+      "given": "Norris Ray",
+      "family": "Dunn"
+    },
+    {
+      "given": "Sebastian J.",
+      "family": "Arnold"
+    },
+    {
+      "given": "Laure-Emmanuelle",
+      "family": "Zaragosi"
+    },
+    {
+      "given": "Pascal",
+      "family": "Barbry"
+    },
+    {
+      "given": "Romain",
+      "family": "Koszul"
+    },
+    {
+      "given": "Heymut",
+      "family": "Omran"
+    },
+    {
+      "given": "Gabriel",
+      "family": "Gil-Gómez"
+    },
+    {
+      "given": "Estelle",
+      "family": "Escudier"
+    },
+    {
+      "given": "Marie",
+      "family": "Legendre"
+    },
+    {
+      "given": "Sudipto",
+      "family": "Roy"
+    },
+    {
+      "given": "Nathalie",
+      "family": "Spassky"
+    },
+    {
+      "given": "Alice",
+      "family": "Meunier"
+    }
+  ]
+}

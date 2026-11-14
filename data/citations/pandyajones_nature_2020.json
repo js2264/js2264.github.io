@@ -1,0 +1,101 @@
+{
+  "doi": "10.1038/s41586-020-2703-0",
+  "type": "journal-article",
+  "title": "A protein assembly mediates Xist localization and gene silencing",
+  "container": "Nature",
+  "short_container": "Nature",
+  "publisher": "Springer Science and Business Media LLC",
+  "volume": "587",
+  "issue": "7832",
+  "page": "145-151",
+  "issued": [
+    2020,
+    9,
+    9
+  ],
+  "issn": [
+    "0028-0836",
+    "1476-4687"
+  ],
+  "authors": [
+    {
+      "given": "Amy",
+      "family": "Pandya-Jones",
+      "orcid": "https://orcid.org/0000-0001-5519-4613"
+    },
+    {
+      "given": "Yolanda",
+      "family": "Markaki"
+    },
+    {
+      "given": "Jacques",
+      "family": "Serizay",
+      "orcid": "https://orcid.org/0000-0002-4295-0624"
+    },
+    {
+      "given": "Tsotne",
+      "family": "Chitiashvili"
+    },
+    {
+      "given": "Walter R.",
+      "family": "Mancia Leon",
+      "orcid": "https://orcid.org/0000-0002-1920-6514"
+    },
+    {
+      "given": "Andrey",
+      "family": "Damianov"
+    },
+    {
+      "given": "Constantinos",
+      "family": "Chronis"
+    },
+    {
+      "given": "Bernadett",
+      "family": "Papp",
+      "orcid": "https://orcid.org/0000-0001-5352-3946"
+    },
+    {
+      "given": "Chun-Kan",
+      "family": "Chen"
+    },
+    {
+      "given": "Robin",
+      "family": "McKee"
+    },
+    {
+      "given": "Xiao-Jun",
+      "family": "Wang"
+    },
+    {
+      "given": "Anthony",
+      "family": "Chau"
+    },
+    {
+      "given": "Shan",
+      "family": "Sabri"
+    },
+    {
+      "given": "Heinrich",
+      "family": "Leonhardt",
+      "orcid": "https://orcid.org/0000-0002-5086-6449"
+    },
+    {
+      "given": "Sika",
+      "family": "Zheng"
+    },
+    {
+      "given": "Mitchell",
+      "family": "Guttman"
+    },
+    {
+      "given": "Douglas. L.",
+      "family": "Black",
+      "orcid": "https://orcid.org/0000-0002-2705-8187"
+    },
+    {
+      "given": "Kathrin",
+      "family": "Plath",
+      "orcid": "https://orcid.org/0000-0001-7796-3372"
+    }
+  ]
+}

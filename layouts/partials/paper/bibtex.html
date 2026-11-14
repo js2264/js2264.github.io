@@ -1,0 +1,26 @@
+{{- /*
+  A paper's BibTeX entry, from paper/data.html: partial "paper/bibtex.html" $data → string.
+  The key is the paper's id in papers.yaml; LaTeX's special characters are escaped.
+*/ -}}
+{{- $d := . -}}
+{{- $p := $d.paper -}}
+{{- $tex := `\${1}` -}}
+{{- $authors := slice -}}
+{{- range $d.authors -}}
+  {{- $name := cond (ne .given "") (printf "%s, %s" .family .given) (printf "{%s}" .family) -}}
+  {{- if and (eq .given "") (not $d.record) }}{{ $name = .family }}{{ end -}}
+  {{- $authors = $authors | append (replaceRE `([&%#_$])` $tex $name) -}}
+{{- end -}}
+{{- if $d.others }}{{ $authors = $authors | append "others" }}{{ end -}}
+{{- $field := `  %-7s = {%s}` -}}
+{{- $lines := slice
+  (printf $field "author" (delimit $authors " and "))
+  (printf $field "title" (printf "{%s}" (replaceRE `([&%#_$])` $tex $p.title)))
+  (printf $field "journal" (replaceRE `([&%#_$])` $tex $p.journal))
+  (printf $field "year" (printf "%v" $p.year))
+-}}
+{{- with $d.volume }}{{ $lines = $lines | append (printf $field "volume" .) }}{{ end -}}
+{{- with $d.issue }}{{ $lines = $lines | append (printf $field "number" .) }}{{ end -}}
+{{- with $d.pages }}{{ $lines = $lines | append (printf $field "pages" (replace . "-" "--")) }}{{ end -}}
+{{- with $p.doi }}{{ $lines = $lines | append (printf $field "doi" .) (printf $field "url" (printf "https://doi.org/%s" .)) }}{{ end -}}
+{{- return printf "@article{%s,\n%s\n}\n" $p.id (delimit $lines ",\n") -}}

@@ -1,0 +1,29 @@
+{
+  "doi": "10.12688/f1000research.51143.1",
+  "type": "journal-article",
+  "title": "periodicDNA: an R/Bioconductor package to investigate k-mer periodicity in DNA",
+  "container": "F1000Research",
+  "short_container": "F1000Res",
+  "publisher": "F1000 Research Ltd",
+  "volume": "10",
+  "page": "141",
+  "issued": [
+    2021,
+    2,
+    24
+  ],
+  "issn": [
+    "2046-1402"
+  ],
+  "authors": [
+    {
+      "given": "Jacques",
+      "family": "Serizay",
+      "orcid": "https://orcid.org/0000-0002-4295-0624"
+    },
+    {
+      "given": "Julie",
+      "family": "Ahringer"
+    }
+  ]
+}

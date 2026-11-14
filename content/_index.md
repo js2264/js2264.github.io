@@ -1,0 +1,15 @@
+---
+title: "Jacques Serizay"
+# The text of the home page (layouts/index.html). The portrait and the line
+# under the name are params.home in config.yml.
+---
+
+I am a CNRS Research Associate, working **at the Institut Pasteur, Dept. Genomes & Genetics**, in Paris. My long-term endeavor is to decipher the intricate, multi-modal organization of genomes and its impact on gene regulation, more specifically in microeukaryotes. To achieve this, I develop computational frameworks for analyzing multi-omics and high-dimensional biological data.
+
+Between 2020 and 2025, I worked as a postdoctoral researcher in the **Spatial Regulation of Genomes laboratory** under Pr. **Romain Koszul**, focusing on chromatin organization and genome dynamics in microeukaryotes. Before that, I completed my Ph.D. in Genetics with Pr. **Julie Ahringer at the University of Cambridge**. I obtained my Master's degree in Genetics from the **École Normale Supérieure de Cachan** in 2016, and was a visiting researcher in the **Plath laboratory at UCLA** in 2015.
+
+<!-- {{< timeline >}} -->
+
+<hr>
+
+When not diving deep into genomic data 🧬, I prefer to dive deep 🤿, *literally*. The sequence in the background is the cDNA of the longest isoform of *erbb3b*, a gene identified in *Amphiprion clarkii* ({{< fish image="Aclarkii.png" >}}Nemo's darker cousin, look at it!{{< /fish >}}) that plays a key role in its pigmentation patterns (see [Moore et al., G3 2022 for more](https://pmc.ncbi.nlm.nih.gov/articles/PMC9997566/#jkad002-s2)).

@@ -1,0 +1,37 @@
+{{- /*
+  A page: the sidebar, the column (title, description, content, previous/next)
+  and "On this page".
+
+  The content is rendered first, so that a shortcode can give the page its
+  contents when its headings are not Markdown (Hugo's .TableOfContents only
+  sees those): a list of dicts with `id` and `title`, stored as
+    {{ $.Page.Store.Set "chromokit.toc" (slice (dict "id" "2026" "title" "2026")) }}
+  `toc: false` in the front matter leaves the list out either way.
+  `params.showDescription = false` keeps the description in <head> only.
+*/ -}}
+{{- $content := .Content -}}
+{{- $entries := .Store.Get "chromokit.toc" -}}
+{{- $toc := and (ne .Params.toc false) (or $entries (gt (len .TableOfContents) 32)) -}}
+<div class="cx-layout{{ if not $toc }} cx-layout--no-toc{{ end }}{{ with .Params.class }} {{ . }}{{ end }}">
+  <aside class="cx-sidebar">{{ partial "chromokit/sidebar.html" . }}</aside>
+  <main class="cx-main cx-ground" id="main">
+    <article class="cx-content cx-prose">
+      <h1>{{ .Title }}</h1>
+      {{ if ne site.Params.showDescription false }}{{ with .Description }}<p class="cx-dim">{{ . }}</p>{{ end }}{{ end }}
+      {{ $content }}
+      {{ partial "chromokit/page-footer.html" . }}
+    </article>
+  </main>
+  {{ if $toc }}
+  <aside class="cx-toc">
+    <p class="cx-toc__title">On this page</p>
+    {{ with $entries }}
+    <nav id="TableOfContents"><ul>
+      {{- range . }}<li><a href="#{{ .id }}">{{ .title }}</a></li>{{ end -}}
+    </ul></nav>
+    {{ else }}
+    {{ .TableOfContents }}
+    {{ end }}
+  </aside>
+  {{ end }}
+</div>

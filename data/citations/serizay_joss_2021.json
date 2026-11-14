@@ -1,0 +1,30 @@
+{
+  "doi": "10.21105/joss.03009",
+  "type": "journal-article",
+  "title": "Generating fragment density plots in R/Bioconductor with VplotR",
+  "container": "Journal of Open Source Software",
+  "short_container": "JOSS",
+  "publisher": "The Open Journal",
+  "volume": "6",
+  "issue": "59",
+  "page": "3009",
+  "issued": [
+    2021,
+    3,
+    1
+  ],
+  "issn": [
+    "2475-9066"
+  ],
+  "authors": [
+    {
+      "given": "Jacques",
+      "family": "Serizay",
+      "orcid": "https://orcid.org/0000-0002-4295-0624"
+    },
+    {
+      "given": "Julie",
+      "family": "Ahringer"
+    }
+  ]
+}
